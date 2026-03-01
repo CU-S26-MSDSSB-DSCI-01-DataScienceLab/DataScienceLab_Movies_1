@@ -1,0 +1,9 @@
+---
+title: "Title of Section 1"
+---
+
+<!-- You have to develop your own headline structure. -->
+
+## Headline 1
+
+## Headline 2

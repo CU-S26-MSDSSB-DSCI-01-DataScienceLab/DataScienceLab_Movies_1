@@ -1,0 +1,12 @@
+---
+title: "Data Dashboard"
+format: dashboard
+---
+
+*You can include a dahsboard of your core data. You can use various graphics tools like `ggplot` or `plotly` to create dashboard visuals. Follow the instructions [Quarto: Dashboards](https://quarto.org/docs/dashboards/). Under [Using Dashboards](https://quarto.org/docs/dashboards/layout.html) you find how to structure the dashboard and how to include data displays.* 
+
+## Row
+
+
+## Row
+

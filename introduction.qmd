@@ -1,0 +1,17 @@
+---
+title: "Introduction"
+---
+
+<!-- You can also write your own headline structure. -->
+
+# Project Description
+
+*Write here about the goals and/or list your data science questions.*
+
+# Data Sources
+
+*Write a summary of the data sources you are using. If some data is used in most of the following pages you can already here provide some descriptive tables and visuals to describe your data. You can also use cross-links, for example to your [Dashboard](dashboard.qmd) (optional).*
+
+# Sections
+
+*Write here a short summary of the other pages. You can also use cross-links to your pages like [Section (here `sec2.ipynb`)](sec2.ipynb).*

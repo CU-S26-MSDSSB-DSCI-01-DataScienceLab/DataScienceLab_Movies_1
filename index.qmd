@@ -1,0 +1,9 @@
+---
+title: "Executive Summary"
+author:
+    - name: "NAME1"
+    - name: "NAME2"
+    - name: "NAME3"
+---
+
+*Write a one-page (about 200-600 words) executive summary of your project here. This should be a concise summary of the problem you are addressing, the data you are using, the methods you are applying, and the key findings and conclusions of your project. The executive summary should be written in a way that is accessible to a general audience, and should highlight the most important aspects of your project. Use cross-links to your pages like the [Introduction](introduction.qmd), [Each Section (here `sec2.ipynb`)](sec2.ipynb), [Conclusion](conclusion.qmd), and your [Dashboard](dashboard.qmd) (optional). Remove this text when you write your dashboard.* 
