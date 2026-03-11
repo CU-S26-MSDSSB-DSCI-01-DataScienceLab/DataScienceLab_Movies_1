@@ -8,19 +8,59 @@ initials.*
 
 | Name               | Key | Focus (Optional) |
 |--------------------|-----|------------------|
-| FIRSTNAME LASTNAME | FL  |                  |
-| OTHERNAME LASTNAME | OL  |                  |
-| TEAM MEMBER        | TM  |                  |
-| …                  | …   |                  |
+| Aya Abdine            | AA  |                  
+| Meriam Al Askri       | MA  |                  
+| Ghofran Mahmoud       | GM  |                  
+| Sami Al Jamal         | SJ  |                  
+| Mcolisi Austine       | MA  |
+| Kay-Lee Dramat        | KL  |
+| Syed Arshan Nehad     | SN  |
+| Syed Tamjeed Ur Rahman| SR  |
 
 ## Proposal Presentation
 
-*Writing this section is obligatory *before* the **proposal**
-presentation! (You can delete this text in italics when done.)*
+Analyzing and Predicting Movie Success Across Film Industries
+
+The film industry is highly competitive, and understanding what makes a movie successful is valuable for producers, studios, and audiences. Many factors such as genre, budget, runtime, cast, release timing, and country of origin may influence how a movie performs in terms of ratings, audience engagement, and box office revenue. This project aims to explore these factors to better understand patterns behind movie success.
+
+First, we will perform descriptive analysis to examine how ratings, votes, genres, runtime, and box office revenues vary across different film industries. This will help identify trends and relationships in movie performance.
+
+Next, we will apply machine learning techniques to predict movie ratings, audience votes, and box office revenue using movie characteristics. We will also classify movies as successful or less successful and identify the most important factors influencing movie success.
+
+By combining exploratory analysis and predictive models, this project aims to provide insights into how movie attributes contribute to a film’s performance.
+
+# Research Question:
+How movie characteristics best explain and predict a movie’s success in terms of audience evaluation and financial performance?
 
 #### Goals/Questions
 
-*Write down your main goals your project shall achieve. This can also take the form of data science questions you want to answer.*
+Descriptive Analysis Questions
+
+1. How do movie ratings vary across different film industries and countries of origin?
+
+2. What genres receive the highest average ratings and number of votes?
+
+3. How does movie duration influence audience ratings and votes?
+
+4. How do box office revenues (opening weekend, worldwide gross, US/Canada gross) differ across industries?
+
+5. Is there a relationship between movie budget and box office performance?
+
+6. Do movies with well-known directors, writers, or stars receive higher ratings or more votes?
+
+Prediction / Machine Learning Questions
+
+1. Can movie success (ratings or vote score) be predicted using features such as genre, duration, budget, and release date?
+
+2. Can box office revenue be predicted using movie characteristics such as genre, stars, directors, and budget?
+
+3. Can we predict whether a movie will receive a high rating based on its features (genre, runtime, MPA rating, cast, etc.)?
+
+4. Can the number of audience votes be predicted using movie popularity factors such as stars, release date, and budget?
+
+5. Can machine learning models identify the most important factors that influence movie success?
+
+6. Can movies be classified into successful vs less successful categories based on their attributes?
 
 
 #### Tasks
