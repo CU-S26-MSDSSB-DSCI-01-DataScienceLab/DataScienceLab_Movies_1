@@ -58,22 +58,111 @@ Prediction / Machine Learning Questions
 
 4. Can the number of audience votes be predicted using movie popularity factors such as stars, release date, and budget?
 
-5. Can machine learning models identify the most important factors that influence movie success?
+5. How does the timing of a movie’s release (month or season) influence its box office performance and audience engagement?
 
 6. Can movies be classified into successful vs less successful categories based on their attributes?
 
 
 #### Tasks
 
-*All team members should appear here with at least one task. If you plan ahead you can already now dradft tasks for the time after the progress presentation.*
+Task Distribution
 
-| Task                             | Who | When |
-|----------------------------------|-----|------|
-| *Task 1*                         | FL  | Week 6 |
-| *Task 2*                         | TM  | Week 6 |
-| *Task 3*                         | XY  | Week 6 |
-| *Task 4*                         | FL, TM  | Week 7 |
-| ...                         | ...  | ... |
+Each team member will first clean and prepare the variables needed for their assigned question.
+This includes handling missing values, formatting variables, and preparing the dataset for analysis.
+After the data preparation step, the team will start working on the assigned research questions.
+
+Descriptive Analysis
+
+Kay-Lee Dramat
+
+Question 1: How does IMDb rating vary across different genres?
+
+Question 2: How does the number of votes vary depending on the country of origin of the movie?
+
+Sami Al Jamal
+
+Question 3: How does movie budget influence worldwide gross revenue?
+
+Question 6: How does MPA rating influence box office performance?
+
+Ghofran Mahmoud
+
+Question 4: How does movie duration affect IMDb ratings?
+
+Question 5: Do movies with well-known stars generate higher opening weekend gross?
+
+Machine Learning / Prediction
+
+Aya Abdine & Meriam Al Askri
+
+Question 1: Predict movie success (ratings or vote score) using features such as genre, duration, budget, and release date.
+
+Question 2: Predict box office revenue using movie characteristics such as genre, stars, directors, and budget.
+
+Question 3: Predict whether a movie will receive a high rating based on its features.
+
+Mcolisi Austine
+
+Question 4: Predict the number of audience votes using factors such as stars, release date, and budget.
+
+Syed Arshan Nehad
+
+Question 5: Analyze how the timing of a movie’s release (month or season) influences box office performance.
+
+Syed Tamjeed Ur Rahman
+
+Question 6: Classify movies into successful vs less successful categories based on their attributes.
+
+## Progress Presentation
+
+Writing this section is obligatory *before the *progress*
+presentation! (You can delete this text in italics when done.)*
+
+#### Team Member Contributions
+
+Briefly describe for each team member what hs been done since the proposal presentation. This can be a list like: "contributed to the data prepatation script, started the page for question 1 and wrote the outline of it, created a first descriptive visual about XYZ, configured GitHub pages such the draft website is live
+
+Team member 1: Text  
+
+Team member 2: Text  
+
+Team member 3: Text  
+
+...
+
+#### Tasks
+
+Create a table with the tasks for the time until the final presentation.
+
+## Final Presentation
+
+Writing this section is obligatory before the **final* presentation!
+(You can delete this text in italics when done.)*
+
+
+#### Team Member Contributions
+
+Briefly describe for each team member what has been done.
+
+Team member 1: Text  
+
+Team member 2: Text  
+
+Team member 3: Text  
+
+...
+
+#### Tasks
+
+Create a table with the tasks for the time until the final presentation.
+
+
+
+## Final note (Optional)
+
+You can write final comments and reflections on what worked well and what not so well in your work plan.
+
+Once the project is graded, you are free to change or remove this page.
 
 ## Progress Presentation
 
