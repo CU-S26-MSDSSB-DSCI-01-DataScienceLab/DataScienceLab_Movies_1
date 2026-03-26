@@ -1,0 +1,534 @@
+# TITLE: "MACHINE LEARNING WORK STATION"
+
+**SUBTITLE**: "DATA CLEANING, CURATION, REMOVING REDUNDANT FEATURES, AND MACHINE LEARNING"
+
+**AUTHORS**:
+
+    - name: "Aya Abdine"
+    - name: "Meriam Al Askri"
+    - name: "Mcolisi Austine"
+    - name: "Syed Arshan Nehad"
+    - name: "Syed Tamjeed Ur Rahman"
+
+# DATA CLEANING, INTERPRETATION, AND MACHINE LEARNING
+
+WRITE A SHORT DESCRIPTION OF WHAT WILL BE DONE UNDER THIS SECTION. THIS CAN BE A GENERAL DESCRIPTION OF THE WORK STATION OR A DETAILED DESCRIPTION OF THE STEPS YOU WILL TAKE TO CLEAN, CURATE, AND ANALYZE THE DATA USING MACHINE LEARNING. YOU CAN ALSO USE THIS SPACE TO DESCRIBE THE STRUCTURE OF THIS WORK STATION AND HOW IT CONNECTS TO THE OTHER PAGES IN THE PROJECT.
+
+# TOOLS AND LIBRARIES
+*AN IMPORTANT NOTE: BEFORE RUNNING THE CODE IN THIS WORK STATION, MAKE SURE TO INSTALL THE NECESSARY LIBRARIES AND TOOLS FOR MACHINE LEARNING. THIS MAY INCLUDE SCIKIT-LEARN, TENSORFLOW, OR ANY OTHER LIBRARY YOU PLAN TO USE FOR YOUR ANALYSIS.*
+*ALSO FIND THE ATTACHED VEDIO THAT I USED TO PLAN THIS WORKFLOW AND HOW THE WHOLE MACHINE LEARNING PROCESS CAN BE DONE*: https://youtu.be/29ZQ3TDGgRQ?si=j4zfUeVwksl3EYrh 
+
+```{python}
+# Insert code for importing the necessary libraries and tools for machine learning.
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.preprocessing import StandardScaler
+```
+
+## Q1: Can movie success (ratings or vote score) be predicted using features such as genre, duration, budget, and release date?
+
+### Data Cleaning
+
+```{python}
+# Insert code for cleaning predictive features and movie success targets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CLEANING STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE HANDLING MISSING VALUES, STANDARDIZING CATEGORICAL LABELS, REMOVING OUTLIERS, OR ANY OTHER CLEANING TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Curation
+
+```{python}
+# Insert code for selecting the predictor and target variables.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CURATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT FEATURES, ENGINEERING NEW VARIABLES, OR ANY OTHER CURATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Removing Redundant Features
+
+```{python}
+# Insert code for dropping highly correlated or duplicated predictors.
+```
+
+WRITE A SHORT DESCRIPTION OF THE STEPS YOU WILL TAKE TO IDENTIFY AND REMOVE REDUNDANT FEATURES. THIS CAN INCLUDE CALCULATING CORRELATION MATRICES, USING FEATURE IMPORTANCE SCORES, OR ANY OTHER METHOD FOR FEATURE SELECTION.
+
+### Data Transformation: Creating X Input and Y Output Variables
+
+```{python}
+# Insert code for building the X feature matrix for success prediction.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT COLUMNS, ENGINEERING NEW FEATURES, OR ANY OTHER TRANSFORMATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Splitting (Train-Test set and test set)
+#### Split for your task 1: Predicting movie success (ratings)
+```{python}
+# Insert code for splitting the data into training and testing sets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA SPLITTING STRATEGY YOU WILL USE FOR THIS QUESTION. THIS CAN INCLUDE THE PROPORTION OF DATA USED FOR TRAINING VS TESTING, ANY RANDOM STATE SETTING FOR REPRODUCIBILITY, AND ANY OTHER DETAILS ABOUT HOW YOU WILL SPLIT THE DATA.
+
+#### Save splits in form of CSV files
+
+```{python}
+# Insert code for saving the training and testing datasets as CSV files.
+## train_data.to_csv('train_data.csv', index=False)
+## test_data.to_csv('test_data.csv', index=False)
+```
+
+KEEP NOTE OF THE FILE PATHS USED TO SAVE THE SPLITS, AS YOU WILL NEED TO LOAD THESE FILES LATER WHEN TRAINING YOUR MACHINE LEARNING MODELS.
+
+### Selecting and training machine learning models
+
+BELLOW IS AN EXAMPLE OF TRAINING A RANDOM FOREST REGRESSOR TO PREDICT MOVIE RATINGS. YOU CAN ADJUST THIS CODE TO FIT YOUR SPECIFIC PREDICTION TASK AND THE FEATURES YOU HAVE SELECTED.
+```{python}
+# Insert code for selecting and training machine learning models.
+## from sklearn.ensemble import RandomForestRegressor
+## from sklearn.metrics import mean_absolute_error
+
+# Initialize the model
+## model = RandomForestRegressor(n_estimators=100, random_state=42)
+
+# Fit the model
+## model.fit(X_train, y_train)
+
+# Make predictions
+## y_pred = model.predict(X_test)
+
+# Evaluate the model
+## mae = mean_absolute_error(y_test, y_pred)
+## print(f'Mean Absolute Error: {mae}')
+```
+
+WRITE A SHORT DESCRIPTION OF THE MACHINE LEARNING MODEL YOU WILL SELECT AND TRAIN FOR THIS QUESTION. THIS CAN INCLUDE THE TYPE OF MODEL (E.G., LINEAR REGRESSION, RANDOM FOREST, NEURAL NETWORK), THE REASON FOR CHOOSING THIS MODEL, AND ANY HYPERPARAMETERS YOU PLAN TO TUNE.
+
+### Evaluate model performance
+```{python}
+# Insert code for evaluating the performance of the trained machine learning model.
+```
+
+WRITE A SHORT DESCRIPTION OF HOW YOU WILL EVALUATE THE PERFORMANCE OF YOUR MACHINE LEARNING MODEL. THIS CAN INCLUDE THE METRICS YOU WILL USE (E.G., MEAN ABSOLUTE ERROR, R-SQUARED, ACCURACY), ANY CROSS-VALIDATION STRATEGIES, AND ANY OTHER DETAILS ABOUT YOUR EVALUATION APPROACH.
+
+## Q2: Can box office revenue be predicted using movie characteristics such as genre, stars, directors, and budget?
+
+### Data Cleaning
+
+```{python}
+# Insert code for cleaning predictive features and movie success targets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CLEANING STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE HANDLING MISSING VALUES, STANDARDIZING CATEGORICAL LABELS, REMOVING OUTLIERS, OR ANY OTHER CLEANING TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Curation
+
+```{python}
+# Insert code for selecting the predictor and target variables.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CURATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT FEATURES, ENGINEERING NEW VARIABLES, OR ANY OTHER CURATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Removing Redundant Features
+
+```{python}
+# Insert code for dropping highly correlated or duplicated predictors.
+```
+
+WRITE A SHORT DESCRIPTION OF THE STEPS YOU WILL TAKE TO IDENTIFY AND REMOVE REDUNDANT FEATURES. THIS CAN INCLUDE CALCULATING CORRELATION MATRICES, USING FEATURE IMPORTANCE SCORES, OR ANY OTHER METHOD FOR FEATURE SELECTION.
+
+### Data Transformation: Creating X Input and Y Output Variables
+
+```{python}
+# Insert code for building the X feature matrix for success prediction.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT COLUMNS, ENGINEERING NEW FEATURES, OR ANY OTHER TRANSFORMATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Splitting (Train-Test set and test set)
+#### Split for your task 1: Predicting movie success (ratings)
+```{python}
+# Insert code for splitting the data into training and testing sets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA SPLITTING STRATEGY YOU WILL USE FOR THIS QUESTION. THIS CAN INCLUDE THE PROPORTION OF DATA USED FOR TRAINING VS TESTING, ANY RANDOM STATE SETTING FOR REPRODUCIBILITY, AND ANY OTHER DETAILS ABOUT HOW YOU WILL SPLIT THE DATA.
+
+#### Save splits in form of CSV files
+
+```{python}
+# Insert code for saving the training and testing datasets as CSV files.
+## train_data.to_csv('train_data.csv', index=False)
+## test_data.to_csv('test_data.csv', index=False)
+```
+
+KEEP NOTE OF THE FILE PATHS USED TO SAVE THE SPLITS, AS YOU WILL NEED TO LOAD THESE FILES LATER WHEN TRAINING YOUR MACHINE LEARNING MODELS.
+
+### Selecting and training machine learning models
+
+BELLOW IS AN EXAMPLE OF TRAINING A RANDOM FOREST REGRESSOR TO PREDICT MOVIE RATINGS. YOU CAN ADJUST THIS CODE TO FIT YOUR SPECIFIC PREDICTION TASK AND THE FEATURES YOU HAVE SELECTED.
+```{python}
+# Insert code for selecting and training machine learning models.
+## from sklearn.ensemble import RandomForestRegressor
+## from sklearn.metrics import mean_absolute_error
+
+# Initialize the model
+## model = RandomForestRegressor(n_estimators=100, random_state=42)
+
+# Fit the model
+## model.fit(X_train, y_train)
+
+# Make predictions
+## y_pred = model.predict(X_test)
+
+# Evaluate the model
+## mae = mean_absolute_error(y_test, y_pred)
+## print(f'Mean Absolute Error: {mae}')
+```
+
+WRITE A SHORT DESCRIPTION OF THE MACHINE LEARNING MODEL YOU WILL SELECT AND TRAIN FOR THIS QUESTION. THIS CAN INCLUDE THE TYPE OF MODEL (E.G., LINEAR REGRESSION, RANDOM FOREST, NEURAL NETWORK), THE REASON FOR CHOOSING THIS MODEL, AND ANY HYPERPARAMETERS YOU PLAN TO TUNE.
+
+### Evaluate model performance
+```{python}
+# Insert code for evaluating the performance of the trained machine learning model.
+```
+
+WRITE A SHORT DESCRIPTION OF HOW YOU WILL EVALUATE THE PERFORMANCE OF YOUR MACHINE LEARNING MODEL. THIS CAN INCLUDE THE METRICS YOU WILL USE (E.G., MEAN ABSOLUTE ERROR, R-SQUARED, ACCURACY), ANY CROSS-VALIDATION STRATEGIES, AND ANY OTHER DETAILS ABOUT YOUR EVALUATION APPROACH.
+
+## Q3: Can we predict whether a movie will receive a high rating based on its features?
+
+### Data Cleaning
+
+```{python}
+# Insert code for cleaning predictive features and movie success targets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CLEANING STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE HANDLING MISSING VALUES, STANDARDIZING CATEGORICAL LABELS, REMOVING OUTLIERS, OR ANY OTHER CLEANING TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Curation
+
+```{python}
+# Insert code for selecting the predictor and target variables.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CURATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT FEATURES, ENGINEERING NEW VARIABLES, OR ANY OTHER CURATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Removing Redundant Features
+
+```{python}
+# Insert code for dropping highly correlated or duplicated predictors.
+```
+
+WRITE A SHORT DESCRIPTION OF THE STEPS YOU WILL TAKE TO IDENTIFY AND REMOVE REDUNDANT FEATURES. THIS CAN INCLUDE CALCULATING CORRELATION MATRICES, USING FEATURE IMPORTANCE SCORES, OR ANY OTHER METHOD FOR FEATURE SELECTION.
+
+### Data Transformation: Creating X Input and Y Output Variables
+
+```{python}
+# Insert code for building the X feature matrix for success prediction.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT COLUMNS, ENGINEERING NEW FEATURES, OR ANY OTHER TRANSFORMATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Splitting (Train-Test set and test set)
+#### Split for your task 1: Predicting movie success (ratings)
+```{python}
+# Insert code for splitting the data into training and testing sets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA SPLITTING STRATEGY YOU WILL USE FOR THIS QUESTION. THIS CAN INCLUDE THE PROPORTION OF DATA USED FOR TRAINING VS TESTING, ANY RANDOM STATE SETTING FOR REPRODUCIBILITY, AND ANY OTHER DETAILS ABOUT HOW YOU WILL SPLIT THE DATA.
+
+#### Save splits in form of CSV files
+
+```{python}
+# Insert code for saving the training and testing datasets as CSV files.
+## train_data.to_csv('train_data.csv', index=False)
+## test_data.to_csv('test_data.csv', index=False)
+```
+
+KEEP NOTE OF THE FILE PATHS USED TO SAVE THE SPLITS, AS YOU WILL NEED TO LOAD THESE FILES LATER WHEN TRAINING YOUR MACHINE LEARNING MODELS.
+
+### Selecting and training machine learning models
+
+BELLOW IS AN EXAMPLE OF TRAINING A RANDOM FOREST REGRESSOR TO PREDICT MOVIE RATINGS. YOU CAN ADJUST THIS CODE TO FIT YOUR SPECIFIC PREDICTION TASK AND THE FEATURES YOU HAVE SELECTED.
+```{python}
+# Insert code for selecting and training machine learning models.
+## from sklearn.ensemble import RandomForestRegressor
+## from sklearn.metrics import mean_absolute_error
+
+# Initialize the model
+## model = RandomForestRegressor(n_estimators=100, random_state=42)
+
+# Fit the model
+## model.fit(X_train, y_train)
+
+# Make predictions
+## y_pred = model.predict(X_test)
+
+# Evaluate the model
+## mae = mean_absolute_error(y_test, y_pred)
+## print(f'Mean Absolute Error: {mae}')
+```
+
+WRITE A SHORT DESCRIPTION OF THE MACHINE LEARNING MODEL YOU WILL SELECT AND TRAIN FOR THIS QUESTION. THIS CAN INCLUDE THE TYPE OF MODEL (E.G., LINEAR REGRESSION, RANDOM FOREST, NEURAL NETWORK), THE REASON FOR CHOOSING THIS MODEL, AND ANY HYPERPARAMETERS YOU PLAN TO TUNE.
+
+### Evaluate model performance
+```{python}
+# Insert code for evaluating the performance of the trained machine learning model.
+```
+
+WRITE A SHORT DESCRIPTION OF HOW YOU WILL EVALUATE THE PERFORMANCE OF YOUR MACHINE LEARNING MODEL. THIS CAN INCLUDE THE METRICS YOU WILL USE (E.G., MEAN ABSOLUTE ERROR, R-SQUARED, ACCURACY), ANY CROSS-VALIDATION STRATEGIES, AND ANY OTHER DETAILS ABOUT YOUR EVALUATION APPROACH.
+
+## Q4: Can the number of audience votes be predicted using movie popularity factors such as stars, release date, and budget?
+
+### Data Cleaning
+
+```{python}
+# Insert code for cleaning predictive features and movie success targets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CLEANING STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE HANDLING MISSING VALUES, STANDARDIZING CATEGORICAL LABELS, REMOVING OUTLIERS, OR ANY OTHER CLEANING TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Curation
+
+```{python}
+# Insert code for selecting the predictor and target variables.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CURATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT FEATURES, ENGINEERING NEW VARIABLES, OR ANY OTHER CURATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Removing Redundant Features
+
+```{python}
+# Insert code for dropping highly correlated or duplicated predictors.
+```
+
+WRITE A SHORT DESCRIPTION OF THE STEPS YOU WILL TAKE TO IDENTIFY AND REMOVE REDUNDANT FEATURES. THIS CAN INCLUDE CALCULATING CORRELATION MATRICES, USING FEATURE IMPORTANCE SCORES, OR ANY OTHER METHOD FOR FEATURE SELECTION.
+
+### Data Transformation: Creating X Input and Y Output Variables
+
+```{python}
+# Insert code for building the X feature matrix for success prediction.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT COLUMNS, ENGINEERING NEW FEATURES, OR ANY OTHER TRANSFORMATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Splitting (Train-Test set and test set)
+#### Split for your task 1: Predicting movie success (ratings)
+```{python}
+# Insert code for splitting the data into training and testing sets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA SPLITTING STRATEGY YOU WILL USE FOR THIS QUESTION. THIS CAN INCLUDE THE PROPORTION OF DATA USED FOR TRAINING VS TESTING, ANY RANDOM STATE SETTING FOR REPRODUCIBILITY, AND ANY OTHER DETAILS ABOUT HOW YOU WILL SPLIT THE DATA.
+
+#### Save splits in form of CSV files
+
+```{python}
+# Insert code for saving the training and testing datasets as CSV files.
+## train_data.to_csv('train_data.csv', index=False)
+## test_data.to_csv('test_data.csv', index=False)
+```
+
+KEEP NOTE OF THE FILE PATHS USED TO SAVE THE SPLITS, AS YOU WILL NEED TO LOAD THESE FILES LATER WHEN TRAINING YOUR MACHINE LEARNING MODELS.
+
+### Selecting and training machine learning models
+
+BELLOW IS AN EXAMPLE OF TRAINING A RANDOM FOREST REGRESSOR TO PREDICT MOVIE RATINGS. YOU CAN ADJUST THIS CODE TO FIT YOUR SPECIFIC PREDICTION TASK AND THE FEATURES YOU HAVE SELECTED.
+```{python}
+# Insert code for selecting and training machine learning models.
+## from sklearn.ensemble import RandomForestRegressor
+## from sklearn.metrics import mean_absolute_error
+
+# Initialize the model
+## model = RandomForestRegressor(n_estimators=100, random_state=42)
+
+# Fit the model
+## model.fit(X_train, y_train)
+
+# Make predictions
+## y_pred = model.predict(X_test)
+
+# Evaluate the model
+## mae = mean_absolute_error(y_test, y_pred)
+## print(f'Mean Absolute Error: {mae}')
+```
+
+WRITE A SHORT DESCRIPTION OF THE MACHINE LEARNING MODEL YOU WILL SELECT AND TRAIN FOR THIS QUESTION. THIS CAN INCLUDE THE TYPE OF MODEL (E.G., LINEAR REGRESSION, RANDOM FOREST, NEURAL NETWORK), THE REASON FOR CHOOSING THIS MODEL, AND ANY HYPERPARAMETERS YOU PLAN TO TUNE.
+
+### Evaluate model performance
+```{python}
+# Insert code for evaluating the performance of the trained machine learning model.
+```
+
+WRITE A SHORT DESCRIPTION OF HOW YOU WILL EVALUATE THE PERFORMANCE OF YOUR MACHINE LEARNING MODEL. THIS CAN INCLUDE THE METRICS YOU WILL USE (E.G., MEAN ABSOLUTE ERROR, R-SQUARED, ACCURACY), ANY CROSS-VALIDATION STRATEGIES, AND ANY OTHER DETAILS ABOUT YOUR EVALUATION APPROACH.
+
+## Q5: How does the timing of a movie’s release (month or season) influence its box office performance and audience engagement?
+
+### Data Cleaning
+
+```{python}
+# Insert code for cleaning predictive features and movie success targets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CLEANING STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE HANDLING MISSING VALUES, STANDARDIZING CATEGORICAL LABELS, REMOVING OUTLIERS, OR ANY OTHER CLEANING TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Curation
+
+```{python}
+# Insert code for selecting the predictor and target variables.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CURATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT FEATURES, ENGINEERING NEW VARIABLES, OR ANY OTHER CURATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Removing Redundant Features
+
+```{python}
+# Insert code for dropping highly correlated or duplicated predictors.
+```
+
+WRITE A SHORT DESCRIPTION OF THE STEPS YOU WILL TAKE TO IDENTIFY AND REMOVE REDUNDANT FEATURES. THIS CAN INCLUDE CALCULATING CORRELATION MATRICES, USING FEATURE IMPORTANCE SCORES, OR ANY OTHER METHOD FOR FEATURE SELECTION.
+
+### Data Transformation: Creating X Input and Y Output Variables
+
+```{python}
+# Insert code for building the X feature matrix for success prediction.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT COLUMNS, ENGINEERING NEW FEATURES, OR ANY OTHER TRANSFORMATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Splitting (Train-Test set and test set)
+#### Split for your task 1: Predicting movie success (ratings)
+```{python}
+# Insert code for splitting the data into training and testing sets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA SPLITTING STRATEGY YOU WILL USE FOR THIS QUESTION. THIS CAN INCLUDE THE PROPORTION OF DATA USED FOR TRAINING VS TESTING, ANY RANDOM STATE SETTING FOR REPRODUCIBILITY, AND ANY OTHER DETAILS ABOUT HOW YOU WILL SPLIT THE DATA.
+
+#### Save splits in form of CSV files
+
+```{python}
+# Insert code for saving the training and testing datasets as CSV files.
+## train_data.to_csv('train_data.csv', index=False)
+## test_data.to_csv('test_data.csv', index=False)
+```
+
+KEEP NOTE OF THE FILE PATHS USED TO SAVE THE SPLITS, AS YOU WILL NEED TO LOAD THESE FILES LATER WHEN TRAINING YOUR MACHINE LEARNING MODELS.
+
+### Selecting and training machine learning models
+
+BELLOW IS AN EXAMPLE OF TRAINING A RANDOM FOREST REGRESSOR TO PREDICT MOVIE RATINGS. YOU CAN ADJUST THIS CODE TO FIT YOUR SPECIFIC PREDICTION TASK AND THE FEATURES YOU HAVE SELECTED.
+```{python}
+# Insert code for selecting and training machine learning models.
+## from sklearn.ensemble import RandomForestRegressor
+## from sklearn.metrics import mean_absolute_error
+
+# Initialize the model
+## model = RandomForestRegressor(n_estimators=100, random_state=42)
+
+# Fit the model
+## model.fit(X_train, y_train)
+
+# Make predictions
+## y_pred = model.predict(X_test)
+
+# Evaluate the model
+## mae = mean_absolute_error(y_test, y_pred)
+## print(f'Mean Absolute Error: {mae}')
+```
+
+WRITE A SHORT DESCRIPTION OF THE MACHINE LEARNING MODEL YOU WILL SELECT AND TRAIN FOR THIS QUESTION. THIS CAN INCLUDE THE TYPE OF MODEL (E.G., LINEAR REGRESSION, RANDOM FOREST, NEURAL NETWORK), THE REASON FOR CHOOSING THIS MODEL, AND ANY HYPERPARAMETERS YOU PLAN TO TUNE.
+
+### Evaluate model performance
+```{python}
+# Insert code for evaluating the performance of the trained machine learning model.
+```
+
+WRITE A SHORT DESCRIPTION OF HOW YOU WILL EVALUATE THE PERFORMANCE OF YOUR MACHINE LEARNING MODEL. THIS CAN INCLUDE THE METRICS YOU WILL USE (E.G., MEAN ABSOLUTE ERROR, R-SQUARED, ACCURACY), ANY CROSS-VALIDATION STRATEGIES, AND ANY OTHER DETAILS ABOUT YOUR EVALUATION APPROACH.
+
+## Q6: Can movies be classified into successful vs less successful categories based on their attributes?
+
+### Data Cleaning
+
+```{python}
+# Insert code for cleaning predictive features and movie success targets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CLEANING STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE HANDLING MISSING VALUES, STANDARDIZING CATEGORICAL LABELS, REMOVING OUTLIERS, OR ANY OTHER CLEANING TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Curation
+
+```{python}
+# Insert code for selecting the predictor and target variables.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA CURATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT FEATURES, ENGINEERING NEW VARIABLES, OR ANY OTHER CURATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Removing Redundant Features
+
+```{python}
+# Insert code for dropping highly correlated or duplicated predictors.
+```
+
+WRITE A SHORT DESCRIPTION OF THE STEPS YOU WILL TAKE TO IDENTIFY AND REMOVE REDUNDANT FEATURES. THIS CAN INCLUDE CALCULATING CORRELATION MATRICES, USING FEATURE IMPORTANCE SCORES, OR ANY OTHER METHOD FOR FEATURE SELECTION.
+
+### Data Transformation: Creating X Input and Y Output Variables
+
+```{python}
+# Insert code for building the X feature matrix for success prediction.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT COLUMNS, ENGINEERING NEW FEATURES, OR ANY OTHER TRANSFORMATION TASKS RELEVANT TO THIS ANALYSIS.
+
+### Data Splitting (Train-Test set and test set)
+#### Split for your task 1: Predicting movie success (ratings)
+```{python}
+# Insert code for splitting the data into training and testing sets.
+```
+
+WRITE A SHORT DESCRIPTION OF THE DATA SPLITTING STRATEGY YOU WILL USE FOR THIS QUESTION. THIS CAN INCLUDE THE PROPORTION OF DATA USED FOR TRAINING VS TESTING, ANY RANDOM STATE SETTING FOR REPRODUCIBILITY, AND ANY OTHER DETAILS ABOUT HOW YOU WILL SPLIT THE DATA.
+
+#### Save splits in form of CSV files
+
+```{python}
+# Insert code for saving the training and testing datasets as CSV files.
+## train_data.to_csv('train_data.csv', index=False)
+## test_data.to_csv('test_data.csv', index=False)
+```
+
+KEEP NOTE OF THE FILE PATHS USED TO SAVE THE SPLITS, AS YOU WILL NEED TO LOAD THESE FILES LATER WHEN TRAINING YOUR MACHINE LEARNING MODELS.
+
+### Selecting and training machine learning models
+
+BELLOW IS AN EXAMPLE OF TRAINING A RANDOM FOREST REGRESSOR TO PREDICT MOVIE RATINGS. YOU CAN ADJUST THIS CODE TO FIT YOUR SPECIFIC PREDICTION TASK AND THE FEATURES YOU HAVE SELECTED.
+```{python}
+# Insert code for selecting and training machine learning models.
+## from sklearn.ensemble import RandomForestRegressor
+## from sklearn.metrics import mean_absolute_error
+
+# Initialize the model
+## model = RandomForestRegressor(n_estimators=100, random_state=42)
+
+# Fit the model
+## model.fit(X_train, y_train)
+
+# Make predictions
+## y_pred = model.predict(X_test)
+
+# Evaluate the model
+## mae = mean_absolute_error(y_test, y_pred)
+## print(f'Mean Absolute Error: {mae}')
+```
+
+WRITE A SHORT DESCRIPTION OF THE MACHINE LEARNING MODEL YOU WILL SELECT AND TRAIN FOR THIS QUESTION. THIS CAN INCLUDE THE TYPE OF MODEL (E.G., LINEAR REGRESSION, RANDOM FOREST, NEURAL NETWORK), THE REASON FOR CHOOSING THIS MODEL, AND ANY HYPERPARAMETERS YOU PLAN TO TUNE.
+
+### Evaluate model performance
+```{python}
+# Insert code for evaluating the performance of the trained machine learning model.
+```
+
+WRITE A SHORT DESCRIPTION OF HOW YOU WILL EVALUATE THE PERFORMANCE OF YOUR MACHINE LEARNING MODEL. THIS CAN INCLUDE THE METRICS YOU WILL USE (E.G., MEAN ABSOLUTE ERROR, R-SQUARED, ACCURACY), ANY CROSS-VALIDATION STRATEGIES, AND ANY OTHER DETAILS ABOUT YOUR EVALUATION APPROACH.
+
+# DATA VISUALIZATION OF PREDICTIONS RESULTS
+
+HERE WE WILL CREATE VISUALIZATIONS TO INTERPRET THE RESULTS OF OUR MACHINE LEARNING MODELS. THIS CAN INCLUDE PLOTS OF PREDICTED VS ACTUAL VALUES, FEATURE IMPORTANCE PLOTS, OR ANY OTHER VISUALIZATION THAT HELPS TO UNDERSTAND THE PERFORMANCE AND INSIGHTS FROM THE MODELS.
+
+# MODEL OUTPUTS AND COMPARISON
+
+WRITE A SHORT DESCRIPTION OF HOW YOU WILL COMPARE THE OUTPUTS OF YOUR MACHINE LEARNING MODELS FOR THE DIFFERENT QUESTIONS. THIS CAN INCLUDE COMPARING THE PERFORMANCE METRICS, INTERPRETING FEATURE IMPORTANCE SCORES, OR ANY OTHER METHOD AND STATING WHICH MODEL PERFOM BEST FOR EACH QUESTION, THIS WIL BE IMPORTANT TO THE DISCUSSION OF THE RESULTS IN THE MAIN WORK STATION.
+
