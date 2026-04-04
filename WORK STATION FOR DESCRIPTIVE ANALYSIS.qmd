@@ -4,9 +4,8 @@
 
 **AUTHORS**:
 
-    - name: "Ghofran Mahmoud"
-    - name: "Sami Al Jamal"
     - name: "Kay-Lee Dramat"
+    - name: "Ghofran Mahmoud"
 
 # DATA CLEANING, TRANSFORMATION, INTERPRETATION, AND ANALYSIS
 WRITE A SHORT DESCRIPTION OF WHAT WILL BE DONE UNDER THIS SECTION. THIS CAN BE A GENERAL DESCRIPTION OF THE WORK STATION OR A DETAILED DESCRIPTION OF THE STEPS YOU WILL TAKE TO CLEAN, TRANSFORM, INTERPRET, AND ANALYZE THE DATA. YOU CAN ALSO USE THIS SPACE TO DESCRIBE THE STRUCTURE OF THIS WORK STATION AND HOW IT CONNECTS TO THE OTHER PAGES IN YOUR PROJECT.
@@ -15,9 +14,91 @@ WRITE A SHORT DESCRIPTION OF WHAT WILL BE DONE UNDER THIS SECTION. THIS CAN BE A
 *AN IMPORTANT NOTE: BEFORE RUNNING THE CODE IN THIS WORK STATION, MAKE SURE TO INSTALL THE NECESSARY LIBRARIES AND TOOLS FOR DATA CLEANING, TRANSFORMATION, INTERPRETATION, AND ANALYSIS. THIS MAY INCLUDE PANDAS, NUMPY, MATPLOTLIB, SEABORN, OR ANY OTHER LIBRARY YOU PLAN TO USE FOR YOUR ANALYSIS.*
 
 ```{python}
-# Insert code for importing the necessary libraries and tools for data cleaning, transformation, interpretation, and analysis.
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
+import seaborn as sns
+import ast
+import re
+import warnings
+import os
+from scipy import stats
+
+warnings.filterwarnings('ignore')
+
+# ── Shared helper functions ───────────────────────────────────────────────────
+
+EXCHANGE_RATES = {
+    'USD': 1.0,   'EUR': 1.08,  'GBP': 1.27,  'CAD': 0.74,  'AUD': 0.65,
+    'JPY': 0.0067,'INR': 0.012, 'KRW': 0.00073,'CNY': 0.14, 'HKD': 0.128,
+    'SGD': 0.75,  'NZD': 0.61,  'BRL': 0.20,   'MXN': 0.058, 'RUB': 0.011,
+    'TRY': 0.031, 'PLN': 0.25,  'CHF': 1.13,   'ZAR': 0.055, 'DEM': 0.55,
+    'FRF': 0.165, 'ITL': 0.00056,'NLG': 0.49,  'BEF': 0.027, 'ESP': 0.0065,
+    'SEK': 0.096, 'NOK': 0.093, 'DKK': 0.145,  'ILS': 0.27,  'TWD': 0.031,
+}
+
+SYMBOL_MAP = [
+    ('CA$','CAD'),('A$','AUD'),('HK$','HKD'),('NZ$','NZD'),('MX$','MXN'),
+    ('NT$','TWD'),('R$','BRL'),('SGD','SGD'),('SEK','SEK'),('NOK','NOK'),
+    ('DKK','DKK'),('DEM','DEM'),('FRF','FRF'),('ITL','ITL'),('BEF','BEF'),
+    ('ESP','ESP'),('NLG','NLG'),('RUB','RUB'),('RUR','RUB'),('TRY','TRY'),
+    ('TRL','TRY'),('PLN','PLN'),('CHF','CHF'),('ZAR','ZAR'),('ILS','ILS'),
+    ('$','USD'),
+]
+
+def detect_currency(text):
+    for pattern, code in SYMBOL_MAP:
+        if pattern in text:
+            return code
+    return 'USD'
+
+def parse_money(value):
+    if pd.isna(value) or str(value).strip() == '':
+        return None
+    s = str(value).strip()
+    rate = EXCHANGE_RATES.get(detect_currency(s), 1.0)
+    digits = re.sub(r'[^\d.]', '', s)
+    if not digits:
+        return None
+    try:
+        return round(float(digits) * rate, 2)
+    except ValueError:
+        return None
+
+def parse_list_col(value):
+    if pd.isna(value):
+        return []
+    try:
+        result = ast.literal_eval(value)
+        return result if isinstance(result, list) else []
+    except (ValueError, SyntaxError):
+        return re.findall(r"'([^']+)'", str(value))
+
+def parse_votes(value):
+    if pd.isna(value):
+        return None
+    s = str(value).strip().replace(',', '')
+    mult = 1
+    if s.upper().endswith('K'):
+        mult, s = 1_000, s[:-1]
+    elif s.upper().endswith('M'):
+        mult, s = 1_000_000, s[:-1]
+    try:
+        return int(float(s) * mult)
+    except ValueError:
+        return None
+
+def fmt_M(x, _):
+    return f'${x/1e9:.1f}B' if abs(x) >= 1e9 else f'${x/1e6:.0f}M'
+
+def significance_stars(p):
+    if p < 0.001: return '***'
+    if p < 0.01:  return '**'
+    if p < 0.05:  return '*'
+    return 'ns'
+
+print("Libraries and helpers loaded successfully.")
 ```
 
 ## Q1: How do movie ratings vary across different film industries and countries of origin?
@@ -99,23 +180,120 @@ WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THI
 WRITE A SHORT DESCRIPTION OF THE DATA VISUALIZATION THAT YOU WILL CREATE, THIS APPLY TO ALL VISUALISATIONS TO BE MADE. THIS CAN INCLUDE DESCRIBING THE PLOTS  CREATED, THE VARIABLES PLOTTED, AND HOW THESE VISUALIZATIONS WILL HELP INTERPRET THE RATING DIFFERENCES ACROSS INDUSTRIES AND COUNTRIES.
 
 ## Q4: How do box office revenues differ across industries?
-
+This section investigates whether different movie genres consistently earn more or less money at the box office, and whether that pattern holds across all three revenue measures — opening weekend gross, total worldwide gross, and US/Canada gross. Understanding these differences helps studios and producers make informed decisions about which genres to invest in and how to set revenue expectations.
 ### Data Cleaning
+This step prepares the raw revenue and genre columns for analysis. Revenue values stored as formatted text strings in multiple currencies are converted to numeric USD figures. Genre lists stored as text are parsed to extract the primary genre. Rows with no genre label or with no revenue data at all are removed, and genres represented by fewer than 10 movies are excluded to ensure group averages are reliable.
 
 ```{python}
-# Insert code for cleaning variables used to compare ratings by industry and country.
+# =============================================================================
+# Q4 — DATA CLEANING
+# Target columns: genres, opening_weekend_gross, gross_worldwide, gross_us_canada
+# =============================================================================
+INPUT_FILE = "data/final_dataset.csv"   
+df_raw = pd.read_csv(INPUT_FILE)
+
+print(f"Dataset loaded: {df_raw.shape[0]:,} rows × {df_raw.shape[1]} columns")
+print(f"Columns: {list(df_raw.columns)}")
+
+q4_raw = df_raw[['id', 'title', 'genres',
+                  'opening_weekend_gross',
+                  'gross_worldwide',
+                  'gross_us_canada']].copy()
+
+print(f"Starting rows: {len(q4_raw):,}")
+print(f"\nMissing values before cleaning:")
+print(q4_raw.isnull().sum().to_string())
+
+# Step 1 — Parse genre lists and extract the primary (first) genre
+q4_raw['genres_list']   = q4_raw['genres'].apply(parse_list_col)
+q4_raw['primary_genre'] = q4_raw['genres_list'].apply(lambda x: x[0] if x else None)
+
+# Step 2 — Convert money strings to numeric USD
+for col in ['opening_weekend_gross', 'gross_worldwide', 'gross_us_canada']:
+    q4_raw[col + '_num'] = q4_raw[col].apply(parse_money)
+
+# Step 3 — Filter: keep rows with a known genre AND at least one revenue figure
+q4 = q4_raw[
+    q4_raw['primary_genre'].notna() &
+    (
+        q4_raw['opening_weekend_gross_num'].notna() |
+        q4_raw['gross_worldwide_num'].notna()        |
+        q4_raw['gross_us_canada_num'].notna()
+    )
+].copy()
+
+# Step 4 — Drop genres with fewer than 10 movies that have revenue data
+genre_counts = q4['primary_genre'].value_counts()
+valid_genres  = genre_counts[genre_counts >= 10].index
+q4 = q4[q4['primary_genre'].isin(valid_genres)].copy()
+
+print(f"\nRows after cleaning: {len(q4):,}")
+print(f"Valid genres (≥10 movies with revenue): {q4['primary_genre'].nunique()}")
+print(f"\nMissing values after cleaning:")
+print(q4[['opening_weekend_gross_num','gross_worldwide_num','gross_us_canada_num']].isnull().sum().to_string())
 ```
 
-WITE A SHORT DESCRIPTION OF THE DATA CLEANING STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE HANDLING MISSING VALUES, STANDARDIZING CATEGORICAL LABELS, REMOVING OUTLIERS, OR ANY OTHER CLEANING TASKS RELEVANT TO THIS ANALYSIS.
+The raw dataset stores revenue figures as formatted text strings (e.g., `"$36,389,705"` or `"€150,000 (estimated)"`) across three columns: `opening_weekend_gross`, `gross_worldwide`, and `gross_us_canada`. These must be parsed and converted to numeric USD before any comparison can be made. The genre column is stored as a stringified Python list, so it is parsed with `ast.literal_eval` and the first item is used as the primary genre. Rows with no genre label and rows belonging to genres with fewer than 10 revenue observations are dropped, as they are too sparse to produce meaningful group averages.
 
 ### Data Transformation: Creating X Input and Y Output Variables
-
+The genre column becomes the grouping variable (X input). The three revenue columns — opening weekend, worldwide, and US/Canada gross — are the outcome variables (Y outputs). A fourth engineered variable, international gross (worldwide minus US/Canada), is added to measure how much each genre earns outside North America. A genre-level summary table is then computed showing the mean, median, and breakdown of each revenue stream per genre.
 ```{python}
-# Insert code for selecting the columns required for this question.
+# =============================================================================
+# Q4 — DATA TRANSFORMATION
+# =============================================================================
+
+# Select and rename the columns needed for analysis
+q4 = q4[[
+    'id', 'title', 'primary_genre',
+    'opening_weekend_gross_num',
+    'gross_worldwide_num',
+    'gross_us_canada_num'
+]].copy()
+
+q4.columns = [
+    'id', 'title', 'genre',
+    'opening_weekend', 'worldwide', 'us_canada'
+]
+
+# ENGINEERED VARIABLE: International Gross = Worldwide revenue minus US/Canada revenue
+q4['international'] = q4['worldwide'] - q4['us_canada']
+
+# SUMMARY TABLE — genre-level descriptive statistics
+q4_summary = (
+    q4.groupby('genre')
+    .agg(
+        n_movies          = ('title',        'count'),
+        avg_worldwide     = ('worldwide',     'mean'),
+        median_worldwide  = ('worldwide',     'median'),
+        avg_opening       = ('opening_weekend','mean'),
+        median_opening    = ('opening_weekend','median'),
+        avg_us_canada     = ('us_canada',     'mean'),
+        avg_international = ('international', 'mean'),
+    )
+    .reset_index()
+    .sort_values('avg_worldwide', ascending=False)
+)
+
+disp = q4_summary.head(12).copy()
+for col in ['avg_worldwide','median_worldwide','avg_opening',
+            'median_opening','avg_us_canada','avg_international']:
+    disp[col] = disp[col].apply(lambda x: f'${x/1e6:.1f}M' if pd.notna(x) else 'N/A')
+
+print("Summary Table — Average Revenue by Genre (top 12 by worldwide gross):\n")
+print(disp.to_string(index=False))
+```
+```{python}
+# =============================================================================
+# EXPORT Q4 FINAL DATASET
+# =============================================================================
+# Create 'outputs' folder 
+os.makedirs("outputs", exist_ok=True)
+# EXPORT Q4 FINAL DATASET
+q4.to_csv("outputs/q4_genre_revenue_dataset.csv", index=False)
+q4_summary.to_csv("outputs/q4_genre_summary.csv", index=False)
 ```
 
-WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT COLUMNS, ENGINEERING NEW FEATURES, OR ANY OTHER TRANSFORMATION TASKS RELEVANT TO THIS ANALYSIS.
-
+The transformation step produces four numeric revenue variables per movie: `opening_weekend`, `worldwide`, `us_canada`, and the engineered variable `international` (worldwide minus US/Canada). The genre column serves as the grouping variable (X input), while the four revenue figures are the outcome variables (Y outputs). A genre-level summary table is computed using both mean and median — the mean captures total economic weight, while the median is more robust to the blockbuster outliers that are common in film revenue data.
 ### Data visualization
 
 ```{python}
@@ -125,22 +303,143 @@ WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THI
 WRITE A SHORT DESCRIPTION OF THE DATA VISUALIZATION THAT YOU WILL CREATE, THIS APPLY TO ALL VISUALISATIONS TO BE MADE. THIS CAN INCLUDE DESCRIBING THE PLOTS  CREATED, THE VARIABLES PLOTTED, AND HOW THESE VISUALIZATIONS WILL HELP INTERPRET THE RATING DIFFERENCES ACROSS INDUSTRIES AND COUNTRIES.
 
 ## Q5:Is there a relationship between movie budget and box office performance?
+This section examines whether spending more on a movie's production translates into higher box office earnings. It also investigates whether high-budget films are more profitable (in terms of return on investment) than low-budget ones, and whether budget size affects how front-loaded a movie's revenue is. These findings are relevant to anyone deciding how much to invest in a production.
 
 ### Data Cleaning
-
+This step converts all budget and revenue columns from formatted text strings — which may appear in different currencies and include labels like "(estimated)" — into plain numeric USD values. Only rows where both the budget and the worldwide gross are available are kept, since both are needed to study their relationship. A ROI column is computed and used to detect and remove data entry errors: values below −100% (mathematically impossible) or above 10,000% (almost certainly a corrupted record) are excluded.
 ```{python}
-# Insert code for cleaning variables used to compare ratings by industry and country.
+# =============================================================================
+# Q5 — DATA CLEANING
+# Target columns: budget, opening_weekend_gross, gross_worldwide, gross_us_canada
+# =============================================================================
+
+q5_raw = df_raw[['id', 'title', 'primary_genre' if 'primary_genre' in df_raw.columns else 'genres',
+                  'release_date',
+                  'budget',
+                  'opening_weekend_gross',
+                  'gross_worldwide',
+                  'gross_us_canada']].copy()
+
+if 'primary_genre' not in q5_raw.columns:
+    q5_raw = q5_raw.rename(columns={'genres': 'genres_raw'})
+    q5_raw['primary_genre'] = q5_raw['genres_raw'].apply(
+        lambda v: parse_list_col(v)[0] if parse_list_col(v) else None
+    )
+
+print(f"Starting rows: {len(q5_raw):,}")
+print(f"\nMissing values before cleaning:")
+print(q5_raw[['budget','opening_weekend_gross','gross_worldwide','gross_us_canada']].isnull().sum().to_string())
+
+# Step 1 — Convert all money columns to numeric USD
+for col in ['budget', 'opening_weekend_gross', 'gross_worldwide', 'gross_us_canada']:
+    q5_raw[col + '_num'] = q5_raw[col].apply(parse_money)
+
+# Step 2 — Filter: keep only rows where BOTH budget AND worldwide gross are present
+q5 = q5_raw[
+    q5_raw['budget_num'].notna() &
+    q5_raw['gross_worldwide_num'].notna() &
+    (q5_raw['budget_num'] > 0) &
+    (q5_raw['gross_worldwide_num'] > 0)
+].copy()
+
+print(f"\nRows after requiring both budget and worldwide gross: {len(q5):,}")
+
+# Step 3 — Engineer ROI and remove extreme outliers (ROI = (worldwide - budget) / budget × 100)
+q5['roi'] = (q5['gross_worldwide_num'] - q5['budget_num']) / q5['budget_num'] * 100
+
+# Remove ROI values outside [-100%, 10000%]
+# Values below -100% are impossible (you cannot lose more than you spent).
+# Values above 10000% are almost certainly data entry errors (e.g. $1 budget).
+before = len(q5)
+q5 = q5[(q5['roi'] >= -100) & (q5['roi'] <= 10_000)].copy()
+print(f"Rows removed as ROI outliers: {before - len(q5)}")
+print(f"Final Q5 rows: {len(q5):,}")
+print(f"\nMissing values after cleaning:")
+print(q5[['budget_num','gross_worldwide_num','opening_weekend_gross_num']].isnull().sum().to_string())
 ```
 
-WITE A SHORT DESCRIPTION OF THE DATA CLEANING STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE HANDLING MISSING VALUES, STANDARDIZING CATEGORICAL LABELS, REMOVING OUTLIERS, OR ANY OTHER CLEANING TASKS RELEVANT TO THIS ANALYSIS.
+The key cleaning challenge for Q5 is that both `budget` and `gross_worldwide` are stored as formatted text strings in multiple currencies. Each is parsed to a numeric USD value using the shared `parse_money()` function. Rows are dropped if either the budget or the worldwide gross is missing, because both are required to study their relationship. An ROI column is computed and used to detect impossible or implausible values: any ROI below −100% (mathematically impossible) or above 10,000% (almost certainly a data entry error, typically caused by a near-zero budget value) is removed. This step retains all genuine high-ROI films like low-budget breakout hits while eliminating corrupted records.
 
 ### Data Transformation: Creating X Input and Y Output Variables
-
+The budget column (continuous, in USD) is the main X input variable. Two engineered variables are added: **ROI** (return on investment), which measures how profitable a movie was relative to its production cost, and **opening ratio**, which measures what share of the total worldwide gross was earned on opening weekend alone. A third engineered variable, **budget tier**, groups movies into Low, Mid, and High categories to enable simple grouped comparisons alongside the continuous analysis.
 ```{python}
-# Insert code for selecting the columns required for this question.
+# =============================================================================
+# Q5 — DATA TRANSFORMATION
+# =============================================================================
+
+# Select and rename analysis columns
+q5 = q5[[
+    'id', 'title', 'primary_genre', 'release_date',
+    'budget_num', 'opening_weekend_gross_num',
+    'gross_worldwide_num', 'gross_us_canada_num',
+    'roi'
+]].copy()
+
+q5.columns = [
+    'id', 'title', 'genre', 'release_date',
+    'budget', 'opening_weekend', 'worldwide', 'us_canada',
+    'roi'
+]
+
+# ENGINEERED VARIABLE 1: Opening Ratio = opening weekend gross / total worldwide gross
+q5['opening_ratio'] = q5['opening_weekend'] / q5['worldwide']
+
+# ENGINEERED VARIABLE 2: Budget Tier
+def assign_tier(b):
+    if pd.isna(b):       return None
+    if b < 10_000_000:   return 'Low (<$10M)'
+    if b <= 100_000_000: return 'Mid ($10M–$100M)'
+    return 'High (>$100M)'
+
+q5['budget_tier'] = q5['budget'].apply(assign_tier)
+
+TIER_ORDER  = ['Low (<$10M)', 'Mid ($10M–$100M)', 'High (>$100M)']
+TIER_COLORS = {'Low (<$10M)': CORAL, 'Mid ($10M–$100M)': CYAN, 'High (>$100M)': GOLD}
+
+# SUMMARY TABLE by budget tier
+q5_tier = (
+    q5.groupby('budget_tier', observed=True)
+    .agg(
+        n_movies          = ('title',          'count'),
+        avg_budget        = ('budget',          'mean'),
+        avg_worldwide     = ('worldwide',        'mean'),
+        median_worldwide  = ('worldwide',        'median'),
+        avg_roi           = ('roi',              'mean'),
+        median_roi        = ('roi',              'median'),
+        pct_profitable    = ('roi', lambda x: (x > 0).mean() * 100),
+        avg_opening_ratio = ('opening_ratio',   'mean'),
+    )
+    .reindex(TIER_ORDER)
+    .reset_index()
+    .rename(columns={'budget_tier': 'Budget Tier'})
+)
+
+disp5 = q5_tier.copy()
+for col in ['avg_budget','avg_worldwide','median_worldwide']:
+    disp5[col] = disp5[col].apply(lambda x: f'${x/1e6:.1f}M' if pd.notna(x) else 'N/A')
+disp5['avg_roi']         = disp5['avg_roi'].apply(lambda x: f'{x:.0f}%')
+disp5['median_roi']      = disp5['median_roi'].apply(lambda x: f'{x:.0f}%')
+disp5['pct_profitable']  = disp5['pct_profitable'].apply(lambda x: f'{x:.1f}%')
+disp5['avg_opening_ratio']= disp5['avg_opening_ratio'].apply(lambda x: f'{x:.2f}' if pd.notna(x) else 'N/A')
+
+print("Summary Table — Performance by Budget Tier:\n")
+print(disp5.to_string(index=False))
+
+# Pearson correlation on log scale
+log_b = np.log10(q5['budget'])
+log_w = np.log10(q5['worldwide'])
+r_bw, p_bw = stats.pearsonr(log_b, log_w)
+print(f"\nPearson r (log budget vs log worldwide): r = {r_bw:.3f},  p = {p_bw:.2e}  {significance_stars(p_bw)}")
+```
+```{python}
+# =============================================================================
+# EXPORT Q5 FINAL DATASET
+# =============================================================================
+q5.to_csv("outputs/q5_budget_performance_dataset.csv", index=False)
+q5_tier.to_csv("outputs/q5_budget_tier_summary.csv", index=False)
 ```
 
-WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT COLUMNS, ENGINEERING NEW FEATURES, OR ANY OTHER TRANSFORMATION TASKS RELEVANT TO THIS ANALYSIS.
+The transformation step produces two new engineered variables. **Opening Ratio** (opening weekend ÷ worldwide gross) is a continuous measure of how front-loaded a movie's revenue is — a ratio close to 1 means nearly all money was earned on launch day, while a low ratio indicates a slow-building film. **Budget Tier** converts the continuous budget variable into three ordered categories (Low, Mid, High) which allow grouped bar and violin comparisons. The grouping variable (X input) is `budget_tier` for categorical analysis and `budget` (continuous, log-scaled) for correlation analysis. The output variables (Y) are `worldwide`, `roi`, and `opening_ratio`.
 
 ### Data visualization
 
@@ -151,23 +450,136 @@ WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THI
 WRITE A SHORT DESCRIPTION OF THE DATA VISUALIZATION THAT YOU WILL CREATE, THIS APPLY TO ALL VISUALISATIONS TO BE MADE. THIS CAN INCLUDE DESCRIBING THE PLOTS  CREATED, THE VARIABLES PLOTTED, AND HOW THESE VISUALIZATIONS WILL HELP INTERPRET THE RATING DIFFERENCES ACROSS INDUSTRIES AND COUNTRIES.
 
 ## Q6: Do movies with well-known directors, writers, or stars receive higher ratings or more votes?
-
+This section investigates whether the prominence of a movie's talent; its cast, director, and writers, has a measurable effect on how audiences rate the film and how many people engage with it on IMDb. This is relevant for understanding whether star power drives audience perception, or whether other factors matter more.
 ### Data Cleaning
-
+This step prepares the three talent columns (stars, directors, writers) and the two outcome columns (rating, votes) for analysis. The talent columns store lists as plain text strings, which are parsed back into real Python lists. The rating column is converted from text to a numeric float. The votes column uses shorthand notation such as "8.3K" or "1.2M", which is parsed into a plain integer. Rows where either the rating or the vote count is missing are dropped, as both are required as outcome variables.
 ```{python}
-# Insert code for cleaning variables used to compare ratings by industry and country.
+# =============================================================================
+# Q6 — DATA CLEANING
+# Target columns: stars, directors, writers, rating, votes
+# =============================================================================
+
+q6_raw = df_raw[['id', 'title', 'stars', 'directors', 'writers',
+                  'rating', 'votes']].copy()
+
+print(f"Starting rows: {len(q6_raw):,}")
+print(f"\nMissing values before cleaning:")
+print(q6_raw.isnull().sum().to_string())
+
+# Step 1 — Parse stringified list columns into real Python lists
+q6_raw['stars_list']     = q6_raw['stars'].apply(parse_list_col)
+q6_raw['directors_list'] = q6_raw['directors'].apply(parse_list_col)
+q6_raw['writers_list']   = q6_raw['writers'].apply(parse_list_col)
+
+# Step 2 — Convert rating to numeric float
+q6_raw['rating_num'] = pd.to_numeric(q6_raw['rating'], errors='coerce')
+
+# Step 3 — Parse votes (e.g. '8.3K', '1.2M') to integer
+q6_raw['votes_num'] = q6_raw['votes'].apply(parse_votes)
+
+# Step 4 — Filter: both rating and votes must be present
+q6_base = q6_raw[
+    q6_raw['rating_num'].notna() &
+    q6_raw['votes_num'].notna()
+].copy()
+
+print(f"\nRows after requiring both rating and votes: {len(q6_base):,}")
+print(f"Rating range: {q6_base['rating_num'].min():.1f} – {q6_base['rating_num'].max():.1f}")
+print(f"Votes range:  {q6_base['votes_num'].min():,} – {q6_base['votes_num'].max():,}")
 ```
 
-WITE A SHORT DESCRIPTION OF THE DATA CLEANING STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE HANDLING MISSING VALUES, STANDARDIZING CATEGORICAL LABELS, REMOVING OUTLIERS, OR ANY OTHER CLEANING TASKS RELEVANT TO THIS ANALYSIS.
+The cleaning process for Q6 addresses three distinct challenges. First, the `stars`, `directors`, and `writers` columns store lists as plain text strings — these are parsed back into real Python lists using `ast.literal_eval`. Second, the `rating` column is read as text and converted to a float; invalid entries (e.g. empty strings) become `NaN` and are excluded. Third, the `votes` column uses shorthand notation like `"8.3K"` or `"1.2M"` which is parsed into a plain integer. Rows where either the rating or vote count is missing are dropped, because both are required as outcome variables for this question.
 
 ### Data Transformation: Creating X Input and Y Output Variables
+Since the dataset contains no external fame or popularity measure, "well-known" is defined using an **appearance count** proxy: for each person, we count how many unique movies they appear in across the full dataset. The maximum score among all people listed in a given role is assigned to each movie (so one prominent person is enough). Movies are then split into **High-profile** (top 25% by appearance count) and **Low-profile** (bottom 75%) for each role separately. These profile tier labels are the X input variables; `rating_num` and `votes_num` are the Y output variables.
 
 ```{python}
-# Insert code for selecting the columns required for this question.
+# =============================================================================
+# Q6 — DATA TRANSFORMATION
+# =============================================================================
+
+def compute_fame(list_col, role_label):
+    exploded = (
+        df_raw[['id', list_col]]
+        .assign(**{list_col: df_raw[list_col].apply(parse_list_col)})
+        .explode(list_col)
+        .dropna(subset=[list_col])
+        .rename(columns={list_col: 'person'})
+    )
+    exploded['person'] = exploded['person'].str.strip()
+    exploded = exploded[exploded['person'] != '']
+
+    fame_count = (
+        exploded.groupby('person')['id']
+        .nunique()
+        .reset_index()
+        .rename(columns={'id': f'{role_label}_fame'})
+    )
+    merged    = exploded.merge(fame_count, on='person', how='left')
+    movie_max = merged.groupby('id')[f'{role_label}_fame'].max().reset_index()
+    return movie_max
+
+star_fame     = compute_fame('stars',     'star')
+director_fame = compute_fame('directors', 'director')
+writer_fame   = compute_fame('writers',   'writer')
+
+# Merge all three fame scores onto q6_base
+q6 = q6_base[['id','title','rating_num','votes_num',
+               'stars_list','directors_list','writers_list']].copy()
+q6 = q6.merge(star_fame,     on='id', how='left')
+q6 = q6.merge(director_fame, on='id', how='left')
+q6 = q6.merge(writer_fame,   on='id', how='left')
+
+# Combined fame: average of the three role scores
+q6['combined_fame'] = q6[['star_fame','director_fame','writer_fame']].mean(axis=1)
+
+# Profile tiers (computed separately per role so each threshold is role-specific)
+ROLES       = ['star',        'director',        'writer']
+FAME_COLS   = ['star_fame',   'director_fame',   'writer_fame']
+TIER_COLS   = ['star_profile_tier','director_profile_tier','writer_profile_tier']
+ROLE_LABELS = {'star':'Stars','director':'Directors','writer':'Writers'}
+ROLE_COLORS = {'star': GOLD,  'director': CYAN,      'writer': CORAL}
+
+for role, fame_col, tier_col in zip(ROLES, FAME_COLS, TIER_COLS):
+    threshold  = q6[fame_col].quantile(0.75)
+    q6[tier_col] = q6[fame_col].apply(
+        lambda x: 'High-profile' if pd.notna(x) and x >= threshold else 'Low-profile'
+    )
+
+# Credit count variables
+q6['n_stars']     = q6['stars_list'].apply(len)
+q6['n_directors'] = q6['directors_list'].apply(len)
+q6['n_writers']   = q6['writers_list'].apply(len)
+
+print("Transformation complete. Q6 columns:")
+print([c for c in q6.columns if c not in ['stars_list','directors_list','writers_list']])
+
+# Summary table
+rows = []
+for role, fame_col, tier_col in zip(ROLES, FAME_COLS, TIER_COLS):
+    for tier in ['High-profile', 'Low-profile']:
+        sub = q6[q6[tier_col] == tier]
+        rows.append({
+            'Role'      : ROLE_LABELS[role],
+            'Profile'   : tier,
+            'N'         : len(sub),
+            'Avg Rating': f"{sub['rating_num'].mean():.2f}",
+            'Med Rating': f"{sub['rating_num'].median():.2f}",
+            'Avg Votes' : f"{sub['votes_num'].mean()/1e3:.1f}K",
+            'Med Votes' : f"{sub['votes_num'].median()/1e3:.1f}K",
+        })
+print("\nSummary Table — High-profile vs Low-profile:\n")
+print(pd.DataFrame(rows).to_string(index=False))
+```
+```{python}
+# =============================================================================
+# EXPORT Q6 FINAL DATASET
+# =============================================================================
+
+q6.to_csv("outputs/q6_talent_impact_dataset.csv", index=False)
 ```
 
-WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THIS QUESTION. THIS CAN INCLUDE SELECTING RELEVANT COLUMNS, ENGINEERING NEW FEATURES, OR ANY OTHER TRANSFORMATION TASKS RELEVANT TO THIS ANALYSIS.
-
+The central engineering decision for Q6 is how to operationalize "well-known" without an external fame database. The solution uses **appearance count** — the number of unique movies each person appears in across the full dataset — as a proxy for industry prominence. For each movie the maximum fame score among all listed people in a given role is used, so that one highly prominent person is sufficient to classify a movie as high-profile. The 75th percentile of the fame score distribution within each role is used as the threshold separating High-profile (top 25%) from Low-profile (bottom 75%) movies. The grouping tier is the X input variable; `rating_num` and `votes_num` are the two Y output variables.
 ### Data visualization
 
 ```{python}
