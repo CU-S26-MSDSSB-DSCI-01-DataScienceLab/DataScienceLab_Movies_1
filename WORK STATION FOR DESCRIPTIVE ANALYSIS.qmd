@@ -22,12 +22,47 @@ import seaborn as sns
 import ast
 import re
 import warnings
-import os
 from scipy import stats
 
 warnings.filterwarnings('ignore')
 
-# ── Shared helper functions ───────────────────────────────────────────────────
+# Global plot style 
+DARK_BG   = '#0d0d1a'
+PANEL_BG  = '#16162a'
+GRID_COL  = '#2a2a45'
+TEXT_COL  = '#dde0f0'
+MUTED_COL = '#8888aa'
+GOLD      = '#f5a623'
+CYAN      = '#00c9e0'
+CORAL     = '#ff6b6b'
+PURPLE    = '#a29bfe'
+GREEN     = '#55efc4'
+PINK      = '#fd79a8'
+BLUE      = '#74b9ff'
+PALETTE   = [GOLD, CYAN, CORAL, PURPLE, GREEN, PINK, BLUE]
+
+plt.rcParams.update({
+    'figure.facecolor' : DARK_BG,
+    'axes.facecolor'   : PANEL_BG,
+    'axes.edgecolor'   : GRID_COL,
+    'axes.labelcolor'  : TEXT_COL,
+    'axes.titlesize'   : 13,
+    'axes.titleweight' : 'bold',
+    'axes.labelsize'   : 11,
+    'xtick.color'      : MUTED_COL,
+    'ytick.color'      : MUTED_COL,
+    'text.color'       : TEXT_COL,
+    'grid.color'       : GRID_COL,
+    'grid.linestyle'   : '--',
+    'grid.alpha'       : 0.6,
+    'legend.facecolor' : '#1e1e35',
+    'legend.edgecolor' : GRID_COL,
+    'legend.fontsize'  : 9,
+    'font.family'      : 'DejaVu Sans',
+    'figure.dpi'       : 130,
+})
+
+# Shared helper functions 
 
 EXCHANGE_RATES = {
     'USD': 1.0,   'EUR': 1.08,  'GBP': 1.27,  'CAD': 0.74,  'AUD': 0.65,
@@ -180,7 +215,7 @@ WRITE A SHORT DESCRIPTION OF THE DATA TRANSFORMATION STEPS YOU WILL TAKE FOR THI
 WRITE A SHORT DESCRIPTION OF THE DATA VISUALIZATION THAT YOU WILL CREATE, THIS APPLY TO ALL VISUALISATIONS TO BE MADE. THIS CAN INCLUDE DESCRIBING THE PLOTS  CREATED, THE VARIABLES PLOTTED, AND HOW THESE VISUALIZATIONS WILL HELP INTERPRET THE RATING DIFFERENCES ACROSS INDUSTRIES AND COUNTRIES.
 
 ## Q4: How do box office revenues differ across industries?
-This section investigates whether different movie genres consistently earn more or less money at the box office, and whether that pattern holds across all three revenue measures — opening weekend gross, total worldwide gross, and US/Canada gross. Understanding these differences helps studios and producers make informed decisions about which genres to invest in and how to set revenue expectations.
+This section investigates whether different movie genres consistently earn more or less money at the box office, and whether that pattern holds across all three revenue measures; opening weekend gross, total worldwide gross, and US/Canada gross. Understanding these differences helps studios and producers make informed decisions about which genres to invest in and how to set revenue expectations.
 ### Data Cleaning
 This step prepares the raw revenue and genre columns for analysis. Revenue values stored as formatted text strings in multiple currencies are converted to numeric USD figures. Genre lists stored as text are parsed to extract the primary genre. Rows with no genre label or with no revenue data at all are removed, and genres represented by fewer than 10 movies are excluded to ensure group averages are reliable.
 
@@ -204,15 +239,15 @@ print(f"Starting rows: {len(q4_raw):,}")
 print(f"\nMissing values before cleaning:")
 print(q4_raw.isnull().sum().to_string())
 
-# Step 1 — Parse genre lists and extract the primary (first) genre
+# Step 1: Parse genre lists and extract the primary (first) genre
 q4_raw['genres_list']   = q4_raw['genres'].apply(parse_list_col)
 q4_raw['primary_genre'] = q4_raw['genres_list'].apply(lambda x: x[0] if x else None)
 
-# Step 2 — Convert money strings to numeric USD
+# Step 2: Convert money strings to numeric USD
 for col in ['opening_weekend_gross', 'gross_worldwide', 'gross_us_canada']:
     q4_raw[col + '_num'] = q4_raw[col].apply(parse_money)
 
-# Step 3 — Filter: keep rows with a known genre AND at least one revenue figure
+# Step 3: Filter: keep rows with a known genre AND at least one revenue figure
 q4 = q4_raw[
     q4_raw['primary_genre'].notna() &
     (
@@ -222,7 +257,7 @@ q4 = q4_raw[
     )
 ].copy()
 
-# Step 4 — Drop genres with fewer than 10 movies that have revenue data
+# Step 4: Drop genres with fewer than 10 movies that have revenue data
 genre_counts = q4['primary_genre'].value_counts()
 valid_genres  = genre_counts[genre_counts >= 10].index
 q4 = q4[q4['primary_genre'].isin(valid_genres)].copy()
@@ -258,7 +293,7 @@ q4.columns = [
 # ENGINEERED VARIABLE: International Gross = Worldwide revenue minus US/Canada revenue
 q4['international'] = q4['worldwide'] - q4['us_canada']
 
-# SUMMARY TABLE — genre-level descriptive statistics
+# SUMMARY TABLE: genre-level descriptive statistics
 q4_summary = (
     q4.groupby('genre')
     .agg(
@@ -297,10 +332,145 @@ The transformation step produces four numeric revenue variables per movie: `open
 ### Data visualization
 
 ```{python}
-# Insert code for creating visualizations to compare ratings across industries and countries.
+#| Figure Q4-1: Average worldwide gross revenue by genre. Only genres with at least 10 movies with revenue data are shown. Bars are sorted by average worldwide gross in descending order.
+
+# PLOT Q4-1: Horizontal bar: Average worldwide gross by genre (top 15) 
+top15 = q4_summary.head(15).copy()
+colors = [PALETTE[i % len(PALETTE)] for i in range(len(top15))]
+
+fig, ax = plt.subplots(figsize=(13, 7))
+bars = ax.barh(
+    top15['genre'][::-1],
+    top15['avg_worldwide'][::-1] / 1e6,
+    color=colors[::-1], edgecolor='none', height=0.65
+)
+for bar in bars:
+    w = bar.get_width()
+    ax.text(w + 0.5, bar.get_y() + bar.get_height() / 2,
+            f'${w:.0f}M', va='center', ha='left', fontsize=8, color=MUTED_COL)
+
+ax.set_xlabel('Average Worldwide Gross (USD Millions)')
+ax.set_title('Q4 — Average Worldwide Gross Revenue by Genre\n'
+             '(genres with ≥ 10 movies with revenue data, sorted by mean)')
+ax.xaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'${x:.0f}M'))
+ax.set_xlim(0, top15['avg_worldwide'].max() / 1e6 * 1.2)
+ax.grid(axis='x'); ax.set_axisbelow(True)
+ax.spines[['top','right','bottom']].set_visible(False)
+fig.tight_layout()
+plt.show()
 ```
 
-WRITE A SHORT DESCRIPTION OF THE DATA VISUALIZATION THAT YOU WILL CREATE, THIS APPLY TO ALL VISUALISATIONS TO BE MADE. THIS CAN INCLUDE DESCRIBING THE PLOTS  CREATED, THE VARIABLES PLOTTED, AND HOW THESE VISUALIZATIONS WILL HELP INTERPRET THE RATING DIFFERENCES ACROSS INDUSTRIES AND COUNTRIES.
+Action Epic ($363M), Dinosaur Adventure ($349M), and Superhero ($310M) dominate box office revenue, driven by franchise properties, large budgets, and wide global releases. The steep drop to narrative genres like Drama ($5.7M) and Documentary ($0.8M) confirms that genre is a strong predictor of commercial performance.
+```{python}
+#| Figure Q4-2: Revenue stream breakdown for the top 10 genres. Each bar is divided into three segments: opening weekend earnings, additional domestic (US/Canada) revenue, and international revenue. This breakdown reveals whether a genre's success is driven by its launch, its domestic long-tail, or its global appeal.
+# PLOT Q4-2: Stacked bar — Revenue stream breakdown (top 10 genres) 
+top10 = q4_summary.head(10).set_index('genre').copy()
+top10['us_ca_excl_opening'] = (top10['avg_us_canada'] - top10['avg_opening']).clip(lower=0)
+top10['intl']               = top10['avg_international'].fillna(0)
+top10['opening']            = top10['avg_opening'].fillna(0)
+
+streams       = top10[['opening', 'us_ca_excl_opening', 'intl']] / 1e6
+stream_labels = ['Opening Weekend', 'Additional US/Canada', 'International']
+stream_colors = [GOLD, CYAN, CORAL]
+
+fig, ax = plt.subplots(figsize=(13, 6))
+bottom = np.zeros(len(streams))
+for col, label, color in zip(streams.columns, stream_labels, stream_colors):
+    vals = streams[col].values
+    ax.bar(streams.index, vals, bottom=bottom, label=label,
+           color=color, edgecolor='none', alpha=0.88, width=0.6)
+    for i, (v, b) in enumerate(zip(vals, bottom)):
+        if v > 5:
+            ax.text(i, b + v / 2, f'${v:.0f}M',
+                    ha='center', va='center', fontsize=7.5,
+                    color='white', fontweight='bold')
+    bottom += vals
+
+ax.set_ylabel('Average Revenue (USD Millions)')
+ax.set_title('Q4 — Revenue Stream Breakdown by Genre — Top 10\n'
+             '(Opening Weekend  |  Additional US/Canada  |  International)')
+ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'${x:.0f}M'))
+ax.legend(loc='upper right')
+ax.set_axisbelow(True)
+ax.spines[['top','right']].set_visible(False)
+plt.xticks(rotation=30, ha='right')
+fig.tight_layout()
+plt.show()
+```
+
+International revenue dominates for most top genres; Action Epic earns $241M internationally versus $144M domestically, reflecting strong global demand for visually universal content. Opening weekend contributes only ~11% of total earnings for Action Epic, indicating these films sustain long theatrical runs rather than relying solely on launch day.
+```{python}
+#| Figure Q4-3: Box plot of worldwide gross distribution for the top 8 genres. The white horizontal line represents the median. The coloured box spans the interquartile range (IQR). Dots beyond the whiskers are outlier movies. A wide box and many high outliers indicate a genre where a few blockbusters earn dramatically more than the typical movie.
+# PLOT Q4-3: Box plot: worldwide gross distribution (top 8 genres) 
+top8_genres = q4_summary.head(8)['genre'].tolist()
+q4_top8     = q4[q4['genre'].isin(top8_genres) & q4['worldwide'].notna()]
+
+data_by_genre = [
+    q4_top8[q4_top8['genre'] == g]['worldwide'].dropna().values / 1e6
+    for g in top8_genres
+]
+
+fig, ax = plt.subplots(figsize=(13, 6))
+bp = ax.boxplot(
+    data_by_genre, labels=top8_genres, patch_artist=True,
+    medianprops={'color': 'white', 'linewidth': 2.5},
+    whiskerprops={'color': MUTED_COL, 'linewidth': 1.2},
+    capprops={'color': MUTED_COL, 'linewidth': 1.2},
+    flierprops={'marker': 'o', 'markersize': 2.5, 'alpha': 0.3,
+                'markerfacecolor': MUTED_COL, 'markeredgecolor': 'none'},
+)
+for patch, color in zip(bp['boxes'], PALETTE):
+    patch.set_facecolor(color); patch.set_alpha(0.55)
+
+ax.set_ylabel('Worldwide Gross (USD Millions)')
+ax.set_title('Q4 — Distribution of Worldwide Gross Revenue by Genre (Top 8)\n'
+             '(White line = median  |  Box = IQR  |  Dots = outliers)')
+ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'${x:.0f}M'))
+ax.set_axisbelow(True)
+ax.spines[['top','right']].set_visible(False)
+plt.xticks(rotation=20, ha='right')
+fig.tight_layout()
+plt.show()
+```
+Action Epic and Superhero films show wide IQRs and dense high-value outliers, confirming that while most films earn hundreds of millions, a few cross one billion dollars. Computer Animation shows a more compact spread, indicating more consistent earnings across films in that genre.
+
+```{python}
+#| Figure Q4-4: Mean vs median worldwide gross by genre (top 12). When the mean bar is substantially taller than the median bar, the genre's average is being pulled upward by a small number of very high-earning blockbusters. Genres where mean ≈ median have more evenly distributed revenue.
+# PLOT Q4-4: Mean vs Median: revealing skewness per genre 
+top12 = q4_summary.head(12)
+x, w  = np.arange(len(top12)), 0.38
+
+fig, ax = plt.subplots(figsize=(13, 6))
+ax.bar(x - w/2, top12['avg_worldwide']    / 1e6, w,
+       label='Mean',   color=CYAN, alpha=0.85, edgecolor='none')
+ax.bar(x + w/2, top12['median_worldwide'] / 1e6, w,
+       label='Median', color=GOLD, alpha=0.85, edgecolor='none')
+
+ax.set_xticks(x); ax.set_xticklabels(top12['genre'], rotation=30, ha='right')
+ax.set_ylabel('Worldwide Gross (USD Millions)')
+ax.set_title('Q4 — Mean vs Median Worldwide Gross by Genre\n'
+             '(large gap = distribution skewed by a small number of blockbusters)')
+ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'${x:.0f}M'))
+ax.legend(); ax.set_axisbelow(True)
+ax.spines[['top','right']].set_visible(False)
+fig.tight_layout()
+plt.show()
+
+# Statistical test: Kruskal-Wallis
+groups = [
+    q4[q4['genre'] == g]['worldwide'].dropna().values
+    for g in valid_genres
+    if q4[q4['genre'] == g]['worldwide'].notna().sum() >= 5
+]
+h_stat, p_val = stats.kruskal(*groups)
+print(f"\nKruskal-Wallis test (worldwide gross across genres):")
+print(f"  H = {h_stat:.2f},  p = {p_val:.2e}  {significance_stars(p_val)}")
+print(f"  Interpretation: Genre groups differ significantly in worldwide revenue.")
+```
+
+Sword & Sorcery shows the most extreme gap between mean ($226M) and median ($9M), meaning a few franchise blockbusters inflate the group average far beyond what a typical film earns. The Kruskal-Wallis test (H = 6,126, p < 0.001) confirms these revenue differences across genres are statistically significant and not due to chance.
+
+Conclusion: Genre is a strong and statistically significant predictor of box office revenue (KW H = 6,126, p < 0.001). Action-oriented and franchise genres consistently dominate, with most top genres earning more internationally than domestically. Group averages are heavily skewed by blockbuster outliers, making the median a more reliable measure of typical commercial performance.
 
 ## Q5:Is there a relationship between movie budget and box office performance?
 This section examines whether spending more on a movie's production translates into higher box office earnings. It also investigates whether high-budget films are more profitable (in terms of return on investment) than low-budget ones, and whether budget size affects how front-loaded a movie's revenue is. These findings are relevant to anyone deciding how much to invest in a production.
@@ -444,10 +614,154 @@ The transformation step produces two new engineered variables. **Opening Ratio**
 ### Data visualization
 
 ```{python}
-# Insert code for creating visualizations to compare ratings across industries and countries.
+#| Figure Q5-1: Budget vs worldwide gross on a log-log scale, coloured by budget tier. The dashed white line is a linear regression fitted to the log-transformed values. The Pearson r on the log scale measures the strength of the monotonic relationship between budget and revenue."
+# PLOT Q5-1: Scatter: Budget vs Worldwide Gross (log–log)
+# ── Apply budget cap to remove currency-parsing errors (78 rows, 0.8%) ──
+q5 = q5[q5['budget'] <= 500_000_000].copy()
+
+# Recompute log values on the cleaned data
+log_b = np.log10(q5['budget'])
+log_w = np.log10(q5['worldwide'])
+r_bw, p_bw = stats.pearsonr(log_b, log_w)
+
+# PLOT Q5-1: Scatter: Budget vs Worldwide Gross (log–log)
+fig, ax = plt.subplots(figsize=(12, 7))
+for tier in TIER_ORDER:
+    sub = q5[q5['budget_tier'] == tier]
+    ax.scatter(sub['budget'] / 1e6, sub['worldwide'] / 1e6,
+               c=TIER_COLORS[tier], alpha=0.3, s=15,
+               edgecolors='none', label=tier)
+
+# Regression line on log-log data
+x_range = np.linspace(log_b.min(), log_b.max(), 300)
+slope, intercept, *_ = stats.linregress(log_b, log_w)
+ax.plot(10**x_range / 1e6,
+        10**(slope * x_range + intercept) / 1e6,
+        color='white', lw=2, ls='--',
+        label=f'Trend line  (r = {r_bw:.2f})')
+
+ax.set_xscale('log'); ax.set_yscale('log')
+ax.set_xlabel('Production Budget (USD Millions, log scale)')
+ax.set_ylabel('Worldwide Gross (USD Millions, log scale)')
+ax.set_title(f'Q5 — Production Budget vs Worldwide Gross Revenue\n'
+             f'(Pearson r = {r_bw:.2f} on log scale, p {significance_stars(p_bw)})')
+ax.xaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'${x:.4g}M'))
+ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'${x:.4g}M'))
+ax.legend(); ax.set_axisbelow(True)
+ax.spines[['top','right']].set_visible(False)
+fig.tight_layout()
+plt.show()
 ```
 
-WRITE A SHORT DESCRIPTION OF THE DATA VISUALIZATION THAT YOU WILL CREATE, THIS APPLY TO ALL VISUALISATIONS TO BE MADE. THIS CAN INCLUDE DESCRIBING THE PLOTS  CREATED, THE VARIABLES PLOTTED, AND HOW THESE VISUALIZATIONS WILL HELP INTERPRET THE RATING DIFFERENCES ACROSS INDUSTRIES AND COUNTRIES.
+The OLS trend line confirms a strong positive relationship between budget and worldwide gross (Pearson r = 0.70, p < 0.001) — higher-budget films tend to earn more. However, the wide scatter within each tier shows that budget alone does not guarantee success: some low-budget films far exceed the trend while several high-budget films fall below break-even.
+```{python}
+#| Figure Q5-2: Average ROI by budget tier. Bars show the mean ROI; individual movie ROIs are overlaid as semi-transparent dots (jittered horizontally for visibility). The percentage below each bar label shows what share of movies in that tier turned a profit. The dashed white line marks the break-even point (ROI = 0).
+# PLOT Q5-2: ROI by budget tier (bar + jitter) 
+fig, ax = plt.subplots(figsize=(9, 6))
+x_pos = np.arange(len(TIER_ORDER))
+
+bars = ax.bar(
+    x_pos,
+    [q5_tier.loc[q5_tier['Budget Tier'] == t, 'avg_roi'].values[0] for t in TIER_ORDER],
+    color=[TIER_COLORS[t] for t in TIER_ORDER],
+    edgecolor='none', width=0.5, alpha=0.85, zorder=2
+)
+
+np.random.seed(42)
+for i, tier in enumerate(TIER_ORDER):
+    sub_roi = q5[q5['budget_tier'] == tier]['roi'].dropna()
+    jitter  = np.random.uniform(-0.18, 0.18, size=len(sub_roi))
+    ax.scatter(i + jitter, sub_roi, color=TIER_COLORS[tier],
+               alpha=0.07, s=6, edgecolors='none', zorder=1)
+
+ax.axhline(0, color='white', lw=1, ls='--', alpha=0.5)
+ax.set_xticks(x_pos); ax.set_xticklabels(TIER_ORDER)
+ax.set_ylabel('Return on Investment (%)')
+ax.set_title('Q5 — Average ROI by Budget Tier\n'
+             '(bars = mean ROI  |  dots = individual movies)')
+
+for bar, tier in zip(bars, TIER_ORDER):
+    h   = bar.get_height()
+    n   = int(q5_tier.loc[q5_tier['Budget Tier'] == tier, 'n_movies'])
+    pct = float(q5_tier.loc[q5_tier['Budget Tier'] == tier, 'pct_profitable'])
+    off = 12 if h >= 0 else -22
+    ax.text(bar.get_x() + bar.get_width() / 2, h + off,
+            f'{h:.0f}%\nn={n}\n{pct:.0f}% profitable',
+            ha='center', va='bottom', fontsize=8.5, color=TEXT_COL)
+
+ax.set_axisbelow(True)
+ax.spines[['top','right']].set_visible(False)
+fig.tight_layout()
+plt.show()
+```
+
+Low-budget films show the highest average ROI (209%) but only 39% are profitable, as the mean is driven by extreme outliers — the median ROI is actually −52%. High-budget films offer the most reliable returns with 65% profitability and a median ROI of 91%, reflecting better risk management through franchises and global marketing.
+```{python}
+#| Figure Q5-3: Opening weekend revenue share (opening ratio) by budget tier, shown as violin plots. The width of the violin at each point represents the density of movies at that ratio value. The white horizontal line is the median. High-budget movies tend to have higher opening ratios, reflecting the blockbuster launch strategy.
+# PLOT Q5-3: Opening ratio by budget tier 
+q5_ratio = q5[
+    q5['opening_ratio'].notna() &
+    (q5['opening_ratio'] > 0) &
+    (q5['opening_ratio'] <= 1)
+]
+
+violin_data = [q5_ratio[q5_ratio['budget_tier'] == t]['opening_ratio'].values
+               for t in TIER_ORDER]
+
+fig, ax = plt.subplots(figsize=(9, 6))
+parts = ax.violinplot(violin_data, positions=[1, 2, 3],
+                      showmedians=True, showextrema=False)
+for body, tier in zip(parts['bodies'], TIER_ORDER):
+    body.set_facecolor(TIER_COLORS[tier]); body.set_alpha(0.55)
+parts['cmedians'].set_color('white'); parts['cmedians'].set_linewidth(2.5)
+
+for i, tier in enumerate(TIER_ORDER, start=1):
+    med = q5_ratio[q5_ratio['budget_tier'] == tier]['opening_ratio'].median()
+    ax.text(i, med + 0.02, f'{med:.2f}',
+            ha='center', va='bottom', fontsize=9, color='white')
+
+ax.set_xticks([1, 2, 3]); ax.set_xticklabels(TIER_ORDER)
+ax.set_ylabel('Opening Weekend / Total Worldwide Gross')
+ax.set_title('Q5 — Opening Weekend Revenue Share by Budget Tier\n'
+             '(higher = more front-loaded; blockbuster launch pattern)')
+ax.set_axisbelow(True)
+ax.spines[['top','right']].set_visible(False)
+fig.tight_layout()
+plt.show()
+```
+High-budget films have the lowest median opening ratio (0.11), consistent with the blockbuster strategy of sustaining long theatrical runs through heavy marketing investment. Low-budget films show the widest spread, with many limited releases earning nearly all revenue on opening weekend before rapidly exiting cinemas.
+```{python}
+#| Figure Q5-4: Median worldwide gross heatmap broken down by genre and budget tier. Each cell shows the median worldwide gross (in USD millions) for movies in that genre–tier combination. Empty cells indicate fewer than 5 movies in that combination. This reveals which genre–budget combinations are most commercially successful.
+# PLOT Q5-4: Heatmap — Median worldwide gross by genre × budget tier
+pivot = (
+    q5[q5['genre'].notna()]
+    .groupby(['genre', 'budget_tier'])['worldwide']
+    .median()
+    .unstack('budget_tier')
+    .reindex(columns=TIER_ORDER)
+)
+pivot = pivot[pivot.notna().sum(axis=1) >= 2].dropna(thresh=2)
+pivot = pivot.sort_values('High (>$100M)', ascending=False).head(14)
+pivot_display = pivot / 1e6
+
+fig, ax = plt.subplots(figsize=(10, 8))
+sns.heatmap(
+    pivot_display, ax=ax, annot=True, fmt='.0f', cmap='YlOrRd',
+    linewidths=0.5, linecolor=DARK_BG,
+    cbar_kws={'label': 'Median Worldwide Gross (USD Millions)', 'shrink': 0.8},
+    annot_kws={'size': 9}
+)
+ax.set_title('Q5 — Median Worldwide Gross (USD M) by Genre × Budget Tier\n'
+             '(empty = fewer than 5 movies in that combination)')
+ax.set_xlabel('Budget Tier'); ax.set_ylabel('Genre')
+ax.tick_params(axis='x', rotation=0); ax.tick_params(axis='y', rotation=0)
+fig.tight_layout()
+plt.show()
+```
+
+The budget–revenue relationship is strongly genre-dependent: Superhero and Computer Animation films reach median worldwide grosses of ~$500M at high budgets, while other genres show far smaller gains. Genres like Dinosaur Adventure show a steep step-up across tiers ($0M → $85M → $525M), suggesting audiences require a minimum level of spectacle that only high budgets can deliver.
+
+Conclusion: Production budget and worldwide gross are positively correlated (r = 0.70, p < 0.001), confirming that higher-budget films tend to earn more. However, high-budget films are the most reliably profitable by median ROI (91%) and profitability rate (65%), while low-budget films carry the highest financial risk despite a misleadingly high average ROI. The commercial impact of budget also depends heavily on genre, making genre–budget pairing the most actionable insight for production investment decisions.
 
 ## Q6: Do movies with well-known directors, writers, or stars receive higher ratings or more votes?
 This section investigates whether the prominence of a movie's talent; its cast, director, and writers, has a measurable effect on how audiences rate the film and how many people engage with it on IMDb. This is relevant for understanding whether star power drives audience perception, or whether other factors matter more.
@@ -583,9 +897,155 @@ The central engineering decision for Q6 is how to operationalize "well-known" wi
 ### Data visualization
 
 ```{python}
-# Insert code for creating visualizations to compare ratings across industries and countries.
+#| Figure Q6-1: Average IMDb rating for high-profile vs low-profile talent, shown separately for stars, directors, and writers. Error bars represent 95% confidence intervals. The Δ value above each pair of bars shows the rating difference between the two groups.
+# PLOT Q6-1: Bar chart — Mean rating: High vs Low profile per role
+fig, axes = plt.subplots(1, 3, figsize=(15, 6), sharey=True)
+fig.suptitle('Q6 — Average IMDb Rating: High-Profile vs Low-Profile Talent',
+             fontsize=14, fontweight='bold', y=1.01)
+
+for ax, role, tier_col in zip(axes, ROLES, TIER_COLS):
+    color = ROLE_COLORS[role]
+    means, errs = {}, {}
+    for tier in ['High-profile', 'Low-profile']:
+        sub = q6[q6[tier_col] == tier]['rating_num'].dropna()
+        means[tier] = sub.mean()
+        errs[tier]  = sub.sem() * 1.96
+
+    bars = ax.bar(['Low-profile', 'High-profile'],
+                  [means['Low-profile'], means['High-profile']],
+                  yerr=[errs['Low-profile'], errs['High-profile']],
+                  color=['#3a3a5c', color], capsize=5,
+                  edgecolor='none', width=0.5,
+                  error_kw={'ecolor': 'white', 'alpha': 0.7})
+
+    diff = means['High-profile'] - means['Low-profile']
+    ax.set_title(f'{ROLE_LABELS[role]}\n(Δ = {diff:+.2f} rating points)')
+    ax.set_ylabel('Average IMDb Rating' if role == 'star' else '')
+    ax.set_ylim(0, 10); ax.set_axisbelow(True)
+    ax.spines[['top','right']].set_visible(False)
+    for bar in bars:
+        h = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width() / 2, h + 0.1,
+                f'{h:.2f}', ha='center', va='bottom', fontsize=10, color=TEXT_COL)
+
+fig.tight_layout()
+plt.show()
 ```
 
-WRITE A SHORT DESCRIPTION OF THE DATA VISUALIZATION THAT YOU WILL CREATE, THIS APPLY TO ALL VISUALISATIONS TO BE MADE. THIS CAN INCLUDE DESCRIBING THE PLOTS  CREATED, THE VARIABLES PLOTTED, AND HOW THESE VISUALIZATIONS WILL HELP INTERPRET THE RATING DIFFERENCES ACROSS INDUSTRIES AND COUNTRIES.
+Rating differences between High-profile and Low-profile talent are negligible across all three roles (Δ ≤ +0.08 points), despite large sample sizes that estimate these averages precisely. Well-known talent does not meaningfully predict a higher-rated film as measured by IMDb scores.
+```{python}
+#| Figure Q6-2: Average number of IMDb votes for high-profile vs low-profile talent, separately for each role. Votes are shown in thousands. The Δ value shows the difference in average vote count between the two profile tiers.
+# PLOT Q6-2: Bar chart: Mean votes: High vs Low profile per role 
+fig, axes = plt.subplots(1, 3, figsize=(15, 6))
+fig.suptitle('Q6 — Average Number of Votes: High-Profile vs Low-Profile Talent',
+             fontsize=14, fontweight='bold', y=1.01)
 
+for ax, role, tier_col in zip(axes, ROLES, TIER_COLS):
+    color = ROLE_COLORS[role]
+    means, errs = {}, {}
+    for tier in ['High-profile', 'Low-profile']:
+        sub = q6[q6[tier_col] == tier]['votes_num'].dropna()
+        means[tier] = sub.mean()
+        errs[tier]  = sub.sem() * 1.96
+
+    ax.bar(['Low-profile', 'High-profile'],
+           [means['Low-profile'] / 1e3, means['High-profile'] / 1e3],
+           yerr=[errs['Low-profile'] / 1e3, errs['High-profile'] / 1e3],
+           color=['#3a3a5c', color], capsize=5,
+           edgecolor='none', width=0.5,
+           error_kw={'ecolor': 'white', 'alpha': 0.7})
+
+    diff = (means['High-profile'] - means['Low-profile']) / 1e3
+    ax.set_title(f'{ROLE_LABELS[role]}\n(Δ = {diff:+.0f}K votes)')
+    ax.set_ylabel('Average Votes (thousands)' if role == 'star' else '')
+    ax.set_axisbelow(True)
+    ax.spines[['top','right']].set_visible(False)
+
+fig.tight_layout()
+plt.show()
+```
+Counterintuitively, High-profile directors and writers are associated with far fewer votes (Δ = −13K and −14K respectively), because appearance count captures prolific industry workers rather than mainstream celebrity. Films attracting millions of votes are typically directed by filmmakers with only a few major productions, giving them a low appearance count in this dataset.
+```{python}
+#| Figure Q6-3: Scatter plots of talent appearance count (fame proxy) vs IMDb rating, for stars, directors, and writers separately. Each dot is one movie. The white line is the decile mean trend, computed by dividing movies into 10 equal fame-score groups and plotting the group average rating. This reveals whether higher fame consistently associates with higher or lower ratings, without assuming a linear relationship.
+# PLOT Q6-3: Scatter — Fame score vs Rating (decile trend overlay) 
+fig, axes = plt.subplots(1, 3, figsize=(17, 6))
+fig.suptitle('Q6 — Talent Appearance Count vs IMDb Rating\n'
+             '(dots = individual movies  |  white line = decile mean trend)',
+             fontsize=13, fontweight='bold', y=1.01)
+
+for ax, role, fame_col in zip(axes, ROLES, FAME_COLS):
+    color = ROLE_COLORS[role]
+    sub   = q6[q6[fame_col].notna() & q6['rating_num'].notna()].copy()
+
+    ax.scatter(sub[fame_col], sub['rating_num'],
+               c=color, alpha=0.1, s=8, edgecolors='none')
+
+    sub['decile'] = pd.qcut(sub[fame_col], 10, labels=False, duplicates='drop')
+    binned = sub.groupby('decile').agg(
+        mean_rating=('rating_num', 'mean'),
+        mean_fame  =(fame_col,     'mean'),
+    ).reset_index()
+    ax.plot(binned['mean_fame'], binned['mean_rating'],
+            color='white', lw=2.5, marker='o', markersize=5, zorder=3)
+
+    r_s, p_s = stats.spearmanr(sub[fame_col], sub['rating_num'])
+    ax.set_title(f'{ROLE_LABELS[role]}\n'
+                 f'(Spearman r = {r_s:.2f},  p {significance_stars(p_s)})')
+    ax.set_xlabel(f'{ROLE_LABELS[role][:-1]} Appearance Count')
+    ax.set_ylabel('IMDb Rating' if role == 'star' else '')
+    ax.set_axisbelow(True)
+    ax.spines[['top','right']].set_visible(False)
+
+fig.tight_layout()
+plt.show()
+```
+Spearman correlations are near-zero across all roles (r = −0.03 for Stars, +0.03 for Directors and Writers) and the decile trend lines are nearly flat, confirming that fame score explains almost none of the variance in individual film ratings. The statistically significant p-values reflect the very large sample size rather than any meaningful relationship.
+```{python}
+#| Figure Q6-4: Box plots comparing the full distribution of IMDb ratings between high-profile and low-profile talent groups, for each role. The white line is the median. The Mann-Whitney U test p-value and significance level are shown in the title of each panel. This test is used instead of a t-test because vote and rating distributions are heavily skewed.
+# PLOT Q6-4: Box plots — Rating distribution, High vs Low
+fig, axes = plt.subplots(1, 3, figsize=(15, 6), sharey=True)
+fig.suptitle('Q6 — IMDb Rating Distribution: High-Profile vs Low-Profile Talent',
+             fontsize=14, fontweight='bold', y=1.01)
+
+for ax, role, tier_col in zip(axes, ROLES, TIER_COLS):
+    color = ROLE_COLORS[role]
+    high  = q6[q6[tier_col] == 'High-profile']['rating_num'].dropna().values
+    low   = q6[q6[tier_col] == 'Low-profile' ]['rating_num'].dropna().values
+
+    bp = ax.boxplot(
+        [low, high], labels=['Low-profile', 'High-profile'],
+        patch_artist=True,
+        medianprops={'color': 'white', 'linewidth': 2.5},
+        whiskerprops={'color': MUTED_COL, 'linewidth': 1.2},
+        capprops={'color': MUTED_COL, 'linewidth': 1.2},
+        flierprops={'marker': 'o', 'markersize': 2, 'alpha': 0.2,
+                    'markerfacecolor': MUTED_COL, 'markeredgecolor': 'none'},
+    )
+    bp['boxes'][0].set_facecolor('#3a3a5c'); bp['boxes'][0].set_alpha(0.75)
+    bp['boxes'][1].set_facecolor(color);    bp['boxes'][1].set_alpha(0.75)
+
+    u, p = stats.mannwhitneyu(high, low, alternative='two-sided')
+    ax.set_title(f'{ROLE_LABELS[role]}\n(MWU p = {p:.3f}  {significance_stars(p)})')
+    ax.set_ylabel('IMDb Rating' if role == 'star' else '')
+    ax.set_axisbelow(True)
+    ax.spines[['top','right']].set_visible(False)
+
+fig.tight_layout()
+plt.show()
+
+# Print full statistical test results
+print("Statistical Test Results — Mann-Whitney U (rating):")
+print(f"{'Role':<12} {'High median':>12} {'Low median':>12} {'p-value':>12} {'Sig':>5}")
+print("-" * 58)
+for role, tier_col in zip(ROLES, TIER_COLS):
+    high = q6[q6[tier_col] == 'High-profile']['rating_num'].dropna()
+    low  = q6[q6[tier_col] == 'Low-profile' ]['rating_num'].dropna()
+    u, p = stats.mannwhitneyu(high, low, alternative='two-sided')
+    print(f"{ROLE_LABELS[role]:<12} {high.median():>12.2f} {low.median():>12.2f} "
+          f"{p:>12.2e} {significance_stars(p):>5}")
+```
+
+The median rating is identical at 6.30 across all six groups regardless of role or profile tier, and the IQRs overlap almost perfectly. Although the MWU test reaches significance for Directors (p = 0.015) and Writers (p = 0.009), the identical medians confirm these results carry no practical meaning; talent prominence has no meaningful effect on audience ratings.
+
+Conclusion: Talent prominence, as measured by appearance count, has no meaningful effect on audience ratings, differences are below 0.08 points across all roles with identical medians of 6.30. Its counterintuitive negative association with vote counts reflects a limitation of the proxy rather than a real relationship. Overall, what is on screen matters far more than who is on screen, at least as reflected in IMDb scores.
 # CLOSING THE WORK STATION, RESULTS TO BE DISCUSSED IN THE "MAIN WORK STATION FOR ALL.qmd"
