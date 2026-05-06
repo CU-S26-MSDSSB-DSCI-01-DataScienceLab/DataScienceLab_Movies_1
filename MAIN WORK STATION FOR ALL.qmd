@@ -1,0 +1,72 @@
+---
+# TITLE: "GROUP WORK STATION OVERALL"
+
+Subtitle: "The main topic, intro, problem statement, hypothesis, methodology, project description, data sources, and sections"
+Authors:
+    - name: "Aya Abdine"
+    - name: "Meriam Al Askri"
+    - name: "Ghofran Mahmoud"
+    - name: "Sami Al Jamal"
+    - name: "Mcolisi Austine"
+    - name: "Kay-Lee Dramat"
+    - name: "Syed Arshan Nehad"
+    - name: "Syed Tamjeed Ur Rahman"
+format:
+    html:
+        toc: true
+        toc-depth: 4
+---
+
+# MAIN TOPIC
+
+**Analyzing and Predicting Movie Success Across Film Industries**
+
+## PURPOSE OF THE STUDY
+
+*This project examines how movie characteristics explain and predict movie success across film industries. The document is structured to move from the introduction and research design into data cleaning, interpretation, machine learning preparation, data splitting, discussion of results, and the final conclusion.*
+
+# INTRODUCTION
+
+This section introduces the project context, the scope of the dataset, and the overall motivation for analyzing and predicting movie success across different film industries.
+
+
+# PROBLEM STATEMENT
+
+This section defines the problem being addressed: identifying which movie characteristics best explain and predict audience evaluation and financial performance.
+
+
+# HYPOTHESES OF THE STUDY
+
+This section states the study hypotheses regarding how genre, duration, budget, release timing, cast, and production context may influence ratings, votes, and box office success.
+
+
+# METHODOLOGY
+
+This section explains the planned workflow, including data preparation, feature construction, exploratory analysis, predictive modeling, and interpretation of the results.
+
+# PROJECT DESCRIPTION
+
+*Write here about the goals and/or list your data science questions.*
+
+# DATA SOURCES
+
+*Write a summary of the data sources you are using. If some data is used in most of the following pages you can already here provide some descriptive tables and visuals to describe your data. You can also use cross-links, for example to your [Dashboard](dashboard.qmd) (optional).*
+
+# SECTIONS
+
+*Write here a short summary of the other pages. You can also use cross-links to your pages like [Section (here `sec2.ipynb`)](sec2.ipynb).*
+
+# DESCRIPTIVE ANALYSIS FINDINGS
+
+*Write here a short summary of the descriptive analysis findings.*
+
+# PREDICTION AND MACHINE LEARNING FINDINGS
+
+*Write here a short summary of the prediction and machine learning findings.*
+
+# OVERALL FINDINGS AND DISCUSSIONS
+*Write here a short summary of the findings and discussion.*
+
+# CONCLUSIONS
+
+*Write here a short summary of the conclusions*
