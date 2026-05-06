@@ -26,6 +26,7 @@ from scipy import stats
 
 warnings.filterwarnings('ignore')
 
+<<<<<<< Updated upstream
 # Global plot style 
 DARK_BG   = '#0d0d1a'
 PANEL_BG  = '#16162a'
@@ -63,6 +64,10 @@ plt.rcParams.update({
 })
 
 # Shared helper functions 
+=======
+
+# ── Shared helper functions ───────────────────────────────────────────────────
+>>>>>>> Stashed changes
 
 EXCHANGE_RATES = {
     'USD': 1.0,   'EUR': 1.08,  'GBP': 1.27,  'CAD': 0.74,  'AUD': 0.65,
