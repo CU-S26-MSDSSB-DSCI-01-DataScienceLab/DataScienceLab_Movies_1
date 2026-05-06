@@ -2,215 +2,123 @@
 
 ## Team
 
-*List all team members and their focus in the project. The “Key” is
-short form for team members to be used later. You can take your
-initials.*
-
-| Name               | Key | Focus (Optional) |
-|--------------------|-----|------------------|
-| Aya Abdine            | AA  |                  
-| Meriam Al Askri       | MA  |                  
-| Ghofran Mahmoud       | GM  |                  
-| Sami Al Jamal         | SJ  |                  
-| Mcolisi Austine       | MA  |
-| Kay-Lee Dramat        | KL  |
-| Syed Arshan Nehad     | SN  |
-| Syed Tamjeed Ur Rahman| SR  |
+| Name | Key | Main Focus |
+|---|---|---|
+| Aya Abdine | AA | Machine Learning Q1-Q3 |
+| Meriam Al Askri | MA | Machine Learning Q1-Q3 |
+| Ghofrane Mahmoud | GM | Descriptive Analysis Q4-Q6 |
+| Kay-Lee Dramat | KL | Descriptive Analysis Q1-Q3 |
+| Mcolisi Austine | AU | Machine Learning Q4 |
+| Arshan | AE | Machine Learning Q5 |
+| Syed | SY | Machine Learning Q6 |
 
 ## Proposal Presentation
 
+### Project Title
+
 Analyzing and Predicting Movie Success Across Film Industries
 
-The film industry is highly competitive, and understanding what makes a movie successful is valuable for producers, studios, and audiences. Many factors such as genre, budget, runtime, cast, release timing, and country of origin may influence how a movie performs in terms of ratings, audience engagement, and box office revenue. This project aims to explore these factors to better understand patterns behind movie success.
+### Project Description
 
-First, we will perform descriptive analysis to examine how ratings, votes, genres, runtime, and box office revenues vary across different film industries. This will help identify trends and relationships in movie performance.
+The film industry is highly competitive, and understanding what makes a movie successful is valuable for producers, studios, and audiences. Many factors such as genre, budget, runtime, cast, release timing, and country of origin may influence how a movie performs in terms of ratings, audience engagement, and box office revenue.
 
-Next, we will apply machine learning techniques to predict movie ratings, audience votes, and box office revenue using movie characteristics. We will also classify movies as successful or less successful and identify the most important factors influencing movie success.
+This project explores these factors using both descriptive analysis and machine learning. The descriptive analysis examines patterns in ratings, votes, genres, runtime, revenue, budget, and movie personnel. The machine learning section builds predictive models for ratings, revenue, votes, release timing effects, and movie success classification.
 
-By combining exploratory analysis and predictive models, this project aims to provide insights into how movie attributes contribute to a film’s performance.
+By combining exploratory analysis and predictive modeling, the project aims to explain how movie attributes contribute to audience evaluation and financial performance.
 
-# Research Question:
-How movie characteristics best explain and predict a movie’s success in terms of audience evaluation and financial performance?
+### Main Research Question
 
-#### Goals/Questions
+How do movie characteristics explain and predict a movie's success in terms of audience evaluation and financial performance?
 
-Descriptive Analysis Questions
+## Research Questions
+
+### Descriptive Analysis Questions
 
 1. How do movie ratings vary across different film industries and countries of origin?
-
 2. What genres receive the highest average ratings and number of votes?
-
 3. How does movie duration influence audience ratings and votes?
-
-4. How do box office revenues (opening weekend, worldwide gross, US/Canada gross) differ across industries?
-
+4. How do box office revenues differ across industries?
 5. Is there a relationship between movie budget and box office performance?
-
 6. Do movies with well-known directors, writers, or stars receive higher ratings or more votes?
 
-Prediction / Machine Learning Questions
+### Machine Learning Questions
 
-1. Can movie success (ratings or vote score) be predicted using features such as genre, duration, budget, and release date?
-
+1. Can movie success, measured by rating, be predicted using features such as genre, duration, budget, and release date?
 2. Can box office revenue be predicted using movie characteristics such as genre, stars, directors, and budget?
-
-3. Can we predict whether a movie will receive a high rating based on its features (genre, runtime, MPA rating, cast, etc.)?
-
+3. Can we predict whether a movie will receive a high rating based on its features?
 4. Can the number of audience votes be predicted using movie popularity factors such as stars, release date, and budget?
+5. How does the timing of a movie's release, such as month or season, influence its box office performance and audience engagement?
+6. Can movies be classified into successful versus less successful categories based on their attributes?
 
-5. How does the timing of a movie’s release (month or season) influence its box office performance and audience engagement?
+## Task Distribution
 
-6. Can movies be classified into successful vs less successful categories based on their attributes?
+Each team member is responsible for cleaning and preparing the variables needed for their assigned question, creating the analysis or model, interpreting the results, and contributing to the final presentation.
 
+### Descriptive Analysis
 
-#### Tasks
+| Team Member | Assigned Questions | Responsibilities |
+|---|---|---|
+| Kay-Lee Dramat | Q1, Q2, Q3 | Analyze rating patterns, genre performance, votes, country or industry patterns, and duration-related descriptive trends. |
+| Ghofrane Mahmoud | Q4, Q5, Q6 | Analyze box office revenue differences, budget and revenue relationships, and the effect of well-known directors, writers, or stars. |
 
-Task Distribution
+### Machine Learning / Prediction
 
-Each team member will first clean and prepare the variables needed for their assigned question.
-This includes handling missing values, formatting variables, and preparing the dataset for analysis.
-After the data preparation step, the team will start working on the assigned research questions.
-
-Descriptive Analysis
-
-Kay-Lee Dramat
-
-Question 1: How does IMDb rating vary across different genres?
-
-Question 2: How does the number of votes vary depending on the country of origin of the movie?
-
-Sami Al Jamal
-
-Question 3: How does movie budget influence worldwide gross revenue?
-
-Question 6: How does MPA rating influence box office performance?
-
-Ghofran Mahmoud
-
-Question 4: How does movie duration affect IMDb ratings?
-
-Question 5: Do movies with well-known stars generate higher opening weekend gross?
-
-Machine Learning / Prediction
-
-Aya Abdine & Meriam Al Askri
-
-Question 1: Predict movie success (ratings or vote score) using features such as genre, duration, budget, and release date.
-
-Question 2: Predict box office revenue using movie characteristics such as genre, stars, directors, and budget.
-
-Question 3: Predict whether a movie will receive a high rating based on its features.
-
-Mcolisi Austine
-
-Question 4: Predict the number of audience votes using factors such as stars, release date, and budget.
-
-Syed Arshan Nehad
-
-Question 5: Analyze how the timing of a movie’s release (month or season) influences box office performance.
-
-Syed Tamjeed Ur Rahman
-
-Question 6: Classify movies into successful vs less successful categories based on their attributes.
+| Team Member | Assigned Questions | Responsibilities |
+|---|---|---|
+| Aya Abdine and Meriam Al Askri | Q1, Q2, Q3 | Build and evaluate models for rating prediction, revenue prediction, and high-rating classification. |
+| Mcolisi Austine | Q4 | Build and evaluate models to predict audience votes using popularity-related movie attributes. |
+| Arshan | Q5 | Analyze and model how release timing affects box office performance and audience engagement. |
+| Syed | Q6 | Build and evaluate classification models for successful versus less successful movies. |
 
 ## Progress Presentation
 
-Writing this section is obligatory *before the *progress*
-presentation! (You can delete this text in italics when done.)*
+### Team Member Contributions
 
-#### Team Member Contributions
+| Team Member | Contribution Since Proposal |
+|---|---|
+| Kay-Lee Dramat | Completed descriptive analysis questions 1, 2, and 3, including data cleaning, exploratory summaries, and visual interpretation. |
+| Ghofrane Mahmoud | Completed descriptive analysis questions 4, 5, and 6, including revenue, budget, and movie personnel analysis. |
+| Aya Abdine | Worked on machine learning questions 1, 2, and 3, including feature cleaning, model training, model comparison, and interpretation. |
+| Meriam Al Askri | Worked on machine learning questions 1, 2, and 3, including feature selection, train-test splitting, evaluation metrics, and visual diagnostics. |
+| Mcolisi Austine | Completed machine learning question 4 by preparing features and training models to predict audience votes. |
+| Arshan | Completed machine learning question 5 by analyzing release month or season and its relationship with box office performance and engagement. |
+| Syed | Completed machine learning question 6 by preparing a success classification target and comparing classification models. |
 
-Briefly describe for each team member what hs been done since the proposal presentation. This can be a list like: "contributed to the data prepatation script, started the page for question 1 and wrote the outline of it, created a first descriptive visual about XYZ, configured GitHub pages such the draft website is live
+### Tasks Until Final Presentation
 
-Team member 1: Text  
-
-Team member 2: Text  
-
-Team member 3: Text  
-
-...
-
-#### Tasks
-
-Create a table with the tasks for the time until the final presentation.
-
-## Final Presentation
-
-Writing this section is obligatory before the **final* presentation!
-(You can delete this text in italics when done.)*
-
-
-#### Team Member Contributions
-
-Briefly describe for each team member what has been done.
-
-Team member 1: Text  
-
-Team member 2: Text  
-
-Team member 3: Text  
-
-...
-
-#### Tasks
-
-Create a table with the tasks for the time until the final presentation.
-
-
-
-## Final note (Optional)
-
-You can write final comments and reflections on what worked well and what not so well in your work plan.
-
-Once the project is graded, you are free to change or remove this page.
-
-## Progress Presentation
-
-*Writing this section is obligatory *before* the **progress**
-presentation! (You can delete this text in italics when done.)*
-
-#### Team Member Contributions
-
-*Briefly describe for each team member what hs been done since the proposal presentation. This can be a list like: "contributed to the data prepatation script, started the page for question 1 and wrote the outline of it, created a first descriptive visual about XYZ, configured GitHub pages such the draft website is live*
-
-*Team member 1*: *Text*  
-
-*Team member 2*: *Text*  
-
-*Team member 3*: *Text*  
-
-...
-
-#### Tasks
-
-*Create a table with the tasks for the time until the final presentation.*
+| Task | Responsible Person(s) | Status |
+|---|---|---|
+| Review all descriptive analysis sections for consistent formatting and explanation. | Kay-Lee, Ghofrane | Completed |
+| Review all machine learning sections for consistent metrics, charts, and interpretations. | Aya, Meriam, Austine, Arshan, Syed | Completed |
+| Check that all datasets, train-test splits, and outputs are saved correctly. | Whole team | Completed |
+| Make sure every question has a clear final answer and limitation. | Whole team | Completed |
+| Prepare final presentation slides. | Whole team | Completed |
+| Practice presentation timing and speaking roles. | Whole team | Completed |
 
 ## Final Presentation
 
-*Writing this section is obligatory before the **final** presentation!
-(You can delete this text in italics when done.)*
+### Team Member Contributions
 
+| Team Member | Final Contribution |
+|---|---|
+| Kay-Lee Dramat | Presented and finalized descriptive analysis questions 1, 2, and 3. |
+| Ghofrane Mahmoud | Presented and finalized descriptive analysis questions 4, 5, and 6. |
+| Aya Abdine | Presented and finalized machine learning questions 1, 2, and part of question 3. |
+| Meriam Al Askri | Presented and finalized machine learning questions 1, 2, and part of question 3. |
+| Mcolisi Austine | Presented and finalized machine learning question 4. |
+| Arshan | Presented and finalized machine learning question 5. |
+| Syed | Presented and finalized machine learning question 6. |
 
-#### Team Member Contributions
+### Final Tasks
 
-*Briefly describe for each team member what has been done.*
+| Task | Responsible Person(s) | Status |
+|---|---|---|
+| Final notebook cleanup and execution check. | Whole team | Completed |
+| Final review of charts and captions. | Whole team | Completed |
+| Final review of model results and conclusions. | Machine learning team | Completed |
+| Final review of descriptive findings and conclusions. | Descriptive analysis team | Completed |
+| Submit final project files. | Whole team | Completed |
 
-*Team member 1*: *Text*  
+## Final Note
 
-*Team member 2*: *Text*  
-
-*Team member 3*: *Text*  
-
-...
-
-#### Tasks
-
-*Create a table with the tasks for the time until the final presentation.*
-
-
-
-## Final note (Optional)
-
-*You can write final comments and reflections on what worked well and what not so well in your work plan.*
-
-*Once the project is graded, you are free to change or remove this page.*
+The project was divided into descriptive and predictive parts so that each team member could focus on a clear set of research questions. This helped organize the workflow and made it easier to combine individual analyses into one complete project about movie success.
