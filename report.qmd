@@ -1,0 +1,386 @@
+---
+title: "Data Science Movies"
+pagetitle: "Data Science Movies"
+authors:
+  - "Aya Abdine"
+  - "Meriam El Askri"
+  - "Kaylee Dramat"
+  - "Ghofran Mahmoud"
+  - "Mcolisi Austine"
+  - "Syed Arshan Nehad"
+  - "Syed Tamjeed Ur Rahman"
+date: "May 27, 2026"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    theme: cosmo
+    page-layout: article
+    css: styles-report.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+# Abstract
+
+This project studies movie success using a cleaned IMDb-style movie dataset with 63,249 rows and 23 original variables. The data include ratings, votes, duration, budget, opening weekend gross, worldwide gross, US/Canada gross, release date, countries of origin, genres, directors, writers, and stars. The project has two connected parts. The descriptive analysis explains how movie outcomes differ across countries, genres, duration, revenue groups, budget levels, and talent profiles. It shows that ratings, votes, and revenue measure different kinds of success: some countries and genres receive high ratings, franchise-oriented genres dominate box office revenue, and duration alone does not strongly explain ratings or audience engagement. Budget is positively related to worldwide gross, but profitability depends heavily on genre and blockbuster outliers. The machine learning part tests whether cleaned movie attributes can predict ratings, revenue, votes, release-timing outcomes, and success categories. Gradient Boosting performs best for rating and revenue prediction, Random Forest performs best for high-rating classification and success classification, and Decision Tree models are useful for some log-transformed audience-vote and revenue tasks. Overall, movie success is multidimensional. Strong prediction requires careful cleaning, log transformations for skewed targets, and models that can capture nonlinear relationships.
+
+# Outline
+
+The report is organized as follows:
+
+- Dataset description and cleaning summary.
+- Research questions for descriptive analysis.
+- Research questions for machine learning.
+- Final conclusion, limitations, and future improvements.
+
+# Dataset Description
+
+The main dataset is stored in `Data/final_dataset.csv`. It contains movie-level information such as `title`, `duration`, `mpa`, `rating`, `votes`, `budget`, `opening_weekend_gross`, `gross_worldwide`, `gross_us_canada`, `release_date`, `countries_origin`, `genres`, `directors`, `writers`, and `stars`.
+
+The cleaning work converted text-heavy movie fields into usable analysis variables. Duration values were converted into minutes. Vote strings such as `8.3K` were converted into numeric vote counts. Budget and revenue fields were parsed from formatted currency strings into numeric values. Release dates were converted into year, month, and season variables. Genre, country, director, writer, and star fields were parsed from list-like text into analysis-ready categories or count variables. Rows with missing values were removed only when a question required those fields.
+
+# Contributor Ownership
+
+Descriptive Analysis:
+
+- Question 1 -> Kaylee Dramat
+- Question 2 -> Kaylee Dramat
+- Question 3 -> Kaylee Dramat
+- Question 4 -> Ghofran Mahmoud
+- Question 5 -> Ghofran Mahmoud
+- Question 6 -> Ghofran Mahmoud
+
+Machine Learning:
+
+- Question 1 -> Aya Abdine & Meriam El Askri
+- Question 2 -> Aya Abdine & Meriam El Askri
+- Question 3 -> Aya Abdine & Meriam El Askri
+- Question 4 -> Mcolisi Austine
+- Question 5 -> Syed Arshan Nehad
+- Question 6 -> Syed Tamjeed Ur Rahman
+
+# Research Questions
+
+## Part 1: Descriptive Analysis
+
+### Descriptive Question 1 (Kaylee Dramat)
+
+**Question:** How do movie ratings vary across countries of origin?
+
+**Objective:** Compare average movie ratings by country and identify whether some film industries tend to receive higher audience ratings. This question matters because the country of origin can reflect differences in film culture, production style, audience expectations, and which movies become internationally visible. The purpose is not to claim that one country makes "better" movies, but to see whether rating patterns differ enough to be worth discussing.
+
+**Preparation:** The country field was cleaned so movies could be grouped by country of origin. Ratings were converted into numeric values, and the analysis focused on countries with enough movies to avoid ranking countries from only one or two examples. The output is a ranked bar chart of countries with the highest average ratings.
+
+**Results:**
+
+The notebook found the highest average ratings among countries such as Iran, Czechoslovakia, the Soviet Union, Singapore, Egypt, Iceland, Hungary, India, Japan, and Turkey, using countries with enough movies for comparison.
+
+![](outputs/descriptive_q1_fig_01.png)
+
+**Interpretation:** Ratings vary by country, but the result should be read carefully. Smaller film industries can appear near the top because fewer movies from those countries enter the international dataset, and those that do may be stronger or more visible. For movie success, country of origin may shape audience perception, but it is not a complete explanation by itself.
+
+**Student responsible:** Kaylee Dramat
+
+### Descriptive Question 2 (Kaylee Dramat)
+
+**Question:** Which genres receive the highest ratings and most audience engagement?
+
+**Objective:** Compare genres by average rating and average vote count to separate perceived quality from audience reach. Rating tells us how strongly audiences evaluate a movie, while votes show how much audience attention or engagement the movie received. This distinction is important because a movie can be well-liked by a smaller audience, or very popular but not among the highest-rated titles.
+
+**Preparation:** Genre values were parsed from list-like text and grouped by genre. The notebook calculated two summaries: average rating and average number of votes. Separate plots were used because rating and votes are on very different scales and answer different parts of the success question.
+
+**Results:**
+
+The notebook identified highly rated genres including Sports Documentary, Epic, War Epic, Historical Epic, Music Documentary, Tragedy, Documentary, Anime, Sci-Fi Epic, and Action Epic. The vote analysis shows that high engagement does not always match high average rating.
+
+![](outputs/descriptive_q2_fig_02.png)
+
+![](outputs/descriptive_q2_fig_03.png)
+
+**Interpretation:** Genres with niche, historical, documentary, or epic storytelling can receive strong ratings, while mainstream and franchise genres often attract larger vote counts. This matters because a movie can be highly appreciated without being the most widely watched, and a popular genre is not always the highest-rated genre.
+
+**Student responsible:** Kaylee Dramat
+
+### Descriptive Question 3 (Kaylee Dramat)
+
+**Question:** How does movie duration influence audience ratings and votes?
+
+**Objective:** Test whether runtime is connected to rating quality or audience engagement. The aim is to check whether longer or shorter movies tend to perform differently in audience evaluation and voting activity. Runtime is a useful variable because it is known before release and can affect audience willingness to watch a movie.
+
+**Preparation:** Duration values such as hours and minutes were converted into numeric runtime in minutes. The notebook then compared runtime against rating and vote count using scatter-style visualizations, so the relationship could be inspected directly rather than reduced to only one summary number.
+
+**Results:**
+
+![](outputs/descriptive_q3_fig_04.png)
+
+![](outputs/descriptive_q3_fig_05.png)
+
+**Interpretation:** Most movies cluster between about 80 and 150 minutes. Within that range, ratings are widely spread, meaning duration alone does not determine whether a movie is rated highly. Votes also do not increase consistently with longer runtime. For movie success, duration is a context variable, not a main success driver.
+
+**Student responsible:** Kaylee Dramat
+
+### Descriptive Question 4 (Ghofran Mahmoud)
+
+**Question:** How do box office revenues differ across industries?
+
+**Objective:** Compare movie genres by worldwide gross, opening weekend gross, US/Canada gross, and international revenue. This question studies commercial success rather than ratings. It asks whether some genres consistently earn more money and whether that money comes mainly from the domestic market, international market, or opening weekend.
+
+**Preparation:** Revenue columns were stored as formatted currency text, so they were converted into numeric values. The genre column was parsed and the first listed genre was used as the primary genre. The analysis removed rows without usable revenue information and excluded very small genre groups, because tiny groups can create unstable averages. An international revenue variable was also created by subtracting US/Canada gross from worldwide gross.
+
+**Results:**
+
+Top genres by average worldwide gross included Action Epic ($363.0M), Dinosaur Adventure ($349.2M), Superhero ($310.4M), Computer Animation ($283.9M), Globetrotting Adventure ($268.0M), Kaiju ($266.8M), Sci-Fi Epic ($258.4M), and Car Action ($241.9M). The Kruskal-Wallis test for worldwide gross across genres gave H = 6126.13 and p < 0.001.
+
+![](outputs/descriptive_q4_fig_06.png)
+
+![](outputs/descriptive_q4_fig_07.png)
+
+![](outputs/descriptive_q4_fig_08.png)
+
+![](outputs/descriptive_q4_fig_09.png)
+
+**Interpretation:** Franchise-oriented and action-heavy genres dominate revenue. International revenue is especially important for the highest-grossing genres, while opening weekend is only one part of total success. The significant Kruskal-Wallis result confirms that revenue differences across genres are not random.
+
+**Student responsible:** Ghofran Mahmoud
+
+### Descriptive Question 5 (Ghofran Mahmoud)
+
+**Question:** Is there a relationship between movie budget and box office performance?
+
+**Objective:** Examine whether higher production budgets are associated with higher worldwide gross, profitability, and opening-weekend behavior. This question is important because a high gross alone does not always mean a movie was financially successful. A movie can earn a lot but still be risky if the budget was extremely high.
+
+**Preparation:** Budget and revenue fields were converted from currency strings to numeric values. The notebook kept movies with both budget and worldwide gross available, then calculated return on investment (ROI) and opening ratio. Movies were grouped into low, mid, and high budget tiers so the analysis could compare typical performance across different investment levels.
+
+**Results:**
+
+After requiring both budget and worldwide gross, the notebook kept 10,413 rows, removed 39 ROI outliers, and used 10,374 final rows. The budget tier summary showed:
+
+| Budget Tier | Movies | Average Budget | Average Worldwide | Median Worldwide | Average ROI | Median ROI | Profitable |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Low (<$10M) | 4,613 | $3.4M | $9.5M | $1.0M | 209% | -52% | 39.2% |
+| Mid ($10M-$100M) | 5,115 | $32.1M | $76.8M | $35.3M | 137% | 38% | 58.8% |
+| High (>$100M) | 646 | $1163.3M | $380.5M | $293.5M | 128% | 91% | 65.3% |
+
+Pearson correlation between log budget and log worldwide gross was r = 0.685, p < 0.001.
+
+![](outputs/descriptive_q5_fig_10.png)
+
+![](outputs/descriptive_q5_fig_11.png)
+
+![](outputs/descriptive_q5_fig_12.png)
+
+![](outputs/descriptive_q5_fig_13.png)
+
+**Interpretation:** Budget and worldwide gross are strongly positively related, but budget is not a guarantee of success. High-budget movies are the most reliable by median ROI and profitability rate, while low-budget movies have higher risk despite some breakout successes. The relationship also depends on genre.
+
+**Student responsible:** Ghofran Mahmoud
+
+### Descriptive Question 6 (Ghofran Mahmoud)
+
+**Question:** Do movies with well-known directors, writers, or stars receive higher ratings or more votes?
+
+**Objective:** Test whether talent prominence is meaningfully related to IMDb rating and audience engagement. This question asks whether movies connected to frequently appearing stars, directors, or writers receive better audience reactions. It helps test the idea of "star power" using the available dataset.
+
+**Preparation:** The stars, directors, and writers columns were parsed from list-like text. The notebook created profile measures based on how often people appeared in the dataset, then compared high-profile and low-profile groups. Ratings and votes were used as outcomes, and statistical tests were added to check whether observed differences were meaningful.
+
+**Results:**
+
+The notebook compared high-profile and low-profile stars, directors, and writers. Median rating was 6.30 for all six groups. Mann-Whitney U tests for rating were not meaningful in practical size: stars were not significant, while directors and writers were statistically significant but had identical medians.
+
+![](outputs/descriptive_q6_fig_14.png)
+
+![](outputs/descriptive_q6_fig_15.png)
+
+![](outputs/descriptive_q6_fig_16.png)
+
+![](outputs/descriptive_q6_fig_17.png)
+
+**Interpretation:** Talent prominence, measured by appearance count, does not meaningfully improve ratings. The vote-count result is also limited because appearance count is an imperfect proxy for fame. For movie success, the analysis suggests that content, genre, distribution, and budget context matter more than the simple presence of repeatedly listed talent.
+
+**Student responsible:** Ghofran Mahmoud
+
+## Part 2: Machine Learning
+
+### Machine Learning Question 1 (Aya Abdine & Meriam El Askri)
+
+**Question:** Can movie success, measured by rating, be predicted using features such as genre, duration, budget, and release date?
+
+**Objective:** Predict continuous movie rating from cleaned movie attributes. This question changes the project from explanation to prediction. Instead of only describing rating patterns after the fact, it asks whether movie information such as genre, runtime, budget, release timing, and rating category contains enough signal to estimate the IMDb rating of a movie.
+
+**Model and data preparation:** The notebook cleaned numeric variables, selected genre and MPA indicators, created a compact feature matrix, and trained Ridge Regression, Extra Trees, and Gradient Boosting models. Ridge Regression was used as a regularized linear baseline. Extra Trees and Gradient Boosting were used because they can capture nonlinear relationships, such as the possibility that genre and budget affect ratings differently depending on the movie type.
+
+**How to read the metrics:** MAE shows the average rating error in IMDb rating points. RMSE penalizes larger mistakes more strongly. R2 shows how much rating variation is explained by the model. A higher R2 is better, but ratings are subjective, so a perfect score is not expected.
+
+**Results:**
+
+| Model | MAE | RMSE | R2 Score |
+|---|---:|---:|---:|
+| Gradient Boosting | 0.6406 | 0.8531 | 0.3649 |
+| Extra Trees | 0.6496 | 0.8590 | 0.3561 |
+| Ridge Regression | 0.6903 | 0.9159 | 0.2679 |
+
+The best model was Gradient Boosting.
+
+![](outputs/machine_learning_q1_fig_01.png)
+
+![](outputs/machine_learning_q1_fig_02.png)
+
+![](outputs/machine_learning_q1_fig_03.png)
+
+![](outputs/machine_learning_q1_fig_04.png)
+
+**Interpretation:** Ratings can be predicted only partly. Gradient Boosting performed best, but the R2 score of about 0.365 shows that ratings remain difficult because audience evaluation is subjective and not fully captured by structured movie metadata.
+
+**Student responsible:** Aya Abdine & Meriam El Askri
+
+### Machine Learning Question 2 (Aya Abdine & Meriam El Askri)
+
+**Question:** Can box office revenue be predicted using movie characteristics such as genre, stars, directors, and budget?
+
+**Objective:** Predict worldwide gross revenue from movie characteristics. This question asks whether financial success can be estimated from movie metadata. It is different from rating prediction because revenue is affected by budget, release scale, genre, and market reach, and it is much more unevenly distributed.
+
+**Model and data preparation:** Worldwide gross was log-transformed because movie revenue is highly skewed. Without the log transformation, a small number of blockbuster films would dominate the model error and hide patterns among normal movies. The feature matrix included cleaned numeric and categorical movie attributes, then Ridge Regression, Extra Trees, and Gradient Boosting were compared.
+
+**How to read the metrics:** MAE and RMSE are reported on the log revenue scale, which is more stable for comparing movies of very different sizes. The original-scale MAE is also shown to make the money error easier to understand. R2 measures how much of the variation in log worldwide gross is explained.
+
+**Results:**
+
+| Model | MAE (Log) | RMSE (Log) | R2 Score | MAE Original Scale |
+|---|---:|---:|---:|---:|
+| Gradient Boosting | 1.4918 | 2.0031 | 0.6453 | $20,960,526 |
+| Extra Trees | 1.5491 | 2.0449 | 0.6303 | $26,763,340 |
+| Ridge Regression | 1.7463 | 2.2780 | 0.5412 | $23,760,840 |
+
+The best model was Gradient Boosting.
+
+![](outputs/machine_learning_q2_fig_05.png)
+
+![](outputs/machine_learning_q2_fig_06.png)
+
+![](outputs/machine_learning_q2_fig_07.png)
+
+![](outputs/machine_learning_q2_fig_08.png)
+
+![](outputs/machine_learning_q2_fig_09.png)
+
+**Interpretation:** Revenue was more predictable than rating. Gradient Boosting explained about 64.5% of the variation in log revenue, showing that budget, genre, and other structured features carry strong box-office information. Original-scale errors are still large because blockbuster revenue has extreme outliers.
+
+**Student responsible:** Aya Abdine & Meriam El Askri
+
+### Machine Learning Question 3 (Aya Abdine & Meriam El Askri)
+
+**Question:** Can we predict whether a movie will receive a high rating based on its features?
+
+**Objective:** Classify movies as high-rated or not high-rated. This question turns rating prediction into a practical classification task. Instead of asking for the exact rating, the model asks whether a movie is likely to belong to the high-rated group.
+
+**Model and data preparation:** The target was converted into a binary label. The notebook used balanced training data and compared Logistic Regression, Random Forest, Gradient Boosting, and Extra Trees with decision-threshold tuning. Threshold tuning matters because the default 0.50 cutoff is not always best when one class is harder to identify than the other.
+
+**How to read the metrics:** Accuracy shows the total share of correct predictions, but it can hide weak performance on the high-rated class. Precision shows how often predicted high-rated movies were actually high-rated. Recall shows how many real high-rated movies were found. F1 balances precision and recall, and ROC AUC measures how well the model ranks high-rated movies above not-high-rated movies.
+
+**Results:**
+
+| Model | ROC AUC | Threshold | Accuracy | Balanced Accuracy | Precision | Recall | F1 Score |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Random Forest | 0.8732 | 0.57 | 0.8627 | 0.7476 | 0.7473 | 0.5458 | 0.6308 |
+| Gradient Boosting | 0.8691 | 0.58 | 0.8596 | 0.7431 | 0.7377 | 0.5388 | 0.6227 |
+| Extra Trees | 0.8586 | 0.48 | 0.8556 | 0.7349 | 0.7284 | 0.5233 | 0.6090 |
+| Logistic Regression | 0.8062 | 0.52 | 0.8392 | 0.7250 | 0.6581 | 0.5248 | 0.5839 |
+
+Best model: Random Forest. Confusion matrix: `[[6930, 369], [908, 1091]]`.
+
+![](outputs/machine_learning_q3_fig_10.png)
+
+![](outputs/machine_learning_q3_fig_11.png)
+
+![](outputs/machine_learning_q3_fig_12.png)
+
+![](outputs/machine_learning_q3_fig_13.png)
+
+**Interpretation:** The classifier is strong at identifying not-high-rated movies and reasonably effective at identifying high-rated movies. Random Forest had the best ROC AUC and F1 score. The model is useful, but recall for high-rated films shows that some genuinely strong movies are still missed.
+
+**Student responsible:** Aya Abdine & Meriam El Askri
+
+### Machine Learning Question 4 (Mcolisi Austine)
+
+**Question:** Can the number of audience votes be predicted using movie popularity factors such as stars, release date, and budget?
+
+**Objective:** Predict audience engagement measured by vote count. Votes are used as a measure of audience attention: a movie with more votes has usually reached more viewers or generated more discussion. This question asks whether popularity factors such as rating, release date, star count, and budget can estimate that engagement.
+
+**Model and data preparation:** The notebook compared raw vote prediction, log-transformed vote prediction, and log prediction after removing outliers. Linear Regression, Decision Tree, and Random Forest models were evaluated. This multi-step approach is important because vote counts are extremely skewed: most movies have relatively few votes, while a small number of famous movies have huge vote totals.
+
+**How to read the metrics:** In the raw model, MAE is measured in number of votes. In the log model, MAE is measured on a transformed scale, so it describes multiplicative error rather than a simple vote difference. R2 shows how much of the variation in popularity is captured by the model.
+
+**Results:**
+
+The raw-scale Decision Tree had the best first result with MAE = 24,665.91 and R2 = 0.204. After log transformation, Decision Tree improved to MAE = 1.4248 and R2 = 0.4317. After removing outliers, Decision Tree had MAE = 1.2933 and R2 = 0.3878.
+
+![](outputs/machine_learning_q4_fig_14.png)
+
+![](outputs/machine_learning_q4_fig_15.png)
+
+**Interpretation:** Audience votes are highly skewed, so log transformation made the model much more stable. The notebook found average rating and release year to be the strongest predictors, followed by month and star count. Votes can be predicted to a useful degree, but blockbuster-level attention remains difficult because marketing, cultural timing, and word of mouth are not fully present in the dataset.
+
+**Student responsible:** Mcolisi Austine
+
+### Machine Learning Question 5 (Syed Arshan Nehad)
+
+**Question:** How does the timing of a movie's release influence box office performance and audience engagement?
+
+**Objective:** Test whether release timing, represented by season, helps predict worldwide gross and audience votes. This question studies whether the time of release affects commercial performance and audience engagement. Timing can matter because some seasons are connected to holidays, summer blockbusters, awards periods, or different audience habits.
+
+**Model and data preparation:** Release date was parsed into year, month, and season. Season was kept as the main timing variable, while budget, runtime, crew counts, and genre were used as controls. Worldwide gross and votes were log-transformed. The controls are important because timing should not be interpreted alone: expensive movies and major genres may be released in specific seasons, so the model needs to separate timing from budget and genre effects.
+
+**How to read the metrics:** Two targets are modeled separately: worldwide gross and audience votes. R2 shows how much each target is explained. The feature-importance plot shows whether season remains important after controlling for budget, year, runtime, cast/crew counts, and genre.
+
+**Results:**
+
+| Target | Best Model | MAE (Log) | RMSE (Log) | R2 Score |
+|---|---|---:|---:|---:|
+| Audience Votes | Random Forest | 1.1720 | 1.4987 | 0.6064 |
+| Worldwide Gross | Decision Tree | 1.8762 | 2.4167 | 0.4837 |
+
+Top predictors for audience votes were `budget_num`, `year`, `writer_count`, `star_count`, `runtime`, and `season_Autumn`. Top predictors for worldwide gross were mainly `budget_num`, `year`, genre indicators, and runtime.
+
+![](outputs/machine_learning_q4_fig_16.png)
+
+**Interpretation:** Release timing matters, but it is not the strongest predictor once budget and year are included. Season appears in the feature-importance list for audience votes, which suggests that timing can influence engagement, but financial scale and historical release context are more powerful.
+
+**Student responsible:** Syed Arshan Nehad
+
+### Machine Learning Question 6 (Syed Tamjeed Ur Rahman)
+
+**Question:** Can movies be classified into successful versus less successful categories based on their attributes?
+
+**Objective:** Build a binary classifier for movie success. This final machine learning question combines the project’s broader idea of success into one classification problem. Instead of defining success only by rating or only by revenue, it uses multiple dimensions so the label reflects critical reception, audience attention, and profitability.
+
+**Model and data preparation:** The success label combined three dimensions: rating above the median, votes above the median, and positive ROI. A movie was labeled successful if it met at least two of the three thresholds. Leakage variables used to create the label were excluded from the predictors. This means the model could not simply reuse rating, votes, revenue, or ROI as shortcuts; it had to learn from attributes such as budget, year, runtime, genre, season, MPA rating, and crew-size indicators.
+
+**How to read the metrics:** Accuracy gives the overall correct classification rate. Precision tells how reliable the "successful" predictions are. Recall tells how many truly successful movies were found. F1 balances those two, and ROC-AUC measures the model’s ability to separate successful from less successful movies across thresholds.
+
+**Results:**
+
+| Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
+|---|---:|---:|---:|---:|---:|
+| Random Forest | 0.7004 | 0.7069 | 0.6989 | 0.7029 | 0.7665 |
+| Logistic Regression | 0.5103 | 0.5087 | 0.9991 | 0.6741 | 0.3318 |
+| Decision Tree | 0.6639 | 0.6926 | 0.6061 | 0.6465 | 0.7231 |
+
+Top Q6 predictors were `budget_num`, `year`, `writer_count`, `runtime`, `primary_genre_Drama`, `primary_genre_Comedy`, `primary_genre_Action`, and season indicators.
+
+![](outputs/machine_learning_q6_fig_17.png)
+
+**Interpretation:** Random Forest was the best success classifier, with the highest F1 score and ROC-AUC. The result shows that movie success can be classified moderately well using pre-release or non-leakage attributes, but the 0.70 accuracy also shows that success depends on factors outside the dataset, such as marketing, reviews, distribution scale, and audience trends.
+
+**Student responsible:** Syed Tamjeed Ur Rahman
+
+# Conclusion
+
+The descriptive analysis shows that movie success cannot be reduced to one metric. Country and genre patterns help explain ratings, but audience votes and box office revenue follow different patterns. Duration alone does not strongly determine ratings or votes. Genre is a strong revenue separator, especially for action, superhero, animation, and franchise-oriented films. Budget is positively correlated with worldwide gross, but profitability varies by budget tier and genre. Talent prominence, measured by appearance counts, has little practical effect on ratings.
+
+The machine learning analysis confirms that careful cleaning and target transformation are essential. Rating prediction was possible but limited, with Gradient Boosting reaching R2 = 0.3649. Revenue prediction was stronger, with Gradient Boosting reaching R2 = 0.6453 on log worldwide gross. High-rating classification worked best with Random Forest, and success classification also worked best with Random Forest. Vote prediction improved clearly after log transformation.
+
+The main limitation is that the dataset contains structured metadata, but not all real drivers of movie success. Marketing spend, distribution size, critic reviews, social media attention, franchise history, and streaming availability are missing. Future work could improve the project by adding these variables, validating models on newer releases, and separating domestic and international markets more carefully.

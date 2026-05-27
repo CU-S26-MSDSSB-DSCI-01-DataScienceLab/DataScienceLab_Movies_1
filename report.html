@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-05-27">
+
+<title>Data Science Movies</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-f670ab49fb9634e9dab58972b11477cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles-report.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">THE TITLE OF YOUR PROJECT</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Data Science Movies</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+ <span class="menu-text">introduction.qmd</span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sec1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Title of Section 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sec2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Title of Section 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conclusion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Dashboard</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a></li>
+  <li><a href="#dataset-description" id="toc-dataset-description" class="nav-link" data-scroll-target="#dataset-description">Dataset Description</a></li>
+  <li><a href="#contributor-ownership" id="toc-contributor-ownership" class="nav-link" data-scroll-target="#contributor-ownership">Contributor Ownership</a></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">Research Questions</a>
+  <ul class="collapse">
+  <li><a href="#part-1-descriptive-analysis" id="toc-part-1-descriptive-analysis" class="nav-link" data-scroll-target="#part-1-descriptive-analysis">Part 1: Descriptive Analysis</a>
+  <ul class="collapse">
+  <li><a href="#descriptive-question-1-kaylee-dramat" id="toc-descriptive-question-1-kaylee-dramat" class="nav-link" data-scroll-target="#descriptive-question-1-kaylee-dramat">Descriptive Question 1 (Kaylee Dramat)</a></li>
+  <li><a href="#descriptive-question-2-kaylee-dramat" id="toc-descriptive-question-2-kaylee-dramat" class="nav-link" data-scroll-target="#descriptive-question-2-kaylee-dramat">Descriptive Question 2 (Kaylee Dramat)</a></li>
+  <li><a href="#descriptive-question-3-kaylee-dramat" id="toc-descriptive-question-3-kaylee-dramat" class="nav-link" data-scroll-target="#descriptive-question-3-kaylee-dramat">Descriptive Question 3 (Kaylee Dramat)</a></li>
+  <li><a href="#descriptive-question-4-ghofran-mahmoud" id="toc-descriptive-question-4-ghofran-mahmoud" class="nav-link" data-scroll-target="#descriptive-question-4-ghofran-mahmoud">Descriptive Question 4 (Ghofran Mahmoud)</a></li>
+  <li><a href="#descriptive-question-5-ghofran-mahmoud" id="toc-descriptive-question-5-ghofran-mahmoud" class="nav-link" data-scroll-target="#descriptive-question-5-ghofran-mahmoud">Descriptive Question 5 (Ghofran Mahmoud)</a></li>
+  <li><a href="#descriptive-question-6-ghofran-mahmoud" id="toc-descriptive-question-6-ghofran-mahmoud" class="nav-link" data-scroll-target="#descriptive-question-6-ghofran-mahmoud">Descriptive Question 6 (Ghofran Mahmoud)</a></li>
+  </ul></li>
+  <li><a href="#part-2-machine-learning" id="toc-part-2-machine-learning" class="nav-link" data-scroll-target="#part-2-machine-learning">Part 2: Machine Learning</a>
+  <ul class="collapse">
+  <li><a href="#machine-learning-question-1-aya-abdine-meriam-el-askri" id="toc-machine-learning-question-1-aya-abdine-meriam-el-askri" class="nav-link" data-scroll-target="#machine-learning-question-1-aya-abdine-meriam-el-askri">Machine Learning Question 1 (Aya Abdine &amp; Meriam El Askri)</a></li>
+  <li><a href="#machine-learning-question-2-aya-abdine-meriam-el-askri" id="toc-machine-learning-question-2-aya-abdine-meriam-el-askri" class="nav-link" data-scroll-target="#machine-learning-question-2-aya-abdine-meriam-el-askri">Machine Learning Question 2 (Aya Abdine &amp; Meriam El Askri)</a></li>
+  <li><a href="#machine-learning-question-3-aya-abdine-meriam-el-askri" id="toc-machine-learning-question-3-aya-abdine-meriam-el-askri" class="nav-link" data-scroll-target="#machine-learning-question-3-aya-abdine-meriam-el-askri">Machine Learning Question 3 (Aya Abdine &amp; Meriam El Askri)</a></li>
+  <li><a href="#machine-learning-question-4-mcolisi-austine" id="toc-machine-learning-question-4-mcolisi-austine" class="nav-link" data-scroll-target="#machine-learning-question-4-mcolisi-austine">Machine Learning Question 4 (Mcolisi Austine)</a></li>
+  <li><a href="#machine-learning-question-5-syed-arshan-nehad" id="toc-machine-learning-question-5-syed-arshan-nehad" class="nav-link" data-scroll-target="#machine-learning-question-5-syed-arshan-nehad">Machine Learning Question 5 (Syed Arshan Nehad)</a></li>
+  <li><a href="#machine-learning-question-6-syed-tamjeed-ur-rahman" id="toc-machine-learning-question-6-syed-tamjeed-ur-rahman" class="nav-link" data-scroll-target="#machine-learning-question-6-syed-tamjeed-ur-rahman">Machine Learning Question 6 (Syed Tamjeed Ur Rahman)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Science Movies</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Aya Abdine </p>
+             <p>Meriam El Askri </p>
+             <p>Kaylee Dramat </p>
+             <p>Ghofran Mahmoud </p>
+             <p>Mcolisi Austine </p>
+             <p>Syed Arshan Nehad </p>
+             <p>Syed Tamjeed Ur Rahman </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 27, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>This project studies movie success using a cleaned IMDb-style movie dataset with 63,249 rows and 23 original variables. The data include ratings, votes, duration, budget, opening weekend gross, worldwide gross, US/Canada gross, release date, countries of origin, genres, directors, writers, and stars. The project has two connected parts. The descriptive analysis explains how movie outcomes differ across countries, genres, duration, revenue groups, budget levels, and talent profiles. It shows that ratings, votes, and revenue measure different kinds of success: some countries and genres receive high ratings, franchise-oriented genres dominate box office revenue, and duration alone does not strongly explain ratings or audience engagement. Budget is positively related to worldwide gross, but profitability depends heavily on genre and blockbuster outliers. The machine learning part tests whether cleaned movie attributes can predict ratings, revenue, votes, release-timing outcomes, and success categories. Gradient Boosting performs best for rating and revenue prediction, Random Forest performs best for high-rating classification and success classification, and Decision Tree models are useful for some log-transformed audience-vote and revenue tasks. Overall, movie success is multidimensional. Strong prediction requires careful cleaning, log transformations for skewed targets, and models that can capture nonlinear relationships.</p>
+</section>
+<section id="outline" class="level1">
+<h1>Outline</h1>
+<p>The report is organized as follows:</p>
+<ul>
+<li>Dataset description and cleaning summary.</li>
+<li>Research questions for descriptive analysis.</li>
+<li>Research questions for machine learning.</li>
+<li>Final conclusion, limitations, and future improvements.</li>
+</ul>
+</section>
+<section id="dataset-description" class="level1">
+<h1>Dataset Description</h1>
+<p>The main dataset is stored in <code>Data/final_dataset.csv</code>. It contains movie-level information such as <code>title</code>, <code>duration</code>, <code>mpa</code>, <code>rating</code>, <code>votes</code>, <code>budget</code>, <code>opening_weekend_gross</code>, <code>gross_worldwide</code>, <code>gross_us_canada</code>, <code>release_date</code>, <code>countries_origin</code>, <code>genres</code>, <code>directors</code>, <code>writers</code>, and <code>stars</code>.</p>
+<p>The cleaning work converted text-heavy movie fields into usable analysis variables. Duration values were converted into minutes. Vote strings such as <code>8.3K</code> were converted into numeric vote counts. Budget and revenue fields were parsed from formatted currency strings into numeric values. Release dates were converted into year, month, and season variables. Genre, country, director, writer, and star fields were parsed from list-like text into analysis-ready categories or count variables. Rows with missing values were removed only when a question required those fields.</p>
+</section>
+<section id="contributor-ownership" class="level1">
+<h1>Contributor Ownership</h1>
+<p>Descriptive Analysis:</p>
+<ul>
+<li>Question 1 -&gt; Kaylee Dramat</li>
+<li>Question 2 -&gt; Kaylee Dramat</li>
+<li>Question 3 -&gt; Kaylee Dramat</li>
+<li>Question 4 -&gt; Ghofran Mahmoud</li>
+<li>Question 5 -&gt; Ghofran Mahmoud</li>
+<li>Question 6 -&gt; Ghofran Mahmoud</li>
+</ul>
+<p>Machine Learning:</p>
+<ul>
+<li>Question 1 -&gt; Aya Abdine &amp; Meriam El Askri</li>
+<li>Question 2 -&gt; Aya Abdine &amp; Meriam El Askri</li>
+<li>Question 3 -&gt; Aya Abdine &amp; Meriam El Askri</li>
+<li>Question 4 -&gt; Mcolisi Austine</li>
+<li>Question 5 -&gt; Syed Arshan Nehad</li>
+<li>Question 6 -&gt; Syed Tamjeed Ur Rahman</li>
+</ul>
+</section>
+<section id="research-questions" class="level1">
+<h1>Research Questions</h1>
+<section id="part-1-descriptive-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-descriptive-analysis">Part 1: Descriptive Analysis</h2>
+<section id="descriptive-question-1-kaylee-dramat" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-question-1-kaylee-dramat">Descriptive Question 1 (Kaylee Dramat)</h3>
+<p><strong>Question:</strong> How do movie ratings vary across countries of origin?</p>
+<p><strong>Objective:</strong> Compare average movie ratings by country and identify whether some film industries tend to receive higher audience ratings. This question matters because the country of origin can reflect differences in film culture, production style, audience expectations, and which movies become internationally visible. The purpose is not to claim that one country makes “better” movies, but to see whether rating patterns differ enough to be worth discussing.</p>
+<p><strong>Preparation:</strong> The country field was cleaned so movies could be grouped by country of origin. Ratings were converted into numeric values, and the analysis focused on countries with enough movies to avoid ranking countries from only one or two examples. The output is a ranked bar chart of countries with the highest average ratings.</p>
+<p><strong>Results:</strong></p>
+<p>The notebook found the highest average ratings among countries such as Iran, Czechoslovakia, the Soviet Union, Singapore, Egypt, Iceland, Hungary, India, Japan, and Turkey, using countries with enough movies for comparison.</p>
+<p><img src="outputs/descriptive_q1_fig_01.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> Ratings vary by country, but the result should be read carefully. Smaller film industries can appear near the top because fewer movies from those countries enter the international dataset, and those that do may be stronger or more visible. For movie success, country of origin may shape audience perception, but it is not a complete explanation by itself.</p>
+<p><strong>Student responsible:</strong> Kaylee Dramat</p>
+</section>
+<section id="descriptive-question-2-kaylee-dramat" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-question-2-kaylee-dramat">Descriptive Question 2 (Kaylee Dramat)</h3>
+<p><strong>Question:</strong> Which genres receive the highest ratings and most audience engagement?</p>
+<p><strong>Objective:</strong> Compare genres by average rating and average vote count to separate perceived quality from audience reach. Rating tells us how strongly audiences evaluate a movie, while votes show how much audience attention or engagement the movie received. This distinction is important because a movie can be well-liked by a smaller audience, or very popular but not among the highest-rated titles.</p>
+<p><strong>Preparation:</strong> Genre values were parsed from list-like text and grouped by genre. The notebook calculated two summaries: average rating and average number of votes. Separate plots were used because rating and votes are on very different scales and answer different parts of the success question.</p>
+<p><strong>Results:</strong></p>
+<p>The notebook identified highly rated genres including Sports Documentary, Epic, War Epic, Historical Epic, Music Documentary, Tragedy, Documentary, Anime, Sci-Fi Epic, and Action Epic. The vote analysis shows that high engagement does not always match high average rating.</p>
+<p><img src="outputs/descriptive_q2_fig_02.png" class="img-fluid"></p>
+<p><img src="outputs/descriptive_q2_fig_03.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> Genres with niche, historical, documentary, or epic storytelling can receive strong ratings, while mainstream and franchise genres often attract larger vote counts. This matters because a movie can be highly appreciated without being the most widely watched, and a popular genre is not always the highest-rated genre.</p>
+<p><strong>Student responsible:</strong> Kaylee Dramat</p>
+</section>
+<section id="descriptive-question-3-kaylee-dramat" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-question-3-kaylee-dramat">Descriptive Question 3 (Kaylee Dramat)</h3>
+<p><strong>Question:</strong> How does movie duration influence audience ratings and votes?</p>
+<p><strong>Objective:</strong> Test whether runtime is connected to rating quality or audience engagement. The aim is to check whether longer or shorter movies tend to perform differently in audience evaluation and voting activity. Runtime is a useful variable because it is known before release and can affect audience willingness to watch a movie.</p>
+<p><strong>Preparation:</strong> Duration values such as hours and minutes were converted into numeric runtime in minutes. The notebook then compared runtime against rating and vote count using scatter-style visualizations, so the relationship could be inspected directly rather than reduced to only one summary number.</p>
+<p><strong>Results:</strong></p>
+<p><img src="outputs/descriptive_q3_fig_04.png" class="img-fluid"></p>
+<p><img src="outputs/descriptive_q3_fig_05.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> Most movies cluster between about 80 and 150 minutes. Within that range, ratings are widely spread, meaning duration alone does not determine whether a movie is rated highly. Votes also do not increase consistently with longer runtime. For movie success, duration is a context variable, not a main success driver.</p>
+<p><strong>Student responsible:</strong> Kaylee Dramat</p>
+</section>
+<section id="descriptive-question-4-ghofran-mahmoud" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-question-4-ghofran-mahmoud">Descriptive Question 4 (Ghofran Mahmoud)</h3>
+<p><strong>Question:</strong> How do box office revenues differ across industries?</p>
+<p><strong>Objective:</strong> Compare movie genres by worldwide gross, opening weekend gross, US/Canada gross, and international revenue. This question studies commercial success rather than ratings. It asks whether some genres consistently earn more money and whether that money comes mainly from the domestic market, international market, or opening weekend.</p>
+<p><strong>Preparation:</strong> Revenue columns were stored as formatted currency text, so they were converted into numeric values. The genre column was parsed and the first listed genre was used as the primary genre. The analysis removed rows without usable revenue information and excluded very small genre groups, because tiny groups can create unstable averages. An international revenue variable was also created by subtracting US/Canada gross from worldwide gross.</p>
+<p><strong>Results:</strong></p>
+<p>Top genres by average worldwide gross included Action Epic ($363.0M), Dinosaur Adventure ($349.2M), Superhero ($310.4M), Computer Animation ($283.9M), Globetrotting Adventure ($268.0M), Kaiju ($266.8M), Sci-Fi Epic ($258.4M), and Car Action ($241.9M). The Kruskal-Wallis test for worldwide gross across genres gave H = 6126.13 and p &lt; 0.001.</p>
+<p><img src="outputs/descriptive_q4_fig_06.png" class="img-fluid"></p>
+<p><img src="outputs/descriptive_q4_fig_07.png" class="img-fluid"></p>
+<p><img src="outputs/descriptive_q4_fig_08.png" class="img-fluid"></p>
+<p><img src="outputs/descriptive_q4_fig_09.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> Franchise-oriented and action-heavy genres dominate revenue. International revenue is especially important for the highest-grossing genres, while opening weekend is only one part of total success. The significant Kruskal-Wallis result confirms that revenue differences across genres are not random.</p>
+<p><strong>Student responsible:</strong> Ghofran Mahmoud</p>
+</section>
+<section id="descriptive-question-5-ghofran-mahmoud" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-question-5-ghofran-mahmoud">Descriptive Question 5 (Ghofran Mahmoud)</h3>
+<p><strong>Question:</strong> Is there a relationship between movie budget and box office performance?</p>
+<p><strong>Objective:</strong> Examine whether higher production budgets are associated with higher worldwide gross, profitability, and opening-weekend behavior. This question is important because a high gross alone does not always mean a movie was financially successful. A movie can earn a lot but still be risky if the budget was extremely high.</p>
+<p><strong>Preparation:</strong> Budget and revenue fields were converted from currency strings to numeric values. The notebook kept movies with both budget and worldwide gross available, then calculated return on investment (ROI) and opening ratio. Movies were grouped into low, mid, and high budget tiers so the analysis could compare typical performance across different investment levels.</p>
+<p><strong>Results:</strong></p>
+<p>After requiring both budget and worldwide gross, the notebook kept 10,413 rows, removed 39 ROI outliers, and used 10,374 final rows. The budget tier summary showed:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Budget Tier</th>
+<th style="text-align: right;">Movies</th>
+<th style="text-align: right;">Average Budget</th>
+<th style="text-align: right;">Average Worldwide</th>
+<th style="text-align: right;">Median Worldwide</th>
+<th style="text-align: right;">Average ROI</th>
+<th style="text-align: right;">Median ROI</th>
+<th style="text-align: right;">Profitable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Low (&lt;$10M)</td>
+<td style="text-align: right;">4,613</td>
+<td style="text-align: right;">$3.4M</td>
+<td style="text-align: right;">$9.5M</td>
+<td style="text-align: right;">$1.0M</td>
+<td style="text-align: right;">209%</td>
+<td style="text-align: right;">-52%</td>
+<td style="text-align: right;">39.2%</td>
+</tr>
+<tr class="even">
+<td>Mid ($10M-$100M)</td>
+<td style="text-align: right;">5,115</td>
+<td style="text-align: right;">$32.1M</td>
+<td style="text-align: right;">$76.8M</td>
+<td style="text-align: right;">$35.3M</td>
+<td style="text-align: right;">137%</td>
+<td style="text-align: right;">38%</td>
+<td style="text-align: right;">58.8%</td>
+</tr>
+<tr class="odd">
+<td>High (&gt;$100M)</td>
+<td style="text-align: right;">646</td>
+<td style="text-align: right;">$1163.3M</td>
+<td style="text-align: right;">$380.5M</td>
+<td style="text-align: right;">$293.5M</td>
+<td style="text-align: right;">128%</td>
+<td style="text-align: right;">91%</td>
+<td style="text-align: right;">65.3%</td>
+</tr>
+</tbody>
+</table>
+<p>Pearson correlation between log budget and log worldwide gross was r = 0.685, p &lt; 0.001.</p>
+<p><img src="outputs/descriptive_q5_fig_10.png" class="img-fluid"></p>
+<p><img src="outputs/descriptive_q5_fig_11.png" class="img-fluid"></p>
+<p><img src="outputs/descriptive_q5_fig_12.png" class="img-fluid"></p>
+<p><img src="outputs/descriptive_q5_fig_13.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> Budget and worldwide gross are strongly positively related, but budget is not a guarantee of success. High-budget movies are the most reliable by median ROI and profitability rate, while low-budget movies have higher risk despite some breakout successes. The relationship also depends on genre.</p>
+<p><strong>Student responsible:</strong> Ghofran Mahmoud</p>
+</section>
+<section id="descriptive-question-6-ghofran-mahmoud" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-question-6-ghofran-mahmoud">Descriptive Question 6 (Ghofran Mahmoud)</h3>
+<p><strong>Question:</strong> Do movies with well-known directors, writers, or stars receive higher ratings or more votes?</p>
+<p><strong>Objective:</strong> Test whether talent prominence is meaningfully related to IMDb rating and audience engagement. This question asks whether movies connected to frequently appearing stars, directors, or writers receive better audience reactions. It helps test the idea of “star power” using the available dataset.</p>
+<p><strong>Preparation:</strong> The stars, directors, and writers columns were parsed from list-like text. The notebook created profile measures based on how often people appeared in the dataset, then compared high-profile and low-profile groups. Ratings and votes were used as outcomes, and statistical tests were added to check whether observed differences were meaningful.</p>
+<p><strong>Results:</strong></p>
+<p>The notebook compared high-profile and low-profile stars, directors, and writers. Median rating was 6.30 for all six groups. Mann-Whitney U tests for rating were not meaningful in practical size: stars were not significant, while directors and writers were statistically significant but had identical medians.</p>
+<p><img src="outputs/descriptive_q6_fig_14.png" class="img-fluid"></p>
+<p><img src="outputs/descriptive_q6_fig_15.png" class="img-fluid"></p>
+<p><img src="outputs/descriptive_q6_fig_16.png" class="img-fluid"></p>
+<p><img src="outputs/descriptive_q6_fig_17.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> Talent prominence, measured by appearance count, does not meaningfully improve ratings. The vote-count result is also limited because appearance count is an imperfect proxy for fame. For movie success, the analysis suggests that content, genre, distribution, and budget context matter more than the simple presence of repeatedly listed talent.</p>
+<p><strong>Student responsible:</strong> Ghofran Mahmoud</p>
+</section>
+</section>
+<section id="part-2-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-machine-learning">Part 2: Machine Learning</h2>
+<section id="machine-learning-question-1-aya-abdine-meriam-el-askri" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning-question-1-aya-abdine-meriam-el-askri">Machine Learning Question 1 (Aya Abdine &amp; Meriam El Askri)</h3>
+<p><strong>Question:</strong> Can movie success, measured by rating, be predicted using features such as genre, duration, budget, and release date?</p>
+<p><strong>Objective:</strong> Predict continuous movie rating from cleaned movie attributes. This question changes the project from explanation to prediction. Instead of only describing rating patterns after the fact, it asks whether movie information such as genre, runtime, budget, release timing, and rating category contains enough signal to estimate the IMDb rating of a movie.</p>
+<p><strong>Model and data preparation:</strong> The notebook cleaned numeric variables, selected genre and MPA indicators, created a compact feature matrix, and trained Ridge Regression, Extra Trees, and Gradient Boosting models. Ridge Regression was used as a regularized linear baseline. Extra Trees and Gradient Boosting were used because they can capture nonlinear relationships, such as the possibility that genre and budget affect ratings differently depending on the movie type.</p>
+<p><strong>How to read the metrics:</strong> MAE shows the average rating error in IMDb rating points. RMSE penalizes larger mistakes more strongly. R2 shows how much rating variation is explained by the model. A higher R2 is better, but ratings are subjective, so a perfect score is not expected.</p>
+<p><strong>Results:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th style="text-align: right;">MAE</th>
+<th style="text-align: right;">RMSE</th>
+<th style="text-align: right;">R2 Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gradient Boosting</td>
+<td style="text-align: right;">0.6406</td>
+<td style="text-align: right;">0.8531</td>
+<td style="text-align: right;">0.3649</td>
+</tr>
+<tr class="even">
+<td>Extra Trees</td>
+<td style="text-align: right;">0.6496</td>
+<td style="text-align: right;">0.8590</td>
+<td style="text-align: right;">0.3561</td>
+</tr>
+<tr class="odd">
+<td>Ridge Regression</td>
+<td style="text-align: right;">0.6903</td>
+<td style="text-align: right;">0.9159</td>
+<td style="text-align: right;">0.2679</td>
+</tr>
+</tbody>
+</table>
+<p>The best model was Gradient Boosting.</p>
+<p><img src="outputs/machine_learning_q1_fig_01.png" class="img-fluid"></p>
+<p><img src="outputs/machine_learning_q1_fig_02.png" class="img-fluid"></p>
+<p><img src="outputs/machine_learning_q1_fig_03.png" class="img-fluid"></p>
+<p><img src="outputs/machine_learning_q1_fig_04.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> Ratings can be predicted only partly. Gradient Boosting performed best, but the R2 score of about 0.365 shows that ratings remain difficult because audience evaluation is subjective and not fully captured by structured movie metadata.</p>
+<p><strong>Student responsible:</strong> Aya Abdine &amp; Meriam El Askri</p>
+</section>
+<section id="machine-learning-question-2-aya-abdine-meriam-el-askri" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning-question-2-aya-abdine-meriam-el-askri">Machine Learning Question 2 (Aya Abdine &amp; Meriam El Askri)</h3>
+<p><strong>Question:</strong> Can box office revenue be predicted using movie characteristics such as genre, stars, directors, and budget?</p>
+<p><strong>Objective:</strong> Predict worldwide gross revenue from movie characteristics. This question asks whether financial success can be estimated from movie metadata. It is different from rating prediction because revenue is affected by budget, release scale, genre, and market reach, and it is much more unevenly distributed.</p>
+<p><strong>Model and data preparation:</strong> Worldwide gross was log-transformed because movie revenue is highly skewed. Without the log transformation, a small number of blockbuster films would dominate the model error and hide patterns among normal movies. The feature matrix included cleaned numeric and categorical movie attributes, then Ridge Regression, Extra Trees, and Gradient Boosting were compared.</p>
+<p><strong>How to read the metrics:</strong> MAE and RMSE are reported on the log revenue scale, which is more stable for comparing movies of very different sizes. The original-scale MAE is also shown to make the money error easier to understand. R2 measures how much of the variation in log worldwide gross is explained.</p>
+<p><strong>Results:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th style="text-align: right;">MAE (Log)</th>
+<th style="text-align: right;">RMSE (Log)</th>
+<th style="text-align: right;">R2 Score</th>
+<th style="text-align: right;">MAE Original Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gradient Boosting</td>
+<td style="text-align: right;">1.4918</td>
+<td style="text-align: right;">2.0031</td>
+<td style="text-align: right;">0.6453</td>
+<td style="text-align: right;">$20,960,526</td>
+</tr>
+<tr class="even">
+<td>Extra Trees</td>
+<td style="text-align: right;">1.5491</td>
+<td style="text-align: right;">2.0449</td>
+<td style="text-align: right;">0.6303</td>
+<td style="text-align: right;">$26,763,340</td>
+</tr>
+<tr class="odd">
+<td>Ridge Regression</td>
+<td style="text-align: right;">1.7463</td>
+<td style="text-align: right;">2.2780</td>
+<td style="text-align: right;">0.5412</td>
+<td style="text-align: right;">$23,760,840</td>
+</tr>
+</tbody>
+</table>
+<p>The best model was Gradient Boosting.</p>
+<p><img src="outputs/machine_learning_q2_fig_05.png" class="img-fluid"></p>
+<p><img src="outputs/machine_learning_q2_fig_06.png" class="img-fluid"></p>
+<p><img src="outputs/machine_learning_q2_fig_07.png" class="img-fluid"></p>
+<p><img src="outputs/machine_learning_q2_fig_08.png" class="img-fluid"></p>
+<p><img src="outputs/machine_learning_q2_fig_09.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> Revenue was more predictable than rating. Gradient Boosting explained about 64.5% of the variation in log revenue, showing that budget, genre, and other structured features carry strong box-office information. Original-scale errors are still large because blockbuster revenue has extreme outliers.</p>
+<p><strong>Student responsible:</strong> Aya Abdine &amp; Meriam El Askri</p>
+</section>
+<section id="machine-learning-question-3-aya-abdine-meriam-el-askri" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning-question-3-aya-abdine-meriam-el-askri">Machine Learning Question 3 (Aya Abdine &amp; Meriam El Askri)</h3>
+<p><strong>Question:</strong> Can we predict whether a movie will receive a high rating based on its features?</p>
+<p><strong>Objective:</strong> Classify movies as high-rated or not high-rated. This question turns rating prediction into a practical classification task. Instead of asking for the exact rating, the model asks whether a movie is likely to belong to the high-rated group.</p>
+<p><strong>Model and data preparation:</strong> The target was converted into a binary label. The notebook used balanced training data and compared Logistic Regression, Random Forest, Gradient Boosting, and Extra Trees with decision-threshold tuning. Threshold tuning matters because the default 0.50 cutoff is not always best when one class is harder to identify than the other.</p>
+<p><strong>How to read the metrics:</strong> Accuracy shows the total share of correct predictions, but it can hide weak performance on the high-rated class. Precision shows how often predicted high-rated movies were actually high-rated. Recall shows how many real high-rated movies were found. F1 balances precision and recall, and ROC AUC measures how well the model ranks high-rated movies above not-high-rated movies.</p>
+<p><strong>Results:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th style="text-align: right;">ROC AUC</th>
+<th style="text-align: right;">Threshold</th>
+<th style="text-align: right;">Accuracy</th>
+<th style="text-align: right;">Balanced Accuracy</th>
+<th style="text-align: right;">Precision</th>
+<th style="text-align: right;">Recall</th>
+<th style="text-align: right;">F1 Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Random Forest</td>
+<td style="text-align: right;">0.8732</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">0.8627</td>
+<td style="text-align: right;">0.7476</td>
+<td style="text-align: right;">0.7473</td>
+<td style="text-align: right;">0.5458</td>
+<td style="text-align: right;">0.6308</td>
+</tr>
+<tr class="even">
+<td>Gradient Boosting</td>
+<td style="text-align: right;">0.8691</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">0.8596</td>
+<td style="text-align: right;">0.7431</td>
+<td style="text-align: right;">0.7377</td>
+<td style="text-align: right;">0.5388</td>
+<td style="text-align: right;">0.6227</td>
+</tr>
+<tr class="odd">
+<td>Extra Trees</td>
+<td style="text-align: right;">0.8586</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.8556</td>
+<td style="text-align: right;">0.7349</td>
+<td style="text-align: right;">0.7284</td>
+<td style="text-align: right;">0.5233</td>
+<td style="text-align: right;">0.6090</td>
+</tr>
+<tr class="even">
+<td>Logistic Regression</td>
+<td style="text-align: right;">0.8062</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.8392</td>
+<td style="text-align: right;">0.7250</td>
+<td style="text-align: right;">0.6581</td>
+<td style="text-align: right;">0.5248</td>
+<td style="text-align: right;">0.5839</td>
+</tr>
+</tbody>
+</table>
+<p>Best model: Random Forest. Confusion matrix: <code>[[6930, 369], [908, 1091]]</code>.</p>
+<p><img src="outputs/machine_learning_q3_fig_10.png" class="img-fluid"></p>
+<p><img src="outputs/machine_learning_q3_fig_11.png" class="img-fluid"></p>
+<p><img src="outputs/machine_learning_q3_fig_12.png" class="img-fluid"></p>
+<p><img src="outputs/machine_learning_q3_fig_13.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> The classifier is strong at identifying not-high-rated movies and reasonably effective at identifying high-rated movies. Random Forest had the best ROC AUC and F1 score. The model is useful, but recall for high-rated films shows that some genuinely strong movies are still missed.</p>
+<p><strong>Student responsible:</strong> Aya Abdine &amp; Meriam El Askri</p>
+</section>
+<section id="machine-learning-question-4-mcolisi-austine" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning-question-4-mcolisi-austine">Machine Learning Question 4 (Mcolisi Austine)</h3>
+<p><strong>Question:</strong> Can the number of audience votes be predicted using movie popularity factors such as stars, release date, and budget?</p>
+<p><strong>Objective:</strong> Predict audience engagement measured by vote count. Votes are used as a measure of audience attention: a movie with more votes has usually reached more viewers or generated more discussion. This question asks whether popularity factors such as rating, release date, star count, and budget can estimate that engagement.</p>
+<p><strong>Model and data preparation:</strong> The notebook compared raw vote prediction, log-transformed vote prediction, and log prediction after removing outliers. Linear Regression, Decision Tree, and Random Forest models were evaluated. This multi-step approach is important because vote counts are extremely skewed: most movies have relatively few votes, while a small number of famous movies have huge vote totals.</p>
+<p><strong>How to read the metrics:</strong> In the raw model, MAE is measured in number of votes. In the log model, MAE is measured on a transformed scale, so it describes multiplicative error rather than a simple vote difference. R2 shows how much of the variation in popularity is captured by the model.</p>
+<p><strong>Results:</strong></p>
+<p>The raw-scale Decision Tree had the best first result with MAE = 24,665.91 and R2 = 0.204. After log transformation, Decision Tree improved to MAE = 1.4248 and R2 = 0.4317. After removing outliers, Decision Tree had MAE = 1.2933 and R2 = 0.3878.</p>
+<p><img src="outputs/machine_learning_q4_fig_14.png" class="img-fluid"></p>
+<p><img src="outputs/machine_learning_q4_fig_15.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> Audience votes are highly skewed, so log transformation made the model much more stable. The notebook found average rating and release year to be the strongest predictors, followed by month and star count. Votes can be predicted to a useful degree, but blockbuster-level attention remains difficult because marketing, cultural timing, and word of mouth are not fully present in the dataset.</p>
+<p><strong>Student responsible:</strong> Mcolisi Austine</p>
+</section>
+<section id="machine-learning-question-5-syed-arshan-nehad" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning-question-5-syed-arshan-nehad">Machine Learning Question 5 (Syed Arshan Nehad)</h3>
+<p><strong>Question:</strong> How does the timing of a movie’s release influence box office performance and audience engagement?</p>
+<p><strong>Objective:</strong> Test whether release timing, represented by season, helps predict worldwide gross and audience votes. This question studies whether the time of release affects commercial performance and audience engagement. Timing can matter because some seasons are connected to holidays, summer blockbusters, awards periods, or different audience habits.</p>
+<p><strong>Model and data preparation:</strong> Release date was parsed into year, month, and season. Season was kept as the main timing variable, while budget, runtime, crew counts, and genre were used as controls. Worldwide gross and votes were log-transformed. The controls are important because timing should not be interpreted alone: expensive movies and major genres may be released in specific seasons, so the model needs to separate timing from budget and genre effects.</p>
+<p><strong>How to read the metrics:</strong> Two targets are modeled separately: worldwide gross and audience votes. R2 shows how much each target is explained. The feature-importance plot shows whether season remains important after controlling for budget, year, runtime, cast/crew counts, and genre.</p>
+<p><strong>Results:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Target</th>
+<th>Best Model</th>
+<th style="text-align: right;">MAE (Log)</th>
+<th style="text-align: right;">RMSE (Log)</th>
+<th style="text-align: right;">R2 Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Audience Votes</td>
+<td>Random Forest</td>
+<td style="text-align: right;">1.1720</td>
+<td style="text-align: right;">1.4987</td>
+<td style="text-align: right;">0.6064</td>
+</tr>
+<tr class="even">
+<td>Worldwide Gross</td>
+<td>Decision Tree</td>
+<td style="text-align: right;">1.8762</td>
+<td style="text-align: right;">2.4167</td>
+<td style="text-align: right;">0.4837</td>
+</tr>
+</tbody>
+</table>
+<p>Top predictors for audience votes were <code>budget_num</code>, <code>year</code>, <code>writer_count</code>, <code>star_count</code>, <code>runtime</code>, and <code>season_Autumn</code>. Top predictors for worldwide gross were mainly <code>budget_num</code>, <code>year</code>, genre indicators, and runtime.</p>
+<p><img src="outputs/machine_learning_q4_fig_16.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> Release timing matters, but it is not the strongest predictor once budget and year are included. Season appears in the feature-importance list for audience votes, which suggests that timing can influence engagement, but financial scale and historical release context are more powerful.</p>
+<p><strong>Student responsible:</strong> Syed Arshan Nehad</p>
+</section>
+<section id="machine-learning-question-6-syed-tamjeed-ur-rahman" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning-question-6-syed-tamjeed-ur-rahman">Machine Learning Question 6 (Syed Tamjeed Ur Rahman)</h3>
+<p><strong>Question:</strong> Can movies be classified into successful versus less successful categories based on their attributes?</p>
+<p><strong>Objective:</strong> Build a binary classifier for movie success. This final machine learning question combines the project’s broader idea of success into one classification problem. Instead of defining success only by rating or only by revenue, it uses multiple dimensions so the label reflects critical reception, audience attention, and profitability.</p>
+<p><strong>Model and data preparation:</strong> The success label combined three dimensions: rating above the median, votes above the median, and positive ROI. A movie was labeled successful if it met at least two of the three thresholds. Leakage variables used to create the label were excluded from the predictors. This means the model could not simply reuse rating, votes, revenue, or ROI as shortcuts; it had to learn from attributes such as budget, year, runtime, genre, season, MPA rating, and crew-size indicators.</p>
+<p><strong>How to read the metrics:</strong> Accuracy gives the overall correct classification rate. Precision tells how reliable the “successful” predictions are. Recall tells how many truly successful movies were found. F1 balances those two, and ROC-AUC measures the model’s ability to separate successful from less successful movies across thresholds.</p>
+<p><strong>Results:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th style="text-align: right;">Accuracy</th>
+<th style="text-align: right;">Precision</th>
+<th style="text-align: right;">Recall</th>
+<th style="text-align: right;">F1 Score</th>
+<th style="text-align: right;">ROC-AUC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Random Forest</td>
+<td style="text-align: right;">0.7004</td>
+<td style="text-align: right;">0.7069</td>
+<td style="text-align: right;">0.6989</td>
+<td style="text-align: right;">0.7029</td>
+<td style="text-align: right;">0.7665</td>
+</tr>
+<tr class="even">
+<td>Logistic Regression</td>
+<td style="text-align: right;">0.5103</td>
+<td style="text-align: right;">0.5087</td>
+<td style="text-align: right;">0.9991</td>
+<td style="text-align: right;">0.6741</td>
+<td style="text-align: right;">0.3318</td>
+</tr>
+<tr class="odd">
+<td>Decision Tree</td>
+<td style="text-align: right;">0.6639</td>
+<td style="text-align: right;">0.6926</td>
+<td style="text-align: right;">0.6061</td>
+<td style="text-align: right;">0.6465</td>
+<td style="text-align: right;">0.7231</td>
+</tr>
+</tbody>
+</table>
+<p>Top Q6 predictors were <code>budget_num</code>, <code>year</code>, <code>writer_count</code>, <code>runtime</code>, <code>primary_genre_Drama</code>, <code>primary_genre_Comedy</code>, <code>primary_genre_Action</code>, and season indicators.</p>
+<p><img src="outputs/machine_learning_q6_fig_17.png" class="img-fluid"></p>
+<p><strong>Interpretation:</strong> Random Forest was the best success classifier, with the highest F1 score and ROC-AUC. The result shows that movie success can be classified moderately well using pre-release or non-leakage attributes, but the 0.70 accuracy also shows that success depends on factors outside the dataset, such as marketing, reviews, distribution scale, and audience trends.</p>
+<p><strong>Student responsible:</strong> Syed Tamjeed Ur Rahman</p>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>The descriptive analysis shows that movie success cannot be reduced to one metric. Country and genre patterns help explain ratings, but audience votes and box office revenue follow different patterns. Duration alone does not strongly determine ratings or votes. Genre is a strong revenue separator, especially for action, superhero, animation, and franchise-oriented films. Budget is positively correlated with worldwide gross, but profitability varies by budget tier and genre. Talent prominence, measured by appearance counts, has little practical effect on ratings.</p>
+<p>The machine learning analysis confirms that careful cleaning and target transformation are essential. Rating prediction was possible but limited, with Gradient Boosting reaching R2 = 0.3649. Revenue prediction was stronger, with Gradient Boosting reaching R2 = 0.6453 on log worldwide gross. High-rating classification worked best with Random Forest, and success classification also worked best with Random Forest. Vote prediction improved clearly after log transformation.</p>
+<p>The main limitation is that the dataset contains structured metadata, but not all real drivers of movie success. Marketing spend, distribution size, critic reviews, social media attention, franchise history, and streaming availability are missing. Future work could improve the project by adding these variables, validating models on newer releases, and separating domestic and international markets more carefully.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
