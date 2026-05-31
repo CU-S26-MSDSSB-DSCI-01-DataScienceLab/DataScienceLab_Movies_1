@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Descriptive Analysis – DataScienceLab Movies</title>
+<title>sec1 – DataScienceLab Movies</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,14 +106,14 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec1.html">Descriptive Analysis</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec1.html">sec1.html</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
@@ -131,19 +131,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sec1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Descriptive Analysis</span></a>
+ <span class="menu-text">sec1.html</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Conclusion</span></a>
+ <span class="menu-text">conclusion.html</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dashboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Dashboard</span></a>
+ <span class="menu-text">dashboard.html</span></a>
   </div>
 </li>
     </ul>
@@ -151,69 +151,321 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#q1-movie-ratings-across-countries-and-industries" id="toc-q1-movie-ratings-across-countries-and-industries" class="nav-link active" data-scroll-target="#q1-movie-ratings-across-countries-and-industries">Q1: Movie Ratings Across Countries and Industries</a></li>
-  <li><a href="#q2-genre-ratings-and-votes" id="toc-q2-genre-ratings-and-votes" class="nav-link" data-scroll-target="#q2-genre-ratings-and-votes">Q2: Genre Ratings and Votes</a></li>
-  <li><a href="#q3-movie-duration-and-audience-response" id="toc-q3-movie-duration-and-audience-response" class="nav-link" data-scroll-target="#q3-movie-duration-and-audience-response">Q3: Movie Duration and Audience Response</a></li>
-  <li><a href="#q4-box-office-revenue-across-industries" id="toc-q4-box-office-revenue-across-industries" class="nav-link" data-scroll-target="#q4-box-office-revenue-across-industries">Q4: Box Office Revenue Across Industries</a></li>
-  <li><a href="#q5-budget-and-box-office-performance" id="toc-q5-budget-and-box-office-performance" class="nav-link" data-scroll-target="#q5-budget-and-box-office-performance">Q5: Budget and Box Office Performance</a></li>
-  <li><a href="#q6-movie-personnel-and-audience-response" id="toc-q6-movie-personnel-and-audience-response" class="nav-link" data-scroll-target="#q6-movie-personnel-and-audience-response">Q6: Movie Personnel and Audience Response</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Descriptive Analysis</h1>
+
+
+
+<style>
+*{box-sizing:border-box}
+.page-hero{background:linear-gradient(135deg,#0a0a14,#1a1a2e);color:#fff;padding:50px 40px;text-align:center}
+.page-hero-badge{display:inline-block;background:rgba(29,158,117,0.15);border:1px solid #1D9E75;color:#1D9E75;padding:4px 16px;border-radius:20px;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.page-hero h1{font-size:2.5rem;font-weight:800;color:#fff;margin-bottom:10px}
+.page-hero p{opacity:0.7;max-width:600px;margin:0 auto;line-height:1.7}
+.wrap{max-width:1100px;margin:0 auto;padding:0 30px}
+.q-section{padding:50px 0;border-bottom:1px solid #f0f0f0}
+.q-section:last-child{border-bottom:none}
+.q-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px}
+.q-badge{background:#1a1a2e;color:#c9a84c;border-radius:10px;padding:8px 14px;font-size:1.1rem;font-weight:800;flex-shrink:0;min-width:60px;text-align:center}
+.q-meta{flex:1}
+.q-meta h2{font-size:1.4rem;font-weight:700;color:#1a1a2e;margin-bottom:4px}
+.q-meta .author{font-size:12px;color:#9ca3af;text-transform:uppercase;letter-spacing:1px}
+.q-body p{color:#374151;line-height:1.8;margin-bottom:16px}
+.q-body h3{font-size:1rem;font-weight:700;color:#1a1a2e;margin:20px 0 8px;text-transform:uppercase;letter-spacing:1px;font-size:11px;color:#6b7280}
+.finding-box{background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid #1D9E75;border-radius:8px;padding:16px 20px;margin:16px 0}
+.finding-box p{margin:0;color:#166534;line-height:1.6}
+.finding-box strong{color:#14532d}
+.img-wrap{margin:20px 0;text-align:center}
+.img-wrap img{max-width:100%;border-radius:10px;border:1px solid #e5e7eb;box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+.img-caption{font-size:12px;color:#9ca3af;margin-top:8px;text-align:center;font-style:italic}
+.two-img{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+.stat-card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:16px;text-align:center}
+.stat-num{font-size:1.6rem;font-weight:800;color:#1a1a2e}
+.stat-lbl{font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.top-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}
+.top-item{display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px}
+.top-rank{font-size:1.2rem;font-weight:800;color:#c9a84c;width:28px}
+.top-name{font-size:13px;color:#1a1a2e;font-weight:500}
+.kw-table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
+.kw-table th{background:#1a1a2e;color:#c9a84c;padding:10px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.kw-table td{padding:10px 14px;border-bottom:1px solid #f0f0f0;color:#374151}
+.kw-table tr:hover td{background:#f9fafb}
+.section-divider{background:#1a1a2e;color:#fff;padding:20px 30px;margin:0 -30px;border-radius:0}
+.section-divider h2{font-size:1.1rem;font-weight:700;color:#c9a84c;margin:0}
+.section-divider p{font-size:12px;color:#6b7280;margin:4px 0 0}
+@media(max-width:700px){.two-img{grid-template-columns:1fr}.stat-row{grid-template-columns:1fr 1fr}.top-list{grid-template-columns:1fr}}
+</style>
+
+<div class="page-hero">
+  <div class="page-hero-badge">Descriptive Analysis</div>
+  <h1>📊 Exploring Movie Data</h1>
+  <p>Six research questions answered by Kay-Lee Dramat (Q1–Q3) and Ghofrane Mahmoud (Q4–Q6) using grouped summaries and visualizations.</p>
+</div>
+<div class="wrap">
+
+<!-- Q1 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-badge">Q1</div>
+    <div class="q-meta">
+      <h2 class="anchored">How Do Movie Ratings Vary Across Countries and Industries?</h2>
+      <div class="author">👤 Kay-Lee Dramat</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <div class="q-header-label">APPROACH</div>
+    <p>The country column was cleaned and grouped. Ratings were converted to numeric values. Only countries with sufficient data were kept to ensure reliable averages.</p>
+    <div class="finding-box">
+      <p><strong>Key Finding:</strong> Average ratings differ noticeably by country. Smaller or more selective industries rank higher because only stronger, more internationally visible films appear in the dataset. Larger industries like the US show greater variation — from prestige films to mass-market productions.</p>
+    </div>
+    <h3 class="anchored">Top Countries by Average Rating</h3>
+    <div class="top-list">
+      <div class="top-item"><span class="top-rank">🥇</span><span class="top-name">Iran</span></div>
+      <div class="top-item"><span class="top-rank">🥈</span><span class="top-name">Czechoslovakia</span></div>
+      <div class="top-item"><span class="top-rank">🥉</span><span class="top-name">Soviet Union</span></div>
+      <div class="top-item"><span class="top-rank">4</span><span class="top-name">Singapore</span></div>
+      <div class="top-item"><span class="top-rank">5</span><span class="top-name">Egypt</span></div>
+      <div class="top-item"><span class="top-rank">6</span><span class="top-name">Iceland</span></div>
+      <div class="top-item"><span class="top-rank">7</span><span class="top-name">Hungary</span></div>
+      <div class="top-item"><span class="top-rank">8</span><span class="top-name">India</span></div>
+    </div>
+    <div class="img-wrap">
+      <img src="outputs/descriptive_q1_fig_01.png" alt="Ratings by country">
+      <div class="img-caption">Figure 1 — Average IMDb ratings by country of origin</div>
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-badge">Q2</div>
+    <div class="q-meta">
+      <h2 class="anchored">Which Genres Receive the Highest Ratings and Most Votes?</h2>
+      <div class="author">👤 Kay-Lee Dramat</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Genre values were parsed from list-like text and grouped. Average rating and average vote count were calculated separately, because they measure different things: quality vs. popularity.</p>
+    <div class="finding-box">
+      <p><strong>Key Finding:</strong> Ratings ≠ Votes. Documentary, historical, and epic genres earn the strongest ratings but attract fewer votes. Action and franchise genres drive massive vote counts. A successful genre depends on whether you measure appreciation or audience size.</p>
+    </div>
+    <h3 class="anchored">Top Genres by Rating</h3>
+    <div class="top-list">
+      <div class="top-item"><span class="top-rank">1</span><span class="top-name">Sports Documentary</span></div>
+      <div class="top-item"><span class="top-rank">2</span><span class="top-name">Epic</span></div>
+      <div class="top-item"><span class="top-rank">3</span><span class="top-name">War Epic</span></div>
+      <div class="top-item"><span class="top-rank">4</span><span class="top-name">Historical Epic</span></div>
+      <div class="top-item"><span class="top-rank">5</span><span class="top-name">Music Documentary</span></div>
+      <div class="top-item"><span class="top-rank">6</span><span class="top-name">Tragedy</span></div>
+    </div>
+    <div class="two-img">
+      <div>
+        <img src="outputs/descriptive_q2_fig_02.png" alt="Genre ratings">
+        <div class="img-caption">Figure 2 — Top genres by average rating</div>
+      </div>
+      <div>
+        <img src="outputs/descriptive_q2_fig_03.png" alt="Genre votes">
+        <div class="img-caption">Figure 3 — Top genres by average vote count</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-badge">Q3</div>
+    <div class="q-meta">
+      <h2 class="anchored">How Does Movie Duration Influence Audience Ratings and Votes?</h2>
+      <div class="author">👤 Kay-Lee Dramat</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Duration was converted from hours/minutes text into numeric runtime in minutes. The notebook then visualized the relationship between runtime and both rating and votes.</p>
+    <div class="finding-box">
+      <p><strong>Key Finding:</strong> Most movies fall between 80–150 minutes. Within that range, ratings vary widely — runtime alone does not predict whether a movie is highly rated. Audience engagement is more strongly shaped by popularity, genre, and release scale than by length.</p>
+    </div>
+    <div class="two-img">
+      <div>
+        <img src="outputs/descriptive_q3_fig_04.png" alt="Runtime vs rating">
+        <div class="img-caption">Figure 4 — Runtime vs average rating</div>
+      </div>
+      <div>
+        <img src="outputs/descriptive_q3_fig_05.png" alt="Runtime vs votes">
+        <div class="img-caption">Figure 5 — Runtime vs average vote count</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="section-divider" style="border-radius:12px;margin:10px 0 0 0">
+  <h2 class="anchored">📦 Ghofrane Mahmoud — Q4, Q5, Q6</h2>
+  <p>Revenue, budget, and talent analysis</p>
+</div>
+
+<!-- Q4 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-badge" style="background:#c9a84c;color:#1a1a2e">Q4</div>
+    <div class="q-meta">
+      <h2 class="anchored">How Do Box Office Revenues Differ Across Industries?</h2>
+      <div class="author">👤 Ghofrane Mahmoud</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Revenue values were converted from currency text to numeric values. The primary genre was used for grouping. Very small genre groups were excluded. International revenue = worldwide gross − US/Canada gross.</p>
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-num" style="color:#c9a84c">$363M</div><div class="stat-lbl">Action Epic avg. worldwide</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:#1D9E75">$310M</div><div class="stat-lbl">Superhero avg. worldwide</div></div>
+      <div class="stat-card"><div class="stat-num">p&lt;0.001</div><div class="stat-lbl">Kruskal-Wallis significance</div></div>
+    </div>
+    <div class="finding-box">
+      <p><strong>Key Finding:</strong> Revenue is strongly genre-dependent. Action, superhero, animation, and franchise categories dominate because they have large budgets, wide releases, and strong international appeal. The Kruskal-Wallis test (H=6126.13, p&lt;0.001) confirms differences are statistically significant.</p>
+    </div>
+    <div class="two-img">
+      <div>
+        <img src="outputs/descriptive_q4_fig_06.png" alt="Revenue by genre">
+        <div class="img-caption">Figure 6 — Average worldwide gross by genre</div>
+      </div>
+      <div>
+        <img src="outputs/descriptive_q4_fig_07.png" alt="Revenue breakdown">
+        <div class="img-caption">Figure 7 — Revenue breakdown by market</div>
+      </div>
+    </div>
+    <div class="two-img">
+      <div>
+        <img src="outputs/descriptive_q4_fig_08.png" alt="Opening revenue">
+        <div class="img-caption">Figure 8 — Opening weekend revenue by genre</div>
+      </div>
+      <div>
+        <img src="outputs/descriptive_q4_fig_09.png" alt="International revenue">
+        <div class="img-caption">Figure 9 — International revenue by genre</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-badge" style="background:#c9a84c;color:#1a1a2e">Q5</div>
+    <div class="q-meta">
+      <h2 class="anchored">Is There a Relationship Between Budget and Box Office Performance?</h2>
+      <div class="author">👤 Ghofrane Mahmoud</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Budget and revenue columns were converted from currency strings to numeric values. ROI = (revenue − budget) / budget. Movies grouped into low (&lt;$10M), mid ($10M–$100M), and high (&gt;$100M) budget tiers.</p>
+    <div class="finding-box">
+      <p><strong>Key Finding:</strong> Pearson r=0.685 (p&lt;0.001) between log-budget and log-worldwide gross. High-budget films have the highest median profitability (65.3% profitable) but require massive returns. Low-budget films can produce spectacular ROI but median ROI is negative.</p>
+    </div>
+    <h3 class="anchored">Budget Tier Analysis (10,374 movies)</h3>
+    
+<table class="kw-table caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Tier</th>
+<th data-quarto-table-cell-role="th">Movies</th>
+<th data-quarto-table-cell-role="th">Avg Budget</th>
+<th data-quarto-table-cell-role="th">Avg Revenue</th>
+<th data-quarto-table-cell-role="th">Avg ROI</th>
+<th data-quarto-table-cell-role="th">Profitable</th>
+</tr>
+<tr class="even">
+<td>Low (&lt;$10M)</td>
+<td>4,613</td>
+<td>$3.4M</td>
+<td>$9.5M</td>
+<td>209%</td>
+<td>39.2%</td>
+</tr>
+<tr class="odd">
+<td>Mid ($10M–$100M)</td>
+<td>5,115</td>
+<td>$32.1M</td>
+<td>$76.8M</td>
+<td>137%</td>
+<td>58.8%</td>
+</tr>
+<tr class="even">
+<td>High (&gt;$100M)</td>
+<td>646</td>
+<td>$1,163M</td>
+<td>$380.5M</td>
+<td>128%</td>
+<td>65.3%</td>
+</tr>
+</tbody>
+</table>
+
+    <div class="two-img">
+      <div>
+        <img src="outputs/descriptive_q5_fig_10.png" alt="Budget vs revenue">
+        <div class="img-caption">Figure 10 — Budget vs worldwide gross (log scale)</div>
+      </div>
+      <div>
+        <img src="outputs/descriptive_q5_fig_11.png" alt="ROI distribution">
+        <div class="img-caption">Figure 11 — ROI distribution by budget tier</div>
+      </div>
+    </div>
+    <div class="two-img">
+      <div>
+        <img src="outputs/descriptive_q5_fig_12.png" alt="Profitability">
+        <div class="img-caption">Figure 12 — Profitability rate by tier</div>
+      </div>
+      <div>
+        <img src="outputs/descriptive_q5_fig_13.png" alt="Opening ratio">
+        <div class="img-caption">Figure 13 — Opening weekend ratio</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-badge" style="background:#c9a84c;color:#1a1a2e">Q6</div>
+    <div class="q-meta">
+      <h2 class="anchored">Do Movies with Well-Known Personnel Receive Higher Ratings or Votes?</h2>
+      <div class="author">👤 Ghofrane Mahmoud</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Stars, directors, and writers were parsed from list-like text. High-profile vs low-profile groups were defined by appearance frequency. Mann-Whitney U tests were used for rating comparisons.</p>
+    <div class="finding-box">
+      <p><strong>Key Finding:</strong> Median rating is 6.30 for both high-profile and low-profile groups across stars, directors, and writers. Even statistically significant results show no practical difference. Star power appears to boost visibility (votes) more than quality evaluation (ratings).</p>
+    </div>
+    <div class="two-img">
+      <div>
+        <img src="outputs/descriptive_q6_fig_14.png" alt="Stars ratings">
+        <div class="img-caption">Figure 14 — Ratings: high vs low-profile stars</div>
+      </div>
+      <div>
+        <img src="outputs/descriptive_q6_fig_15.png" alt="Directors ratings">
+        <div class="img-caption">Figure 15 — Ratings: high vs low-profile directors</div>
+      </div>
+    </div>
+    <div class="two-img">
+      <div>
+        <img src="outputs/descriptive_q6_fig_16.png" alt="Votes comparison">
+        <div class="img-caption">Figure 16 — Vote counts comparison</div>
+      </div>
+      <div>
+        <img src="outputs/descriptive_q6_fig_17.png" alt="Personnel effect">
+        <div class="img-caption">Figure 17 — Overall personnel effect summary</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>This section explores patterns in the movie dataset before any prediction. All analysis was performed by <strong>Kay-Lee Dramat</strong> (Q1–Q3) and <strong>Ghofrane Mahmoud</strong> (Q4–Q6).</p>
-<section id="q1-movie-ratings-across-countries-and-industries" class="level2">
-<h2 class="anchored" data-anchor-id="q1-movie-ratings-across-countries-and-industries">Q1: Movie Ratings Across Countries and Industries</h2>
-<p>Movie ratings vary noticeably by country of origin. Smaller or more selective film industries tend to show higher average ratings, partly because fewer titles from those markets enter the dataset. Larger industries display wider variation — a mix of highly rated prestige films alongside lower-rated mass-market productions.</p>
-</section>
-<section id="q2-genre-ratings-and-votes" class="level2">
-<h2 class="anchored" data-anchor-id="q2-genre-ratings-and-votes">Q2: Genre Ratings and Votes</h2>
-<p>Genres do not perform equally. Some genres consistently attract higher average ratings, while others generate larger vote counts. Notably, a highly-rated genre is not always the most-watched: documentary and biographical genres tend toward high ratings with fewer votes, while action and adventure genres attract large audiences but more moderate average ratings.</p>
-</section>
-<section id="q3-movie-duration-and-audience-response" class="level2">
-<h2 class="anchored" data-anchor-id="q3-movie-duration-and-audience-response">Q3: Movie Duration and Audience Response</h2>
-<p>Runtime influences audience response, but not linearly. Mid-length films (90–140 minutes) tend to cluster around the highest average ratings. Very short films (under 70 minutes) and very long films (over 180 minutes) show greater variability, suggesting that duration effects depend on genre, audience expectations, and movie type.</p>
-</section>
-<section id="q4-box-office-revenue-across-industries" class="level2">
-<h2 class="anchored" data-anchor-id="q4-box-office-revenue-across-industries">Q4: Box Office Revenue Across Industries</h2>
-<p>Box office revenues differ substantially across film industries. Larger markets — particularly the US — generate considerably higher totals. Revenue distributions are heavily right-skewed: a small number of blockbuster films account for a disproportionate share of total earnings, while the majority of films earn far less.</p>
-</section>
-<section id="q5-budget-and-box-office-performance" class="level2">
-<h2 class="anchored" data-anchor-id="q5-budget-and-box-office-performance">Q5: Budget and Box Office Performance</h2>
-<p>A positive relationship exists between production budget and worldwide box office revenue. Higher-budget films tend to earn more, but the relationship is not perfect. Some high-budget films underperform while a few low-budget films achieve surprisingly strong returns. Outliers — especially franchise blockbusters — have an outsized influence on this pattern.</p>
-</section>
-<section id="q6-movie-personnel-and-audience-response" class="level2">
-<h2 class="anchored" data-anchor-id="q6-movie-personnel-and-audience-response">Q6: Movie Personnel and Audience Response</h2>
-<p>Movies featuring well-known directors, writers, or stars are associated with higher vote counts and wider audience reach. However, personnel fame alone does not reliably predict higher ratings. The effect of star power is most visible in audience engagement (votes) rather than critical evaluation (ratings), and it interacts with genre and budget context.</p>
-
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
