@@ -4,11 +4,7 @@
     "href": "sec2.html#headline-2",
     "title": "Title of Section 2",
     "section": "Headline 2",
-    "text": "Headline 2",
-    "crumbs": [
-      "Home",
-      "Title of Section 2"
-    ]
+    "text": "Headline 2"
   },
   {
     "objectID": "report.html",
@@ -390,65 +386,10 @@
     "href": "index.html",
     "title": "Analyzing & PredictingMovie Success",
     "section": "",
-    "text": "MASTER'S DATA SCIENCE LAB · 2025\n  \n  A combined descriptive & machine learning study across global film industries\n  \n    IMDb Dataset\n    Random Forest\n    Gradient Boosting\n    12 Research Questions",
+    "text": "Master's Data Science Lab · 2025\n  Analyzing & PredictingMovie Success\n  A combined descriptive & machine learning study across global film industries — using IMDb data to uncover what makes movies succeed in ratings, audience engagement, and box office performance.\n  \n    63,249 Movies\n    IMDb Dataset\n    Random Forest\n    Gradient Boosting\n    12 Research Questions\n    7 Researchers\n  \n\n\n\n\n  0Research Questions\n  0ML Models Compared\n  0%Best ROC AUC\n  0Best Revenue R²\n\n\n\n\n  Research Design\n  What We Investigated\n  Two parallel analysis tracks covering 12 research questions about movie success across global film industries.\n  \n  \n    \n      📊 Descriptive Analysis — Kay-Lee & Ghofrane\n      Q1Ratings Across CountriesHow do movie ratings vary across different film industries and countries of origin?\n      Q2Genre PerformanceWhich genres receive the highest average ratings and number of votes?\n      Q3Duration & AudienceHow does movie runtime influence audience ratings and engagement?\n      Q4–Q6Revenue, Budget & Star PowerBox office differences across genres, budget–revenue relationships, and personnel effects.\n    \n    \n      🤖 Machine Learning — Aya, Meriam, Austine, Arshan, Syed\n      Q1Predict IMDb RatingCan rating be predicted from genre, duration, budget, and release date? Best: Gradient Boosting R²=0.365\n      Q2Predict Box Office RevenueCan worldwide gross be predicted? Log-transform applied. Best: Gradient Boosting R²=0.645\n      Q3Classify High-Rated FilmsBinary classification: high vs not-high rated. Best: Random Forest ROC AUC=0.873\n      Q4–Q6Votes, Timing & SuccessPredict audience votes, analyze release timing effects, classify overall movie success.\n    \n  \n\n\n\n\n  \n    Machine Learning Results\n    Model Performance\n    Ensemble methods (Random Forest, Extra Trees, Gradient Boosting) outperformed linear baselines on every task. Click tabs to explore each question.\n    \n    \n      \n        Q1 Rating\n        Q2 Revenue\n        Q3 Classification\n        Feature Importance\n      \n      \n      \n      \n        \n          \n            🎯 Rating Prediction — R² Score\n            Gradient Boosting0.365\n            Extra Trees0.356\n            Ridge Regression0.268\n            Log-votes is the strongest predictor. Ratings remain subjective — the model explains ~37% of variation.\n          \n          \n            📋 Full Metrics — Q1 Rating\n            \n\n\n\nModel\nMAE\nRMSE\nR²\n\n\n\nGradient Boosting\n0.641\n0.853\n0.365\nBest\n\n\nExtra Trees\n0.650\n0.859\n0.356\nGood\n\n\nRidge Regression\n0.690\n0.916\n0.268\nBaseline\n\n\n\n\n            MAE ≈ 0.64 rating points. Models struggle at extreme ratings (very high/low) due to subjectivity.\n          \n        \n      \n      \n      \n      \n        \n          \n            💰 Revenue Prediction — R² Score (log scale)\n            Gradient Boosting0.645\n            Extra Trees0.630\n            Ridge Regression0.541\n            Log-transform dramatically improves model stability. Revenue is far more predictable than ratings.\n          \n          \n            📋 Full Metrics — Q2 Revenue\n            \n\n\n\nModel\nMAE (log)\nR²\nMAE (raw)\n\n\n\nGradient Boosting\n1.492\n0.645\n~$21M\nBest\n\n\nExtra Trees\n1.549\n0.630\n~$27M\nGood\n\n\nRidge Regression\n1.746\n0.541\n~$24M\nBaseline\n\n\n\n\n            Budget, genre, and release year are the strongest revenue predictors. Exact blockbuster values remain hard to predict.\n          \n        \n      \n      \n      \n      \n        \n          \n            🏆 High-Rating Classification — ROC AUC\n            Random Forest0.873\n            Gradient Boosting0.869\n            Extra Trees0.859\n            Logistic Regression0.806\n            Balanced training + tuned threshold. Random Forest achieves 87.3% ROC AUC.\n          \n          \n            🔢 Confusion Matrix — Random Forest (Best)\n            \n              \n                \n                Pred: Not High\n                Pred: High\n                True: Not High\n                6,930 ✓\n                369\n                True: High\n                908\n                1,091 ✓\n              \n              Accuracy: 86.3% · Precision: 74.7% · Recall: 54.6% · F1: 63.1%Model correctly identifies most non-high-rated films and captures over half of truly high-rated ones.\n            \n          \n        \n      \n      \n      \n      \n        \n          \n            📊 Feature Importance — Q1 Rating Prediction\n            log_votes17.7%\n            runtime7.6%\n            budget7.4%\n            movie_age7.2%\n            release_month5.7%\n            director_count4.6%\n            cast_count4.5%\n            genre_encoded3.9%\n            log_votes dominates — movies that attract more viewers tend to be rated differently than niche releases.\n          \n          \n            📊 Feature Importance — Q6 Success Classification\n            budget_numHigh\n            yearHigh\n            writer_countMed\n            runtimeMed\n            genre_DramaMed\n            genre_ComedyLow\n            genre_ActionLow\n            season_AutumnLow\n            Budget and year are the top predictors of overall success. Genre indicators contribute moderate information.\n          \n        \n      \n    \n  \n\n\n\n\n  \n    Insights\n    6 Key Findings\n    What the data revealed about movie success across all 12 research questions.\n    \n      🌍Industry Shapes RatingsSmaller, selective industries show higher averages because fewer, more curated releases appear in the dataset. Larger industries display greater variation.\n      🎭Genre: Ratings ≠ VotesDocumentary and biopic genres earn high ratings with smaller audiences. Action and franchise genres drive massive vote counts and revenue regardless of rating.\n      ⏱️Non-linear Runtime EffectFilms between 90–140 minutes cluster at the highest average ratings. Very short or very long films show far more variability in audience reception.\n      💰Budget Predicts RevenuePearson r=0.685 between log-budget and log-revenue. High-budget films have 65% profitability rate vs 39% for low-budget. But ROI varies enormously.\n      ⭐Star Power → VisibilityWell-known personnel reliably boost vote counts and audience reach, but median ratings are identical (6.30) for high-profile and low-profile groups.\n      🤖Ensembles WinRandom Forest, Extra Trees, and Gradient Boosting consistently outperformed linear baselines. Careful data cleaning and log-transforms were essential improvements.\n    \n  \n\n\n\n\n  \n    The Team\n    Who Built This\n    \n      AAAya AbdineMachine LearningML Q1·Q2·Q3\n      MAMeriam Al AskriMachine LearningML Q1·Q2·Q3\n      GMGhofrane MahmoudDescriptiveDA Q4·Q5·Q6\n      KLKay-Lee DramatDescriptiveDA Q1·Q2·Q3\n      AUMcolisi AustineMachine LearningML Q4\n      AEArshanMachine LearningML Q5\n      SYSyedMachine LearningML Q6",
     "crumbs": [
       "Home",
-      "Project Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#project-overview",
-    "href": "index.html#project-overview",
-    "title": "Analyzing & PredictingMovie Success",
-    "section": "Project Overview",
-    "text": "Project Overview\nThis project investigates what makes a movie successful across different film industries worldwide. Using a rich dataset of movie-level attributes — including ratings, votes, genres, budgets, revenues, runtime, release dates, cast, directors, and writers — we combine descriptive analysis and machine learning to explain and predict movie performance.\n\n  12Research Questions\n  6ML Models\n  87%Best ROC AUC\n  0.645Best Revenue R²",
-    "crumbs": [
-      "Home",
-      "Project Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#the-problem",
-    "href": "index.html#the-problem",
-    "title": "Analyzing & PredictingMovie Success",
-    "section": "The Problem",
-    "text": "The Problem\nThe film industry is highly competitive. Which movie characteristics best explain and predict movie success in terms of audience evaluation and financial performance?",
-    "crumbs": [
-      "Home",
-      "Project Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#what-we-did",
-    "href": "index.html#what-we-did",
-    "title": "Analyzing & PredictingMovie Success",
-    "section": "What We Did",
-    "text": "What We Did\n\n  \n    📊 Descriptive Analysis\n    Kay-Lee Dramat and Ghofrane Mahmoud examined patterns in ratings, votes, genres, runtime, revenue, budget, and movie personnel across 6 research questions.\n  \n  \n    🤖 Machine Learning\n    Aya Abdine, Meriam Al Askri, Mcolisi Austine, Arshan, and Syed built predictive models for rating, revenue, votes, timing effects, and success classification.",
-    "crumbs": [
-      "Home",
-      "Project Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#key-findings",
-    "href": "index.html#key-findings",
-    "title": "Analyzing & PredictingMovie Success",
-    "section": "Key Findings",
-    "text": "Key Findings\n\n  \n    🌍\n    Industry Shapes Ratings\n    Smaller industries show higher averages. Larger ones show more variation — prestige films alongside mass-market productions.\n  \n  \n    🎭\n    Genre: Ratings ≠ Votes\n    Documentary genres earn high ratings but fewer votes. Action drives audience size without topping ratings.\n  \n  \n    ⏱️\n    Non-linear Runtime\n    90–140 min films cluster at highest ratings. Very short or very long films are far more variable.\n  \n  \n    💰\n    Budget → Revenue\n    Positive correlation but blockbuster outliers dominate. Log-transform stabilises all ML models.\n  \n  \n    ⭐\n    Star Power → Visibility\n    Well-known personnel reliably boost vote counts, but do not guarantee high ratings.\n  \n  \n    🤖\n    Ensembles Win\n    Random Forest, Extra Trees, and Gradient Boosting outperformed linear baselines on every prediction task.",
-    "crumbs": [
-      "Home",
-      "Project Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#data",
-    "href": "index.html#data",
-    "title": "Analyzing & PredictingMovie Success",
-    "section": "Data",
-    "text": "Data\nAll analysis uses the cleaned dataset at Data/final_dataset.csv, containing movie-level information from IMDb. Supplementary train-test files for ML are saved in the Data folder.",
-    "crumbs": [
-      "Home",
-      "Project Overview"
+      "index.html"
     ]
   },
   {
