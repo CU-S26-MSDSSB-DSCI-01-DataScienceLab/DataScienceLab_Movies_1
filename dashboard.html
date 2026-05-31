@@ -70,6 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="shared.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -93,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">🏠 Home</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -164,89 +165,35 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<style>
-*{box-sizing:border-box}
-.dash-hero{background:linear-gradient(135deg,#0a0a14,#1a1a2e);color:#fff;padding:40px;text-align:center}
-.dash-badge{display:inline-block;background:rgba(55,138,221,0.15);border:1px solid #378ADD;color:#7dc4f9;padding:4px 16px;border-radius:20px;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
-.dash-hero h1{font-size:2rem;font-weight:800;color:#fff;margin-bottom:8px}
-.wrap{max-width:1200px;margin:0 auto;padding:30px}
-.big-numbers{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:#e5e7eb;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;margin-bottom:28px}
-.bn{background:#fff;padding:20px 12px;text-align:center}
-.bn-n{font-size:1.8rem;font-weight:800}
-.bn-l{font-size:10px;color:#6b7280;text-transform:uppercase;letter-spacing:1px;margin-top:3px}
-.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
-.dash-full{grid-column:1/-1}
-.panel{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:22px}
-.panel-dark{background:#0a0a14;border-color:#2a2a3e}
-.panel-title{font-size:13px;font-weight:700;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #f0f0f0;color:#1a1a2e}
-.panel-dark .panel-title{color:#fff;border-color:#2a2a3e}
-.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.bl{font-size:12px;color:#6b7280;width:130px;flex-shrink:0}
-.bt{flex:1;background:#f0f0f0;border-radius:4px;height:9px;overflow:hidden}
-.bf{height:100%;border-radius:4px;width:0;transition:width 1.2s ease}
-.bv{font-size:12px;font-weight:700;width:44px;text-align:right;color:#1a1a2e}
-.dark-bl{color:#9ca3af}.dark-bt{background:#1e1e2e}.dark-bv{color:#fff}
-.g{background:#1D9E75}.b{background:#378ADD}.a{background:#c9a84c}.gr{background:#5F5E5A}.r{background:#e24b4a}
-.feat-r{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.fl{font-size:12px;color:#9ca3af;width:110px;flex-shrink:0}
-.ft{flex:1;background:#1e1e2e;border-radius:3px;height:6px}
-.ff{height:100%;border-radius:3px;width:0;transition:width 1.4s ease}
-.fv{font-size:11px;color:#6b7280;width:36px;text-align:right}
-table{width:100%;border-collapse:collapse;font-size:12px}
-th{background:#f8f9fa;padding:9px 12px;text-align:left;font-size:11px;color:#6b7280;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #e5e7eb;font-weight:600}
-td{padding:9px 12px;border-bottom:1px solid #f5f5f5;color:#374151}
-tr:hover td{background:#fafafa}
-.badge-g{background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700}
-.badge-b{background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700}
-.badge-o{background:#f3f4f6;color:#6b7280;padding:2px 8px;border-radius:4px;font-size:11px}
-.cm{display:grid;grid-template-columns:auto 1fr 1fr;gap:3px;max-width:340px}
-.cm-h{background:transparent;color:#9ca3af;font-size:11px;font-weight:600;padding:8px;text-align:center}
-.cm-tp{background:rgba(29,158,117,0.25);color:#1D9E75;font-size:13px;font-weight:700;padding:14px;border-radius:6px;text-align:center}
-.cm-fp{background:rgba(226,75,74,0.15);color:#e24b4a;font-size:13px;font-weight:700;padding:14px;border-radius:6px;text-align:center}
-.cm-fn{background:rgba(226,75,74,0.15);color:#e24b4a;font-size:13px;font-weight:700;padding:14px;border-radius:6px;text-align:center}
-.cm-tn{background:rgba(55,138,221,0.25);color:#378ADD;font-size:13px;font-weight:700;padding:14px;border-radius:6px;text-align:center}
-.finding-row{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #f0f0f0}
-.finding-row:last-child{border-bottom:none}
-.fi{font-size:1.3rem;flex-shrink:0}
-.ft2{font-size:13px;font-weight:600;color:#1a1a2e;margin-bottom:3px}
-.fd{font-size:12px;color:#6b7280;line-height:1.5}
-.tabs{display:flex;gap:0;border-bottom:2px solid #e5e7eb;margin-bottom:20px}
-.tab{padding:9px 18px;font-size:13px;cursor:pointer;color:#6b7280;border-bottom:2px solid transparent;margin-bottom:-2px;background:none;border-top:none;border-left:none;border-right:none;font-weight:500;font-family:inherit;transition:all 0.2s}
-.tab.on{color:#c9a84c;border-bottom-color:#c9a84c;font-weight:700}
-.pane{display:none}.pane.on{display:block}
-@media(max-width:768px){.big-numbers{grid-template-columns:repeat(3,1fr)}.dash-grid{grid-template-columns:1fr}.dash-full{grid-column:1}}
-</style>
-
-<div class="dash-hero">
-  <div class="dash-badge">Interactive Dashboard</div>
-  <h1>📊 Project Results at a Glance</h1>
+<div class="site-hero" style="padding:40px 40px 36px">
+  <div class="hero-badge" style="background:rgba(55,138,221,0.15);border-color:rgba(55,138,221,0.4);color:var(--blue)">Interactive Dashboard</div>
+  <h1>📊 Project Results <span>at a Glance</span></h1>
 </div>
-
-<div class="wrap">
 
 <!-- BIG NUMBERS -->
-<div class="big-numbers">
-  <div class="bn"><div class="bn-n" style="color:#1a1a2e" id="d1">0</div><div class="bn-l">Movies in dataset</div></div>
-  <div class="bn"><div class="bn-n" style="color:#c9a84c" id="d2">0</div><div class="bn-l">Research questions</div></div>
-  <div class="bn"><div class="bn-n" style="color:#1D9E75" id="d3">0%</div><div class="bn-l">Best ROC AUC</div></div>
-  <div class="bn"><div class="bn-n" style="color:#378ADD" id="d4">0</div><div class="bn-l">Best revenue R²</div></div>
-  <div class="bn"><div class="bn-n" style="color:#1a1a2e" id="d5">0%</div><div class="bn-l">Rating accuracy</div></div>
-  <div class="bn"><div class="bn-n" style="color:#c9a84c" id="d6">0</div><div class="bn-l">Team members</div></div>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);background:var(--surface);border-bottom:1px solid var(--border)">
+  <div style="padding:20px 14px;text-align:center;border-right:1px solid var(--border)"><div style="font-size:1.7rem;font-weight:800;color:var(--navy)" id="d1">0</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px">Movies</div></div>
+  <div style="padding:20px 14px;text-align:center;border-right:1px solid var(--border)"><div style="font-size:1.7rem;font-weight:800;color:var(--gold)" id="d2">0</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px">Questions</div></div>
+  <div style="padding:20px 14px;text-align:center;border-right:1px solid var(--border)"><div style="font-size:1.7rem;font-weight:800;color:var(--teal)" id="d3">0%</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px">Best ROC AUC</div></div>
+  <div style="padding:20px 14px;text-align:center;border-right:1px solid var(--border)"><div style="font-size:1.7rem;font-weight:800;color:var(--blue)" id="d4">0</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px">Best Revenue R²</div></div>
+  <div style="padding:20px 14px;text-align:center;border-right:1px solid var(--border)"><div style="font-size:1.7rem;font-weight:800;color:var(--navy)" id="d5">0%</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px">Rating Accuracy</div></div>
+  <div style="padding:20px 14px;text-align:center"><div style="font-size:1.7rem;font-weight:800;color:var(--gold)" id="d6">0</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px">Team Members</div></div>
 </div>
 
-<!-- MODEL COMPARISON TABLE -->
-<div class="dash-grid">
-  <div class="panel dash-full">
-    <div class="panel-title">🏆 All Models — Summary Comparison</div>
-    <div class="tabs">
-      <button class="tab on" onclick="showT('ta',this)">Q1 Rating</button>
-      <button class="tab" onclick="showT('tb',this)">Q2 Revenue</button>
-      <button class="tab" onclick="showT('tc',this)">Q3 Classification</button>
-      <button class="tab" onclick="showT('td',this)">Q6 Success</button>
-    </div>
-    <div class="pane on" id="ta">
-      
-<table class="caption-top table">
+<div class="section">
+
+<!-- MODEL COMPARISON TABS -->
+<div class="card" style="margin-bottom:20px">
+  <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)">🏆 All Models — Summary Comparison</div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('ta',this)">Q1 Rating</button>
+    <button class="tab-btn" onclick="showTab('tb',this)">Q2 Revenue</button>
+    <button class="tab-btn" onclick="showTab('tc',this)">Q3 Classification</button>
+    <button class="tab-btn" onclick="showTab('td',this)">Q6 Success</button>
+  </div>
+  <div class="tab-pane active" id="ta">
+    
+<table class="data-table table-light caption-top table">
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Model</th>
@@ -260,29 +207,29 @@ tr:hover td{background:#fafafa}
 <td>0.641</td>
 <td>0.853</td>
 <td><strong>0.365</strong></td>
-<td><span class="badge-g">Best</span></td>
+<td><span class="badge badge-green">Best</span></td>
 </tr>
 <tr class="odd">
 <td>Extra Trees</td>
 <td>0.650</td>
 <td>0.859</td>
 <td>0.356</td>
-<td><span class="badge-b">Strong</span></td>
+<td><span class="badge badge-blue">Strong</span></td>
 </tr>
 <tr class="even">
 <td>Ridge Regression</td>
 <td>0.690</td>
 <td>0.916</td>
 <td>0.268</td>
-<td><span class="badge-o">Baseline</span></td>
+<td><span class="badge badge-gray">Baseline</span></td>
 </tr>
 </tbody>
 </table>
 
-    </div>
-    <div class="pane" id="tb">
-      
-<table class="caption-top table">
+  </div>
+  <div class="tab-pane" id="tb">
+    
+<table class="data-table table-light caption-top table">
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Model</th>
@@ -298,7 +245,7 @@ tr:hover td{background:#fafafa}
 <td>2.003</td>
 <td><strong>0.645</strong></td>
 <td>$21M</td>
-<td><span class="badge-g">Best</span></td>
+<td><span class="badge badge-green">Best</span></td>
 </tr>
 <tr class="odd">
 <td>Extra Trees</td>
@@ -306,7 +253,7 @@ tr:hover td{background:#fafafa}
 <td>2.045</td>
 <td>0.630</td>
 <td>$27M</td>
-<td><span class="badge-b">Strong</span></td>
+<td><span class="badge badge-blue">Strong</span></td>
 </tr>
 <tr class="even">
 <td>Ridge Regression</td>
@@ -314,15 +261,15 @@ tr:hover td{background:#fafafa}
 <td>2.278</td>
 <td>0.541</td>
 <td>$24M</td>
-<td><span class="badge-o">Baseline</span></td>
+<td><span class="badge badge-gray">Baseline</span></td>
 </tr>
 </tbody>
 </table>
 
-    </div>
-    <div class="pane" id="tc">
-      
-<table class="caption-top table">
+  </div>
+  <div class="tab-pane" id="tc">
+    
+<table class="data-table table-light caption-top table">
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Model</th>
@@ -340,7 +287,7 @@ tr:hover td{background:#fafafa}
 <td>0.747</td>
 <td>0.546</td>
 <td>0.631</td>
-<td><span class="badge-g">Best</span></td>
+<td><span class="badge badge-green">Best</span></td>
 </tr>
 <tr class="odd">
 <td>Gradient Boosting</td>
@@ -349,7 +296,7 @@ tr:hover td{background:#fafafa}
 <td>0.738</td>
 <td>0.539</td>
 <td>0.623</td>
-<td><span class="badge-b">Strong</span></td>
+<td><span class="badge badge-blue">Strong</span></td>
 </tr>
 <tr class="even">
 <td>Extra Trees</td>
@@ -358,7 +305,7 @@ tr:hover td{background:#fafafa}
 <td>0.728</td>
 <td>0.523</td>
 <td>0.609</td>
-<td><span class="badge-b">Strong</span></td>
+<td><span class="badge badge-blue">Strong</span></td>
 </tr>
 <tr class="odd">
 <td>Logistic Regression</td>
@@ -367,15 +314,15 @@ tr:hover td{background:#fafafa}
 <td>0.658</td>
 <td>0.525</td>
 <td>0.584</td>
-<td><span class="badge-o">Baseline</span></td>
+<td><span class="badge badge-gray">Baseline</span></td>
 </tr>
 </tbody>
 </table>
 
-    </div>
-    <div class="pane" id="td">
-      
-<table class="caption-top table">
+  </div>
+  <div class="tab-pane" id="td">
+    
+<table class="data-table table-light caption-top table">
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Model</th>
@@ -393,7 +340,7 @@ tr:hover td{background:#fafafa}
 <td>0.699</td>
 <td>0.703</td>
 <td>0.767</td>
-<td><span class="badge-g">Best</span></td>
+<td><span class="badge badge-green">Best</span></td>
 </tr>
 <tr class="odd">
 <td>Decision Tree</td>
@@ -402,7 +349,7 @@ tr:hover td{background:#fafafa}
 <td>0.606</td>
 <td>0.647</td>
 <td>0.723</td>
-<td><span class="badge-b">Good</span></td>
+<td><span class="badge badge-blue">Good</span></td>
 </tr>
 <tr class="even">
 <td>Logistic Regression</td>
@@ -411,73 +358,65 @@ tr:hover td{background:#fafafa}
 <td>0.999</td>
 <td>0.674</td>
 <td>0.332</td>
-<td><span class="badge-o">Baseline</span></td>
+<td><span class="badge badge-red">Failed</span></td>
 </tr>
 </tbody>
 </table>
 
-    </div>
   </div>
 </div>
 
-<!-- BARS + CONFUSION MATRIX -->
-<div class="dash-grid">
-  <div class="panel panel-dark">
-    <div class="panel-title">📈 R² Score Comparison Across Tasks</div>
-    <div class="bar-row"><span class="bl dark-bl">Revenue (Q2)</span><div class="bt dark-bt"><div class="bf g" data-w="89"></div></div><span class="bv dark-bv">0.645</span></div>
-    <div class="bar-row"><span class="bl dark-bl">Vote Count (Q4)</span><div class="bt dark-bt"><div class="bf b" data-w="83"></div></div><span class="bv dark-bv">0.606</span></div>
-    <div class="bar-row"><span class="bl dark-bl">Release Timing (Q5)</span><div class="bt dark-bt"><div class="bf a" data-w="66"></div></div><span class="bv dark-bv">0.484</span></div>
-    <div class="bar-row"><span class="bl dark-bl">Rating (Q1)</span><div class="bt dark-bt"><div class="bf gr" data-w="50"></div></div><span class="bv dark-bv">0.365</span></div>
-    <div style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Revenue and vote count are most predictable. Rating prediction is hardest due to subjectivity.</div>
+<!-- CHARTS + CONFUSION MATRIX -->
+<div class="grid-2" style="margin-bottom:20px">
+  <div class="card-dark card">
+    <div class="card-title">R² across all tasks</div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Revenue (Q2)</span><div class="bar-track dark"><div class="bar-fill" data-w="89" style="background:var(--teal)"></div></div><span class="bar-val light">0.645</span></div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Vote Count (Q4)</span><div class="bar-track dark"><div class="bar-fill" data-w="83" style="background:var(--blue)"></div></div><span class="bar-val light">0.606</span></div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Timing (Q5)</span><div class="bar-track dark"><div class="bar-fill" data-w="67" style="background:var(--gold)"></div></div><span class="bar-val light">0.484</span></div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Rating (Q1)</span><div class="bar-track dark"><div class="bar-fill" data-w="50" style="background:#5f5e5a"></div></div><span class="bar-val light">0.365</span></div>
+    <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Revenue and vote count are most predictable. Rating is hardest due to subjectivity.</p>
   </div>
-  
-  <div class="panel panel-dark">
-    <div class="panel-title">🔢 Confusion Matrix — Random Forest (Q3)</div>
-    <div class="cm" style="margin:10px auto">
-      <div class="cm-h"></div>
-      <div class="cm-h">Pred: Not High</div>
-      <div class="cm-h">Pred: High</div>
-      <div class="cm-h" style="text-align:right;padding-right:8px;font-size:10px">True: Not High</div>
-      <div class="cm-tn">6,930 ✓</div>
-      <div class="cm-fp">369 ✗</div>
-      <div class="cm-h" style="text-align:right;padding-right:8px;font-size:10px">True: High</div>
-      <div class="cm-fn">908 ✗</div>
-      <div class="cm-tp">1,091 ✓</div>
+  <div class="card-dark card">
+    <div class="card-title">Confusion matrix — Random Forest (Q3)</div>
+    <div class="cm-grid" style="margin:10px auto">
+      <div class="cm-hdr"></div><div class="cm-hdr">Pred: Not High</div><div class="cm-hdr">Pred: High</div>
+      <div class="cm-hdr" style="text-align:right;padding-right:8px;font-size:10px">True: Not High</div>
+      <div class="cm-cell cm-tn">6,930 ✓</div><div class="cm-cell cm-fp">369 ✗</div>
+      <div class="cm-hdr" style="text-align:right;padding-right:8px;font-size:10px">True: High</div>
+      <div class="cm-cell cm-fn">908 ✗</div><div class="cm-cell cm-tp">1,091 ✓</div>
     </div>
-    <div style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Accuracy: 86.3% · Precision: 74.7% · Recall: 54.6%<br>Strong at identifying non-high-rated films. Captures ~55% of truly high-rated ones.</div>
+    <p style="font-size:11px;color:#4b5563;margin-top:10px;border-top:1px solid #2a2a3e;padding-top:10px">Accuracy: 86.3% · Precision: 74.7% · Recall: 54.6%<br>Strong at identifying non-high-rated films. Captures ~55% of truly high-rated ones.</p>
   </div>
 </div>
 
-<!-- FEATURE IMPORTANCE -->
-<div class="dash-grid">
-  <div class="panel panel-dark">
-    <div class="panel-title">📊 Feature Importance — Q1 Rating (Gradient Boosting)</div>
-    <div class="feat-r"><span class="fl">log_votes</span><div class="ft"><div class="ff" data-w="100" style="background:#c9a84c"></div></div><span class="fv">17.7%</span></div>
-    <div class="feat-r"><span class="fl">runtime</span><div class="ft"><div class="ff" data-w="43" style="background:#378ADD"></div></div><span class="fv">7.6%</span></div>
-    <div class="feat-r"><span class="fl">budget</span><div class="ft"><div class="ff" data-w="42" style="background:#378ADD"></div></div><span class="fv">7.4%</span></div>
-    <div class="feat-r"><span class="fl">movie_age</span><div class="ft"><div class="ff" data-w="41" style="background:#378ADD"></div></div><span class="fv">7.2%</span></div>
-    <div class="feat-r"><span class="fl">release_month</span><div class="ft"><div class="ff" data-w="32" style="background:#1D9E75"></div></div><span class="fv">5.7%</span></div>
-    <div class="feat-r"><span class="fl">director_count</span><div class="ft"><div class="ff" data-w="26" style="background:#1D9E75"></div></div><span class="fv">4.6%</span></div>
-    <div class="feat-r"><span class="fl">cast_count</span><div class="ft"><div class="ff" data-w="25" style="background:#1D9E75"></div></div><span class="fv">4.5%</span></div>
-    <div class="feat-r"><span class="fl">genre_encoded</span><div class="ft"><div class="ff" data-w="22" style="background:#5F5E5A"></div></div><span class="fv">3.9%</span></div>
+<!-- FEATURE IMPORTANCE + FINDINGS -->
+<div class="grid-2" style="margin-bottom:20px">
+  <div class="card-dark card">
+    <div class="card-title">Feature importance — Q1 rating (Gradient Boosting)</div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af;width:110px">log_votes</span><div class="bar-track dark"><div class="bar-fill" data-w="100" style="background:var(--gold)"></div></div><span class="bar-val light">17.7%</span></div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af;width:110px">runtime</span><div class="bar-track dark"><div class="bar-fill" data-w="43" style="background:var(--blue)"></div></div><span class="bar-val light">7.6%</span></div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af;width:110px">budget</span><div class="bar-track dark"><div class="bar-fill" data-w="42" style="background:var(--blue)"></div></div><span class="bar-val light">7.4%</span></div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af;width:110px">movie_age</span><div class="bar-track dark"><div class="bar-fill" data-w="41" style="background:var(--blue)"></div></div><span class="bar-val light">7.2%</span></div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af;width:110px">release_month</span><div class="bar-track dark"><div class="bar-fill" data-w="32" style="background:var(--teal)"></div></div><span class="bar-val light">5.7%</span></div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af;width:110px">director_count</span><div class="bar-track dark"><div class="bar-fill" data-w="26" style="background:var(--teal)"></div></div><span class="bar-val light">4.6%</span></div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af;width:110px">cast_count</span><div class="bar-track dark"><div class="bar-fill" data-w="25" style="background:var(--teal)"></div></div><span class="bar-val light">4.5%</span></div>
+    <div class="bar-row"><span class="bar-label" style="color:#9ca3af;width:110px">genre_encoded</span><div class="bar-track dark"><div class="bar-fill" data-w="22" style="background:#5f5e5a"></div></div><span class="bar-val light">3.9%</span></div>
   </div>
-  
-  <div class="panel">
-    <div class="panel-title">💡 Key Findings Summary</div>
-    <div class="finding-row"><span class="fi">🌍</span><div><div class="ft2">Country shapes ratings</div><div class="fd">Smaller industries rank higher due to curation bias in the dataset.</div></div></div>
-    <div class="finding-row"><span class="fi">🎭</span><div><div class="ft2">Genre: ratings ≠ votes</div><div class="fd">Documentary = high ratings, low votes. Action = high votes, moderate ratings.</div></div></div>
-    <div class="finding-row"><span class="fi">💰</span><div><div class="ft2">Budget → Revenue (r=0.685)</div><div class="fd">High-budget films: 65% profitable. Low-budget: 39%. ROI varies enormously.</div></div></div>
-    <div class="finding-row"><span class="fi">⭐</span><div><div class="ft2">Star power ≠ higher ratings</div><div class="fd">Median rating 6.30 for both high- and low-profile groups. Fame boosts visibility, not quality scores.</div></div></div>
-    <div class="finding-row"><span class="fi">🤖</span><div><div class="ft2">Ensembles win every task</div><div class="fd">Random Forest and Gradient Boosting outperform linear baselines on all 6 ML questions.</div></div></div>
+  <div class="card">
+    <div class="card-title">Key findings summary</div>
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)"><span style="font-size:1.1rem;flex-shrink:0">🌍</span><div><div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px">Country shapes ratings</div><div style="font-size:12px;color:var(--muted)">Smaller industries rank higher due to curation bias in the dataset.</div></div></div>
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)"><span style="font-size:1.1rem;flex-shrink:0">🎭</span><div><div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px">Genre: ratings ≠ votes</div><div style="font-size:12px;color:var(--muted)">Documentary = high ratings, low votes. Action = high votes, moderate ratings.</div></div></div>
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)"><span style="font-size:1.1rem;flex-shrink:0">💰</span><div><div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px">Budget → Revenue (r=0.685)</div><div style="font-size:12px;color:var(--muted)">High-budget: 65% profitable. Low-budget: 39%. ROI varies enormously.</div></div></div>
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)"><span style="font-size:1.1rem;flex-shrink:0">⭐</span><div><div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px">Star power ≠ higher ratings</div><div style="font-size:12px;color:var(--muted)">Median 6.30 for both groups. Fame boosts visibility, not quality scores.</div></div></div>
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 0"><span style="font-size:1.1rem;flex-shrink:0">🤖</span><div><div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px">Ensembles win every task</div><div style="font-size:12px;color:var(--muted)">Random Forest and Gradient Boosting outperform linear baselines on all 6 ML questions.</div></div></div>
   </div>
 </div>
 
 <!-- BUDGET TABLE -->
-<div class="dash-grid">
-  <div class="panel dash-full">
-    <div class="panel-title">💰 Budget Tier Analysis — 10,374 Movies</div>
-    
-<table class="caption-top table">
+<div class="card" style="margin-bottom:20px">
+  <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)">💰 Budget Tier Analysis — 10,374 Movies</div>
+  
+<table class="data-table table-light caption-top table">
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Budget Tier</th>
@@ -522,33 +461,35 @@ tr:hover td{background:#fafafa}
 </tbody>
 </table>
 
-  </div>
 </div>
 
 </div>
 
 <script>
-function animCount(id,end,suffix,dec){
-  let el=document.getElementById(id),s=0,steps=60,inc=end/steps;
-  let t=setInterval(()=>{s+=inc;if(s>=end){s=end;clearInterval(t);}
-    el.textContent=(dec?s.toFixed(3):Math.round(s))+suffix;},25);
+function animCount(id, end, suffix, dec) {
+  const el = document.getElementById(id);
+  let s = 0, inc = end / 60;
+  const t = setInterval(() => {
+    s += inc; if (s >= end) { s = end; clearInterval(t); }
+    el.textContent = (dec ? s.toFixed(3) : Math.round(s)) + suffix;
+  }, 25);
 }
-setTimeout(()=>{
-  animCount('d1',63249,'',false);
-  animCount('d2',12,'',false);
-  animCount('d3',87,'%',false);
-  animCount('d4',0.645,'',true);
-  animCount('d5',86,'%',false);
-  animCount('d6',7,'',false);
-},300);
-setTimeout(()=>{
-  document.querySelectorAll('[data-w]').forEach(el=>el.style.width=el.dataset.w+'%');
-},600);
-function showT(id,btn){
-  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
-  document.getElementById(id).classList.add('on');
-  btn.classList.add('on');
+setTimeout(() => {
+  animCount('d1', 63249, '', false);
+  animCount('d2', 12, '', false);
+  animCount('d3', 87, '%', false);
+  animCount('d4', 0.645, '', true);
+  animCount('d5', 86, '%', false);
+  animCount('d6', 7, '', false);
+}, 300);
+setTimeout(() => {
+  document.querySelectorAll('[data-w]').forEach(el => el.style.width = el.dataset.w + '%');
+}, 600);
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
 }
 </script>
 

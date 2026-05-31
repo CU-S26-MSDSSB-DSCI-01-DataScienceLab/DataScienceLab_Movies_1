@@ -70,6 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="shared.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -93,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">🏠 Home</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -164,203 +165,110 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<style>
-*{box-sizing:border-box}
-.conc-hero{background:linear-gradient(135deg,#0f3460,#1a1a2e,#0a0a14);color:#fff;padding:56px 40px;text-align:center}
-.conc-hero-badge{display:inline-block;background:rgba(201,168,76,0.15);border:1px solid #c9a84c;color:#c9a84c;padding:4px 16px;border-radius:20px;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
-.conc-hero h1{font-size:2.4rem;font-weight:800;color:#fff;margin-bottom:10px}
-.conc-hero p{opacity:0.7;max-width:580px;margin:0 auto;line-height:1.7}
-.wrap{max-width:1000px;margin:0 auto;padding:0 30px}
-.conc-section{padding:44px 0;border-bottom:1px solid #f0f0f0}
-.conc-section:last-child{border-bottom:none;padding-bottom:60px}
-.sec-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;margin-bottom:8px}
-.sec-title{font-size:1.6rem;font-weight:700;color:#1a1a2e;margin-bottom:20px}
-.insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
-.insight-card{border-radius:10px;padding:18px;border-left:4px solid}
-.ic-green{background:#f0fdf4;border-color:#1D9E75}
-.ic-blue{background:#eff6ff;border-color:#378ADD}
-.ic-gold{background:#fffbeb;border-color:#c9a84c}
-.ic-dark{background:#f9fafb;border-color:#374151}
-.insight-title{font-size:13px;font-weight:700;margin-bottom:6px;color:#1a1a2e}
-.insight-desc{font-size:13px;line-height:1.6;color:#374151}
-.ml-results{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
-.ml-card{background:#1a1a2e;border-radius:12px;padding:20px;text-align:center}
-.ml-metric{font-size:2rem;font-weight:800;color:#c9a84c;margin-bottom:4px}
-.ml-model{font-size:12px;color:#6b7280;margin-bottom:4px}
-.ml-task{font-size:11px;color:#9ca3af}
-.limit-list{list-style:none;padding:0;margin:0}
-.limit-list li{display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid #f0f0f0;font-size:14px;color:#374151;line-height:1.6}
-.limit-list li:last-child{border-bottom:none}
-.limit-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px}
-.final-box{background:linear-gradient(135deg,#1a1a2e,#0f3460);border-radius:16px;padding:36px;color:#fff;text-align:center;margin:28px 0}
-.final-box h3{font-size:1.3rem;font-weight:700;color:#c9a84c;margin-bottom:12px}
-.final-box p{color:#9ca3af;line-height:1.8;max-width:650px;margin:0 auto 20px}
-.final-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.final-pill{padding:6px 16px;border:1px solid rgba(201,168,76,0.4);border-radius:20px;font-size:12px;color:#c9a84c}
-.workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
-.step{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:16px;text-align:center;position:relative}
-.step-num{width:32px;height:32px;background:#1a1a2e;color:#c9a84c;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;margin:0 auto 10px}
-.step-title{font-size:13px;font-weight:600;color:#1a1a2e;margin-bottom:4px}
-.step-desc{font-size:11px;color:#6b7280;line-height:1.4}
-@media(max-width:700px){.insight-grid{grid-template-columns:1fr}.ml-results{grid-template-columns:1fr 1fr}.workflow{grid-template-columns:1fr 1fr}}
-</style>
-
-<div class="conc-hero">
-  <div class="conc-hero-badge">Conclusion</div>
-  <h1>What We Found</h1>
+<div class="site-hero" style="background:linear-gradient(135deg,#0f3460,#1a1a2e,#0a0a14);padding:56px 40px 48px">
+  <div class="hero-badge">Conclusion</div>
+  <h1>What We <span>Found</span></h1>
   <p>After 12 research questions, 6 descriptive analyses, and 6 ML models — here is what the data revealed about movie success.</p>
 </div>
-<div class="wrap">
 
-<!-- MAIN FINDING -->
-<div class="conc-section">
-  <div class="sec-label">Core Answer</div>
-  <div class="sec-title">Movie success is multidimensional</div>
-  <p style="font-size:1.05rem;color:#374151;line-height:1.8;margin-bottom:20px">After combining descriptive analysis with machine learning across 12 research questions, the answer is clear: <strong>no single feature explains movie success alone.</strong> Ratings, votes, and revenue behave differently and are shaped by different combinations of factors.</p>
-  
-  <div class="final-box">
-    <h3 class="anchored">The Central Research Question</h3>
-    <p>"Which movie characteristics best explain and predict a movie's success in terms of audience evaluation and financial performance?"</p>
-    <div class="final-pills">
-      <span class="final-pill">Genre matters for revenue</span>
-      <span class="final-pill">Budget predicts scale</span>
-      <span class="final-pill">log_votes predicts rating</span>
-      <span class="final-pill">Star power → visibility</span>
-      <span class="final-pill">Ensembles win</span>
+<div class="section">
+
+<!-- CORE ANSWER -->
+<div class="q-section">
+  <div class="section-label">Core Answer</div>
+  <div class="section-title">Movie success is multidimensional</div>
+  <p style="font-size:1.05rem;color:#374151;line-height:1.8;margin-bottom:24px">After combining descriptive analysis with machine learning across 12 research questions, the answer is clear: <strong>no single feature explains movie success alone.</strong> Ratings, votes, and revenue behave differently and are shaped by different combinations of factors.</p>
+
+  <div style="background:var(--navy);border-radius:var(--radius-lg);padding:36px;color:#fff;text-align:center">
+    <h3 style="font-size:1.2rem;font-weight:700;color:var(--gold);margin-bottom:12px" class="anchored">The Central Research Question</h3>
+    <p style="color:#9ca3af;line-height:1.8;max-width:650px;margin:0 auto 20px;font-size:0.95rem">"Which movie characteristics best explain and predict a movie's success in terms of audience evaluation and financial performance?"</p>
+    <div class="pill-row">
+      <span class="pill gold">Genre matters for revenue</span>
+      <span class="pill gold">Budget predicts scale</span>
+      <span class="pill gold">log_votes predicts rating</span>
+      <span class="pill gold">Star power → visibility</span>
+      <span class="pill gold">Ensembles win</span>
     </div>
   </div>
 </div>
 
 <!-- METHODOLOGY -->
-<div class="conc-section">
-  <div class="sec-label">Methodology Summary</div>
-  <div class="sec-title">Our Data Science Workflow</div>
-  <div class="workflow">
-    <div class="step"><div class="step-num">1</div><div class="step-title">Load &amp; Clean</div><div class="step-desc">Parsed votes (K/M), duration (min), money fields, genres, dates from raw text</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-title">Describe</div><div class="step-desc">Grouped summaries, visualizations across countries, genres, runtime, revenue</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-title">Model</div><div class="step-desc">Train/test splits, feature selection, Ridge, ExtraTrees, GradBoost, RF compared</div></div>
-    <div class="step"><div class="step-num">4</div><div class="step-title">Evaluate</div><div class="step-desc">MAE, RMSE, R², ROC AUC, F1, confusion matrices, feature importance</div></div>
+<div class="q-section">
+  <div class="section-label">Methodology Summary</div>
+  <div class="section-title">Our Data Science Workflow</div>
+  <div class="grid-4" style="margin-top:20px">
+    <div class="step-card"><div class="step-num">1</div><div class="step-title">Load &amp; Clean</div><div class="step-desc">Parsed votes (K/M), duration, money fields, genres, dates from raw text</div></div>
+    <div class="step-card"><div class="step-num">2</div><div class="step-title">Describe</div><div class="step-desc">Grouped summaries, visualizations across countries, genres, runtime, revenue</div></div>
+    <div class="step-card"><div class="step-num">3</div><div class="step-title">Model</div><div class="step-desc">Train/test splits, feature selection, Ridge, ExtraTrees, GradBoost, RF compared</div></div>
+    <div class="step-card"><div class="step-num">4</div><div class="step-title">Evaluate</div><div class="step-desc">MAE, RMSE, R², ROC AUC, F1, confusion matrices, feature importance</div></div>
   </div>
 </div>
 
 <!-- DESCRIPTIVE INSIGHTS -->
-<div class="conc-section">
-  <div class="sec-label">Part 1 — Descriptive Analysis</div>
-  <div class="sec-title">What Patterns Exist in the Data?</div>
-  <div class="insight-grid">
-    <div class="insight-card ic-green">
-      <div class="insight-title">🌍 Country Shapes Ratings</div>
-      <div class="insight-desc">Smaller, selective industries show higher averages. Larger ones (US) show greater variation — prestige films alongside mass-market productions.</div>
-    </div>
-    <div class="insight-card ic-blue">
-      <div class="insight-title">🎭 Genre: Ratings ≠ Votes</div>
-      <div class="insight-desc">Documentary/biopic genres earn high ratings with fewer votes. Action and franchise genres drive massive audience size regardless of rating quality.</div>
-    </div>
-    <div class="insight-card ic-gold">
-      <div class="insight-title">⏱️ Non-linear Runtime Effect</div>
-      <div class="insight-desc">90–140 min films cluster at the highest ratings. Very short or very long films are far more variable. Runtime is not a strong standalone predictor.</div>
-    </div>
-    <div class="insight-card ic-dark">
-      <div class="insight-title">💰 Budget → Revenue (Imperfectly)</div>
-      <div class="insight-desc">Pearson r=0.685. High-budget films: 65.3% profitable. Low-budget films: 39.2% profitable. But ROI can go either way — outliers dominate.</div>
-    </div>
-    <div class="insight-card ic-green">
-      <div class="insight-title">⭐ Star Power → Visibility</div>
-      <div class="insight-desc">Well-known personnel boost vote counts and reach. But median ratings are identical (6.30) for high-profile and low-profile groups — fame ≠ quality.</div>
-    </div>
-    <div class="insight-card ic-blue">
-      <div class="insight-title">🎬 Action Genres Dominate Revenue</div>
-      <div class="insight-desc">Action Epic ($363M avg), Superhero ($310M), Animation ($284M) lead worldwide gross. International markets are a major driver of commercial success.</div>
-    </div>
+<div class="q-section">
+  <div class="section-label">Part 1 — Descriptive Analysis</div>
+  <div class="section-title">What Patterns Exist in the Data?</div>
+  <div class="grid-2" style="margin-top:20px">
+    <div class="insight-card ic-green"><div class="insight-title">🌍 Country Shapes Ratings</div><div class="insight-desc">Smaller, selective industries show higher averages. Larger ones (US) show greater variation — prestige films alongside mass-market productions.</div></div>
+    <div class="insight-card ic-blue"><div class="insight-title">🎭 Genre: Ratings ≠ Votes</div><div class="insight-desc">Documentary/biopic genres earn high ratings with fewer votes. Action and franchise genres drive massive audience size regardless of rating quality.</div></div>
+    <div class="insight-card ic-gold"><div class="insight-title">⏱️ Non-linear Runtime Effect</div><div class="insight-desc">90–140 min films cluster at the highest ratings. Very short or very long films are far more variable. Runtime is not a strong standalone predictor.</div></div>
+    <div class="insight-card ic-dark"><div class="insight-title">💰 Budget → Revenue (Imperfectly)</div><div class="insight-desc">Pearson r=0.685. High-budget films: 65.3% profitable. Low-budget films: 39.2% profitable. But ROI can go either way — outliers dominate.</div></div>
+    <div class="insight-card ic-green"><div class="insight-title">⭐ Star Power → Visibility</div><div class="insight-desc">Well-known personnel boost vote counts and reach. But median ratings are identical (6.30) for high-profile and low-profile groups — fame ≠ quality.</div></div>
+    <div class="insight-card ic-blue"><div class="insight-title">🎬 Action Genres Dominate Revenue</div><div class="insight-desc">Action Epic ($363M avg), Superhero ($310M), Animation ($284M) lead worldwide gross. International markets are a major driver.</div></div>
   </div>
 </div>
 
 <!-- ML INSIGHTS -->
-<div class="conc-section">
-  <div class="sec-label">Part 2 — Machine Learning</div>
-  <div class="sec-title">What Can Be Predicted?</div>
-  <div class="ml-results">
-    <div class="ml-card">
-      <div class="ml-metric">0.365</div>
-      <div class="ml-model">Gradient Boosting</div>
-      <div class="ml-task">R² — Rating Prediction</div>
-    </div>
-    <div class="ml-card">
-      <div class="ml-metric">0.645</div>
-      <div class="ml-model">Gradient Boosting</div>
-      <div class="ml-task">R² — Revenue Prediction</div>
-    </div>
-    <div class="ml-card">
-      <div class="ml-metric">87.3%</div>
-      <div class="ml-model">Random Forest</div>
-      <div class="ml-task">ROC AUC — High-Rating Classification</div>
-    </div>
-    <div class="ml-card">
-      <div class="ml-metric">70.0%</div>
-      <div class="ml-model">Random Forest</div>
-      <div class="ml-task">Accuracy — Success Classification</div>
-    </div>
-    <div class="ml-card">
-      <div class="ml-metric">0.606</div>
-      <div class="ml-model">Random Forest</div>
-      <div class="ml-task">R² — Vote Count Prediction</div>
-    </div>
-    <div class="ml-card">
-      <div class="ml-metric">0.484</div>
-      <div class="ml-model">Decision Tree</div>
-      <div class="ml-task">R² — Release Timing Model</div>
-    </div>
+<div class="q-section">
+  <div class="section-label">Part 2 — Machine Learning</div>
+  <div class="section-title">What Can Be Predicted?</div>
+  <div class="grid-3" style="margin:20px 0">
+    <div class="metric"><div class="metric-n">0.365</div><div class="metric-l">R² — Rating (GB)</div></div>
+    <div class="metric"><div class="metric-n">0.645</div><div class="metric-l">R² — Revenue (GB)</div></div>
+    <div class="metric"><div class="metric-n">87.3%</div><div class="metric-l">ROC AUC — Rating Class. (RF)</div></div>
+    <div class="metric"><div class="metric-n">70.0%</div><div class="metric-l">Accuracy — Success (RF)</div></div>
+    <div class="metric"><div class="metric-n">0.606</div><div class="metric-l">R² — Vote Count (RF)</div></div>
+    <div class="metric"><div class="metric-n">0.484</div><div class="metric-l">R² — Release Timing (DT)</div></div>
   </div>
-  <div class="insight-grid">
-    <div class="insight-card ic-gold">
-      <div class="insight-title">🔑 Key ML Improvement: Log-Transform</div>
-      <div class="insight-desc">Applying log-transform to revenue and vote targets significantly improved all models. Raw skewed targets caused models to over-fit to blockbuster extremes.</div>
-    </div>
-    <div class="insight-card ic-green">
-      <div class="insight-title">🌳 Ensembles Always Win</div>
-      <div class="insight-desc">Random Forest, Extra Trees, and Gradient Boosting consistently outperformed Ridge/Linear baselines by capturing nonlinear interactions between features.</div>
-    </div>
-    <div class="insight-card ic-blue">
-      <div class="insight-title">🎯 Feature Selection Matters</div>
-      <div class="insight-desc">Reducing feature space to top 8 predictors improved performance and interpretability. log_votes, budget, and movie_age dominate rating prediction.</div>
-    </div>
-    <div class="insight-card ic-dark">
-      <div class="insight-title">⚖️ Balanced Training for Q3</div>
-      <div class="insight-desc">Removing ambiguous middle ratings and balancing the training set produced a much stronger confusion matrix for the high-rating classifier.</div>
-    </div>
+  <div class="grid-2" style="margin-top:16px">
+    <div class="insight-card ic-gold"><div class="insight-title">🔑 Key ML Improvement: Log-Transform</div><div class="insight-desc">Applying log-transform to revenue and vote targets significantly improved all models. Raw skewed targets caused models to over-fit to blockbuster extremes.</div></div>
+    <div class="insight-card ic-green"><div class="insight-title">🌳 Ensembles Always Win</div><div class="insight-desc">Random Forest, Extra Trees, and Gradient Boosting consistently outperformed Ridge/Linear baselines by capturing nonlinear interactions between features.</div></div>
+    <div class="insight-card ic-blue"><div class="insight-title">🎯 Feature Selection Matters</div><div class="insight-desc">Reducing feature space to top 8 predictors improved performance and interpretability. log_votes, budget, and movie_age dominate rating prediction.</div></div>
+    <div class="insight-card ic-dark"><div class="insight-title">⚖️ Balanced Training for Q3</div><div class="insight-desc">Removing ambiguous middle ratings and balancing the training set produced a much stronger confusion matrix for the high-rating classifier.</div></div>
   </div>
 </div>
 
 <!-- LIMITATIONS -->
-<div class="conc-section">
-  <div class="sec-label">Limitations</div>
-  <div class="sec-title">What the Data Cannot Tell Us</div>
-  <ul class="limit-list">
-    <li><span class="limit-icon">📢</span><span>Marketing spend and distribution size are not in the dataset — these are major real-world drivers of both revenue and visibility.</span></li>
-    <li><span class="limit-icon">🌐</span><span>Social media attention, critic reviews, franchise history, and streaming availability are missing — all influence modern audience engagement.</span></li>
-    <li><span class="limit-icon">📊</span><span>Appearance frequency is only a proxy for fame. A person appearing in many small films is treated the same as a global celebrity.</span></li>
-    <li><span class="limit-icon">🕐</span><span>The dataset covers a wide time range. Market conditions, audience tastes, and streaming economics have shifted significantly over decades.</span></li>
-    <li><span class="limit-icon">🔮</span><span>Models predict broad revenue levels better than exact values. Viral hits and catastrophic flops remain fundamentally unpredictable from metadata alone.</span></li>
-  </ul>
+<div class="q-section">
+  <div class="section-label">Limitations</div>
+  <div class="section-title">What the Data Cannot Tell Us</div>
+  <div style="margin-top:16px">
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;color:#374151;line-height:1.7"><span style="font-size:1.1rem;flex-shrink:0;margin-top:2px">📢</span><span>Marketing spend and distribution size are not in the dataset — these are major real-world drivers of both revenue and visibility.</span></div>
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;color:#374151;line-height:1.7"><span style="font-size:1.1rem;flex-shrink:0;margin-top:2px">🌐</span><span>Social media attention, critic reviews, franchise history, and streaming availability are missing — all influence modern audience engagement.</span></div>
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;color:#374151;line-height:1.7"><span style="font-size:1.1rem;flex-shrink:0;margin-top:2px">📊</span><span>Appearance frequency is only a proxy for fame. A person appearing in many small films is treated the same as a global celebrity.</span></div>
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;color:#374151;line-height:1.7"><span style="font-size:1.1rem;flex-shrink:0;margin-top:2px">🕐</span><span>The dataset covers a wide time range. Market conditions, audience tastes, and streaming economics have shifted significantly over decades.</span></div>
+    <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 0;font-size:14px;color:#374151;line-height:1.7"><span style="font-size:1.1rem;flex-shrink:0;margin-top:2px">🔮</span><span>Models predict broad revenue levels better than exact values. Viral hits and catastrophic flops remain fundamentally unpredictable from metadata alone.</span></div>
+  </div>
 </div>
 
 <!-- FINAL NOTE -->
-<div class="conc-section">
-  <div class="sec-label">Final Reflection</div>
-  <div class="sec-title">Why This Project Matters</div>
-  <p style="color:#374151;line-height:1.8;font-size:1rem">This project demonstrates that careful data preparation — parsing text fields, transforming skewed targets, selecting features — matters as much as model selection. Many movie attributes begin as messy text, and converting them into clean numeric features was essential for all results.</p>
+<div class="q-section">
+  <div class="section-label">Final Reflection</div>
+  <div class="section-title">Why This Project Matters</div>
+  <p style="color:#374151;line-height:1.8;font-size:1rem;margin-bottom:14px">This project demonstrates that careful data preparation — parsing text fields, transforming skewed targets, selecting features — matters as much as model selection. Many movie attributes begin as messy text, and converting them into clean numeric features was essential for all results.</p>
   <p style="color:#374151;line-height:1.8;font-size:1rem">Future work could add marketing data, streaming numbers, social media sentiment, and critic review scores to further improve predictions. Models could also be separated by era (pre- vs post-streaming) or by market (domestic vs international) to capture changing industry dynamics.</p>
-  <div class="final-box" style="margin-top:28px">
-    <h3 class="anchored">🎬 Project Summary</h3>
-    <p>63,249 movies · 12 research questions · 2 analysis tracks · 7 researchers · 1 central finding: movie success is multidimensional, and no single feature explains it alone.</p>
-    <div class="final-pills">
-      <span class="final-pill">Aya Abdine</span>
-      <span class="final-pill">Meriam Al Askri</span>
-      <span class="final-pill">Ghofrane Mahmoud</span>
-      <span class="final-pill">Kay-Lee Dramat</span>
-      <span class="final-pill">Mcolisi Austine</span>
-      <span class="final-pill">Arshan</span>
-      <span class="final-pill">Syed</span>
+
+  <div style="background:var(--navy);border-radius:var(--radius-lg);padding:36px;color:#fff;text-align:center;margin-top:28px">
+    <h3 style="font-size:1.2rem;font-weight:700;color:var(--gold);margin-bottom:10px" class="anchored">🎬 Project Summary</h3>
+    <p style="color:#9ca3af;line-height:1.8;margin-bottom:20px;font-size:0.95rem">63,249 movies · 12 research questions · 2 analysis tracks · 7 researchers · 1 central finding: movie success is multidimensional, and no single feature explains it alone.</p>
+    <div class="pill-row">
+      <span class="pill gold">Aya Abdine</span>
+      <span class="pill gold">Meriam Al Askri</span>
+      <span class="pill gold">Ghofrane Mahmoud</span>
+      <span class="pill gold">Kay-Lee Dramat</span>
+      <span class="pill gold">Mcolisi Austine</span>
+      <span class="pill gold">Arshan</span>
+      <span class="pill gold">Syed</span>
     </div>
   </div>
 </div>
