@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Title of Section 1 – DataScienceLab Movies</title>
+<title>Descriptive Analysis – DataScienceLab Movies</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec1.html">Title of Section 1</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec1.html">Descriptive Analysis</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -131,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sec1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Title of Section 1</span></a>
+ <span class="menu-text">Descriptive Analysis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -162,8 +162,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#headline-1" id="toc-headline-1" class="nav-link active" data-scroll-target="#headline-1">Headline 1</a></li>
-  <li><a href="#headline-2" id="toc-headline-2" class="nav-link" data-scroll-target="#headline-2">Headline 2</a></li>
+  <li><a href="#q1-movie-ratings-across-countries-and-industries" id="toc-q1-movie-ratings-across-countries-and-industries" class="nav-link active" data-scroll-target="#q1-movie-ratings-across-countries-and-industries">Q1: Movie Ratings Across Countries and Industries</a></li>
+  <li><a href="#q2-genre-ratings-and-votes" id="toc-q2-genre-ratings-and-votes" class="nav-link" data-scroll-target="#q2-genre-ratings-and-votes">Q2: Genre Ratings and Votes</a></li>
+  <li><a href="#q3-movie-duration-and-audience-response" id="toc-q3-movie-duration-and-audience-response" class="nav-link" data-scroll-target="#q3-movie-duration-and-audience-response">Q3: Movie Duration and Audience Response</a></li>
+  <li><a href="#q4-box-office-revenue-across-industries" id="toc-q4-box-office-revenue-across-industries" class="nav-link" data-scroll-target="#q4-box-office-revenue-across-industries">Q4: Box Office Revenue Across Industries</a></li>
+  <li><a href="#q5-budget-and-box-office-performance" id="toc-q5-budget-and-box-office-performance" class="nav-link" data-scroll-target="#q5-budget-and-box-office-performance">Q5: Budget and Box Office Performance</a></li>
+  <li><a href="#q6-movie-personnel-and-audience-response" id="toc-q6-movie-personnel-and-audience-response" class="nav-link" data-scroll-target="#q6-movie-personnel-and-audience-response">Q6: Movie Personnel and Audience Response</a></li>
   </ul>
 </nav>
     </div>
@@ -172,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Title of Section 1</h1>
+<h1 class="title">Descriptive Analysis</h1>
 </div>
 
 
@@ -189,12 +193,30 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- You have to develop your own headline structure. -->
-<section id="headline-1" class="level2">
-<h2 class="anchored" data-anchor-id="headline-1">Headline 1</h2>
+<p>This section explores patterns in the movie dataset before any prediction. All analysis was performed by <strong>Kay-Lee Dramat</strong> (Q1–Q3) and <strong>Ghofrane Mahmoud</strong> (Q4–Q6).</p>
+<section id="q1-movie-ratings-across-countries-and-industries" class="level2">
+<h2 class="anchored" data-anchor-id="q1-movie-ratings-across-countries-and-industries">Q1: Movie Ratings Across Countries and Industries</h2>
+<p>Movie ratings vary noticeably by country of origin. Smaller or more selective film industries tend to show higher average ratings, partly because fewer titles from those markets enter the dataset. Larger industries display wider variation — a mix of highly rated prestige films alongside lower-rated mass-market productions.</p>
 </section>
-<section id="headline-2" class="level2">
-<h2 class="anchored" data-anchor-id="headline-2">Headline 2</h2>
+<section id="q2-genre-ratings-and-votes" class="level2">
+<h2 class="anchored" data-anchor-id="q2-genre-ratings-and-votes">Q2: Genre Ratings and Votes</h2>
+<p>Genres do not perform equally. Some genres consistently attract higher average ratings, while others generate larger vote counts. Notably, a highly-rated genre is not always the most-watched: documentary and biographical genres tend toward high ratings with fewer votes, while action and adventure genres attract large audiences but more moderate average ratings.</p>
+</section>
+<section id="q3-movie-duration-and-audience-response" class="level2">
+<h2 class="anchored" data-anchor-id="q3-movie-duration-and-audience-response">Q3: Movie Duration and Audience Response</h2>
+<p>Runtime influences audience response, but not linearly. Mid-length films (90–140 minutes) tend to cluster around the highest average ratings. Very short films (under 70 minutes) and very long films (over 180 minutes) show greater variability, suggesting that duration effects depend on genre, audience expectations, and movie type.</p>
+</section>
+<section id="q4-box-office-revenue-across-industries" class="level2">
+<h2 class="anchored" data-anchor-id="q4-box-office-revenue-across-industries">Q4: Box Office Revenue Across Industries</h2>
+<p>Box office revenues differ substantially across film industries. Larger markets — particularly the US — generate considerably higher totals. Revenue distributions are heavily right-skewed: a small number of blockbuster films account for a disproportionate share of total earnings, while the majority of films earn far less.</p>
+</section>
+<section id="q5-budget-and-box-office-performance" class="level2">
+<h2 class="anchored" data-anchor-id="q5-budget-and-box-office-performance">Q5: Budget and Box Office Performance</h2>
+<p>A positive relationship exists between production budget and worldwide box office revenue. Higher-budget films tend to earn more, but the relationship is not perfect. Some high-budget films underperform while a few low-budget films achieve surprisingly strong returns. Outliers — especially franchise blockbusters — have an outsized influence on this pattern.</p>
+</section>
+<section id="q6-movie-personnel-and-audience-response" class="level2">
+<h2 class="anchored" data-anchor-id="q6-movie-personnel-and-audience-response">Q6: Movie Personnel and Audience Response</h2>
+<p>Movies featuring well-known directors, writers, or stars are associated with higher vote counts and wider audience reach. However, personnel fame alone does not reliably predict higher ratings. The effect of star power is most visible in audience engagement (votes) rather than critical evaluation (ratings), and it interacts with genre and budget context.</p>
 
 
 </section>

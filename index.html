@@ -6,9 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="NAME1">
-<meta name="author" content="NAME2">
-<meta name="author" content="NAME3">
 
 <title>Executive Summary – DataScienceLab Movies</title>
 <style>
@@ -134,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sec1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Title of Section 1</span></a>
+ <span class="menu-text">Descriptive Analysis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -160,8 +157,18 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-overview" id="toc-project-overview" class="nav-link active" data-scroll-target="#project-overview">Project Overview</a></li>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link" data-scroll-target="#the-problem">The Problem</a></li>
+  <li><a href="#what-we-did" id="toc-what-we-did" class="nav-link" data-scroll-target="#what-we-did">What We Did</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -178,9 +185,13 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
-             <p>NAME1 </p>
-             <p>NAME2 </p>
-             <p>NAME3 </p>
+             <p>Aya Abdine </p>
+             <p>Meriam Al Askri </p>
+             <p>Ghofrane Mahmoud </p>
+             <p>Kay-Lee Dramat </p>
+             <p>Mcolisi Austine </p>
+             <p>Arshan </p>
+             <p>Syed </p>
           </div>
   </div>
     
@@ -193,9 +204,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>Write a one-page (about 200-600 words) executive summary of your project here. This should be a concise summary of the problem you are addressing, the data you are using, the methods you are applying, and the key findings and conclusions of your project. The executive summary should be written in a way that is accessible to a general audience, and should highlight the most important aspects of your project. Use cross-links to your pages like the <a href="introduction.qmd">Introduction</a>, <a href="./sec2.html">Each Section (here <code>sec2.ipynb</code>)</a>, <a href="./conclusion.html">Conclusion</a>, and your <a href="./dashboard.html">Dashboard</a> (optional). Remove this text when you write your dashboard.</em></p>
+<section id="project-overview" class="level2">
+<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
+<p>This project investigates what makes a movie successful across different film industries worldwide. Using a rich dataset of movie-level attributes — including ratings, votes, genres, budgets, revenues, runtime, release dates, cast, directors, and writers — we combine <strong>descriptive analysis</strong> and <strong>machine learning</strong> to explain and predict movie performance.</p>
+</section>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>The film industry is highly competitive. Producers, studios, and distributors all benefit from understanding which movie characteristics drive audience evaluation and financial success. Success is multidimensional: a movie can be critically acclaimed without being a box office hit, or earn massive revenue without top ratings.</p>
+<p>Our central research question is:</p>
+<blockquote class="blockquote">
+<p><strong>Which movie characteristics best explain and predict movie success in terms of audience evaluation and financial performance?</strong></p>
+</blockquote>
+</section>
+<section id="what-we-did" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-did">What We Did</h2>
+<p>The project is divided into two tracks:</p>
+<ul>
+<li><p><strong>Descriptive Analysis</strong> (Kay-Lee Dramat &amp; Ghofrane Mahmoud): We examined patterns in ratings, votes, genres, runtime, revenue, budget, and the influence of directors, writers, and stars across 6 research questions.</p></li>
+<li><p><strong>Machine Learning</strong> (Aya Abdine, Meriam Al Askri, Mcolisi Austine, Arshan &amp; Syed): We built predictive models for rating, revenue, vote counts, release timing effects, and success classification across 6 research questions.</p></li>
+</ul>
+</section>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<ul>
+<li>Movie ratings and revenues vary significantly across countries and film industries.</li>
+<li>Genre influences both audience rating and engagement, but not always in the same direction.</li>
+<li>Runtime has a non-linear effect — very short and very long films behave differently.</li>
+<li>Budget is positively associated with revenue, but blockbuster outliers distort the relationship.</li>
+<li>Well-known personnel increase visibility, but do not guarantee high ratings.</li>
+<li>Release timing interacts with budget and genre rather than acting as a standalone predictor.</li>
+<li>Ensemble models (Random Forest, Extra Trees, Gradient Boosting) outperformed linear baselines on all prediction tasks.</li>
+</ul>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>All analysis uses the cleaned dataset stored in <code>Data/final_dataset.csv</code>, containing movie-level information sourced from IMDb. Supplementary train-test files for machine learning are saved in the <code>Data</code> folder.</p>
+<p>For detailed analysis, see the <a href="./sec1.html">Descriptive Analysis</a> and <a href="./sec2.html">Machine Learning</a> sections.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

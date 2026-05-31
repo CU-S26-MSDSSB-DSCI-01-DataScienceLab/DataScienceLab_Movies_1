@@ -109,6 +109,28 @@
     "text": "Machine Learning Question 6 (Syed Tamjeed Ur Rahman)\nQuestion: Can movies be classified into successful versus less successful categories based on their attributes?\nThe final machine learning question combines the project idea of success into one binary classification problem. Instead of using only rating or only revenue, success is defined across multiple dimensions: rating quality, audience reach, and financial return.\nHow we worked with the data: A movie was labeled successful if it met at least two of three conditions: rating above the median, votes above the median, and positive ROI. Leakage variables used to build the label were excluded from the predictors. The model therefore had to learn from attributes such as budget, year, runtime, genre, season, MPA rating, and cast or crew counts.\nObjective: Build a classifier that predicts whether a movie is successful or less successful using non-leakage movie attributes. This objective combines the project’s main idea that movie success has more than one dimension. A movie is treated as successful only when it performs well across at least two of rating, audience attention, and profitability. The model excludes variables used to build the label so it cannot cheat by reading the answer directly. This makes the classification task harder but more honest, and it shows whether pre-release-style attributes can still separate successful films from less successful ones.\nResults and graph:\n\n\n\nModel\nAccuracy\nPrecision\nRecall\nF1 Score\nROC-AUC\n\n\n\n\nRandom Forest\n0.7004\n0.7069\n0.6989\n0.7029\n0.7665\n\n\nLogistic Regression\n0.5103\n0.5087\n0.9991\n0.6741\n0.3318\n\n\nDecision Tree\n0.6639\n0.6926\n0.6061\n0.6465\n0.7231\n\n\n\nTop Q6 predictors were budget_num, year, writer_count, runtime, primary_genre_Drama, primary_genre_Comedy, primary_genre_Action, and season indicators.\n\nInterpretation: Random Forest was the best classifier, with the strongest F1 score and ROC-AUC. Accuracy around 0.70 means the model learned useful patterns, but it is not perfect. That is expected because movie success depends on many external forces that are not in the dataset, including marketing, distribution scale, reviews, social media attention, and competition at release. The model is still valuable because it shows that pre-release and structural attributes can separate successful from less successful movies better than random guessing.\nStudent responsible: Syed Tamjeed Ur Rahman"
   },
   {
+    "objectID": "dashboard.html",
+    "href": "dashboard.html",
+    "title": "Data Dashboard",
+    "section": "",
+    "text": "This dashboard summarises the key results from both the descriptive analysis and machine learning sections of our project.\n\n\n\n\n\n\n\nModel\nMAE\nRMSE\nR² Score\n\n\n\n\nGradient Boosting\n0.641\n0.853\n0.365\n\n\nExtra Trees\n0.650\n0.859\n0.356\n\n\nRidge Regression\n0.690\n0.916\n0.268\n\n\n\n\nLog-votes is the strongest predictor. Ratings remain hard to predict due to their subjective nature.\n\n\n\n\n\n\n\nModel\nMAE (log)\nRMSE (log)\nR² Score\nMAE (raw)\n\n\n\n\nGradient Boosting\n1.49\n2.00\n0.645\n~$21M\n\n\nExtra Trees\n1.55\n2.04\n0.630\n~$27M\n\n\nRidge Regression\n1.75\n2.28\n0.541\n~$24M\n\n\n\n\n\n\n\n\n\nModel\nROC AUC\nAccuracy\nF1 Score\n\n\n\n\nRandom Forest\n0.873\n0.863\n0.631\n\n\nGradient Boosting\n0.869\n0.860\n0.623\n\n\nExtra Trees\n0.859\n0.856\n0.609\n\n\nLogistic Regression\n0.806\n0.839\n0.584\n\n\n\n\n\n\n\n\nRatings vary significantly across industries and countries\nGenre shapes both ratings and audience engagement differently\nRuntime has a non-linear effect — 90–140 min films score highest\nBudget is positively correlated with revenue, but blockbuster outliers dominate\nStar power boosts vote counts more reliably than ratings\nRelease timing interacts with budget and genre rather than acting aloneas",
+    "crumbs": [
+      "Home",
+      "Data Dashboard"
+    ]
+  },
+  {
+    "objectID": "dashboard.html#project-results-dashboard",
+    "href": "dashboard.html#project-results-dashboard",
+    "title": "Data Dashboard",
+    "section": "",
+    "text": "This dashboard summarises the key results from both the descriptive analysis and machine learning sections of our project.\n\n\n\n\n\n\n\nModel\nMAE\nRMSE\nR² Score\n\n\n\n\nGradient Boosting\n0.641\n0.853\n0.365\n\n\nExtra Trees\n0.650\n0.859\n0.356\n\n\nRidge Regression\n0.690\n0.916\n0.268\n\n\n\n\nLog-votes is the strongest predictor. Ratings remain hard to predict due to their subjective nature.\n\n\n\n\n\n\n\nModel\nMAE (log)\nRMSE (log)\nR² Score\nMAE (raw)\n\n\n\n\nGradient Boosting\n1.49\n2.00\n0.645\n~$21M\n\n\nExtra Trees\n1.55\n2.04\n0.630\n~$27M\n\n\nRidge Regression\n1.75\n2.28\n0.541\n~$24M\n\n\n\n\n\n\n\n\n\nModel\nROC AUC\nAccuracy\nF1 Score\n\n\n\n\nRandom Forest\n0.873\n0.863\n0.631\n\n\nGradient Boosting\n0.869\n0.860\n0.623\n\n\nExtra Trees\n0.859\n0.856\n0.609\n\n\nLogistic Regression\n0.806\n0.839\n0.584\n\n\n\n\n\n\n\n\nRatings vary significantly across industries and countries\nGenre shapes both ratings and audience engagement differently\nRuntime has a non-linear effect — 90–140 min films score highest\nBudget is positively correlated with revenue, but blockbuster outliers dominate\nStar power boosts vote counts more reliably than ratings\nRelease timing interacts with budget and genre rather than acting aloneas",
+    "crumbs": [
+      "Home",
+      "Data Dashboard"
+    ]
+  },
+  {
     "objectID": "WORK STATION FOR MACHINE LEARNING.html",
     "href": "WORK STATION FOR MACHINE LEARNING.html",
     "title": "TITLE: “MACHINE LEARNING WORK STATION”",
@@ -302,7 +324,62 @@
     "href": "conclusion.html",
     "title": "Conclusion",
     "section": "",
-    "text": "Write a concluding section for your project here. A conclusion can emphasize selected key findings and put them into a larger context. In the conclusion, you can also discuss limitation and potential applications and extensions of your analysis. The conclusion need not be long (200 words can be enough). It can be longer, if you have some sensible points to discuss.",
+    "text": "This project set out to answer one central question: which movie characteristics best explain and predict movie success? After combining descriptive analysis with machine learning across 12 research questions, the answer is clear — movie success is multidimensional and no single feature explains it alone.",
+    "crumbs": [
+      "Home",
+      "Conclusion"
+    ]
+  },
+  {
+    "objectID": "conclusion.html#what-we-found",
+    "href": "conclusion.html#what-we-found",
+    "title": "Conclusion",
+    "section": "",
+    "text": "This project set out to answer one central question: which movie characteristics best explain and predict movie success? After combining descriptive analysis with machine learning across 12 research questions, the answer is clear — movie success is multidimensional and no single feature explains it alone.",
+    "crumbs": [
+      "Home",
+      "Conclusion"
+    ]
+  },
+  {
+    "objectID": "conclusion.html#descriptive-insights",
+    "href": "conclusion.html#descriptive-insights",
+    "title": "Conclusion",
+    "section": "Descriptive Insights",
+    "text": "Descriptive Insights\n\nRatings vary across countries and industries, but industry size creates selection effects.\nGenre shapes both ratings and votes, though not always in the same direction.\nRuntime has a non-linear relationship with audience response.\nRevenue is heavily skewed — a few blockbusters dominate totals.\nBudget predicts revenue positively but imperfectly.\nStar power boosts visibility more reliably than ratings.",
+    "crumbs": [
+      "Home",
+      "Conclusion"
+    ]
+  },
+  {
+    "objectID": "conclusion.html#machine-learning-insights",
+    "href": "conclusion.html#machine-learning-insights",
+    "title": "Conclusion",
+    "section": "Machine Learning Insights",
+    "text": "Machine Learning Insights\n\nCleaned and focused features (top 8 predictors for Q1–Q3) improved all models.\nLog-transforming revenue targets stabilised regression models significantly.\nRandom Forest was the best classifier for high-rating prediction (Q3).\nEnsemble methods (Random Forest, Extra Trees, Gradient Boosting) outperformed linear baselines across every prediction task.\nBalancing the Q3 classification target produced a notably stronger confusion matrix.",
+    "crumbs": [
+      "Home",
+      "Conclusion"
+    ]
+  },
+  {
+    "objectID": "conclusion.html#limitations",
+    "href": "conclusion.html#limitations",
+    "title": "Conclusion",
+    "section": "Limitations",
+    "text": "Limitations\n\nThe dataset reflects IMDb coverage, which over-represents English-language and US films.\nRevenue and budget values contained many missing entries, requiring imputation.\nPredicting subjective outcomes like ratings remains inherently difficult.\nFeature importance varies across models — no single predictor dominates consistently.",
+    "crumbs": [
+      "Home",
+      "Conclusion"
+    ]
+  },
+  {
+    "objectID": "conclusion.html#final-reflection",
+    "href": "conclusion.html#final-reflection",
+    "title": "Conclusion",
+    "section": "Final Reflection",
+    "text": "Final Reflection\nThe project demonstrates that careful data preparation — parsing text fields, transforming skewed targets, reducing large feature matrices — matters as much as model selection. Future work could incorporate social media sentiment, streaming data, or marketing spend to further improve predictions.",
     "crumbs": [
       "Home",
       "Conclusion"
@@ -313,21 +390,142 @@
     "href": "index.html",
     "title": "Executive Summary",
     "section": "",
-    "text": "Write a one-page (about 200-600 words) executive summary of your project here. This should be a concise summary of the problem you are addressing, the data you are using, the methods you are applying, and the key findings and conclusions of your project. The executive summary should be written in a way that is accessible to a general audience, and should highlight the most important aspects of your project. Use cross-links to your pages like the Introduction, Each Section (here sec2.ipynb), Conclusion, and your Dashboard (optional). Remove this text when you write your dashboard.",
+    "text": "This project investigates what makes a movie successful across different film industries worldwide. Using a rich dataset of movie-level attributes — including ratings, votes, genres, budgets, revenues, runtime, release dates, cast, directors, and writers — we combine descriptive analysis and machine learning to explain and predict movie performance.",
     "crumbs": [
       "Home",
       "Executive Summary"
     ]
   },
   {
-    "objectID": "sec1.html#headline-2",
-    "href": "sec1.html#headline-2",
-    "title": "Title of Section 1",
-    "section": "Headline 2",
-    "text": "Headline 2",
+    "objectID": "index.html#project-overview",
+    "href": "index.html#project-overview",
+    "title": "Executive Summary",
+    "section": "",
+    "text": "This project investigates what makes a movie successful across different film industries worldwide. Using a rich dataset of movie-level attributes — including ratings, votes, genres, budgets, revenues, runtime, release dates, cast, directors, and writers — we combine descriptive analysis and machine learning to explain and predict movie performance.",
     "crumbs": [
       "Home",
-      "Title of Section 1"
+      "Executive Summary"
+    ]
+  },
+  {
+    "objectID": "index.html#the-problem",
+    "href": "index.html#the-problem",
+    "title": "Executive Summary",
+    "section": "The Problem",
+    "text": "The Problem\nThe film industry is highly competitive. Producers, studios, and distributors all benefit from understanding which movie characteristics drive audience evaluation and financial success. Success is multidimensional: a movie can be critically acclaimed without being a box office hit, or earn massive revenue without top ratings.\nOur central research question is:\n\nWhich movie characteristics best explain and predict movie success in terms of audience evaluation and financial performance?",
+    "crumbs": [
+      "Home",
+      "Executive Summary"
+    ]
+  },
+  {
+    "objectID": "index.html#what-we-did",
+    "href": "index.html#what-we-did",
+    "title": "Executive Summary",
+    "section": "What We Did",
+    "text": "What We Did\nThe project is divided into two tracks:\n\nDescriptive Analysis (Kay-Lee Dramat & Ghofrane Mahmoud): We examined patterns in ratings, votes, genres, runtime, revenue, budget, and the influence of directors, writers, and stars across 6 research questions.\nMachine Learning (Aya Abdine, Meriam Al Askri, Mcolisi Austine, Arshan & Syed): We built predictive models for rating, revenue, vote counts, release timing effects, and success classification across 6 research questions.",
+    "crumbs": [
+      "Home",
+      "Executive Summary"
+    ]
+  },
+  {
+    "objectID": "index.html#key-findings",
+    "href": "index.html#key-findings",
+    "title": "Executive Summary",
+    "section": "Key Findings",
+    "text": "Key Findings\n\nMovie ratings and revenues vary significantly across countries and film industries.\nGenre influences both audience rating and engagement, but not always in the same direction.\nRuntime has a non-linear effect — very short and very long films behave differently.\nBudget is positively associated with revenue, but blockbuster outliers distort the relationship.\nWell-known personnel increase visibility, but do not guarantee high ratings.\nRelease timing interacts with budget and genre rather than acting as a standalone predictor.\nEnsemble models (Random Forest, Extra Trees, Gradient Boosting) outperformed linear baselines on all prediction tasks.",
+    "crumbs": [
+      "Home",
+      "Executive Summary"
+    ]
+  },
+  {
+    "objectID": "index.html#data",
+    "href": "index.html#data",
+    "title": "Executive Summary",
+    "section": "Data",
+    "text": "Data\nAll analysis uses the cleaned dataset stored in Data/final_dataset.csv, containing movie-level information sourced from IMDb. Supplementary train-test files for machine learning are saved in the Data folder.\nFor detailed analysis, see the Descriptive Analysis and Machine Learning sections.",
+    "crumbs": [
+      "Home",
+      "Executive Summary"
+    ]
+  },
+  {
+    "objectID": "sec1.html",
+    "href": "sec1.html",
+    "title": "Descriptive Analysis",
+    "section": "",
+    "text": "This section explores patterns in the movie dataset before any prediction. All analysis was performed by Kay-Lee Dramat (Q1–Q3) and Ghofrane Mahmoud (Q4–Q6).",
+    "crumbs": [
+      "Home",
+      "Descriptive Analysis"
+    ]
+  },
+  {
+    "objectID": "sec1.html#q1-movie-ratings-across-countries-and-industries",
+    "href": "sec1.html#q1-movie-ratings-across-countries-and-industries",
+    "title": "Descriptive Analysis",
+    "section": "Q1: Movie Ratings Across Countries and Industries",
+    "text": "Q1: Movie Ratings Across Countries and Industries\nMovie ratings vary noticeably by country of origin. Smaller or more selective film industries tend to show higher average ratings, partly because fewer titles from those markets enter the dataset. Larger industries display wider variation — a mix of highly rated prestige films alongside lower-rated mass-market productions.",
+    "crumbs": [
+      "Home",
+      "Descriptive Analysis"
+    ]
+  },
+  {
+    "objectID": "sec1.html#q2-genre-ratings-and-votes",
+    "href": "sec1.html#q2-genre-ratings-and-votes",
+    "title": "Descriptive Analysis",
+    "section": "Q2: Genre Ratings and Votes",
+    "text": "Q2: Genre Ratings and Votes\nGenres do not perform equally. Some genres consistently attract higher average ratings, while others generate larger vote counts. Notably, a highly-rated genre is not always the most-watched: documentary and biographical genres tend toward high ratings with fewer votes, while action and adventure genres attract large audiences but more moderate average ratings.",
+    "crumbs": [
+      "Home",
+      "Descriptive Analysis"
+    ]
+  },
+  {
+    "objectID": "sec1.html#q3-movie-duration-and-audience-response",
+    "href": "sec1.html#q3-movie-duration-and-audience-response",
+    "title": "Descriptive Analysis",
+    "section": "Q3: Movie Duration and Audience Response",
+    "text": "Q3: Movie Duration and Audience Response\nRuntime influences audience response, but not linearly. Mid-length films (90–140 minutes) tend to cluster around the highest average ratings. Very short films (under 70 minutes) and very long films (over 180 minutes) show greater variability, suggesting that duration effects depend on genre, audience expectations, and movie type.",
+    "crumbs": [
+      "Home",
+      "Descriptive Analysis"
+    ]
+  },
+  {
+    "objectID": "sec1.html#q4-box-office-revenue-across-industries",
+    "href": "sec1.html#q4-box-office-revenue-across-industries",
+    "title": "Descriptive Analysis",
+    "section": "Q4: Box Office Revenue Across Industries",
+    "text": "Q4: Box Office Revenue Across Industries\nBox office revenues differ substantially across film industries. Larger markets — particularly the US — generate considerably higher totals. Revenue distributions are heavily right-skewed: a small number of blockbuster films account for a disproportionate share of total earnings, while the majority of films earn far less.",
+    "crumbs": [
+      "Home",
+      "Descriptive Analysis"
+    ]
+  },
+  {
+    "objectID": "sec1.html#q5-budget-and-box-office-performance",
+    "href": "sec1.html#q5-budget-and-box-office-performance",
+    "title": "Descriptive Analysis",
+    "section": "Q5: Budget and Box Office Performance",
+    "text": "Q5: Budget and Box Office Performance\nA positive relationship exists between production budget and worldwide box office revenue. Higher-budget films tend to earn more, but the relationship is not perfect. Some high-budget films underperform while a few low-budget films achieve surprisingly strong returns. Outliers — especially franchise blockbusters — have an outsized influence on this pattern.",
+    "crumbs": [
+      "Home",
+      "Descriptive Analysis"
+    ]
+  },
+  {
+    "objectID": "sec1.html#q6-movie-personnel-and-audience-response",
+    "href": "sec1.html#q6-movie-personnel-and-audience-response",
+    "title": "Descriptive Analysis",
+    "section": "Q6: Movie Personnel and Audience Response",
+    "text": "Q6: Movie Personnel and Audience Response\nMovies featuring well-known directors, writers, or stars are associated with higher vote counts and wider audience reach. However, personnel fame alone does not reliably predict higher ratings. The effect of star power is most visible in audience engagement (votes) rather than critical evaluation (ratings), and it interacts with genre and budget context.",
+    "crumbs": [
+      "Home",
+      "Descriptive Analysis"
     ]
   }
 ]

@@ -131,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sec1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Title of Section 1</span></a>
+ <span class="menu-text">Descriptive Analysis</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -157,8 +157,18 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-we-found" id="toc-what-we-found" class="nav-link active" data-scroll-target="#what-we-found">What We Found</a></li>
+  <li><a href="#descriptive-insights" id="toc-descriptive-insights" class="nav-link" data-scroll-target="#descriptive-insights">Descriptive Insights</a></li>
+  <li><a href="#machine-learning-insights" id="toc-machine-learning-insights" class="nav-link" data-scroll-target="#machine-learning-insights">Machine Learning Insights</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#final-reflection" id="toc-final-reflection" class="nav-link" data-scroll-target="#final-reflection">Final Reflection</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -182,9 +192,46 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>Write a concluding section for your project here. A conclusion can emphasize selected key findings and put them into a larger context. In the conclusion, you can also discuss limitation and potential applications and extensions of your analysis. The conclusion need not be long (200 words can be enough). It can be longer, if you have some sensible points to discuss. </em></p>
+<section id="what-we-found" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-found">What We Found</h2>
+<p>This project set out to answer one central question: which movie characteristics best explain and predict movie success? After combining descriptive analysis with machine learning across 12 research questions, the answer is clear — <strong>movie success is multidimensional and no single feature explains it alone</strong>.</p>
+</section>
+<section id="descriptive-insights" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-insights">Descriptive Insights</h2>
+<ul>
+<li>Ratings vary across countries and industries, but industry size creates selection effects.</li>
+<li>Genre shapes both ratings and votes, though not always in the same direction.</li>
+<li>Runtime has a non-linear relationship with audience response.</li>
+<li>Revenue is heavily skewed — a few blockbusters dominate totals.</li>
+<li>Budget predicts revenue positively but imperfectly.</li>
+<li>Star power boosts visibility more reliably than ratings.</li>
+</ul>
+</section>
+<section id="machine-learning-insights" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning-insights">Machine Learning Insights</h2>
+<ul>
+<li>Cleaned and focused features (top 8 predictors for Q1–Q3) improved all models.</li>
+<li>Log-transforming revenue targets stabilised regression models significantly.</li>
+<li>Random Forest was the best classifier for high-rating prediction (Q3).</li>
+<li>Ensemble methods (Random Forest, Extra Trees, Gradient Boosting) outperformed linear baselines across every prediction task.</li>
+<li>Balancing the Q3 classification target produced a notably stronger confusion matrix.</li>
+</ul>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<ul>
+<li>The dataset reflects IMDb coverage, which over-represents English-language and US films.</li>
+<li>Revenue and budget values contained many missing entries, requiring imputation.</li>
+<li>Predicting subjective outcomes like ratings remains inherently difficult.</li>
+<li>Feature importance varies across models — no single predictor dominates consistently.</li>
+</ul>
+</section>
+<section id="final-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="final-reflection">Final Reflection</h2>
+<p>The project demonstrates that careful data preparation — parsing text fields, transforming skewed targets, reducing large feature matrices — matters as much as model selection. Future work could incorporate social media sentiment, streaming data, or marketing spend to further improve predictions.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
