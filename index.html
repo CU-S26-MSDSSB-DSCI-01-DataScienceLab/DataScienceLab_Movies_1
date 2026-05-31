@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Executive Summary – DataScienceLab Movies</title>
+<title>DataScienceLab Movies</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,14 +106,14 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Executive Summary</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">index.html</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Executive Summary</span></a>
+ <span class="menu-text">index.html</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -157,92 +157,271 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#project-overview" id="toc-project-overview" class="nav-link active" data-scroll-target="#project-overview">Project Overview</a></li>
-  <li><a href="#the-problem" id="toc-the-problem" class="nav-link" data-scroll-target="#the-problem">The Problem</a></li>
-  <li><a href="#what-we-did" id="toc-what-we-did" class="nav-link" data-scroll-target="#what-we-did">What We Did</a></li>
-  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Executive Summary</h1>
+
+
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.hero{background:linear-gradient(135deg,#0a0a14 0%,#1a1a2e 50%,#16213e 100%);color:#fff;padding:60px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'🎬';font-size:200px;position:absolute;top:-40px;left:-30px;opacity:0.05}
+.hero::after{content:'🎥';font-size:200px;position:absolute;bottom:-40px;right:-30px;opacity:0.05}
+.hero-tag{display:inline-block;background:rgba(201,168,76,0.2);border:1px solid #c9a84c;color:#c9a84c;padding:4px 16px;border-radius:20px;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.hero-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.1;margin-bottom:12px}
+.hero-title span{color:#c9a84c}
+.hero-sub{font-size:1.1rem;opacity:0.7;max-width:600px;margin:0 auto 30px}
+.hero-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.pill{padding:5px 14px;border:1px solid rgba(255,255,255,0.2);border-radius:20px;font-size:12px;color:rgba(255,255,255,0.7)}
+.pill.gold{border-color:#c9a84c;color:#c9a84c}
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-bottom:1px solid #e5e5e5}
+.stat{padding:24px;text-align:center;border-right:1px solid #e5e5e5}
+.stat:last-child{border-right:none}
+.stat-n{font-size:2rem;font-weight:700;color:#1a1a2e}
+.stat-l{font-size:11px;color:#888;letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+.section{padding:50px 40px;border-bottom:1px solid #eee}
+.section.dark{background:#0a0a14;color:#fff}
+.section-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;margin-bottom:8px}
+.section-title{font-size:1.8rem;font-weight:700;margin-bottom:6px}
+.section.dark .section-title{color:#fff}
+.section-sub{color:#888;margin-bottom:30px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:30px}
+.card{background:#fff;border:1px solid #eee;border-radius:12px;padding:20px;transition:transform 0.2s,box-shadow 0.2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.card-icon{font-size:2rem;margin-bottom:12px}
+.card-title{font-size:14px;font-weight:600;margin-bottom:6px}
+.card-desc{font-size:13px;color:#666;line-height:1.5}
+.model-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.model-name{font-size:12px;width:140px;flex-shrink:0;color:#333}
+.bar-wrap{flex:1;background:#f0f0f0;border-radius:4px;height:10px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width 1.2s ease}
+.model-val{font-size:13px;font-weight:600;width:45px;text-align:right}
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chart-box{background:#fff;border:1px solid #eee;border-radius:12px;padding:20px}
+.chart-box.dark-box{background:#12121e;border-color:#2a2a3e}
+.chart-title{font-size:13px;font-weight:600;margin-bottom:16px;color:#333}
+.dark-box .chart-title{color:#fff}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#f8f9fa;padding:10px 12px;text-align:left;font-size:11px;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid #eee}
+td{padding:10px 12px;border-bottom:1px solid #f0f0f0;color:#333}
+tr:hover td{background:#fafafa}
+.badge{display:inline-block;padding:2px 10px;border-radius:4px;font-size:11px;font-weight:600}
+.b-gold{background:#fef3cd;color:#b8860b}
+.b-green{background:#d4edda;color:#155724}
+.b-gray{background:#f0f0f0;color:#555}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.member{background:#12121e;border-radius:12px;padding:16px;text-align:center}
+.avatar{width:50px;height:50px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700}
+.av-teal{background:rgba(29,158,117,0.2);color:#1D9E75;border:1px solid rgba(29,158,117,0.3)}
+.av-blue{background:rgba(55,138,221,0.2);color:#7dc4f9;border:1px solid rgba(55,138,221,0.3)}
+.av-gold{background:rgba(201,168,76,0.2);color:#c9a84c;border:1px solid rgba(201,168,76,0.3)}
+.m-name{font-size:13px;font-weight:600;color:#fff}
+.m-role{font-size:11px;color:#888;margin-top:3px}
+.m-qs{font-size:10px;color:#c9a84c;margin-top:6px}
+.findings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.finding{background:#12121e;border-radius:10px;padding:16px;border-left:3px solid #c9a84c}
+.finding-icon{font-size:1.5rem;margin-bottom:8px}
+.finding-title{font-size:13px;font-weight:600;color:#fff;margin-bottom:6px}
+.finding-desc{font-size:12px;color:#aaa;line-height:1.5}
+.feat-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.feat-name{font-size:12px;width:100px;color:#ccc;flex-shrink:0}
+.feat-bar{flex:1;background:#1e1e2e;border-radius:3px;height:6px}
+.feat-fill{height:100%;border-radius:3px}
+.feat-val{font-size:11px;width:40px;text-align:right;color:#888}
+.donut-wrap{display:flex;align-items:center;gap:24px}
+.donut-legend{display:flex;flex-direction:column;gap:8px}
+.leg-item{display:flex;align-items:center;gap:8px;font-size:12px;color:#ccc}
+.leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+svg text{font-family:system-ui,sans-serif}
+@media(max-width:700px){.chart-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr}}
+</style>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Master's Data Science Lab · 2025</div>
+  <div class="hero-title">Analyzing &amp; Predicting<br><span>Movie Success</span></div>
+  <div class="hero-sub">A combined descriptive &amp; machine learning study across global film industries</div>
+  <div class="hero-pills">
+    <span class="pill gold">IMDb Dataset</span>
+    <span class="pill">Random Forest</span>
+    <span class="pill">Gradient Boosting</span>
+    <span class="pill">12 Research Questions</span>
+    <span class="pill">7 Researchers</span>
+  </div>
 </div>
 
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-n" id="s1">0</div><div class="stat-l">Research Questions</div></div>
+  <div class="stat"><div class="stat-n" id="s2">0</div><div class="stat-l">ML Models Built</div></div>
+  <div class="stat"><div class="stat-n" id="s3">0%</div><div class="stat-l">Best ROC AUC</div></div>
+  <div class="stat"><div class="stat-n" id="s4">0</div><div class="stat-l">Best Revenue R²</div></div>
+</div>
 
+<!-- RESEARCH QUESTIONS -->
+<div class="section">
+  <div class="section-label">Research Design</div>
+  <div class="section-title">What We Investigated</div>
+  <p class="section-sub">Two parallel tracks — descriptive analysis and machine learning — covering 12 research questions.</p>
 
-<div class="quarto-title-meta">
-
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
     <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Aya Abdine </p>
-             <p>Meriam Al Askri </p>
-             <p>Ghofrane Mahmoud </p>
-             <p>Kay-Lee Dramat </p>
-             <p>Mcolisi Austine </p>
-             <p>Arshan </p>
-             <p>Syed </p>
-          </div>
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1D9E75;margin-bottom:12px">📊 Descriptive Analysis</div>
+      <div class="cards" style="grid-template-columns:1fr">
+        <div class="card" style="border-left:3px solid #1D9E75">
+          <div style="font-size:11px;color:#888;margin-bottom:4px">Q1</div>
+          <div class="card-title">Ratings Across Industries</div>
+          <div class="card-desc">How do movie ratings vary across different film industries and countries?</div>
+        </div>
+        <div class="card" style="border-left:3px solid #1D9E75">
+          <div style="font-size:11px;color:#888;margin-bottom:4px">Q2</div>
+          <div class="card-title">Genre Performance</div>
+          <div class="card-desc">Which genres receive the highest average ratings and number of votes?</div>
+        </div>
+        <div class="card" style="border-left:3px solid #1D9E75">
+          <div style="font-size:11px;color:#888;margin-bottom:4px">Q3</div>
+          <div class="card-title">Duration &amp; Audience</div>
+          <div class="card-desc">How does movie duration influence audience ratings and votes?</div>
+        </div>
+        <div class="card" style="border-left:3px solid #1D9E75">
+          <div style="font-size:11px;color:#888;margin-bottom:4px">Q4–Q6</div>
+          <div class="card-title">Revenue, Budget &amp; Personnel</div>
+          <div class="card-desc">Box office differences, budget–revenue relationships, and star power effects.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c9a84c;margin-bottom:12px">🤖 Machine Learning</div>
+      <div class="cards" style="grid-template-columns:1fr">
+        <div class="card" style="border-left:3px solid #c9a84c">
+          <div style="font-size:11px;color:#888;margin-bottom:4px">Q1</div>
+          <div class="card-title">Predict Rating</div>
+          <div class="card-desc">Can we predict movie rating from genre, duration, budget and release date?</div>
+        </div>
+        <div class="card" style="border-left:3px solid #c9a84c">
+          <div style="font-size:11px;color:#888;margin-bottom:4px">Q2</div>
+          <div class="card-title">Predict Revenue</div>
+          <div class="card-desc">Can box office revenue be predicted using movie characteristics?</div>
+        </div>
+        <div class="card" style="border-left:3px solid #c9a84c">
+          <div style="font-size:11px;color:#888;margin-bottom:4px">Q3</div>
+          <div class="card-title">Classify High-Rated Films</div>
+          <div class="card-desc">Can we predict whether a movie will receive a high rating?</div>
+        </div>
+        <div class="card" style="border-left:3px solid #c9a84c">
+          <div style="font-size:11px;color:#888;margin-bottom:4px">Q4–Q6</div>
+          <div class="card-title">Votes, Timing &amp; Success</div>
+          <div class="card-desc">Predict audience votes, analyze release timing, and classify success.</div>
+        </div>
+      </div>
+    </div>
   </div>
-    
-  
-    
+</div>
+
+<!-- MODEL RESULTS -->
+<div class="section dark">
+  <div class="section-label">Machine Learning Results</div>
+  <div class="section-title">Model Performance</div>
+  <p class="section-sub" style="color:#888">Ensemble methods outperformed linear baselines across all tasks.</p>
+
+  <div class="chart-grid">
+    <div class="chart-box dark-box">
+      <div class="chart-title">Q1 — Rating Prediction (R² Score)</div>
+      <div class="model-row"><span class="model-name" style="color:#ccc">Gradient Boosting</span><div class="bar-wrap"><div class="bar-fill" data-w="73" style="background:#1D9E75;width:0%"></div></div><span class="model-val" style="color:#fff">0.365</span></div>
+      <div class="model-row"><span class="model-name" style="color:#ccc">Extra Trees</span><div class="bar-wrap"><div class="bar-fill" data-w="71" style="background:#378ADD;width:0%"></div></div><span class="model-val" style="color:#fff">0.356</span></div>
+      <div class="model-row"><span class="model-name" style="color:#ccc">Ridge Regression</span><div class="bar-wrap"><div class="bar-fill" data-w="54" style="background:#888;width:0%"></div></div><span class="model-val" style="color:#fff">0.268</span></div>
+      <div style="font-size:11px;color:#666;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Log-votes is the strongest predictor. Ratings remain hard to predict due to subjectivity.</div>
+    </div>
+    <div class="chart-box dark-box">
+      <div class="chart-title">Q2 — Revenue Prediction (R² Score, log scale)</div>
+      <div class="model-row"><span class="model-name" style="color:#ccc">Gradient Boosting</span><div class="bar-wrap"><div class="bar-fill" data-w="88" style="background:#1D9E75;width:0%"></div></div><span class="model-val" style="color:#fff">0.645</span></div>
+      <div class="model-row"><span class="model-name" style="color:#ccc">Extra Trees</span><div class="bar-wrap"><div class="bar-fill" data-w="86" style="background:#378ADD;width:0%"></div></div><span class="model-val" style="color:#fff">0.630</span></div>
+      <div class="model-row"><span class="model-name" style="color:#ccc">Ridge Regression</span><div class="bar-wrap"><div class="bar-fill" data-w="74" style="background:#888;width:0%"></div></div><span class="model-val" style="color:#fff">0.541</span></div>
+      <div style="font-size:11px;color:#666;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Log-transform dramatically improves stability. Best raw-scale MAE ≈ $21M.</div>
+    </div>
+    <div class="chart-box dark-box">
+      <div class="chart-title">Q3 — High Rating Classification (ROC AUC)</div>
+      <div class="model-row"><span class="model-name" style="color:#ccc">Random Forest</span><div class="bar-wrap"><div class="bar-fill" data-w="100" style="background:#c9a84c;width:0%"></div></div><span class="model-val" style="color:#fff">0.873</span></div>
+      <div class="model-row"><span class="model-name" style="color:#ccc">Gradient Boosting</span><div class="bar-wrap"><div class="bar-fill" data-w="99" style="background:#1D9E75;width:0%"></div></div><span class="model-val" style="color:#fff">0.869</span></div>
+      <div class="model-row"><span class="model-name" style="color:#ccc">Extra Trees</span><div class="bar-wrap"><div class="bar-fill" data-w="97" style="background:#378ADD;width:0%"></div></div><span class="model-val" style="color:#fff">0.859</span></div>
+      <div class="model-row"><span class="model-name" style="color:#ccc">Logistic Regression</span><div class="bar-wrap"><div class="bar-fill" data-w="92" style="background:#888;width:0%"></div></div><span class="model-val" style="color:#fff">0.806</span></div>
+      <div style="font-size:11px;color:#666;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Balanced training + tuned threshold gave a strong confusion matrix.</div>
+    </div>
+    <div class="chart-box dark-box">
+      <div class="chart-title">Top Feature Importances — Q1 Rating</div>
+      <div class="feat-row"><span class="feat-name">log_votes</span><div class="feat-bar"><div class="feat-fill" data-w="100" style="background:#c9a84c;width:0%"></div></div><span class="feat-val">17.7%</span></div>
+      <div class="feat-row"><span class="feat-name">runtime</span><div class="feat-bar"><div class="feat-fill" data-w="43" style="background:#378ADD;width:0%"></div></div><span class="feat-val">7.6%</span></div>
+      <div class="feat-row"><span class="feat-name">budget</span><div class="feat-bar"><div class="feat-fill" data-w="42" style="background:#378ADD;width:0%"></div></div><span class="feat-val">7.4%</span></div>
+      <div class="feat-row"><span class="feat-name">movie_age</span><div class="feat-bar"><div class="feat-fill" data-w="40" style="background:#378ADD;width:0%"></div></div><span class="feat-val">7.2%</span></div>
+      <div class="feat-row"><span class="feat-name">release_month</span><div class="feat-bar"><div class="feat-fill" data-w="32" style="background:#1D9E75;width:0%"></div></div><span class="feat-val">5.7%</span></div>
+      <div class="feat-row"><span class="feat-name">director_count</span><div class="feat-bar"><div class="feat-fill" data-w="26" style="background:#1D9E75;width:0%"></div></div><span class="feat-val">4.6%</span></div>
+      <div class="feat-row"><span class="feat-name">cast_count</span><div class="feat-bar"><div class="feat-fill" data-w="25" style="background:#1D9E75;width:0%"></div></div><span class="feat-val">4.5%</span></div>
+      <div class="feat-row"><span class="feat-name">genre_encoded</span><div class="feat-bar"><div class="feat-fill" data-w="22" style="background:#888;width:0%"></div></div><span class="feat-val">3.9%</span></div>
+    </div>
   </div>
-  
+</div>
+
+<!-- KEY FINDINGS -->
+<div class="section dark" style="border-top:1px solid #1a1a2e">
+  <div class="section-label">Insights</div>
+  <div class="section-title">Key Findings</div>
+  <p class="section-sub" style="color:#888">What the data revealed about movie success.</p>
+  <div class="findings-grid">
+    <div class="finding"><div class="finding-icon">🌍</div><div class="finding-title">Industry Shapes Ratings</div><div class="finding-desc">Smaller, more selective industries show higher averages. Larger ones show greater variation — prestige films alongside mass-market productions.</div></div>
+    <div class="finding"><div class="finding-icon">🎭</div><div class="finding-title">Genre: Ratings ≠ Votes</div><div class="finding-desc">Documentary/biopic genres earn high ratings but fewer votes. Action drives audience size without always topping ratings.</div></div>
+    <div class="finding"><div class="finding-icon">⏱️</div><div class="finding-title">Non-linear Runtime Effect</div><div class="finding-desc">90–140 min films cluster at the highest average ratings. Very short or very long films are far more variable.</div></div>
+    <div class="finding"><div class="finding-icon">💰</div><div class="finding-title">Budget Predicts Revenue (Imperfectly)</div><div class="finding-desc">Positive correlation exists, but blockbuster outliers skew distributions heavily. Log-transforming the target stabilises all models.</div></div>
+    <div class="finding"><div class="finding-icon">⭐</div><div class="finding-title">Star Power → Visibility</div><div class="finding-desc">Well-known personnel reliably boost vote counts and audience reach, but do not guarantee high ratings.</div></div>
+    <div class="finding"><div class="finding-icon">📅</div><div class="finding-title">Timing Is Not Everything</div><div class="finding-desc">Release month and season matter, but always in interaction with budget, genre, and cast — not as a standalone driver.</div></div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<div class="section dark" style="border-top:1px solid #1a1a2e">
+  <div class="section-label">The Team</div>
+  <div class="section-title">Who Built This</div>
+  <div class="team-grid" style="margin-top:20px">
+    <div class="member"><div class="avatar av-blue">AA</div><div class="m-name">Aya Abdine</div><div class="m-role">Machine Learning</div><div class="m-qs">ML Q1 · Q2 · Q3</div></div>
+    <div class="member"><div class="avatar av-blue">MA</div><div class="m-name">Meriam Al Askri</div><div class="m-role">Machine Learning</div><div class="m-qs">ML Q1 · Q2 · Q3</div></div>
+    <div class="member"><div class="avatar av-gold">GM</div><div class="m-name">Ghofrane Mahmoud</div><div class="m-role">Descriptive Analysis</div><div class="m-qs">DA Q4 · Q5 · Q6</div></div>
+    <div class="member"><div class="avatar av-teal">KL</div><div class="m-name">Kay-Lee Dramat</div><div class="m-role">Descriptive Analysis</div><div class="m-qs">DA Q1 · Q2 · Q3</div></div>
+    <div class="member"><div class="avatar av-gold">AU</div><div class="m-name">Mcolisi Austine</div><div class="m-role">Machine Learning</div><div class="m-qs">ML Q4</div></div>
+    <div class="member"><div class="avatar av-blue">AE</div><div class="m-name">Arshan</div><div class="m-role">Machine Learning</div><div class="m-qs">ML Q5</div></div>
+    <div class="member"><div class="avatar av-teal">SY</div><div class="m-name">Syed</div><div class="m-role">Machine Learning</div><div class="m-qs">ML Q6</div></div>
+  </div>
+</div>
+
+<script>
+// Animated counters
+function animateCounter(id,target,suffix,decimals){
+  let start=0,duration=1500,steps=60;
+  let inc=target/steps;
+  let timer=setInterval(()=>{
+    start+=inc;
+    if(start>=target){start=target;clearInterval(timer);}
+    document.getElementById(id).textContent=(decimals?start.toFixed(3):Math.round(start))+suffix;
+  },duration/steps);
+}
+setTimeout(()=>{
+  animateCounter('s1',12,'',false);
+  animateCounter('s2',6,'',false);
+  animateCounter('s3',87,'%',false);
+  animateCounter('s4',0.645,'',true);
+},300);
+
+// Animate bars
+setTimeout(()=>{
+  document.querySelectorAll('[data-w]').forEach(el=>{
+    el.style.width=el.dataset.w+'%';
+  });
+},600);
+</script>
 
 
-</header>
-
-
-<section id="project-overview" class="level2">
-<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
-<p>This project investigates what makes a movie successful across different film industries worldwide. Using a rich dataset of movie-level attributes — including ratings, votes, genres, budgets, revenues, runtime, release dates, cast, directors, and writers — we combine <strong>descriptive analysis</strong> and <strong>machine learning</strong> to explain and predict movie performance.</p>
-</section>
-<section id="the-problem" class="level2">
-<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
-<p>The film industry is highly competitive. Producers, studios, and distributors all benefit from understanding which movie characteristics drive audience evaluation and financial success. Success is multidimensional: a movie can be critically acclaimed without being a box office hit, or earn massive revenue without top ratings.</p>
-<p>Our central research question is:</p>
-<blockquote class="blockquote">
-<p><strong>Which movie characteristics best explain and predict movie success in terms of audience evaluation and financial performance?</strong></p>
-</blockquote>
-</section>
-<section id="what-we-did" class="level2">
-<h2 class="anchored" data-anchor-id="what-we-did">What We Did</h2>
-<p>The project is divided into two tracks:</p>
-<ul>
-<li><p><strong>Descriptive Analysis</strong> (Kay-Lee Dramat &amp; Ghofrane Mahmoud): We examined patterns in ratings, votes, genres, runtime, revenue, budget, and the influence of directors, writers, and stars across 6 research questions.</p></li>
-<li><p><strong>Machine Learning</strong> (Aya Abdine, Meriam Al Askri, Mcolisi Austine, Arshan &amp; Syed): We built predictive models for rating, revenue, vote counts, release timing effects, and success classification across 6 research questions.</p></li>
-</ul>
-</section>
-<section id="key-findings" class="level2">
-<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
-<ul>
-<li>Movie ratings and revenues vary significantly across countries and film industries.</li>
-<li>Genre influences both audience rating and engagement, but not always in the same direction.</li>
-<li>Runtime has a non-linear effect — very short and very long films behave differently.</li>
-<li>Budget is positively associated with revenue, but blockbuster outliers distort the relationship.</li>
-<li>Well-known personnel increase visibility, but do not guarantee high ratings.</li>
-<li>Release timing interacts with budget and genre rather than acting as a standalone predictor.</li>
-<li>Ensemble models (Random Forest, Extra Trees, Gradient Boosting) outperformed linear baselines on all prediction tasks.</li>
-</ul>
-</section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>All analysis uses the cleaned dataset stored in <code>Data/final_dataset.csv</code>, containing movie-level information sourced from IMDb. Supplementary train-test files for machine learning are saved in the <code>Data</code> folder.</p>
-<p>For detailed analysis, see the <a href="./sec1.html">Descriptive Analysis</a> and <a href="./sec2.html">Machine Learning</a> sections.</p>
-
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
