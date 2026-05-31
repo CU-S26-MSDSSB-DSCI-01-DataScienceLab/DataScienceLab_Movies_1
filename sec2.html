@@ -70,6 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="shared.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -164,101 +165,46 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<style>
-*{box-sizing:border-box}
-.ml-hero{background:linear-gradient(135deg,#0a0a14,#1a1a2e,#0f3460);color:#fff;padding:50px 40px;text-align:center}
-.ml-badge{display:inline-block;background:rgba(201,168,76,0.15);border:1px solid #c9a84c;color:#c9a84c;padding:4px 16px;border-radius:20px;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
-.ml-hero h1{font-size:2.5rem;font-weight:800;color:#fff;margin-bottom:10px}
-.ml-hero p{opacity:0.7;max-width:620px;margin:0 auto;line-height:1.7}
-.wrap{max-width:1100px;margin:0 auto;padding:0 30px 60px}
-.q-section{padding:50px 0;border-bottom:1px solid #f0f0f0}
-.q-section:last-child{border-bottom:none}
-.q-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px}
-.q-badge-ml{background:#c9a84c;color:#1a1a2e;border-radius:10px;padding:8px 14px;font-size:1.1rem;font-weight:800;flex-shrink:0;min-width:60px;text-align:center}
-.q-meta h2{font-size:1.4rem;font-weight:700;color:#1a1a2e;margin-bottom:4px}
-.q-meta .author{font-size:12px;color:#9ca3af;text-transform:uppercase;letter-spacing:1px}
-.approach-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px;font-weight:600}
-.q-body p{color:#374151;line-height:1.8;margin-bottom:14px}
-.finding-box{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #c9a84c;border-radius:8px;padding:16px 20px;margin:16px 0}
-.finding-box p{margin:0;color:#78350f;line-height:1.6}
-.finding-box strong{color:#92400e}
-.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
-.result-panel{background:#1a1a2e;border-radius:12px;padding:20px}
-.rp-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;border-bottom:1px solid #2a2a3e;padding-bottom:10px}
-.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.bl{font-size:12px;color:#9ca3af;width:130px;flex-shrink:0}
-.bt{flex:1;background:#0f0f1a;border-radius:4px;height:9px;overflow:hidden}
-.bf{height:100%;border-radius:4px;width:0;transition:width 1.2s ease}
-.g{background:#1D9E75}.b{background:#378ADD}.a{background:#c9a84c}.gr{background:#5F5E5A}
-.bv{font-size:12px;font-weight:700;color:#fff;width:44px;text-align:right}
-.rp-note{font-size:11px;color:#4b5563;margin-top:10px;border-top:1px solid #2a2a3e;padding-top:10px;line-height:1.5}
-.ml-table{width:100%;border-collapse:collapse;font-size:12px;margin:16px 0}
-.ml-table th{background:#0f0f1a;color:#c9a84c;padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid #2a2a3e;font-weight:600}
-.ml-table td{padding:10px 12px;border-bottom:1px solid #1e1e2e;color:#e5e7eb}
-.ml-table tr:hover td{background:#1a1a2e}
-.badge-g{background:rgba(29,158,117,0.2);color:#1D9E75;padding:2px 10px;border-radius:4px;font-size:11px;font-weight:700}
-.badge-b{background:rgba(55,138,221,0.2);color:#7dc4f9;padding:2px 10px;border-radius:4px;font-size:11px;font-weight:600}
-.badge-o{background:#1e1e2e;color:#6b7280;padding:2px 10px;border-radius:4px;font-size:11px}
-.two-img{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
-.img-wrap{margin:20px 0;text-align:center}
-.img-wrap img,.two-img img{max-width:100%;border-radius:10px;border:1px solid #e5e7eb;box-shadow:0 4px 16px rgba(0,0,0,0.08);display:block}
-.img-caption{font-size:12px;color:#9ca3af;margin-top:8px;text-align:center;font-style:italic}
-.cm-wrap{display:grid;grid-template-columns:auto 1fr 1fr;gap:3px;max-width:360px;font-size:13px;margin:12px 0}
-.cm-h{color:#9ca3af;font-size:11px;font-weight:600;padding:8px;text-align:center}
-.cm-tp{background:rgba(29,158,117,0.3);color:#1D9E75;font-weight:700;padding:14px;border-radius:6px;text-align:center}
-.cm-fp{background:rgba(226,75,74,0.2);color:#e24b4a;font-weight:700;padding:14px;border-radius:6px;text-align:center}
-.cm-fn{background:rgba(226,75,74,0.2);color:#e24b4a;font-weight:700;padding:14px;border-radius:6px;text-align:center}
-.cm-tn{background:rgba(55,138,221,0.3);color:#7dc4f9;font-weight:700;padding:14px;border-radius:6px;text-align:center}
-.metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
-.metric-card{background:#1a1a2e;border-radius:10px;padding:14px;text-align:center}
-.metric-n{font-size:1.5rem;font-weight:800;color:#c9a84c}
-.metric-l{font-size:11px;color:#6b7280;margin-top:3px}
-.divider{background:#1a1a2e;color:#fff;padding:18px 0;margin:20px 0 0;border-radius:12px;text-align:center}
-.divider h3{color:#c9a84c;margin:0;font-size:1rem}
-.divider p{color:#6b7280;font-size:12px;margin:4px 0 0}
-@media(max-width:700px){.result-grid{grid-template-columns:1fr}.two-img{grid-template-columns:1fr}.metrics-row{grid-template-columns:1fr 1fr}}
-</style>
-
-<div class="ml-hero">
-  <div class="ml-badge">Machine Learning Analysis</div>
-  <h1>🤖 Predicting Movie Success</h1>
+<div class="site-hero" style="background:linear-gradient(135deg,#0a0a14,#1a1a2e,#0f3460);padding:48px 40px 40px">
+  <div class="hero-badge">Machine Learning Analysis</div>
+  <h1>🤖 Predicting <span>Movie Success</span></h1>
   <p>Six prediction questions answered using regression, classification, and feature engineering. Ensemble models consistently outperform linear baselines.</p>
 </div>
-<div class="wrap">
+
+<div class="section">
 
 <!-- Q1 -->
 <div class="q-section">
   <div class="q-header">
-    <div class="q-badge-ml">Q1</div>
-    <div class="q-meta">
-      <h2 class="anchored">Can Movie Rating Be Predicted From Movie Features?</h2>
-      <div class="author">👤 Aya Abdine &amp; Meriam Al Askri</div>
+    <div class="q-num">Q1</div>
+    <div>
+      <div class="q-title">Can Movie Rating Be Predicted From Movie Features?</div>
+      <div class="q-author">👤 Aya Abdine &amp; Meriam Al Askri</div>
     </div>
   </div>
   <div class="q-body">
-    <div class="approach-label">APPROACH</div>
     <p>Regression task targeting continuous IMDb rating. Features include genre, duration, budget, votes (log-transformed), release date, MPA rating, stars, and directors. Feature space reduced to top 8 most impactful predictors. Three models compared: Ridge Regression (baseline), Extra Trees, and Gradient Boosting.</p>
-    <div class="finding-box">
-      <p><strong>Key Finding:</strong> Gradient Boosting achieves the best R²=0.365. Log-votes is the dominant predictor (17.7% importance). The model explains ~37% of rating variation — the remainder reflects subjective audience response and story quality that metadata cannot capture.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Gradient Boosting achieves the best R²=0.365. Log-votes is the dominant predictor (17.7% importance). The model explains ~37% of rating variation — the remainder reflects subjective audience response and story quality that metadata cannot capture.
     </div>
-    <div class="metrics-row">
-      <div class="metric-card"><div class="metric-n">0.365</div><div class="metric-l">Best R² (GB)</div></div>
-      <div class="metric-card"><div class="metric-n">0.641</div><div class="metric-l">Best MAE (GB)</div></div>
-      <div class="metric-card"><div class="metric-n">0.853</div><div class="metric-l">Best RMSE (GB)</div></div>
-      <div class="metric-card"><div class="metric-n">±0.64</div><div class="metric-l">Avg prediction error</div></div>
+    <div class="grid-4" style="margin:16px 0">
+      <div class="metric"><div class="metric-n">0.365</div><div class="metric-l">Best R² (GB)</div></div>
+      <div class="metric"><div class="metric-n">0.641</div><div class="metric-l">Best MAE (GB)</div></div>
+      <div class="metric"><div class="metric-n">0.853</div><div class="metric-l">Best RMSE (GB)</div></div>
+      <div class="metric"><div class="metric-n">±0.64</div><div class="metric-l">Avg error</div></div>
     </div>
-    <div class="result-grid">
-      <div class="result-panel">
-        <div class="rp-title">📊 R² Score Comparison</div>
-        <div class="bar-row"><span class="bl">Gradient Boosting</span><div class="bt"><div class="bf g" data-w="73"></div></div><span class="bv">0.365</span></div>
-        <div class="bar-row"><span class="bl">Extra Trees</span><div class="bt"><div class="bf b" data-w="71"></div></div><span class="bv">0.356</span></div>
-        <div class="bar-row"><span class="bl">Ridge Regression</span><div class="bt"><div class="bf gr" data-w="53"></div></div><span class="bv">0.268</span></div>
-        <div class="rp-note">Gradient Boosting captures nonlinear interactions better than the linear baseline. Even so, ratings remain hard to predict — subjectivity dominates.</div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">R² score comparison</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Gradient Boosting</span><div class="bar-track dark"><div class="bar-fill" data-w="73" style="background:var(--teal)"></div></div><span class="bar-val light">0.365</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Extra Trees</span><div class="bar-track dark"><div class="bar-fill" data-w="71" style="background:var(--blue)"></div></div><span class="bar-val light">0.356</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Ridge Regression</span><div class="bar-track dark"><div class="bar-fill" data-w="53" style="background:#5f5e5a"></div></div><span class="bar-val light">0.268</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Gradient Boosting captures nonlinear interactions better than the linear baseline.</p>
       </div>
-      <div class="result-panel">
-        <div class="rp-title">📋 Full Metrics Table</div>
+      <div class="card">
+        <div class="card-title">Full metrics table</div>
         
-<table class="ml-table caption-top table">
+<table class="data-table caption-top table">
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Model</th>
@@ -272,34 +218,34 @@ ul.task-list li input[type="checkbox"] {
 <td>0.641</td>
 <td>0.853</td>
 <td>0.365</td>
-<td><span class="badge-g">Best</span></td>
+<td><span class="badge badge-green">Best</span></td>
 </tr>
 <tr class="odd">
 <td>Extra Trees</td>
 <td>0.650</td>
 <td>0.859</td>
 <td>0.356</td>
-<td><span class="badge-b">Good</span></td>
+<td><span class="badge badge-blue">Good</span></td>
 </tr>
 <tr class="even">
 <td>Ridge Regression</td>
 <td>0.690</td>
 <td>0.916</td>
 <td>0.268</td>
-<td><span class="badge-o">Baseline</span></td>
+<td><span class="badge badge-gray">Baseline</span></td>
 </tr>
 </tbody>
 </table>
 
       </div>
     </div>
-    <div class="two-img">
-      <div><img src="outputs/machine_learning_q1_fig_01.png" alt="Q1 predictions vs actual"><div class="img-caption">Figure 1 — Predicted vs actual ratings</div></div>
-      <div><img src="outputs/machine_learning_q1_fig_02.png" alt="Q1 residual plot"><div class="img-caption">Figure 2 — Residual plot</div></div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q1_fig_01.png" alt="Predicted vs actual ratings"><div class="fig-cap">Figure 1 — Predicted vs actual ratings</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q1_fig_02.png" alt="Residual plot"><div class="fig-cap">Figure 2 — Residual plot</div></div>
     </div>
-    <div class="two-img">
-      <div><img src="outputs/machine_learning_q1_fig_03.png" alt="Q1 feature importance"><div class="img-caption">Figure 3 — Feature importance</div></div>
-      <div><img src="outputs/machine_learning_q1_fig_04.png" alt="Q1 model comparison"><div class="img-caption">Figure 4 — Model comparison</div></div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q1_fig_03.png" alt="Feature importance"><div class="fig-cap">Figure 3 — Feature importance</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q1_fig_04.png" alt="Model comparison"><div class="fig-cap">Figure 4 — Model comparison</div></div>
     </div>
   </div>
 </div>
@@ -307,36 +253,35 @@ ul.task-list li input[type="checkbox"] {
 <!-- Q2 -->
 <div class="q-section">
   <div class="q-header">
-    <div class="q-badge-ml">Q2</div>
-    <div class="q-meta">
-      <h2 class="anchored">Can Box Office Revenue Be Predicted From Movie Characteristics?</h2>
-      <div class="author">👤 Aya Abdine &amp; Meriam Al Askri</div>
+    <div class="q-num">Q2</div>
+    <div>
+      <div class="q-title">Can Box Office Revenue Be Predicted From Movie Characteristics?</div>
+      <div class="q-author">👤 Aya Abdine &amp; Meriam Al Askri</div>
     </div>
   </div>
   <div class="q-body">
-    <div class="approach-label">APPROACH</div>
-    <p>Regression task on worldwide gross revenue. Because revenue is extremely skewed, the target was <strong>log-transformed</strong> to reduce blockbuster influence and stabilize model training. Cleaned numeric and categorical features used. Same three models compared. Log-MAE and raw-scale MAE both reported.</p>
-    <div class="finding-box">
-      <p><strong>Key Finding:</strong> Revenue is far more predictable than rating — Gradient Boosting achieves R²=0.645. The log-transform is critical: training on raw revenue would cause models to overfit to blockbuster extremes. Best raw-scale MAE ≈ $21M.</p>
+    <p>Regression task on worldwide gross revenue. Because revenue is extremely skewed, the target was <strong>log-transformed</strong> to reduce blockbuster influence and stabilize model training. Log-MAE and raw-scale MAE both reported.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Revenue is far more predictable than rating — Gradient Boosting achieves R²=0.645. The log-transform is critical: training on raw revenue would cause models to overfit to blockbuster extremes. Best raw-scale MAE ≈ $21M.
     </div>
-    <div class="metrics-row">
-      <div class="metric-card"><div class="metric-n">0.645</div><div class="metric-l">Best R² (GB)</div></div>
-      <div class="metric-card"><div class="metric-n">1.492</div><div class="metric-l">MAE (log scale)</div></div>
-      <div class="metric-card"><div class="metric-n">$21M</div><div class="metric-l">MAE (raw scale)</div></div>
-      <div class="metric-card"><div class="metric-n">Log ✓</div><div class="metric-l">Transform applied</div></div>
+    <div class="grid-4" style="margin:16px 0">
+      <div class="metric"><div class="metric-n">0.645</div><div class="metric-l">Best R² (GB)</div></div>
+      <div class="metric"><div class="metric-n">1.492</div><div class="metric-l">MAE log scale</div></div>
+      <div class="metric"><div class="metric-n">$21M</div><div class="metric-l">MAE raw scale</div></div>
+      <div class="metric"><div class="metric-n">Log ✓</div><div class="metric-l">Transform applied</div></div>
     </div>
-    <div class="result-grid">
-      <div class="result-panel">
-        <div class="rp-title">📊 R² Score Comparison (log scale)</div>
-        <div class="bar-row"><span class="bl">Gradient Boosting</span><div class="bt"><div class="bf g" data-w="89"></div></div><span class="bv">0.645</span></div>
-        <div class="bar-row"><span class="bl">Extra Trees</span><div class="bt"><div class="bf b" data-w="87"></div></div><span class="bv">0.630</span></div>
-        <div class="bar-row"><span class="bl">Ridge Regression</span><div class="bt"><div class="bf gr" data-w="74"></div></div><span class="bv">0.541</span></div>
-        <div class="rp-note">Revenue prediction is much stronger than rating. Budget and genre are the dominant drivers of commercial scale.</div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">R² comparison (log scale)</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Gradient Boosting</span><div class="bar-track dark"><div class="bar-fill" data-w="89" style="background:var(--teal)"></div></div><span class="bar-val light">0.645</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Extra Trees</span><div class="bar-track dark"><div class="bar-fill" data-w="87" style="background:var(--blue)"></div></div><span class="bar-val light">0.630</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Ridge Regression</span><div class="bar-track dark"><div class="bar-fill" data-w="74" style="background:#5f5e5a"></div></div><span class="bar-val light">0.541</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Revenue prediction is much stronger than rating. Budget and genre are the dominant drivers.</p>
       </div>
-      <div class="result-panel">
-        <div class="rp-title">📋 Full Metrics Table</div>
+      <div class="card">
+        <div class="card-title">Full metrics table</div>
         
-<table class="ml-table caption-top table">
+<table class="data-table caption-top table">
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Model</th>
@@ -350,92 +295,93 @@ ul.task-list li input[type="checkbox"] {
 <td>1.492</td>
 <td>0.645</td>
 <td>$21M</td>
-<td><span class="badge-g">Best</span></td>
+<td><span class="badge badge-green">Best</span></td>
 </tr>
 <tr class="odd">
 <td>Extra Trees</td>
 <td>1.549</td>
 <td>0.630</td>
 <td>$27M</td>
-<td><span class="badge-b">Good</span></td>
+<td><span class="badge badge-blue">Good</span></td>
 </tr>
 <tr class="even">
 <td>Ridge Regression</td>
 <td>1.746</td>
 <td>0.541</td>
 <td>$24M</td>
-<td><span class="badge-o">Baseline</span></td>
+<td><span class="badge badge-gray">Baseline</span></td>
 </tr>
 </tbody>
 </table>
 
       </div>
     </div>
-    <div class="two-img">
-      <div><img src="outputs/machine_learning_q2_fig_05.png" alt="Q2 predictions"><div class="img-caption">Figure 5 — Predicted vs actual log revenue</div></div>
-      <div><img src="outputs/machine_learning_q2_fig_06.png" alt="Q2 residuals"><div class="img-caption">Figure 6 — Residual plot (log scale)</div></div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q2_fig_05.png" alt="Predicted vs actual log revenue"><div class="fig-cap">Figure 5 — Predicted vs actual log revenue</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q2_fig_06.png" alt="Residual plot"><div class="fig-cap">Figure 6 — Residual plot (log scale)</div></div>
     </div>
-    <div class="two-img">
-      <div><img src="outputs/machine_learning_q2_fig_07.png" alt="Q2 feature importance"><div class="img-caption">Figure 7 — Feature importance</div></div>
-      <div><img src="outputs/machine_learning_q2_fig_08.png" alt="Q2 model comparison"><div class="img-caption">Figure 8 — Model comparison</div></div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q2_fig_07.png" alt="Feature importance"><div class="fig-cap">Figure 7 — Feature importance</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q2_fig_08.png" alt="Model comparison"><div class="fig-cap">Figure 8 — Model comparison</div></div>
     </div>
-    <div class="img-wrap"><img src="outputs/machine_learning_q2_fig_09.png" alt="Q2 budget vs revenue"><div class="img-caption">Figure 9 — Budget vs predicted revenue relationship</div></div>
+    <div class="fig-grid single">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q2_fig_09.png" alt="Budget vs revenue"><div class="fig-cap">Figure 9 — Budget vs predicted revenue relationship</div></div>
+    </div>
   </div>
 </div>
 
 <!-- Q3 -->
 <div class="q-section">
   <div class="q-header">
-    <div class="q-badge-ml">Q3</div>
-    <div class="q-meta">
-      <h2 class="anchored">Can We Predict Whether a Movie Will Receive a High Rating?</h2>
-      <div class="author">👤 Aya Abdine &amp; Meriam Al Askri</div>
+    <div class="q-num">Q3</div>
+    <div>
+      <div class="q-title">Can We Predict Whether a Movie Will Receive a High Rating?</div>
+      <div class="q-author">👤 Aya Abdine &amp; Meriam Al Askri</div>
     </div>
   </div>
   <div class="q-body">
-    <div class="approach-label">APPROACH</div>
-    <p>Binary classification: high-rated vs not-high-rated. Ambiguous middle ratings removed to create a cleaner binary target. Training data balanced. Decision thresholds tuned away from default 0.50. Four classifiers compared: Logistic Regression (baseline), Random Forest, Gradient Boosting, Extra Trees.</p>
-    <div class="finding-box">
-      <p><strong>Key Finding:</strong> Random Forest achieves ROC AUC=0.873 — the best classifier. The confusion matrix shows strong performance at identifying non-high-rated films. Balanced training and threshold tuning were critical improvements over naive classification.</p>
+    <p>Binary classification: high-rated vs not-high-rated. Ambiguous middle ratings removed to create a cleaner binary target. Training data balanced. Decision thresholds tuned away from default 0.50. Four classifiers compared.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Random Forest achieves ROC AUC=0.873 — the best classifier. The confusion matrix shows strong performance at identifying non-high-rated films. Balanced training and threshold tuning were critical improvements over naive classification.
     </div>
-    <div class="metrics-row">
-      <div class="metric-card"><div class="metric-n" style="color:#1D9E75">0.873</div><div class="metric-l">ROC AUC (RF)</div></div>
-      <div class="metric-card"><div class="metric-n">86.3%</div><div class="metric-l">Accuracy (RF)</div></div>
-      <div class="metric-card"><div class="metric-n">74.7%</div><div class="metric-l">Precision (RF)</div></div>
-      <div class="metric-card"><div class="metric-n">63.1%</div><div class="metric-l">F1 Score (RF)</div></div>
+    <div class="grid-4" style="margin:16px 0">
+      <div class="metric"><div class="metric-n" style="color:var(--teal)">0.873</div><div class="metric-l">ROC AUC (RF)</div></div>
+      <div class="metric"><div class="metric-n">86.3%</div><div class="metric-l">Accuracy (RF)</div></div>
+      <div class="metric"><div class="metric-n">74.7%</div><div class="metric-l">Precision (RF)</div></div>
+      <div class="metric"><div class="metric-n">63.1%</div><div class="metric-l">F1 Score (RF)</div></div>
     </div>
-    <div class="result-grid">
-      <div class="result-panel">
-        <div class="rp-title">📊 ROC AUC Comparison</div>
-        <div class="bar-row"><span class="bl">Random Forest</span><div class="bt"><div class="bf a" data-w="100"></div></div><span class="bv">0.873</span></div>
-        <div class="bar-row"><span class="bl">Gradient Boosting</span><div class="bt"><div class="bf g" data-w="99"></div></div><span class="bv">0.869</span></div>
-        <div class="bar-row"><span class="bl">Extra Trees</span><div class="bt"><div class="bf b" data-w="98"></div></div><span class="bv">0.859</span></div>
-        <div class="bar-row"><span class="bl">Logistic Regression</span><div class="bt"><div class="bf gr" data-w="92"></div></div><span class="bv">0.806</span></div>
-        <div class="rp-note">All ensembles outperform the linear baseline. Random Forest with tuned threshold performs best.</div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">ROC AUC comparison</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Random Forest</span><div class="bar-track dark"><div class="bar-fill" data-w="100" style="background:var(--gold)"></div></div><span class="bar-val light">0.873</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Gradient Boosting</span><div class="bar-track dark"><div class="bar-fill" data-w="99" style="background:var(--teal)"></div></div><span class="bar-val light">0.869</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Extra Trees</span><div class="bar-track dark"><div class="bar-fill" data-w="98" style="background:var(--blue)"></div></div><span class="bar-val light">0.859</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Logistic Regression</span><div class="bar-track dark"><div class="bar-fill" data-w="92" style="background:#5f5e5a"></div></div><span class="bar-val light">0.806</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">All ensembles outperform the linear baseline. Random Forest with tuned threshold performs best.</p>
       </div>
-      <div class="result-panel">
-        <div class="rp-title">🔢 Confusion Matrix — Random Forest</div>
-        <div class="cm-wrap">
-          <div class="cm-h"></div><div class="cm-h">Pred: Not High</div><div class="cm-h">Pred: High</div>
-          <div class="cm-h" style="text-align:right;font-size:10px">True: Not High</div>
-          <div class="cm-tn">6,930 ✓</div><div class="cm-fp">369 ✗</div>
-          <div class="cm-h" style="text-align:right;font-size:10px">True: High</div>
-          <div class="cm-fn">908 ✗</div><div class="cm-tp">1,091 ✓</div>
+      <div class="card">
+        <div class="card-title">Confusion matrix — Random Forest</div>
+        <div class="cm-grid">
+          <div class="cm-hdr"></div><div class="cm-hdr">Pred: Not High</div><div class="cm-hdr">Pred: High</div>
+          <div class="cm-hdr" style="text-align:right;font-size:10px">True: Not High</div>
+          <div class="cm-cell cm-tn">6,930 ✓</div><div class="cm-cell cm-fp">369 ✗</div>
+          <div class="cm-hdr" style="text-align:right;font-size:10px">True: High</div>
+          <div class="cm-cell cm-fn">908 ✗</div><div class="cm-cell cm-tp">1,091 ✓</div>
         </div>
-        <div class="rp-note">Strong at detecting non-high-rated films. Captures ~55% of truly high-rated ones — limited by content subjectivity.</div>
+        <p style="font-size:11px;color:var(--muted);margin-top:8px">Strong at detecting non-high-rated films. Captures ~55% of truly high-rated ones — limited by content subjectivity.</p>
       </div>
     </div>
-    <div class="two-img">
-      <div><img src="outputs/machine_learning_q3_fig_10.png" alt="Q3 ROC curve"><div class="img-caption">Figure 10 — ROC curves comparison</div></div>
-      <div><img src="outputs/machine_learning_q3_fig_11.png" alt="Q3 confusion matrix"><div class="img-caption">Figure 11 — Confusion matrix visualization</div></div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q3_fig_10.png" alt="ROC curves"><div class="fig-cap">Figure 10 — ROC curves comparison</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q3_fig_11.png" alt="Confusion matrix"><div class="fig-cap">Figure 11 — Confusion matrix visualization</div></div>
     </div>
-    <div class="two-img">
-      <div><img src="outputs/machine_learning_q3_fig_12.png" alt="Q3 feature importance"><div class="img-caption">Figure 12 — Feature importance</div></div>
-      <div><img src="outputs/machine_learning_q3_fig_13.png" alt="Q3 threshold tuning"><div class="img-caption">Figure 13 — Threshold tuning analysis</div></div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q3_fig_12.png" alt="Feature importance"><div class="fig-cap">Figure 12 — Feature importance</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q3_fig_13.png" alt="Threshold tuning"><div class="fig-cap">Figure 13 — Threshold tuning analysis</div></div>
     </div>
-    <p style="margin-top:10px"><strong>Full classification results:</strong></p>
-    
-<table class="ml-table caption-top table">
+    <div style="overflow-x:auto;margin-top:16px">
+      
+<table class="data-table caption-top table">
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Model</th>
@@ -448,18 +394,18 @@ ul.task-list li input[type="checkbox"] {
 <th data-quarto-table-cell-role="th">F1</th>
 <th data-quarto-table-cell-role="th"></th>
 </tr>
-<tr class="even">
+<tr class="even" style="color:#1a1a2e">
 <td><strong>Random Forest</strong></td>
-<td>0.873</td>
+<td><strong>0.873</strong></td>
 <td>0.57</td>
 <td>0.863</td>
 <td>0.748</td>
 <td>0.747</td>
 <td>0.546</td>
 <td>0.631</td>
-<td><span class="badge-g">Best</span></td>
+<td><span class="badge badge-green">Best</span></td>
 </tr>
-<tr class="odd">
+<tr class="odd" style="color:#1a1a2e">
 <td>Gradient Boosting</td>
 <td>0.869</td>
 <td>0.58</td>
@@ -468,9 +414,9 @@ ul.task-list li input[type="checkbox"] {
 <td>0.738</td>
 <td>0.539</td>
 <td>0.623</td>
-<td><span class="badge-b">Good</span></td>
+<td><span class="badge badge-blue">Good</span></td>
 </tr>
-<tr class="even">
+<tr class="even" style="color:#1a1a2e">
 <td>Extra Trees</td>
 <td>0.859</td>
 <td>0.48</td>
@@ -479,9 +425,9 @@ ul.task-list li input[type="checkbox"] {
 <td>0.728</td>
 <td>0.523</td>
 <td>0.609</td>
-<td><span class="badge-b">Good</span></td>
+<td><span class="badge badge-blue">Good</span></td>
 </tr>
-<tr class="odd">
+<tr class="odd" style="color:#1a1a2e">
 <td>Logistic Regression</td>
 <td>0.806</td>
 <td>0.52</td>
@@ -490,16 +436,16 @@ ul.task-list li input[type="checkbox"] {
 <td>0.658</td>
 <td>0.525</td>
 <td>0.584</td>
-<td><span class="badge-o">Baseline</span></td>
+<td><span class="badge badge-gray">Baseline</span></td>
 </tr>
 </tbody>
 </table>
 
+    </div>
   </div>
 </div>
 
-<!-- DIVIDER -->
-<div class="divider">
+<div class="divider-dark">
   <h3 class="anchored">Individual ML Questions — Q4, Q5, Q6</h3>
   <p>Austine · Arshan · Syed</p>
 </div>
@@ -507,30 +453,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- Q4 -->
 <div class="q-section">
   <div class="q-header">
-    <div class="q-badge-ml" style="background:#1D9E75">Q4</div>
-    <div class="q-meta">
-      <h2 class="anchored">Can the Number of Audience Votes Be Predicted?</h2>
-      <div class="author">👤 Mcolisi Austine</div>
+    <div class="q-num teal">Q4</div>
+    <div>
+      <div class="q-title">Can the Number of Audience Votes Be Predicted?</div>
+      <div class="q-author">👤 Mcolisi Austine</div>
     </div>
   </div>
   <div class="q-body">
-    <div class="approach-label">APPROACH</div>
-    <p>Regression task predicting audience vote count using movie popularity factors: stars, release date, runtime, and budget. Vote counts are <strong>highly skewed</strong> so three strategies were compared: raw prediction, log-transformed prediction, and log prediction after outlier removal. Models: Linear Regression, Decision Tree, Random Forest.</p>
-    <div class="finding-box">
-      <p><strong>Key Finding:</strong> Log-transformation dramatically improves the model. After transformation, Decision Tree achieves R²=0.432. Average rating and release year are the most important predictors. Viral attention and marketing hype remain outside the dataset.</p>
+    <p>Regression task predicting audience vote count using movie popularity factors. Vote counts are <strong>highly skewed</strong> so three strategies were compared: raw prediction, log-transformed prediction, and log prediction after outlier removal.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Log-transformation dramatically improves the model. After transformation, Decision Tree achieves R²=0.432. Average rating and release year are the most important predictors. Viral attention and marketing hype remain outside the dataset.
     </div>
-    <div class="result-grid">
-      <div class="result-panel">
-        <div class="rp-title">📊 Impact of Log-Transform on R²</div>
-        <div class="bar-row"><span class="bl">DT (log + no outlier)</span><div class="bt"><div class="bf g" data-w="88"></div></div><span class="bv">0.388</span></div>
-        <div class="bar-row"><span class="bl">DT (log-transformed)</span><div class="bt"><div class="bf a" data-w="100"></div></div><span class="bv">0.432</span></div>
-        <div class="bar-row"><span class="bl">DT (raw scale)</span><div class="bt"><div class="bf gr" data-w="47"></div></div><span class="bv">0.204</span></div>
-        <div class="rp-note">Log-transformation doubles the R² score from 0.204 to 0.432. Skewed popularity data must be transformed before modeling.</div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">Impact of log-transform on R²</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af;font-size:11px">DT (log-transformed)</span><div class="bar-track dark"><div class="bar-fill" data-w="100" style="background:var(--gold)"></div></div><span class="bar-val light">0.432</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af;font-size:11px">DT (log + no outlier)</span><div class="bar-track dark"><div class="bar-fill" data-w="88" style="background:var(--teal)"></div></div><span class="bar-val light">0.388</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af;font-size:11px">DT (raw scale)</span><div class="bar-track dark"><div class="bar-fill" data-w="47" style="background:#5f5e5a"></div></div><span class="bar-val light">0.204</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Log-transformation doubles the R² score from 0.204 to 0.432.</p>
       </div>
-      <div class="result-panel">
-        <div class="rp-title">📋 Strategy Comparison</div>
+      <div class="card">
+        <div class="card-title">Strategy comparison</div>
         
-<table class="ml-table caption-top table">
+<table class="data-table table-light caption-top table">
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Strategy</th>
@@ -559,12 +504,12 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 
-        <div class="rp-note">Top predictors: average rating, release year, month, and star count.</div>
+        <p style="font-size:11px;color:var(--muted);margin-top:8px">Top predictors: average rating, release year, month, and star count.</p>
       </div>
     </div>
-    <div class="two-img">
-      <div><img src="outputs/machine_learning_q4_fig_14.png" alt="Q4 vote prediction"><div class="img-caption">Figure 14 — Vote count prediction results</div></div>
-      <div><img src="outputs/machine_learning_q4_fig_15.png" alt="Q4 feature importance"><div class="img-caption">Figure 15 — Feature importance for vote prediction</div></div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q4_fig_14.png" alt="Vote prediction results"><div class="fig-cap">Figure 14 — Vote count prediction results</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q4_fig_15.png" alt="Feature importance"><div class="fig-cap">Figure 15 — Feature importance for vote prediction</div></div>
     </div>
   </div>
 </div>
@@ -572,29 +517,28 @@ ul.task-list li input[type="checkbox"] {
 <!-- Q5 -->
 <div class="q-section">
   <div class="q-header">
-    <div class="q-badge-ml" style="background:#378ADD;color:#fff">Q5</div>
-    <div class="q-meta">
-      <h2 class="anchored">How Does Release Timing Influence Box Office Performance?</h2>
-      <div class="author">👤 Syed Arshan Nehad</div>
+    <div class="q-num blue">Q5</div>
+    <div>
+      <div class="q-title">How Does Release Timing Influence Box Office Performance?</div>
+      <div class="q-author">👤 Syed Arshan Nehad</div>
     </div>
   </div>
   <div class="q-body">
-    <div class="approach-label">APPROACH</div>
-    <p>Release date parsed into year, month, and season. Season used as the main timing variable. Budget, runtime, crew counts, and primary genre included as controls to isolate timing effects. Worldwide gross and votes both log-transformed. Random Forest and Decision Tree compared.</p>
-    <div class="finding-box">
-      <p><strong>Key Finding:</strong> Random Forest achieves R²=0.606 for audience votes and R²=0.484 for worldwide gross. Budget and release year are more important than season alone — but season still appears in feature importance, especially for audience engagement. Timing matters as part of a larger release strategy, not as a standalone guarantee.</p>
+    <p>Release date parsed into year, month, and season. Season used as the main timing variable. Budget, runtime, crew counts, and primary genre included as controls. Worldwide gross and votes both log-transformed. Random Forest and Decision Tree compared.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Random Forest achieves R²=0.606 for audience votes and R²=0.484 for worldwide gross. Budget and release year are more important than season alone — but season still appears in feature importance, especially for audience engagement.
     </div>
-    <div class="result-grid">
-      <div class="result-panel">
-        <div class="rp-title">📊 Model Performance by Target</div>
-        <div class="bar-row"><span class="bl">Votes (RF)</span><div class="bt"><div class="bf g" data-w="100"></div></div><span class="bv">0.606</span></div>
-        <div class="bar-row"><span class="bl">Revenue (DT)</span><div class="bt"><div class="bf b" data-w="80"></div></div><span class="bv">0.484</span></div>
-        <div class="rp-note">Votes are more predictable from timing features than revenue. Budget_num dominates both models.</div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">Model performance by target</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Votes (RF)</span><div class="bar-track dark"><div class="bar-fill" data-w="100" style="background:var(--teal)"></div></div><span class="bar-val light">0.606</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Revenue (DT)</span><div class="bar-track dark"><div class="bar-fill" data-w="80" style="background:var(--blue)"></div></div><span class="bar-val light">0.484</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Votes are more predictable from timing features than revenue. Budget_num dominates both.</p>
       </div>
-      <div class="result-panel">
-        <div class="rp-title">📋 Results Summary</div>
+      <div class="card">
+        <div class="card-title">Results summary</div>
         
-<table class="ml-table caption-top table">
+<table class="data-table table-light caption-top table">
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Target</th>
@@ -617,12 +561,11 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 
-        <div class="rp-note">Top predictors: budget_num, year, writer_count, star_count, runtime, season_Autumn.</div>
+        <p style="font-size:11px;color:var(--muted);margin-top:8px">Top predictors: budget_num, year, writer_count, star_count, runtime, season_Autumn.</p>
       </div>
     </div>
-    <div class="img-wrap">
-      <img src="outputs/machine_learning_q4_fig_16.png" alt="Q5 timing features">
-      <div class="img-caption">Figure 16 — Feature importance for release timing models</div>
+    <div class="fig-grid single">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q4_fig_16.png" alt="Feature importance for release timing"><div class="fig-cap">Figure 16 — Feature importance for release timing models</div></div>
     </div>
   </div>
 </div>
@@ -630,36 +573,35 @@ ul.task-list li input[type="checkbox"] {
 <!-- Q6 -->
 <div class="q-section">
   <div class="q-header">
-    <div class="q-badge-ml" style="background:#e24b4a;color:#fff">Q6</div>
-    <div class="q-meta">
-      <h2 class="anchored">Can Movies Be Classified as Successful vs Less Successful?</h2>
-      <div class="author">👤 Syed Tamjeed Ur Rahman</div>
+    <div class="q-num red">Q6</div>
+    <div>
+      <div class="q-title">Can Movies Be Classified as Successful vs Less Successful?</div>
+      <div class="q-author">👤 Syed Tamjeed Ur Rahman</div>
     </div>
   </div>
   <div class="q-body">
-    <div class="approach-label">APPROACH</div>
-    <p>Binary success classification combining <strong>multiple dimensions</strong>: a movie is labeled successful if it meets at least 2 of 3 conditions — rating above median, votes above median, and positive ROI. Leakage variables excluded from predictors. Models: Logistic Regression, Decision Tree, Random Forest.</p>
-    <div class="finding-box">
-      <p><strong>Key Finding:</strong> Random Forest achieves 70.0% accuracy and ROC AUC=0.767 — the best classifier. Budget and year are the top predictors. Accuracy of 70% means the model captures real patterns but cannot fully predict success without marketing, distribution, and streaming data.</p>
+    <p>Binary success classification combining <strong>multiple dimensions</strong>: a movie is labeled successful if it meets at least 2 of 3 conditions — rating above median, votes above median, and positive ROI. Leakage variables excluded from predictors.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Random Forest achieves 70.0% accuracy and ROC AUC=0.767 — the best classifier. Budget and year are the top predictors. Accuracy of 70% means the model captures real patterns but cannot fully predict success without marketing, distribution, and streaming data.
     </div>
-    <div class="metrics-row">
-      <div class="metric-card"><div class="metric-n" style="color:#1D9E75">70.0%</div><div class="metric-l">Accuracy (RF)</div></div>
-      <div class="metric-card"><div class="metric-n">0.767</div><div class="metric-l">ROC AUC (RF)</div></div>
-      <div class="metric-card"><div class="metric-n">70.7%</div><div class="metric-l">Precision (RF)</div></div>
-      <div class="metric-card"><div class="metric-n">3-dim</div><div class="metric-l">Success definition</div></div>
+    <div class="grid-4" style="margin:16px 0">
+      <div class="metric"><div class="metric-n" style="color:var(--teal)">70.0%</div><div class="metric-l">Accuracy (RF)</div></div>
+      <div class="metric"><div class="metric-n">0.767</div><div class="metric-l">ROC AUC (RF)</div></div>
+      <div class="metric"><div class="metric-n">70.7%</div><div class="metric-l">Precision (RF)</div></div>
+      <div class="metric"><div class="metric-n">3-dim</div><div class="metric-l">Success definition</div></div>
     </div>
-    <div class="result-grid">
-      <div class="result-panel">
-        <div class="rp-title">📊 Model Comparison</div>
-        <div class="bar-row"><span class="bl">Random Forest</span><div class="bt"><div class="bf a" data-w="100"></div></div><span class="bv">0.767</span></div>
-        <div class="bar-row"><span class="bl">Decision Tree</span><div class="bt"><div class="bf b" data-w="94"></div></div><span class="bv">0.723</span></div>
-        <div class="bar-row"><span class="bl">Logistic Regression</span><div class="bt"><div class="bf gr" data-w="43"></div></div><span class="bv">0.332</span></div>
-        <div class="rp-note">Logistic Regression collapses to predicting everything as "successful" (recall=0.999). Only tree-based models work for this multi-dimensional target.</div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">Model comparison (ROC AUC)</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Random Forest</span><div class="bar-track dark"><div class="bar-fill" data-w="100" style="background:var(--gold)"></div></div><span class="bar-val light">0.767</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Decision Tree</span><div class="bar-track dark"><div class="bar-fill" data-w="94" style="background:var(--blue)"></div></div><span class="bar-val light">0.723</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Logistic Regression</span><div class="bar-track dark"><div class="bar-fill" data-w="43" style="background:#5f5e5a"></div></div><span class="bar-val light">0.332</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Logistic Regression collapses to predicting everything as "successful". Only tree-based models work.</p>
       </div>
-      <div class="result-panel">
-        <div class="rp-title">📋 Full Results Table</div>
+      <div class="card">
+        <div class="card-title">Full results</div>
         
-<table class="ml-table caption-top table">
+<table class="data-table table-light caption-top table">
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Model</th>
@@ -675,7 +617,7 @@ ul.task-list li input[type="checkbox"] {
 <td>0.707</td>
 <td>0.703</td>
 <td>0.767</td>
-<td><span class="badge-g">Best</span></td>
+<td><span class="badge badge-green">Best</span></td>
 </tr>
 <tr class="odd">
 <td>Decision Tree</td>
@@ -683,7 +625,7 @@ ul.task-list li input[type="checkbox"] {
 <td>0.693</td>
 <td>0.647</td>
 <td>0.723</td>
-<td><span class="badge-b">Good</span></td>
+<td><span class="badge badge-blue">Good</span></td>
 </tr>
 <tr class="even">
 <td>Logistic Reg.</td>
@@ -691,17 +633,15 @@ ul.task-list li input[type="checkbox"] {
 <td>0.509</td>
 <td>0.674</td>
 <td>0.332</td>
-<td><span class="badge-o">Failed</span></td>
+<td><span class="badge badge-red">Failed</span></td>
 </tr>
 </tbody>
 </table>
 
-        <div class="rp-note">Top predictors: budget_num, year, writer_count, runtime, genre_Drama, genre_Comedy, genre_Action.</div>
       </div>
     </div>
-    <div class="img-wrap">
-      <img src="outputs/machine_learning_q6_fig_17.png" alt="Q6 feature importance">
-      <div class="img-caption">Figure 17 — Feature importance for success classification</div>
+    <div class="fig-grid single">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q6_fig_17.png" alt="Feature importance success"><div class="fig-cap">Figure 17 — Feature importance for success classification</div></div>
     </div>
   </div>
 </div>
@@ -709,9 +649,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 <script>
-setTimeout(()=>{
-  document.querySelectorAll('[data-w]').forEach(el=>el.style.width=el.dataset.w+'%');
-},500);
+setTimeout(() => {
+  document.querySelectorAll('[data-w]').forEach(el => el.style.width = el.dataset.w + '%');
+}, 600);
 </script>
 
 
