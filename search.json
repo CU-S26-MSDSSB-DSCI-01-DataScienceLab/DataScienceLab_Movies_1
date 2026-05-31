@@ -388,12 +388,67 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "DataScienceLab Movies",
+    "title": "Analyzing & PredictingMovie Success",
     "section": "",
-    "text": "Master's Data Science Lab · 2025\n  Analyzing & PredictingMovie Success\n  A combined descriptive & machine learning study across global film industries\n  \n    IMDb Dataset\n    Random Forest\n    Gradient Boosting\n    12 Research Questions\n    7 Researchers\n  \n\n\n\n\n  0Research Questions\n  0ML Models Built\n  0%Best ROC AUC\n  0Best Revenue R²\n\n\n\n\n  Research Design\n  What We Investigated\n  Two parallel tracks — descriptive analysis and machine learning — covering 12 research questions.\n\n  \n    \n      📊 Descriptive Analysis\n      \n        \n          Q1\n          Ratings Across Industries\n          How do movie ratings vary across different film industries and countries?\n        \n        \n          Q2\n          Genre Performance\n          Which genres receive the highest average ratings and number of votes?\n        \n        \n          Q3\n          Duration & Audience\n          How does movie duration influence audience ratings and votes?\n        \n        \n          Q4–Q6\n          Revenue, Budget & Personnel\n          Box office differences, budget–revenue relationships, and star power effects.\n        \n      \n    \n    \n      🤖 Machine Learning\n      \n        \n          Q1\n          Predict Rating\n          Can we predict movie rating from genre, duration, budget and release date?\n        \n        \n          Q2\n          Predict Revenue\n          Can box office revenue be predicted using movie characteristics?\n        \n        \n          Q3\n          Classify High-Rated Films\n          Can we predict whether a movie will receive a high rating?\n        \n        \n          Q4–Q6\n          Votes, Timing & Success\n          Predict audience votes, analyze release timing, and classify success.\n        \n      \n    \n  \n\n\n\n\n  Machine Learning Results\n  Model Performance\n  Ensemble methods outperformed linear baselines across all tasks.\n\n  \n    \n      Q1 — Rating Prediction (R² Score)\n      Gradient Boosting0.365\n      Extra Trees0.356\n      Ridge Regression0.268\n      Log-votes is the strongest predictor. Ratings remain hard to predict due to subjectivity.\n    \n    \n      Q2 — Revenue Prediction (R² Score, log scale)\n      Gradient Boosting0.645\n      Extra Trees0.630\n      Ridge Regression0.541\n      Log-transform dramatically improves stability. Best raw-scale MAE ≈ $21M.\n    \n    \n      Q3 — High Rating Classification (ROC AUC)\n      Random Forest0.873\n      Gradient Boosting0.869\n      Extra Trees0.859\n      Logistic Regression0.806\n      Balanced training + tuned threshold gave a strong confusion matrix.\n    \n    \n      Top Feature Importances — Q1 Rating\n      log_votes17.7%\n      runtime7.6%\n      budget7.4%\n      movie_age7.2%\n      release_month5.7%\n      director_count4.6%\n      cast_count4.5%\n      genre_encoded3.9%\n    \n  \n\n\n\n\n  Insights\n  Key Findings\n  What the data revealed about movie success.\n  \n    🌍Industry Shapes RatingsSmaller, more selective industries show higher averages. Larger ones show greater variation — prestige films alongside mass-market productions.\n    🎭Genre: Ratings ≠ VotesDocumentary/biopic genres earn high ratings but fewer votes. Action drives audience size without always topping ratings.\n    ⏱️Non-linear Runtime Effect90–140 min films cluster at the highest average ratings. Very short or very long films are far more variable.\n    💰Budget Predicts Revenue (Imperfectly)Positive correlation exists, but blockbuster outliers skew distributions heavily. Log-transforming the target stabilises all models.\n    ⭐Star Power → VisibilityWell-known personnel reliably boost vote counts and audience reach, but do not guarantee high ratings.\n    📅Timing Is Not EverythingRelease month and season matter, but always in interaction with budget, genre, and cast — not as a standalone driver.\n  \n\n\n\n\n  The Team\n  Who Built This\n  \n    AAAya AbdineMachine LearningML Q1 · Q2 · Q3\n    MAMeriam Al AskriMachine LearningML Q1 · Q2 · Q3\n    GMGhofrane MahmoudDescriptive AnalysisDA Q4 · Q5 · Q6\n    KLKay-Lee DramatDescriptive AnalysisDA Q1 · Q2 · Q3\n    AUMcolisi AustineMachine LearningML Q4\n    AEArshanMachine LearningML Q5\n    SYSyedMachine LearningML Q6",
+    "text": "MASTER'S DATA SCIENCE LAB · 2025\n  \n  A combined descriptive & machine learning study across global film industries\n  \n    IMDb Dataset\n    Random Forest\n    Gradient Boosting\n    12 Research Questions",
     "crumbs": [
       "Home",
-      "index.html"
+      "Project Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#project-overview",
+    "href": "index.html#project-overview",
+    "title": "Analyzing & PredictingMovie Success",
+    "section": "Project Overview",
+    "text": "Project Overview\nThis project investigates what makes a movie successful across different film industries worldwide. Using a rich dataset of movie-level attributes — including ratings, votes, genres, budgets, revenues, runtime, release dates, cast, directors, and writers — we combine descriptive analysis and machine learning to explain and predict movie performance.\n\n  12Research Questions\n  6ML Models\n  87%Best ROC AUC\n  0.645Best Revenue R²",
+    "crumbs": [
+      "Home",
+      "Project Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#the-problem",
+    "href": "index.html#the-problem",
+    "title": "Analyzing & PredictingMovie Success",
+    "section": "The Problem",
+    "text": "The Problem\nThe film industry is highly competitive. Which movie characteristics best explain and predict movie success in terms of audience evaluation and financial performance?",
+    "crumbs": [
+      "Home",
+      "Project Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#what-we-did",
+    "href": "index.html#what-we-did",
+    "title": "Analyzing & PredictingMovie Success",
+    "section": "What We Did",
+    "text": "What We Did\n\n  \n    📊 Descriptive Analysis\n    Kay-Lee Dramat and Ghofrane Mahmoud examined patterns in ratings, votes, genres, runtime, revenue, budget, and movie personnel across 6 research questions.\n  \n  \n    🤖 Machine Learning\n    Aya Abdine, Meriam Al Askri, Mcolisi Austine, Arshan, and Syed built predictive models for rating, revenue, votes, timing effects, and success classification.",
+    "crumbs": [
+      "Home",
+      "Project Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#key-findings",
+    "href": "index.html#key-findings",
+    "title": "Analyzing & PredictingMovie Success",
+    "section": "Key Findings",
+    "text": "Key Findings\n\n  \n    🌍\n    Industry Shapes Ratings\n    Smaller industries show higher averages. Larger ones show more variation — prestige films alongside mass-market productions.\n  \n  \n    🎭\n    Genre: Ratings ≠ Votes\n    Documentary genres earn high ratings but fewer votes. Action drives audience size without topping ratings.\n  \n  \n    ⏱️\n    Non-linear Runtime\n    90–140 min films cluster at highest ratings. Very short or very long films are far more variable.\n  \n  \n    💰\n    Budget → Revenue\n    Positive correlation but blockbuster outliers dominate. Log-transform stabilises all ML models.\n  \n  \n    ⭐\n    Star Power → Visibility\n    Well-known personnel reliably boost vote counts, but do not guarantee high ratings.\n  \n  \n    🤖\n    Ensembles Win\n    Random Forest, Extra Trees, and Gradient Boosting outperformed linear baselines on every prediction task.",
+    "crumbs": [
+      "Home",
+      "Project Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#data",
+    "href": "index.html#data",
+    "title": "Analyzing & PredictingMovie Success",
+    "section": "Data",
+    "text": "Data\nAll analysis uses the cleaned dataset at Data/final_dataset.csv, containing movie-level information from IMDb. Supplementary train-test files for ML are saved in the Data folder.",
+    "crumbs": [
+      "Home",
+      "Project Overview"
     ]
   },
   {
