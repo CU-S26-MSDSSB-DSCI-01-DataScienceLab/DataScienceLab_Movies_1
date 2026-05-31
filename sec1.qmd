@@ -1,9 +1,246 @@
 ---
-title: "Title of Section 1"
+title: ""
+format:
+  html:
+    page-layout: full
+    toc: false
+    css: shared.css
 ---
 
-<!-- You have to develop your own headline structure. -->
+```{=html}
+<div class="site-hero" style="padding:48px 40px 40px">
+  <div class="hero-badge" style="background:rgba(29,158,117,0.15);border-color:rgba(29,158,117,0.4);color:var(--teal)">Descriptive Analysis</div>
+  <h1>📊 Exploring <span>Movie Data</span></h1>
+  <p>Six research questions answered by Kay-Lee Dramat (Q1–Q3) and Ghofrane Mahmoud (Q4–Q6) using grouped summaries and visualizations.</p>
+</div>
 
-## Headline 1
+<div class="section">
 
-## Headline 2
+<!-- Q1 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num">Q1</div>
+    <div>
+      <div class="q-title">How Do Movie Ratings Vary Across Countries and Industries?</div>
+      <div class="q-author">👤 Kay-Lee Dramat</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>The country column was cleaned and grouped. Ratings were converted to numeric values. Only countries with sufficient data were kept to ensure reliable averages.</p>
+    <div class="finding finding-teal">
+      <strong>Key Finding:</strong> Average ratings differ noticeably by country. Smaller or more selective industries rank higher because only stronger, more internationally visible films appear in the dataset. Larger industries like the US show greater variation.
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0">
+      <div style="display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px"><span style="font-size:1.2rem;font-weight:800;color:var(--gold);width:28px">🥇</span><span style="font-size:13px;color:var(--navy);font-weight:600">Iran</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px"><span style="font-size:1.2rem;font-weight:800;color:var(--gold);width:28px">🥈</span><span style="font-size:13px;color:var(--navy);font-weight:600">Czechoslovakia</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px"><span style="font-size:1.2rem;font-weight:800;color:var(--gold);width:28px">🥉</span><span style="font-size:13px;color:var(--navy);font-weight:600">Soviet Union</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px"><span style="font-size:1rem;font-weight:800;color:var(--muted);width:28px">4</span><span style="font-size:13px;color:var(--navy);font-weight:600">Singapore</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px"><span style="font-size:1rem;font-weight:800;color:var(--muted);width:28px">5</span><span style="font-size:13px;color:var(--navy);font-weight:600">Egypt</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px"><span style="font-size:1rem;font-weight:800;color:var(--muted);width:28px">6</span><span style="font-size:13px;color:var(--navy);font-weight:600">Iceland</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px"><span style="font-size:1rem;font-weight:800;color:var(--muted);width:28px">7</span><span style="font-size:13px;color:var(--navy);font-weight:600">Hungary</span></div>
+      <div style="display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px"><span style="font-size:1rem;font-weight:800;color:var(--muted);width:28px">8</span><span style="font-size:13px;color:var(--navy);font-weight:600">India</span></div>
+    </div>
+
+    <div class="fig-grid single">
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q1_fig_01.png" alt="Average IMDb ratings by country">
+        <div class="fig-cap">Figure 1 — Average IMDb ratings by country of origin</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num">Q2</div>
+    <div>
+      <div class="q-title">Which Genres Receive the Highest Ratings and Most Votes?</div>
+      <div class="q-author">👤 Kay-Lee Dramat</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Genre values were parsed from list-like text and grouped. Average rating and average vote count were calculated separately — quality vs. popularity.</p>
+    <div class="finding finding-teal">
+      <strong>Key Finding:</strong> Ratings ≠ Votes. Documentary, historical, and epic genres earn the strongest ratings but attract fewer votes. Action and franchise genres drive massive vote counts. A successful genre depends on whether you measure appreciation or audience size.
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0">
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--navy)"><span style="color:var(--gold);font-weight:800;margin-right:8px">1</span>Sports Documentary</div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--navy)"><span style="color:var(--gold);font-weight:800;margin-right:8px">2</span>Epic</div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--navy)"><span style="color:var(--gold);font-weight:800;margin-right:8px">3</span>War Epic</div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--navy)"><span style="color:var(--gold);font-weight:800;margin-right:8px">4</span>Historical Epic</div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--navy)"><span style="color:var(--gold);font-weight:800;margin-right:8px">5</span>Music Documentary</div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--navy)"><span style="color:var(--gold);font-weight:800;margin-right:8px">6</span>Tragedy</div>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q2_fig_02.png" alt="Top genres by average rating">
+        <div class="fig-cap">Figure 2 — Top genres by average rating</div>
+      </div>
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q2_fig_03.png" alt="Top genres by vote count">
+        <div class="fig-cap">Figure 3 — Top genres by average vote count</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num">Q3</div>
+    <div>
+      <div class="q-title">How Does Movie Duration Influence Audience Ratings and Votes?</div>
+      <div class="q-author">👤 Kay-Lee Dramat</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Duration was converted from hours/minutes text into numeric runtime in minutes. The notebook then visualized the relationship between runtime and both rating and votes.</p>
+    <div class="finding finding-teal">
+      <strong>Key Finding:</strong> Most movies fall between 80–150 minutes. Within that range, ratings vary widely — runtime alone does not predict whether a movie is highly rated. Audience engagement is more strongly shaped by popularity, genre, and release scale than by length.
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q3_fig_04.png" alt="Runtime vs average rating">
+        <div class="fig-cap">Figure 4 — Runtime vs average rating</div>
+      </div>
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q3_fig_05.png" alt="Runtime vs vote count">
+        <div class="fig-cap">Figure 5 — Runtime vs average vote count</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-dark">
+  <h3>📦 Ghofrane Mahmoud — Q4, Q5, Q6</h3>
+  <p>Revenue, budget, and talent analysis</p>
+</div>
+
+<!-- Q4 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num gold">Q4</div>
+    <div>
+      <div class="q-title">How Do Box Office Revenues Differ Across Industries?</div>
+      <div class="q-author">👤 Ghofrane Mahmoud</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Revenue values were converted from currency text to numeric values. The primary genre was used for grouping. International revenue = worldwide gross − US/Canada gross.</p>
+    <div class="grid-3" style="margin:16px 0">
+      <div class="metric"><div class="metric-n">$363M</div><div class="metric-l">Action Epic avg.</div></div>
+      <div class="metric"><div class="metric-n">$310M</div><div class="metric-l">Superhero avg.</div></div>
+      <div class="metric"><div class="metric-n">p&lt;0.001</div><div class="metric-l">Kruskal-Wallis</div></div>
+    </div>
+    <div class="finding">
+      <strong>Key Finding:</strong> Revenue is strongly genre-dependent. Action, superhero, animation, and franchise categories dominate because they have large budgets, wide releases, and strong international appeal. The Kruskal-Wallis test (H=6126.13, p&lt;0.001) confirms differences are statistically significant.
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q4_fig_06.png" alt="Revenue by genre">
+        <div class="fig-cap">Figure 6 — Average worldwide gross by genre</div>
+      </div>
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q4_fig_07.png" alt="Revenue breakdown">
+        <div class="fig-cap">Figure 7 — Revenue breakdown by market</div>
+      </div>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q4_fig_08.png" alt="Opening revenue">
+        <div class="fig-cap">Figure 8 — Opening weekend revenue by genre</div>
+      </div>
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q4_fig_09.png" alt="International revenue">
+        <div class="fig-cap">Figure 9 — International revenue by genre</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num gold">Q5</div>
+    <div>
+      <div class="q-title">Is There a Relationship Between Budget and Box Office Performance?</div>
+      <div class="q-author">👤 Ghofrane Mahmoud</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Budget and revenue columns were converted from currency strings to numeric values. ROI = (revenue − budget) / budget. Movies grouped into low (&lt;$10M), mid ($10M–$100M), and high (&gt;$100M) budget tiers.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Pearson r=0.685 (p&lt;0.001) between log-budget and log-worldwide gross. High-budget films have the highest median profitability (65.3% profitable) but require massive returns. Low-budget films can produce spectacular ROI but median ROI is negative.
+    </div>
+    <div style="overflow-x:auto;margin:16px 0">
+      <table class="data-table">
+        <tr><th>Tier</th><th>Movies</th><th>Avg Budget</th><th>Avg Revenue</th><th>Avg ROI</th><th>Profitable</th></tr>
+        <tr><td>Low (&lt;$10M)</td><td>4,613</td><td>$3.4M</td><td>$9.5M</td><td>209%</td><td>39.2%</td></tr>
+        <tr><td>Mid ($10M–$100M)</td><td>5,115</td><td>$32.1M</td><td>$76.8M</td><td>137%</td><td>58.8%</td></tr>
+        <tr><td><strong>High (&gt;$100M)</strong></td><td>646</td><td>$1,163M</td><td>$380.5M</td><td>128%</td><td><strong>65.3%</strong></td></tr>
+      </table>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q5_fig_10.png" alt="Budget vs revenue">
+        <div class="fig-cap">Figure 10 — Budget vs worldwide gross (log scale)</div>
+      </div>
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q5_fig_11.png" alt="ROI distribution">
+        <div class="fig-cap">Figure 11 — ROI distribution by budget tier</div>
+      </div>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q5_fig_12.png" alt="Profitability">
+        <div class="fig-cap">Figure 12 — Profitability rate by tier</div>
+      </div>
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q5_fig_13.png" alt="Opening ratio">
+        <div class="fig-cap">Figure 13 — Opening weekend ratio</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num gold">Q6</div>
+    <div>
+      <div class="q-title">Do Movies with Well-Known Personnel Receive Higher Ratings or Votes?</div>
+      <div class="q-author">👤 Ghofrane Mahmoud</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Stars, directors, and writers were parsed from list-like text. High-profile vs low-profile groups were defined by appearance frequency. Mann-Whitney U tests were used for rating comparisons.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Median rating is 6.30 for both high-profile and low-profile groups across stars, directors, and writers. Even statistically significant results show no practical difference. Star power appears to boost visibility (votes) more than quality evaluation (ratings).
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q6_fig_14.png" alt="Stars ratings">
+        <div class="fig-cap">Figure 14 — Ratings: high vs low-profile stars</div>
+      </div>
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q6_fig_15.png" alt="Directors ratings">
+        <div class="fig-cap">Figure 15 — Ratings: high vs low-profile directors</div>
+      </div>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q6_fig_16.png" alt="Vote counts comparison">
+        <div class="fig-cap">Figure 16 — Vote counts comparison</div>
+      </div>
+      <div class="fig-wrap">
+        <img src="outputs/descriptive_q6_fig_17.png" alt="Personnel effect summary">
+        <div class="fig-cap">Figure 17 — Overall personnel effect summary</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+```
