@@ -1,11 +1,20 @@
-# README
+# Analyzing and Predicting Movie Success
 
-This data science project is built in the Course Data Science Lab at
-Constructor University Bremen.
+This repository contains a Data Science Lab project from Constructor University Bremen. The project analyzes movie success across film industries using descriptive analysis and machine learning.
 
-*A README file is a convention in GitHub repositories. It should provide
-a short description of the project and how to access its content.*
+## How to View the Website
 
-*Replace all italics text before submission with information for the
-instructor and also for the general public when this repository shall be
-and stay public.*
+Open `index.html` in a browser. The page is a static HTML site, so it works locally and on GitHub Pages without a Quarto render step.
+
+## Repository Structure
+
+- `index.html` - final project website.
+- `assets/` - website CSS and visualization images.
+- `Data/` - primary dataset, train-test splits, and derived CSV outputs.
+- `reports/` - readable Quarto summaries for the descriptive and machine-learning sections.
+- `WORK STATION FOR DESCRIPTIVE ANALYSIS.ipynb` - descriptive analysis notebook.
+- `WORK STATION FOR MACHINE LEARNING.ipynb` - machine-learning notebook.
+
+## Main Question
+
+How do movie characteristics explain and predict a movie's success in terms of audience evaluation and financial performance?

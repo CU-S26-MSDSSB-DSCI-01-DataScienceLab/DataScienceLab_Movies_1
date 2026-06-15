@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analyzing and Predicting Movie Success</title>
+  <meta name="description" content="Data Science Lab project website analyzing and predicting movie success with descriptive analytics and machine learning.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top">Movie Success Lab</a>
+    <nav aria-label="Primary navigation">
+      <a href="#overview">Overview</a>
+      <a href="#descriptive">Descriptive</a>
+      <a href="#machine-learning">Machine Learning</a>
+      <a href="#data">Data</a>
+      <a href="#notebooks">Notebooks</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Data Science Lab Project</p>
+        <h1>Movie Success</h1>
+        <p class="lead">This site combines two work-station notebooks into one clean project report. It examines movie ratings, votes, runtime, budget, revenue, talent visibility, and predictive models for audience and financial success.</p>
+        <div class="hero-actions" aria-label="Project links">
+          <a class="button primary" href="#descriptive">View analysis</a>
+          <a class="button" href="Data/final_dataset.csv">Download dataset</a>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <img src="assets/figures/descriptive_q5_fig_10.png" alt="Budget versus worldwide gross visualization">
+        <figcaption>Budget and worldwide gross show a strong positive relationship, but ROI varies sharply by budget tier.</figcaption>
+      </figure>
+    </section>
+
+    <section id="overview" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Executive Summary</p>
+        <h2>Project findings</h2>
+        <p>The strongest story across the project is that movie success is multidimensional. Ratings, votes, and revenue respond to different forces, so no single variable defines success by itself.</p>
+      </div>
+      <div class="summary-grid">
+        <article class="metric">
+          <span class="metric-value">63,379</span>
+          <span class="metric-label">movies in the final dataset</span>
+        </article>
+        <article class="metric">
+          <span class="metric-value">12</span>
+          <span class="metric-label">research questions answered</span>
+        </article>
+        <article class="metric">
+          <span class="metric-value">R2 0.645</span>
+          <span class="metric-label">best revenue prediction model</span>
+        </article>
+        <article class="metric">
+          <span class="metric-value">AUC 0.873</span>
+          <span class="metric-label">best high-rating classifier</span>
+        </article>
+      </div>
+      <div class="insight-grid">
+        <article class="insight">
+          <h3>Ratings reward selectivity</h3>
+          <p>Countries and genres with smaller, more selective film samples often rank higher by average rating, while large industries show more variation.</p>
+        </article>
+        <article class="insight">
+          <h3>Votes measure visibility</h3>
+          <p>Audience vote counts align more with popularity, release scale, and attention than with the same signals that drive high ratings.</p>
+        </article>
+        <article class="insight">
+          <h3>Revenue is modelable</h3>
+          <p>Box office revenue becomes much more predictable after log transformation, with ensemble models outperforming linear baselines.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="descriptive" class="section section-alt">
+      <div class="section-heading">
+        <p class="eyebrow">Work Station 1</p>
+        <h2>Descriptive Analysis</h2>
+        <p>The descriptive notebook cleans and transforms the movie dataset, then answers six questions about ratings, genres, runtime, revenue, budget, and talent.</p>
+      </div>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q1</span>
+          <div>
+            <h3>How do movie ratings vary across countries and industries?</h3>
+            <p>Country values were cleaned, split, and grouped; ratings were converted to numeric values and filtered to countries with enough observations.</p>
+          </div>
+        </div>
+        <p class="finding">Average ratings differ by country. Smaller or more selective industries rank higher because only stronger, internationally visible films tend to appear in the dataset, while larger industries show wider variation.</p>
+        <div class="figure-grid one">
+          <figure>
+            <img src="assets/figures/descriptive_q1_fig_01.png" alt="Average IMDb ratings by country">
+            <figcaption>Average IMDb ratings by country of origin.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q2</span>
+          <div>
+            <h3>Which genres receive the highest ratings and most votes?</h3>
+            <p>Genre values were parsed from list-like text and grouped to compare quality signals against audience engagement.</p>
+          </div>
+        </div>
+        <p class="finding">Ratings and votes tell different stories. Documentary, historical, and epic genres earn strong ratings, while action and franchise genres attract the largest vote counts.</p>
+        <div class="figure-grid">
+          <figure>
+            <img src="assets/figures/descriptive_q2_fig_02.png" alt="Top genres by average rating">
+            <figcaption>Top genres by average rating.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/descriptive_q2_fig_03.png" alt="Top genres by average votes">
+            <figcaption>Top genres by average vote count.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q3</span>
+          <div>
+            <h3>How does movie duration influence audience ratings and votes?</h3>
+            <p>Runtime was converted to minutes and compared against ratings and vote counts.</p>
+          </div>
+        </div>
+        <p class="finding">Most movies fall between 80 and 150 minutes. Within that range, ratings vary widely, so runtime alone does not predict whether a movie is highly rated.</p>
+        <div class="figure-grid">
+          <figure>
+            <img src="assets/figures/descriptive_q3_fig_04.png" alt="Runtime versus average rating">
+            <figcaption>Runtime versus average rating.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/descriptive_q3_fig_05.png" alt="Runtime versus average votes">
+            <figcaption>Runtime versus average vote count.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q4</span>
+          <div>
+            <h3>How do box office revenues differ across industries?</h3>
+            <p>Revenue fields were converted from currency text to numeric values and grouped by primary genre.</p>
+          </div>
+        </div>
+        <div class="mini-metrics">
+          <span>$363M Action Epic average</span>
+          <span>$310M Superhero average</span>
+          <span>Kruskal-Wallis p &lt; 0.001</span>
+        </div>
+        <p class="finding">Revenue is strongly genre-dependent. Action, superhero, animation, and franchise categories dominate because they combine large budgets, wide releases, and international appeal.</p>
+        <div class="figure-grid">
+          <figure>
+            <img src="assets/figures/descriptive_q4_fig_06.png" alt="Average worldwide gross by genre">
+            <figcaption>Average worldwide gross by genre.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/descriptive_q4_fig_07.png" alt="Revenue breakdown by market">
+            <figcaption>Revenue breakdown by market.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/descriptive_q4_fig_08.png" alt="Opening weekend revenue by genre">
+            <figcaption>Opening weekend revenue by genre.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/descriptive_q4_fig_09.png" alt="International revenue by genre">
+            <figcaption>International revenue by genre.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q5</span>
+          <div>
+            <h3>Is there a relationship between budget and box office performance?</h3>
+            <p>Budget and worldwide gross were analyzed on a log scale, with ROI and profitability compared by budget tier.</p>
+          </div>
+        </div>
+        <div class="mini-metrics">
+          <span>Pearson r = 0.685</span>
+          <span>High-budget profitable: 65.3%</span>
+          <span>Low-budget median ROI: negative</span>
+        </div>
+        <p class="finding">Higher budgets are associated with higher worldwide gross, but ROI risk remains uneven. Low-budget films can produce extreme returns, yet many do not become profitable.</p>
+        <div class="figure-grid">
+          <figure>
+            <img src="assets/figures/descriptive_q5_fig_10.png" alt="Budget versus worldwide gross">
+            <figcaption>Budget versus worldwide gross on a log scale.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/descriptive_q5_fig_11.png" alt="ROI distribution by budget tier">
+            <figcaption>ROI distribution by budget tier.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/descriptive_q5_fig_12.png" alt="Profitability rate by tier">
+            <figcaption>Profitability rate by tier.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/descriptive_q5_fig_13.png" alt="Opening weekend ratio">
+            <figcaption>Opening weekend ratio by budget tier.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q6</span>
+          <div>
+            <h3>Do well-known directors, writers, or stars receive higher ratings or votes?</h3>
+            <p>Talent profile was approximated through appearance counts, then compared across ratings and vote outcomes.</p>
+          </div>
+        </div>
+        <p class="finding">Median rating is 6.30 for both high-profile and low-profile talent groups across stars, directors, and writers. Star power appears to boost visibility more than quality evaluation.</p>
+        <div class="figure-grid">
+          <figure>
+            <img src="assets/figures/descriptive_q6_fig_14.png" alt="Star profile rating comparison">
+            <figcaption>Ratings for high-profile versus low-profile stars.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/descriptive_q6_fig_15.png" alt="Director profile rating comparison">
+            <figcaption>Ratings for high-profile versus low-profile directors.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/descriptive_q6_fig_16.png" alt="Vote counts comparison">
+            <figcaption>Vote count comparison by talent profile.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/descriptive_q6_fig_17.png" alt="Personnel effect summary">
+            <figcaption>Overall personnel effect summary.</figcaption>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <section id="machine-learning" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Work Station 2</p>
+        <h2>Machine Learning Analysis</h2>
+        <p>The machine-learning notebook creates model-ready features, saves train-test splits, and compares regression and classification models across six prediction tasks.</p>
+      </div>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q1</span>
+          <div>
+            <h3>Can movie rating be predicted from movie features?</h3>
+            <p>Models used genre, duration, budget, log votes, release date, MPA rating, stars, and directors.</p>
+          </div>
+        </div>
+        <div class="mini-metrics">
+          <span>Best model: Gradient Boosting</span>
+          <span>R2 = 0.365</span>
+          <span>MAE = 0.641</span>
+        </div>
+        <p class="finding">Gradient Boosting performs best, but the model explains only about 37% of rating variation. Log votes are the dominant predictor, and subjective audience response remains difficult to capture from metadata alone.</p>
+        <div class="figure-grid">
+          <figure>
+            <img src="assets/figures/q1_fig_01_model_comparison.png" alt="Rating prediction model comparison">
+            <figcaption>Rating prediction model comparison.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/q1_fig_02_actual_vs_predicted.png" alt="Actual versus predicted ratings">
+            <figcaption>Actual versus predicted ratings.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/q1_fig_03_residuals.png" alt="Rating prediction residuals">
+            <figcaption>Residuals for rating prediction.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/q1_fig_04_feature_importance.png" alt="Rating prediction feature importance">
+            <figcaption>Feature importance for rating prediction.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q2</span>
+          <div>
+            <h3>Can box office revenue be predicted from movie characteristics?</h3>
+            <p>Worldwide gross was log-transformed to reduce blockbuster skew and stabilize model training.</p>
+          </div>
+        </div>
+        <div class="mini-metrics">
+          <span>Best model: Gradient Boosting</span>
+          <span>R2 = 0.645</span>
+          <span>Raw MAE about $21M</span>
+        </div>
+        <p class="finding">Revenue is far more predictable than rating. The log transform is critical because raw revenue overweights blockbuster extremes.</p>
+        <div class="figure-grid">
+          <figure>
+            <img src="assets/figures/q2_fig_01_model_comparison.png" alt="Revenue prediction model comparison">
+            <figcaption>Revenue prediction model comparison.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/q2_fig_02_actual_vs_predicted.png" alt="Actual versus predicted revenue">
+            <figcaption>Actual versus predicted log revenue.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/q2_fig_03_residuals.png" alt="Revenue prediction residuals">
+            <figcaption>Residuals for revenue prediction.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/q2_fig_04_feature_importance.png" alt="Revenue feature importance">
+            <figcaption>Feature importance for revenue prediction.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/q2_fig_05_dollar_scale.png" alt="Revenue prediction dollar scale">
+            <figcaption>Revenue prediction on the dollar scale.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q3</span>
+          <div>
+            <h3>Can we predict whether a movie will receive a high rating?</h3>
+            <p>The target is binary: high-rated versus not high-rated. Ambiguous middle ratings were removed and thresholds were tuned.</p>
+          </div>
+        </div>
+        <div class="mini-metrics">
+          <span>Best model: Random Forest</span>
+          <span>ROC AUC = 0.873</span>
+          <span>Accuracy = 86.3%</span>
+        </div>
+        <p class="finding">Random Forest performs best. Balanced training and threshold tuning improve the classifier over naive default settings.</p>
+        <div class="figure-grid">
+          <figure>
+            <img src="assets/figures/q3_fig_01_model_comparison.png" alt="High-rating classification model comparison">
+            <figcaption>High-rating classification model comparison.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/q3_fig_02_confusion_matrix.png" alt="High-rating classifier confusion matrix">
+            <figcaption>Confusion matrix for high-rating classification.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/q3_fig_03_roc_curve.png" alt="High-rating classifier ROC curve">
+            <figcaption>ROC curve comparison.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/q3_fig_04_feature_importance.png" alt="High-rating classification feature importance">
+            <figcaption>Feature importance for high-rating classification.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q4</span>
+          <div>
+            <h3>Can the number of audience votes be predicted?</h3>
+            <p>Vote counts were modeled on transformed scales to reduce skew and outlier dominance.</p>
+          </div>
+        </div>
+        <div class="mini-metrics">
+          <span>Best model: Decision Tree after log transform</span>
+          <span>R2 = 0.432</span>
+          <span>Top signals: rating and release year</span>
+        </div>
+        <p class="finding">Log transformation sharply improves the model. Viral attention and marketing effects are still outside the available dataset.</p>
+        <div class="figure-grid">
+          <figure>
+            <img src="assets/figures/q4_fig_01_actual_vs_predicted.png" alt="Vote prediction actual versus predicted">
+            <figcaption>Actual versus predicted vote counts.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/q4_fig_02_model_evolution.png" alt="Vote prediction model evolution">
+            <figcaption>Model evolution across vote prediction strategies.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q5</span>
+          <div>
+            <h3>How does release timing influence box office performance?</h3>
+            <p>Release date was parsed into year, month, and season; season was tested alongside budget, runtime, crew counts, and genre.</p>
+          </div>
+        </div>
+        <div class="mini-metrics">
+          <span>Votes R2 = 0.606</span>
+          <span>Gross R2 = 0.484</span>
+          <span>Season matters less than budget and year</span>
+        </div>
+        <p class="finding">Random Forest predicts audience votes best, while Decision Tree performs best for worldwide gross. Budget and release year matter more than season alone.</p>
+        <div class="figure-grid one">
+          <figure>
+            <img src="assets/figures/q5_fig_01_model_comparison.png" alt="Release timing model comparison">
+            <figcaption>Model comparison for release timing outcomes.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="question">
+        <div class="question-title">
+          <span>Q6</span>
+          <div>
+            <h3>Can movies be classified as successful versus less successful?</h3>
+            <p>A movie is labeled successful if it satisfies at least two of three conditions: above-median rating, above-median votes, and positive ROI.</p>
+          </div>
+        </div>
+        <div class="mini-metrics">
+          <span>Best model: Random Forest</span>
+          <span>Accuracy = 70.0%</span>
+          <span>ROC AUC = 0.767</span>
+        </div>
+        <p class="finding">The model captures real patterns, but success cannot be fully predicted without marketing, distribution, and streaming data.</p>
+        <div class="figure-grid one">
+          <figure>
+            <img src="assets/figures/q6_fig_01_comparison_and_confusion.png" alt="Success classification comparison and confusion matrix">
+            <figcaption>Success classification model comparison and confusion matrix.</figcaption>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <section id="data" class="section section-alt">
+      <div class="section-heading">
+        <p class="eyebrow">Project Files</p>
+        <h2>Data and generated outputs</h2>
+        <p>Primary data, train-test splits, and generated modeling datasets are organized under the `Data` folder. Visual assets used by the website are under `assets/figures`.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>File</th>
+              <th>Rows</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="Data/final_dataset.csv">Data/final_dataset.csv</a></td>
+              <td>63,379</td>
+              <td>Cleaned movie dataset used across both notebooks.</td>
+            </tr>
+            <tr>
+              <td><a href="Data/train_Q1.csv">Data/train_Q1.csv</a> / <a href="Data/test_Q1.csv">test_Q1.csv</a></td>
+              <td>47,344 / 11,837</td>
+              <td>Rating prediction train-test split.</td>
+            </tr>
+            <tr>
+              <td><a href="Data/train_Q2.csv">Data/train_Q2.csv</a> / <a href="Data/test_Q2.csv">test_Q2.csv</a></td>
+              <td>16,577 / 4,145</td>
+              <td>Revenue prediction train-test split.</td>
+            </tr>
+            <tr>
+              <td><a href="Data/train_Q3.csv">Data/train_Q3.csv</a> / <a href="Data/test_Q3.csv">test_Q3.csv</a></td>
+              <td>37,191 / 9,298</td>
+              <td>High-rating classification train-test split.</td>
+            </tr>
+            <tr>
+              <td><a href="Data/model_splits/X_train.csv">Data/model_splits/X_train.csv</a></td>
+              <td>47,344</td>
+              <td>Additional saved feature split moved out of the root folder.</td>
+            </tr>
+            <tr>
+              <td><a href="Data/derived/q4_genre_revenue_dataset.csv">Data/derived/q4_genre_revenue_dataset.csv</a></td>
+              <td>Generated</td>
+              <td>Derived genre and revenue analysis dataset.</td>
+            </tr>
+            <tr>
+              <td><a href="Data/derived/q5_budget_performance_dataset.csv">Data/derived/q5_budget_performance_dataset.csv</a></td>
+              <td>Generated</td>
+              <td>Derived budget and box-office performance dataset.</td>
+            </tr>
+            <tr>
+              <td><a href="Data/derived/q6_talent_impact_dataset.csv">Data/derived/q6_talent_impact_dataset.csv</a></td>
+              <td>Generated</td>
+              <td>Derived talent-profile dataset.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="notebooks" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Source Work</p>
+        <h2>Notebooks and readable reports</h2>
+        <p>The two original work-station notebooks remain in the repository root. The previously hard-to-read `sec1.qmd` and `sec2.qmd` files have been rewritten as readable Markdown-style Quarto reports in `reports`.</p>
+      </div>
+      <div class="resource-grid">
+        <a class="resource" href="WORK%20STATION%20FOR%20DESCRIPTIVE%20ANALYSIS.ipynb">
+          <strong>Descriptive analysis notebook</strong>
+          <span>Full cleaning, transformation, visual analysis, and interpretation.</span>
+        </a>
+        <a class="resource" href="WORK%20STATION%20FOR%20MACHINE%20LEARNING.ipynb">
+          <strong>Machine learning notebook</strong>
+          <span>Feature engineering, train-test splits, model training, and evaluation.</span>
+        </a>
+        <a class="resource" href="reports/sec1.qmd">
+          <strong>Readable descriptive report</strong>
+          <span>Human-readable Quarto summary of the descriptive work.</span>
+        </a>
+        <a class="resource" href="reports/sec2.qmd">
+          <strong>Readable machine-learning report</strong>
+          <span>Human-readable Quarto summary of the modeling work.</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Data Science Lab - Constructor University Bremen. Built as a static HTML project site from the two analysis work-station notebooks.</p>
+  </footer>
+</body>
+</html>
