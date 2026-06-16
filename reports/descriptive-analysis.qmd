@@ -1,5 +1,5 @@
 ---
-title: "Descriptive Analysis Report"
+title: "Descriptive Analysis"
 format:
   html:
     toc: true

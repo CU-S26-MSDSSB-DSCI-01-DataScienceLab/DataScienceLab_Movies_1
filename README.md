@@ -11,7 +11,9 @@ Open `index.html` in a browser. The page is a static HTML site, so it works loca
 - `index.html` - final project website.
 - `assets/` - website CSS and visualization images.
 - `Data/` - primary dataset, train-test splits, and derived CSV outputs.
-- `reports/` - readable Quarto summaries for the descriptive and machine-learning sections.
+- `reports/` - Quarto summaries for the descriptive and machine-learning sections.
+- `MAIN WORK STATION FOR ALL.qmd` - combined project purpose, methodology, responsibility split, and discussion.
+- `conclusion.qmd` - final written conclusion.
 - `WORK STATION FOR DESCRIPTIVE ANALYSIS.ipynb` - descriptive analysis notebook.
 - `WORK STATION FOR MACHINE LEARNING.ipynb` - machine-learning notebook.
 

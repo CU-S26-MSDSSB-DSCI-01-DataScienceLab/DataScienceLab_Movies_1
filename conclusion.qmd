@@ -1,0 +1,72 @@
+---
+title: "Conclusion"
+format:
+  html:
+    toc: true
+---
+
+# Conclusion
+
+This project set out to answer one central question:
+
+> Which movie characteristics best explain and predict movie success in terms of audience evaluation and financial performance?
+
+The final answer is that movie success is multidimensional. IMDb rating, audience votes, worldwide gross revenue, profitability, and success classification are related, but they do not measure the same thing. A film can be highly rated without being a major financial hit, and a film can earn large revenue without being one of the strongest-rated titles in the dataset.
+
+## Main Findings
+
+The descriptive analysis shows that movie outcomes vary strongly by country, genre, runtime, budget, revenue structure, and personnel visibility.
+
+Country and industry comparisons suggest that smaller or more selective film industries can appear near the top by average rating because only a limited set of internationally visible films enters the dataset. Larger industries show wider variation because they include both prestige productions and mass-market releases.
+
+Genre analysis shows that ratings and votes are different signals. Some documentary, historical, and epic genres receive strong average ratings, while action and franchise categories attract much larger audience vote counts. This means audience appreciation and audience size should not be treated as the same outcome.
+
+Runtime analysis shows that most films cluster around common feature-length durations, but runtime alone does not explain audience response. Very short or very long films can behave differently, and runtime needs to be interpreted together with genre, release scale, and audience expectations.
+
+Revenue and budget analysis show a clear relationship between production scale and box office scale. Higher budgets are associated with higher worldwide gross, but profitability is not guaranteed. High-budget movies can earn more in absolute terms, while low-budget films can sometimes generate very high ROI if costs remain low.
+
+Talent analysis shows that well-known directors, writers, and stars do not automatically produce higher ratings. Their stronger effect is visibility: recognizable people can help attract attention and votes, but rating quality still depends on the film itself.
+
+## Machine Learning Findings
+
+The machine-learning results confirm that some movie outcomes are easier to predict than others.
+
+Revenue was more predictable than rating. The best revenue model reached R2 = 0.645 after using a log-transformed target, showing that budget, popularity, genre, and related features contain useful information about financial performance. The log transformation was important because raw revenue is heavily skewed by blockbuster outliers.
+
+Rating prediction was harder. The best rating model reached R2 = 0.365, which means the available metadata explains only part of the variation in audience rating. This is expected because ratings depend on subjective factors such as story quality, emotional response, cultural context, and viewer expectations.
+
+High-rating classification performed better than exact rating prediction. Random Forest reached ROC AUC = 0.873 after cleaning the target, removing ambiguous middle ratings, balancing the training data, and tuning the decision threshold. This shows that the data can distinguish broad rating categories more reliably than it can predict exact rating values.
+
+Audience vote prediction improved after log transformation, but it remains limited by missing popularity drivers. Marketing, social media attention, streaming availability, and distribution size are not directly available in the dataset, yet they strongly affect how many people notice and rate a movie.
+
+Release timing had some predictive value, but season alone was not the main driver. Budget, release year, runtime, genre, and people-related features were more important. Timing should therefore be understood as one part of a larger release strategy.
+
+Success classification reached 70.0% accuracy and ROC AUC = 0.767 with Random Forest. This is a useful result because the target combined rating, votes, and ROI, but it also shows that movie success cannot be fully predicted from metadata alone.
+
+## Overall Interpretation
+
+The strongest conclusion is that different success metrics respond to different forces:
+
+- Ratings reflect audience evaluation and are partly subjective.
+- Votes reflect visibility, popularity, and audience reach.
+- Revenue reflects budget, genre, release scale, and international market appeal.
+- Profitability depends on both revenue and cost structure.
+- Classification models can identify broad success patterns, but they cannot capture every real-world driver.
+
+This distinction matters because treating success as a single number hides important differences. A studio, critic, investor, or viewer may define a successful movie differently. The project therefore works best when its findings are read as a combined view of quality, attention, and financial performance.
+
+## Limitations
+
+Several important variables were not available in the dataset. Marketing spend, number of theaters, distribution strategy, streaming performance, critic reviews, social media trends, franchise history, and release competition would likely improve the models.
+
+Some variables are also imperfect proxies. Appearance count was used to approximate how well-known stars, directors, and writers are, but this does not fully measure celebrity status or current popularity. Genre labels can also be broad, overlapping, or inconsistent.
+
+The dataset covers movies across different years, and the film industry has changed over time. Streaming platforms, international release strategies, and audience behavior have shifted, so future work could separate movies by time period or market.
+
+## Final Conclusion
+
+The project shows that careful data preparation is essential for movie analytics. Parsing votes, converting duration and money values, extracting release dates, transforming skewed targets, and selecting meaningful features made the descriptive and predictive results possible.
+
+Overall, movie success is best understood as a combination of creative, financial, timing, visibility, and audience-response factors. No single feature explains it alone. The strongest models were able to predict revenue and broad classification outcomes reasonably well, but exact ratings and viral popularity remain difficult because they depend on factors beyond the available metadata.
+
+Future work should add marketing, distribution, streaming, review, and social media data. Those additions would help explain the gap between what movie metadata can predict and what actually drives success in the real film market.

@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open main_work_station_for_all_preview.html",
+            "file": "c:\\Users\\McoSh\\Documents\\IT LAW\\The other clone\\DataScienceLab_Movies_1\\main_work_station_for_all_preview.html"
+        }
+    ]
+}
