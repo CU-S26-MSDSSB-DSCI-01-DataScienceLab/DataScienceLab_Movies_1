@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>sec2 – DataScienceLab Movies</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-43081d808c96cc46af55a3a816ae9eed.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="shared.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">DataScienceLab Movies</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">🏠 Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec2.html">🤖 Machine Learning</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🏠 Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sec1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📊 Descriptive Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sec2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">🤖 Machine Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📝 Conclusion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📈 Dashboard</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<div class="site-hero" style="background:linear-gradient(135deg,#0a0a14,#1a1a2e,#0f3460);padding:48px 40px 40px">
+  <div class="hero-badge">Machine Learning Analysis</div>
+  <h1>🤖 Predicting <span>Movie Success</span></h1>
+  <p>Six prediction questions answered using regression, classification, and feature engineering. Ensemble models consistently outperform linear baselines.</p>
+</div>
+
+<div class="section">
+
+<!-- Q1 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num">Q1</div>
+    <div>
+      <div class="q-title">Can Movie Rating Be Predicted From Movie Features?</div>
+      <div class="q-author">👤 Aya Abdine &amp; Meriam Al Askri</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Regression task targeting continuous IMDb rating. Features include genre, duration, budget, votes (log-transformed), release date, MPA rating, stars, and directors. Feature space reduced to top 8 most impactful predictors. Three models compared: Ridge Regression (baseline), Extra Trees, and Gradient Boosting.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Gradient Boosting achieves the best R²=0.365. Log-votes is the dominant predictor (17.7% importance). The model explains ~37% of rating variation — the remainder reflects subjective audience response and story quality that metadata cannot capture.
+    </div>
+    <div class="grid-4" style="margin:16px 0">
+      <div class="metric"><div class="metric-n">0.365</div><div class="metric-l">Best R² (GB)</div></div>
+      <div class="metric"><div class="metric-n">0.641</div><div class="metric-l">Best MAE (GB)</div></div>
+      <div class="metric"><div class="metric-n">0.853</div><div class="metric-l">Best RMSE (GB)</div></div>
+      <div class="metric"><div class="metric-n">±0.64</div><div class="metric-l">Avg error</div></div>
+    </div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">R² score comparison</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Gradient Boosting</span><div class="bar-track dark"><div class="bar-fill" data-w="73" style="background:var(--teal)"></div></div><span class="bar-val light">0.365</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Extra Trees</span><div class="bar-track dark"><div class="bar-fill" data-w="71" style="background:var(--blue)"></div></div><span class="bar-val light">0.356</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Ridge Regression</span><div class="bar-track dark"><div class="bar-fill" data-w="53" style="background:#5f5e5a"></div></div><span class="bar-val light">0.268</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Gradient Boosting captures nonlinear interactions better than the linear baseline.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Full metrics table</div>
+        
+<table class="data-table caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Model</th>
+<th data-quarto-table-cell-role="th">MAE</th>
+<th data-quarto-table-cell-role="th">RMSE</th>
+<th data-quarto-table-cell-role="th">R²</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+<tr class="even">
+<td>Gradient Boosting</td>
+<td>0.641</td>
+<td>0.853</td>
+<td>0.365</td>
+<td><span class="badge badge-green">Best</span></td>
+</tr>
+<tr class="odd">
+<td>Extra Trees</td>
+<td>0.650</td>
+<td>0.859</td>
+<td>0.356</td>
+<td><span class="badge badge-blue">Good</span></td>
+</tr>
+<tr class="even">
+<td>Ridge Regression</td>
+<td>0.690</td>
+<td>0.916</td>
+<td>0.268</td>
+<td><span class="badge badge-gray">Baseline</span></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q1_fig_01.png" alt="Predicted vs actual ratings"><div class="fig-cap">Figure 1 — Predicted vs actual ratings</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q1_fig_02.png" alt="Residual plot"><div class="fig-cap">Figure 2 — Residual plot</div></div>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q1_fig_03.png" alt="Feature importance"><div class="fig-cap">Figure 3 — Feature importance</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q1_fig_04.png" alt="Model comparison"><div class="fig-cap">Figure 4 — Model comparison</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num">Q2</div>
+    <div>
+      <div class="q-title">Can Box Office Revenue Be Predicted From Movie Characteristics?</div>
+      <div class="q-author">👤 Aya Abdine &amp; Meriam Al Askri</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Regression task on worldwide gross revenue. Because revenue is extremely skewed, the target was <strong>log-transformed</strong> to reduce blockbuster influence and stabilize model training. Log-MAE and raw-scale MAE both reported.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Revenue is far more predictable than rating — Gradient Boosting achieves R²=0.645. The log-transform is critical: training on raw revenue would cause models to overfit to blockbuster extremes. Best raw-scale MAE ≈ $21M.
+    </div>
+    <div class="grid-4" style="margin:16px 0">
+      <div class="metric"><div class="metric-n">0.645</div><div class="metric-l">Best R² (GB)</div></div>
+      <div class="metric"><div class="metric-n">1.492</div><div class="metric-l">MAE log scale</div></div>
+      <div class="metric"><div class="metric-n">$21M</div><div class="metric-l">MAE raw scale</div></div>
+      <div class="metric"><div class="metric-n">Log ✓</div><div class="metric-l">Transform applied</div></div>
+    </div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">R² comparison (log scale)</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Gradient Boosting</span><div class="bar-track dark"><div class="bar-fill" data-w="89" style="background:var(--teal)"></div></div><span class="bar-val light">0.645</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Extra Trees</span><div class="bar-track dark"><div class="bar-fill" data-w="87" style="background:var(--blue)"></div></div><span class="bar-val light">0.630</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Ridge Regression</span><div class="bar-track dark"><div class="bar-fill" data-w="74" style="background:#5f5e5a"></div></div><span class="bar-val light">0.541</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Revenue prediction is much stronger than rating. Budget and genre are the dominant drivers.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Full metrics table</div>
+        
+<table class="data-table caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Model</th>
+<th data-quarto-table-cell-role="th">MAE (log)</th>
+<th data-quarto-table-cell-role="th">R²</th>
+<th data-quarto-table-cell-role="th">MAE (raw)</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+<tr class="even">
+<td>Gradient Boosting</td>
+<td>1.492</td>
+<td>0.645</td>
+<td>$21M</td>
+<td><span class="badge badge-green">Best</span></td>
+</tr>
+<tr class="odd">
+<td>Extra Trees</td>
+<td>1.549</td>
+<td>0.630</td>
+<td>$27M</td>
+<td><span class="badge badge-blue">Good</span></td>
+</tr>
+<tr class="even">
+<td>Ridge Regression</td>
+<td>1.746</td>
+<td>0.541</td>
+<td>$24M</td>
+<td><span class="badge badge-gray">Baseline</span></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q2_fig_05.png" alt="Predicted vs actual log revenue"><div class="fig-cap">Figure 5 — Predicted vs actual log revenue</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q2_fig_06.png" alt="Residual plot"><div class="fig-cap">Figure 6 — Residual plot (log scale)</div></div>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q2_fig_07.png" alt="Feature importance"><div class="fig-cap">Figure 7 — Feature importance</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q2_fig_08.png" alt="Model comparison"><div class="fig-cap">Figure 8 — Model comparison</div></div>
+    </div>
+    <div class="fig-grid single">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q2_fig_09.png" alt="Budget vs revenue"><div class="fig-cap">Figure 9 — Budget vs predicted revenue relationship</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num">Q3</div>
+    <div>
+      <div class="q-title">Can We Predict Whether a Movie Will Receive a High Rating?</div>
+      <div class="q-author">👤 Aya Abdine &amp; Meriam Al Askri</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Binary classification: high-rated vs not-high-rated. Ambiguous middle ratings removed to create a cleaner binary target. Training data balanced. Decision thresholds tuned away from default 0.50. Four classifiers compared.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Random Forest achieves ROC AUC=0.873 — the best classifier. The confusion matrix shows strong performance at identifying non-high-rated films. Balanced training and threshold tuning were critical improvements over naive classification.
+    </div>
+    <div class="grid-4" style="margin:16px 0">
+      <div class="metric"><div class="metric-n" style="color:var(--teal)">0.873</div><div class="metric-l">ROC AUC (RF)</div></div>
+      <div class="metric"><div class="metric-n">86.3%</div><div class="metric-l">Accuracy (RF)</div></div>
+      <div class="metric"><div class="metric-n">74.7%</div><div class="metric-l">Precision (RF)</div></div>
+      <div class="metric"><div class="metric-n">63.1%</div><div class="metric-l">F1 Score (RF)</div></div>
+    </div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">ROC AUC comparison</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Random Forest</span><div class="bar-track dark"><div class="bar-fill" data-w="100" style="background:var(--gold)"></div></div><span class="bar-val light">0.873</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Gradient Boosting</span><div class="bar-track dark"><div class="bar-fill" data-w="99" style="background:var(--teal)"></div></div><span class="bar-val light">0.869</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Extra Trees</span><div class="bar-track dark"><div class="bar-fill" data-w="98" style="background:var(--blue)"></div></div><span class="bar-val light">0.859</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Logistic Regression</span><div class="bar-track dark"><div class="bar-fill" data-w="92" style="background:#5f5e5a"></div></div><span class="bar-val light">0.806</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">All ensembles outperform the linear baseline. Random Forest with tuned threshold performs best.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Confusion matrix — Random Forest</div>
+        <div class="cm-grid">
+          <div class="cm-hdr"></div><div class="cm-hdr">Pred: Not High</div><div class="cm-hdr">Pred: High</div>
+          <div class="cm-hdr" style="text-align:right;font-size:10px">True: Not High</div>
+          <div class="cm-cell cm-tn">6,930 ✓</div><div class="cm-cell cm-fp">369 ✗</div>
+          <div class="cm-hdr" style="text-align:right;font-size:10px">True: High</div>
+          <div class="cm-cell cm-fn">908 ✗</div><div class="cm-cell cm-tp">1,091 ✓</div>
+        </div>
+        <p style="font-size:11px;color:var(--muted);margin-top:8px">Strong at detecting non-high-rated films. Captures ~55% of truly high-rated ones — limited by content subjectivity.</p>
+      </div>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q3_fig_10.png" alt="ROC curves"><div class="fig-cap">Figure 10 — ROC curves comparison</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q3_fig_11.png" alt="Confusion matrix"><div class="fig-cap">Figure 11 — Confusion matrix visualization</div></div>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q3_fig_12.png" alt="Feature importance"><div class="fig-cap">Figure 12 — Feature importance</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q3_fig_13.png" alt="Threshold tuning"><div class="fig-cap">Figure 13 — Threshold tuning analysis</div></div>
+    </div>
+    <div style="overflow-x:auto;margin-top:16px">
+      
+<table class="data-table caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Model</th>
+<th data-quarto-table-cell-role="th">ROC AUC</th>
+<th data-quarto-table-cell-role="th">Threshold</th>
+<th data-quarto-table-cell-role="th">Accuracy</th>
+<th data-quarto-table-cell-role="th">Balanced Acc</th>
+<th data-quarto-table-cell-role="th">Precision</th>
+<th data-quarto-table-cell-role="th">Recall</th>
+<th data-quarto-table-cell-role="th">F1</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+<tr class="even" style="color:#1a1a2e">
+<td><strong>Random Forest</strong></td>
+<td><strong>0.873</strong></td>
+<td>0.57</td>
+<td>0.863</td>
+<td>0.748</td>
+<td>0.747</td>
+<td>0.546</td>
+<td>0.631</td>
+<td><span class="badge badge-green">Best</span></td>
+</tr>
+<tr class="odd" style="color:#1a1a2e">
+<td>Gradient Boosting</td>
+<td>0.869</td>
+<td>0.58</td>
+<td>0.860</td>
+<td>0.743</td>
+<td>0.738</td>
+<td>0.539</td>
+<td>0.623</td>
+<td><span class="badge badge-blue">Good</span></td>
+</tr>
+<tr class="even" style="color:#1a1a2e">
+<td>Extra Trees</td>
+<td>0.859</td>
+<td>0.48</td>
+<td>0.856</td>
+<td>0.735</td>
+<td>0.728</td>
+<td>0.523</td>
+<td>0.609</td>
+<td><span class="badge badge-blue">Good</span></td>
+</tr>
+<tr class="odd" style="color:#1a1a2e">
+<td>Logistic Regression</td>
+<td>0.806</td>
+<td>0.52</td>
+<td>0.839</td>
+<td>0.725</td>
+<td>0.658</td>
+<td>0.525</td>
+<td>0.584</td>
+<td><span class="badge badge-gray">Baseline</span></td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+  </div>
+</div>
+
+<div class="divider-dark">
+  <h3 class="anchored">Individual ML Questions — Q4, Q5, Q6</h3>
+  <p>Austine · Arshan · Syed</p>
+</div>
+
+<!-- Q4 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num teal">Q4</div>
+    <div>
+      <div class="q-title">Can the Number of Audience Votes Be Predicted?</div>
+      <div class="q-author">👤 Mcolisi Austine</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Regression task predicting audience vote count using movie popularity factors. Vote counts are <strong>highly skewed</strong> so three strategies were compared: raw prediction, log-transformed prediction, and log prediction after outlier removal.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Log-transformation dramatically improves the model. After transformation, Decision Tree achieves R²=0.432. Average rating and release year are the most important predictors. Viral attention and marketing hype remain outside the dataset.
+    </div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">Impact of log-transform on R²</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af;font-size:11px">DT (log-transformed)</span><div class="bar-track dark"><div class="bar-fill" data-w="100" style="background:var(--gold)"></div></div><span class="bar-val light">0.432</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af;font-size:11px">DT (log + no outlier)</span><div class="bar-track dark"><div class="bar-fill" data-w="88" style="background:var(--teal)"></div></div><span class="bar-val light">0.388</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af;font-size:11px">DT (raw scale)</span><div class="bar-track dark"><div class="bar-fill" data-w="47" style="background:#5f5e5a"></div></div><span class="bar-val light">0.204</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Log-transformation doubles the R² score from 0.204 to 0.432.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Strategy comparison</div>
+        
+<table class="data-table table-light caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Strategy</th>
+<th data-quarto-table-cell-role="th">Model</th>
+<th data-quarto-table-cell-role="th">MAE</th>
+<th data-quarto-table-cell-role="th">R²</th>
+</tr>
+<tr class="even">
+<td>Raw scale</td>
+<td>Decision Tree</td>
+<td>24,666</td>
+<td>0.204</td>
+</tr>
+<tr class="odd">
+<td>Log-transformed</td>
+<td>Decision Tree</td>
+<td>1.425</td>
+<td><strong>0.432</strong></td>
+</tr>
+<tr class="even">
+<td>Log + no outliers</td>
+<td>Decision Tree</td>
+<td>1.293</td>
+<td>0.388</td>
+</tr>
+</tbody>
+</table>
+
+        <p style="font-size:11px;color:var(--muted);margin-top:8px">Top predictors: average rating, release year, month, and star count.</p>
+      </div>
+    </div>
+    <div class="fig-grid">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q4_fig_14.png" alt="Vote prediction results"><div class="fig-cap">Figure 14 — Vote count prediction results</div></div>
+      <div class="fig-wrap"><img src="outputs/machine_learning_q4_fig_15.png" alt="Feature importance"><div class="fig-cap">Figure 15 — Feature importance for vote prediction</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num blue">Q5</div>
+    <div>
+      <div class="q-title">How Does Release Timing Influence Box Office Performance?</div>
+      <div class="q-author">👤 Syed Arshan Nehad</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Release date parsed into year, month, and season. Season used as the main timing variable. Budget, runtime, crew counts, and primary genre included as controls. Worldwide gross and votes both log-transformed. Random Forest and Decision Tree compared.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Random Forest achieves R²=0.606 for audience votes and R²=0.484 for worldwide gross. Budget and release year are more important than season alone — but season still appears in feature importance, especially for audience engagement.
+    </div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">Model performance by target</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Votes (RF)</span><div class="bar-track dark"><div class="bar-fill" data-w="100" style="background:var(--teal)"></div></div><span class="bar-val light">0.606</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Revenue (DT)</span><div class="bar-track dark"><div class="bar-fill" data-w="80" style="background:var(--blue)"></div></div><span class="bar-val light">0.484</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Votes are more predictable from timing features than revenue. Budget_num dominates both.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Results summary</div>
+        
+<table class="data-table table-light caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Target</th>
+<th data-quarto-table-cell-role="th">Best Model</th>
+<th data-quarto-table-cell-role="th">MAE (log)</th>
+<th data-quarto-table-cell-role="th">R²</th>
+</tr>
+<tr class="even">
+<td>Audience Votes</td>
+<td>Random Forest</td>
+<td>1.172</td>
+<td><strong>0.606</strong></td>
+</tr>
+<tr class="odd">
+<td>Worldwide Gross</td>
+<td>Decision Tree</td>
+<td>1.876</td>
+<td>0.484</td>
+</tr>
+</tbody>
+</table>
+
+        <p style="font-size:11px;color:var(--muted);margin-top:8px">Top predictors: budget_num, year, writer_count, star_count, runtime, season_Autumn.</p>
+      </div>
+    </div>
+    <div class="fig-grid single">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q4_fig_16.png" alt="Feature importance for release timing"><div class="fig-cap">Figure 16 — Feature importance for release timing models</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-section">
+  <div class="q-header">
+    <div class="q-num red">Q6</div>
+    <div>
+      <div class="q-title">Can Movies Be Classified as Successful vs Less Successful?</div>
+      <div class="q-author">👤 Syed Tamjeed Ur Rahman</div>
+    </div>
+  </div>
+  <div class="q-body">
+    <p>Binary success classification combining <strong>multiple dimensions</strong>: a movie is labeled successful if it meets at least 2 of 3 conditions — rating above median, votes above median, and positive ROI. Leakage variables excluded from predictors.</p>
+    <div class="finding">
+      <strong>Key Finding:</strong> Random Forest achieves 70.0% accuracy and ROC AUC=0.767 — the best classifier. Budget and year are the top predictors. Accuracy of 70% means the model captures real patterns but cannot fully predict success without marketing, distribution, and streaming data.
+    </div>
+    <div class="grid-4" style="margin:16px 0">
+      <div class="metric"><div class="metric-n" style="color:var(--teal)">70.0%</div><div class="metric-l">Accuracy (RF)</div></div>
+      <div class="metric"><div class="metric-n">0.767</div><div class="metric-l">ROC AUC (RF)</div></div>
+      <div class="metric"><div class="metric-n">70.7%</div><div class="metric-l">Precision (RF)</div></div>
+      <div class="metric"><div class="metric-n">3-dim</div><div class="metric-l">Success definition</div></div>
+    </div>
+    <div class="grid-2" style="margin:16px 0">
+      <div class="card-dark card">
+        <div class="card-title">Model comparison (ROC AUC)</div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Random Forest</span><div class="bar-track dark"><div class="bar-fill" data-w="100" style="background:var(--gold)"></div></div><span class="bar-val light">0.767</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Decision Tree</span><div class="bar-track dark"><div class="bar-fill" data-w="94" style="background:var(--blue)"></div></div><span class="bar-val light">0.723</span></div>
+        <div class="bar-row"><span class="bar-label" style="color:#9ca3af">Logistic Regression</span><div class="bar-track dark"><div class="bar-fill" data-w="43" style="background:#5f5e5a"></div></div><span class="bar-val light">0.332</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:12px;border-top:1px solid #2a2a3e;padding-top:10px">Logistic Regression collapses to predicting everything as "successful". Only tree-based models work.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Full results</div>
+        
+<table class="data-table table-light caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Model</th>
+<th data-quarto-table-cell-role="th">Accuracy</th>
+<th data-quarto-table-cell-role="th">Precision</th>
+<th data-quarto-table-cell-role="th">F1</th>
+<th data-quarto-table-cell-role="th">ROC-AUC</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+<tr class="even">
+<td>Random Forest</td>
+<td>0.700</td>
+<td>0.707</td>
+<td>0.703</td>
+<td>0.767</td>
+<td><span class="badge badge-green">Best</span></td>
+</tr>
+<tr class="odd">
+<td>Decision Tree</td>
+<td>0.664</td>
+<td>0.693</td>
+<td>0.647</td>
+<td>0.723</td>
+<td><span class="badge badge-blue">Good</span></td>
+</tr>
+<tr class="even">
+<td>Logistic Reg.</td>
+<td>0.510</td>
+<td>0.509</td>
+<td>0.674</td>
+<td>0.332</td>
+<td><span class="badge badge-red">Failed</span></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </div>
+    <div class="fig-grid single">
+      <div class="fig-wrap"><img src="outputs/machine_learning_q6_fig_17.png" alt="Feature importance success"><div class="fig-cap">Figure 17 — Feature importance for success classification</div></div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+setTimeout(() => {
+  document.querySelectorAll('[data-w]').forEach(el => el.style.width = el.dataset.w + '%');
+}, 600);
+</script>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/cu-s26-msdssb-dsci-01-datasciencelab\.github\.io\/DataScienceLab_Movies_1\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

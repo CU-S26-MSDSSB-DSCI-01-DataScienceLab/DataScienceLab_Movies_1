@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>dashboard – DataScienceLab Movies</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-43081d808c96cc46af55a3a816ae9eed.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="shared.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">DataScienceLab Movies</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">🏠 Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dashboard.html">📈 Dashboard</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🏠 Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sec1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📊 Descriptive Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sec2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🤖 Machine Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📝 Conclusion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dashboard.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">📈 Dashboard</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<style>
+/* ── Dashboard-specific styles ── */
+.db-wrap { max-width: 1200px; margin: 0 auto; padding: 28px 32px 60px; }
+
+/* Section headers */
+.db-section-head {
+  display: flex; align-items: center; gap: 10px;
+  margin: 36px 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e8eaed;
+}
+.db-section-head .icon { font-size: 1.2rem; }
+.db-section-head h2 { font-size: 1rem; font-weight: 700; color: #1a1a2e; margin: 0; }
+.db-section-head .sub { font-size: 12px; color: #6b7280; margin-left: auto; }
+
+/* KPI strip */
+.kpi-strip { display: grid; grid-template-columns: repeat(6,1fr); gap: 1px; background: #e8eaed; border: 1px solid #e8eaed; border-radius: 12px; overflow: hidden; margin-bottom: 4px; }
+.kpi { background: #fff; padding: 18px 14px; text-align: center; cursor: default; transition: background .15s; }
+.kpi:hover { background: #f9fafb; }
+.kpi-n { font-size: 1.6rem; font-weight: 800; line-height: 1; }
+.kpi-l { font-size: 10px; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+
+/* Nav pills for sections */
+.dash-nav { display: flex; gap: 6px; flex-wrap: wrap; margin: 24px 0 6px; }
+.dash-nav button {
+  padding: 7px 16px; border-radius: 20px; border: 1px solid #e8eaed;
+  background: #fff; font-size: 12px; font-weight: 600; color: #6b7280;
+  cursor: pointer; transition: all .2s; font-family: inherit;
+}
+.dash-nav button.on { background: #1a1a2e; color: #c9a84c; border-color: #1a1a2e; }
+.dash-nav button:hover:not(.on) { border-color: #1a1a2e; color: #1a1a2e; }
+.dash-panel { display: none; }
+.dash-panel.on { display: block; }
+
+/* Two-col grid */
+.d2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.d3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.d-full { grid-column: 1 / -1; }
+
+/* White card */
+.dc { background: #fff; border: 1px solid #e8eaed; border-radius: 12px; padding: 20px; }
+.dc-title { font-size: 12px; font-weight: 700; color: #1a1a2e; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+.dc-title span { font-weight: 400; color: #9ca3af; font-size: 11px; text-transform: none; letter-spacing: 0; }
+
+/* Dark card */
+.dc-dark { background: #0f1117; border: 1px solid #1e2030; border-radius: 12px; padding: 20px; }
+.dc-dark .dc-title { color: #fff; }
+
+/* Bar chart rows */
+.br { display: flex; align-items: center; gap: 8px; margin-bottom: 9px; }
+.br-l { font-size: 11px; color: #6b7280; width: 130px; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.br-l.lt { color: #9ca3af; }
+.br-t { flex: 1; background: #f0f0f0; border-radius: 3px; height: 8px; overflow: hidden; }
+.br-t.dk { background: #1e2030; }
+.br-f { height: 100%; border-radius: 3px; width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+.br-v { font-size: 11px; font-weight: 700; width: 46px; text-align: right; color: #1a1a2e; }
+.br-v.lt { color: #fff; }
+
+/* Metric mini */
+.mmi { background: #0f1117; border-radius: 10px; padding: 14px 16px; text-align: center; }
+.mmi-n { font-size: 1.4rem; font-weight: 800; color: #c9a84c; line-height: 1.1; }
+.mmi-l { font-size: 10px; color: #6b7280; margin-top: 4px; }
+.mmi-sub { font-size: 10px; color: #4b5563; margin-top: 2px; }
+
+/* Confusion matrix */
+.cm { display: grid; grid-template-columns: auto 1fr 1fr; gap: 4px; }
+.cmh { font-size: 10px; color: #9ca3af; font-weight: 600; padding: 6px 8px; text-align: center; }
+.cmh.rh { text-align: right; padding-right: 10px; font-size: 9px; }
+.cmc { padding: 16px 12px; border-radius: 8px; text-align: center; font-weight: 800; font-size: 15px; }
+.tp { background: rgba(29,158,117,.22); color: #065f46; }
+.tn { background: rgba(55,138,221,.18); color: #1e40af; }
+.fp { background: rgba(226,75,74,.14); color: #991b1b; }
+.fn { background: rgba(226,75,74,.14); color: #991b1b; }
+
+/* Progress ring */
+.ring-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.ring-label { font-size: 11px; color: #6b7280; text-align: center; }
+
+/* Table */
+.dt { width: 100%; border-collapse: collapse; font-size: 12px; }
+.dt th { background: #1a1a2e; color: #c9a84c; padding: 9px 12px; text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+.dt td { padding: 9px 12px; border-bottom: 1px solid #f0f0f0; color: #374151; }
+.dt tr:hover td { background: #fafafa; }
+.bge { display: inline-block; padding: 2px 9px; border-radius: 4px; font-size: 10px; font-weight: 700; }
+.bg-g { background: #d1fae5; color: #065f46; }
+.bg-b { background: #dbeafe; color: #1e40af; }
+.bg-r { background: #fee2e2; color: #991b1b; }
+.bg-gr { background: #f3f4f6; color: #6b7280; }
+
+/* Finding row */
+.fr { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+.fr:last-child { border-bottom: none; }
+.fr-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+.fr-title { font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 2px; }
+.fr-desc { font-size: 11px; color: #6b7280; line-height: 1.5; }
+
+/* Insight pill cards */
+.ip { border-radius: 10px; padding: 14px 16px; border-left: 3px solid; }
+.ip-g { background: #f0fdf4; border-color: #1D9E75; }
+.ip-b { background: #eff6ff; border-color: #378ADD; }
+.ip-y { background: #fffbeb; border-color: #c9a84c; }
+.ip-s { background: #f9fafb; border-color: #374151; }
+.ip-title { font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.ip-desc { font-size: 11px; color: #374151; line-height: 1.55; }
+
+/* Radar-style score display */
+.score-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.score-name { font-size: 12px; color: #374151; width: 160px; flex-shrink: 0; }
+.score-bar { flex: 1; height: 6px; background: #f0f0f0; border-radius: 3px; overflow: hidden; }
+.score-fill { height: 100%; border-radius: 3px; width: 0; transition: width 1.2s; }
+.score-val { font-size: 11px; font-weight: 700; width: 42px; text-align: right; }
+
+/* Genre revenue bars */
+.gbar { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.gbar-name { font-size: 11px; color: #374151; width: 160px; flex-shrink: 0; font-weight: 500; }
+.gbar-t { flex: 1; background: #f0f0f0; border-radius: 3px; height: 14px; overflow: hidden; position: relative; }
+.gbar-f { height: 100%; border-radius: 3px; width: 0; transition: width 1.2s; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; }
+.gbar-v { font-size: 10px; font-weight: 700; color: #fff; white-space: nowrap; }
+
+/* Budget tier visual */
+.tier-row { display: grid; grid-template-columns: 80px 1fr 60px 60px 60px; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 12px; }
+.tier-row:last-child { border-bottom: none; }
+.tier-badge { border-radius: 6px; padding: 3px 10px; font-size: 10px; font-weight: 700; text-align: center; }
+.tier-bar-wrap { display: flex; align-items: center; gap: 6px; }
+.tier-bar { height: 8px; border-radius: 4px; width: 0; transition: width 1.2s; }
+
+/* Step workflow */
+.wf { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+.wf-step { background: #f9fafb; border: 1px solid #e8eaed; border-radius: 10px; padding: 16px 14px; text-align: center; position: relative; }
+.wf-num { width: 30px; height: 30px; background: #1a1a2e; color: #c9a84c; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; margin: 0 auto 10px; }
+.wf-title { font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+.wf-desc { font-size: 11px; color: #6b7280; line-height: 1.5; }
+
+/* Country ranking */
+.ctr { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid #f5f5f5; }
+.ctr:last-child { border-bottom: none; }
+.ctr-rank { font-size: 11px; font-weight: 800; color: #c9a84c; width: 22px; flex-shrink: 0; }
+.ctr-name { font-size: 12px; color: #374151; flex: 1; }
+.ctr-bar-t { width: 80px; background: #f0f0f0; border-radius: 2px; height: 6px; }
+.ctr-bar-f { height: 100%; border-radius: 2px; background: #1D9E75; width: 0; transition: width 1.2s; }
+.ctr-val { font-size: 11px; font-weight: 700; color: #1a1a2e; width: 28px; text-align: right; }
+
+/* Donut SVG */
+.donut-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+
+/* Member card */
+.mc { background: #12121e; border: 1px solid #1e2030; border-radius: 10px; padding: 14px; text-align: center; }
+.mc-av { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; margin: 0 auto 8px; }
+.mc-name { font-size: 11px; font-weight: 700; color: #fff; }
+.mc-role { font-size: 10px; color: #6b7280; margin-top: 2px; }
+.mc-qs { font-size: 10px; color: #c9a84c; margin-top: 4px; }
+
+/* Limitation item */
+.lim { display: flex; gap: 10px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+.lim:last-child { border-bottom: none; }
+.lim-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.lim-title { font-size: 12px; font-weight: 700; color: #1a1a2e; margin-bottom: 2px; }
+.lim-desc { font-size: 11px; color: #6b7280; line-height: 1.5; }
+
+/* Responsive */
+@media(max-width:768px){
+  .kpi-strip{grid-template-columns:repeat(3,1fr)}
+  .d2,.d3{grid-template-columns:1fr}
+  .wf{grid-template-columns:1fr 1fr}
+  .db-wrap{padding:16px 16px 40px}
+}
+</style>
+
+<!-- ══════════ HERO ══════════ -->
+<div style="background:#1a1a2e;color:#fff;padding:44px 40px 36px;text-align:center">
+  <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(55,138,221,.15);border:1px solid rgba(55,138,221,.4);color:#7dc4f9;padding:5px 16px;border-radius:20px;font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px">Interactive Dashboard</div>
+  <h1 style="font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:8px">📊 Project Results <span style="color:#c9a84c">at a Glance</span></h1>
+  <p style="color:rgba(255,255,255,.6);max-width:560px;margin:0 auto;font-size:.95rem;line-height:1.7">Everything in one place — KPIs, model performance, descriptive findings, ML results, budget analysis, and team overview.</p>
+</div>
+
+<!-- ══════════ KPI STRIP ══════════ -->
+<div style="background:#fff;border-bottom:1px solid #e8eaed">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="kpi-strip" style="border-radius:0;border:none;border-bottom:none">
+      <div class="kpi"><div class="kpi-n" style="color:#1a1a2e" id="k1">0</div><div class="kpi-l">Movies analysed</div></div>
+      <div class="kpi"><div class="kpi-n" style="color:#c9a84c" id="k2">0</div><div class="kpi-l">Research questions</div></div>
+      <div class="kpi"><div class="kpi-n" style="color:#1D9E75" id="k3">0%</div><div class="kpi-l">Best ROC AUC</div></div>
+      <div class="kpi"><div class="kpi-n" style="color:#378ADD" id="k4">0</div><div class="kpi-l">Best revenue R²</div></div>
+      <div class="kpi"><div class="kpi-n" style="color:#1a1a2e" id="k5">0%</div><div class="kpi-l">Rating accuracy</div></div>
+      <div class="kpi"><div class="kpi-n" style="color:#c9a84c" id="k6">0</div><div class="kpi-l">Researchers</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ NAV ══════════ -->
+<div class="db-wrap">
+<div class="dash-nav">
+  <button class="on" onclick="switchPanel('p-overview',this)">📋 Overview</button>
+  <button onclick="switchPanel('p-descriptive',this)">📊 Descriptive Analysis</button>
+  <button onclick="switchPanel('p-ml',this)">🤖 Machine Learning</button>
+  <button onclick="switchPanel('p-budget',this)">💰 Budget &amp; Revenue</button>
+  <button onclick="switchPanel('p-models',this)">🏆 Model Comparison</button>
+  <button onclick="switchPanel('p-team',this)">👥 Team</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 1 — OVERVIEW
+══════════════════════════════════════════ -->
+<div class="dash-panel on" id="p-overview">
+
+  <div class="db-section-head"><span class="icon">🎯</span><h2 class="anchored">Central Research Question</h2></div>
+  <div style="background:#1a1a2e;border-radius:12px;padding:28px 32px;text-align:center;margin-bottom:16px">
+    <p style="color:#9ca3af;font-size:.9rem;font-style:italic;max-width:700px;margin:0 auto 18px;line-height:1.8">"Which movie characteristics best explain and predict a movie's success in terms of audience evaluation and financial performance?"</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
+      <span style="padding:5px 14px;border:1px solid rgba(201,168,76,.4);border-radius:20px;font-size:11px;color:#c9a84c">Genre matters for revenue</span>
+      <span style="padding:5px 14px;border:1px solid rgba(201,168,76,.4);border-radius:20px;font-size:11px;color:#c9a84c">Budget predicts scale</span>
+      <span style="padding:5px 14px;border:1px solid rgba(201,168,76,.4);border-radius:20px;font-size:11px;color:#c9a84c">log_votes dominates rating</span>
+      <span style="padding:5px 14px;border:1px solid rgba(201,168,76,.4);border-radius:20px;font-size:11px;color:#c9a84c">Star power → visibility</span>
+      <span style="padding:5px 14px;border:1px solid rgba(201,168,76,.4);border-radius:20px;font-size:11px;color:#c9a84c">Ensembles always win</span>
+      <span style="padding:5px 14px;border:1px solid rgba(201,168,76,.4);border-radius:20px;font-size:11px;color:#c9a84c">Success is multidimensional</span>
+    </div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">🔁</span><h2 class="anchored">Data Science Workflow</h2></div>
+  <div class="wf" style="margin-bottom:20px">
+    <div class="wf-step"><div class="wf-num">1</div><div class="wf-title">Load &amp; Clean</div><div class="wf-desc">Parsed votes (K/M), duration (min), money fields, genres, dates from raw text across 63,249 records</div></div>
+    <div class="wf-step"><div class="wf-num">2</div><div class="wf-title">Describe</div><div class="wf-desc">Grouped summaries, visualisations across countries, genres, runtime, budget tiers and revenue</div></div>
+    <div class="wf-step"><div class="wf-num">3</div><div class="wf-title">Model</div><div class="wf-desc">Train/test splits, feature selection, Ridge, Extra Trees, Gradient Boosting and Random Forest compared</div></div>
+    <div class="wf-step"><div class="wf-num">4</div><div class="wf-title">Evaluate</div><div class="wf-desc">MAE, RMSE, R², ROC AUC, F1, confusion matrices, feature importances reported per question</div></div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">💡</span><h2 class="anchored">6 Key Findings</h2></div>
+  <div class="d2">
+    <div>
+      <div class="ip ip-g" style="margin-bottom:10px"><div class="ip-title">🌍 Country Shapes Ratings</div><div class="ip-desc">Smaller, selective industries show higher averages. Larger ones (US) show greater variation — prestige films alongside mass-market productions.</div></div>
+      <div class="ip ip-b" style="margin-bottom:10px"><div class="ip-title">🎭 Genre: Ratings ≠ Votes</div><div class="ip-desc">Documentary and biopic genres earn high ratings with small audiences. Action and franchise genres drive massive vote counts regardless of rating.</div></div>
+      <div class="ip ip-y"><div class="ip-title">⏱️ Non-linear Runtime Effect</div><div class="ip-desc">Films between 90–140 min cluster at the highest ratings. Very short or very long films show far more variability in audience reception.</div></div>
+    </div>
+    <div>
+      <div class="ip ip-s" style="margin-bottom:10px"><div class="ip-title">💰 Budget Predicts Revenue (Imperfectly)</div><div class="ip-desc">Pearson r=0.685. High-budget films: 65.3% profitable. Low-budget: 39.2%. ROI outliers dominate in both directions.</div></div>
+      <div class="ip ip-g" style="margin-bottom:10px"><div class="ip-title">⭐ Star Power → Visibility, Not Quality</div><div class="ip-desc">Well-known personnel reliably boost vote counts, but median ratings are identical (6.30) for high-profile and low-profile groups.</div></div>
+      <div class="ip ip-b"><div class="ip-title">🤖 Ensemble Methods Dominate</div><div class="ip-desc">Random Forest, Extra Trees and Gradient Boosting consistently outperformed Ridge/Linear baselines on all 6 ML prediction tasks.</div></div>
+    </div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">📈</span><h2 class="anchored">Model Performance Summary</h2><span class="sub">All best models per task</span></div>
+  <div class="d3">
+    <div class="mmi"><div class="mmi-n">0.365</div><div class="mmi-l">R² — Rating prediction</div><div class="mmi-sub">Gradient Boosting</div></div>
+    <div class="mmi"><div class="mmi-n">0.645</div><div class="mmi-l">R² — Revenue prediction</div><div class="mmi-sub">Gradient Boosting</div></div>
+    <div class="mmi"><div class="mmi-n">87.3%</div><div class="mmi-l">ROC AUC — High-rating</div><div class="mmi-sub">Random Forest</div></div>
+    <div class="mmi"><div class="mmi-n">70.0%</div><div class="mmi-l">Accuracy — Success class.</div><div class="mmi-sub">Random Forest</div></div>
+    <div class="mmi"><div class="mmi-n">0.606</div><div class="mmi-l">R² — Vote count</div><div class="mmi-sub">Random Forest</div></div>
+    <div class="mmi"><div class="mmi-n">0.484</div><div class="mmi-l">R² — Release timing</div><div class="mmi-sub">Decision Tree</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 2 — DESCRIPTIVE
+══════════════════════════════════════════ -->
+<div class="dash-panel" id="p-descriptive">
+
+  <div class="db-section-head"><span class="icon">🌍</span><h2 class="anchored">Q1 — Ratings by Country</h2><span class="sub">Kay-Lee Dramat</span></div>
+  <div class="d2">
+    <div class="dc">
+      <div class="dc-title">Top 10 countries by average rating</div>
+      <div id="country-bars"></div>
+      <p style="font-size:11px;color:#9ca3af;margin-top:10px;border-top:1px solid #f0f0f0;padding-top:8px">Smaller industries rank higher due to curation bias — only the best films gain international visibility.</p>
+    </div>
+    <div class="dc">
+      <div class="dc-title">Key insight <span>country analysis</span></div>
+      <div class="fr"><span class="fr-icon">📌</span><div><div class="fr-title">Selection bias effect</div><div class="fr-desc">Countries with fewer releases in the dataset show inflated averages — their weaker films never appear.</div></div></div>
+      <div class="fr"><span class="fr-icon">🇺🇸</span><div><div class="fr-title">US: most variable</div><div class="fr-desc">Largest industry shows widest rating spread — from Oscar-winners to mass-market releases in the same dataset.</div></div></div>
+      <div class="fr"><span class="fr-icon">🥇</span><div><div class="fr-title">Iran ranks first</div><div class="fr-desc">Iranian cinema (Farhadi etc.) gains global attention primarily through critically acclaimed films.</div></div></div>
+      <div class="fr"><span class="fr-icon">🇮🇳</span><div><div class="fr-title">India #8 despite volume</div><div class="fr-desc">Despite being the world's largest film industry by output, only internationally visible titles appear here.</div></div></div>
+    </div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">🎭</span><h2 class="anchored">Q2 — Genre Performance</h2><span class="sub">Kay-Lee Dramat</span></div>
+  <div class="d2">
+    <div class="dc">
+      <div class="dc-title">Top genres by average rating</div>
+      <div id="genre-rating-bars"></div>
+    </div>
+    <div class="dc">
+      <div class="dc-title">Top genres by worldwide revenue <span>avg $M</span></div>
+      <div id="genre-rev-bars"></div>
+      <p style="font-size:11px;color:#9ca3af;margin-top:10px;border-top:1px solid #f0f0f0;padding-top:8px">Rating ≠ Revenue. Documentary genres top rating charts; action genres dominate box office.</p>
+    </div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">⏱️</span><h2 class="anchored">Q3 — Runtime Effect</h2><span class="sub">Kay-Lee Dramat</span></div>
+  <div class="d2">
+    <div class="dc">
+      <div class="dc-title">Rating distribution by runtime bucket</div>
+      <div id="runtime-bars"></div>
+      <p style="font-size:11px;color:#9ca3af;margin-top:10px;border-top:1px solid #f0f0f0;padding-top:8px">90–140 min is the sweet spot. Outside this range, quality becomes highly variable.</p>
+    </div>
+    <div class="dc">
+      <div class="dc-title">Runtime facts</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div style="background:#f9fafb;border-radius:8px;padding:14px;text-align:center"><div style="font-size:1.4rem;font-weight:800;color:#1a1a2e">80–150</div><div style="font-size:10px;color:#6b7280;margin-top:3px">Most common range (min)</div></div>
+        <div style="background:#f9fafb;border-radius:8px;padding:14px;text-align:center"><div style="font-size:1.4rem;font-weight:800;color:#1D9E75">7.2</div><div style="font-size:10px;color:#6b7280;margin-top:3px">Avg rating 90–140 min</div></div>
+        <div style="background:#f9fafb;border-radius:8px;padding:14px;text-align:center"><div style="font-size:1.4rem;font-weight:800;color:#c9a84c">5.8</div><div style="font-size:10px;color:#6b7280;margin-top:3px">Avg rating &lt;60 min</div></div>
+        <div style="background:#f9fafb;border-radius:8px;padding:14px;text-align:center"><div style="font-size:1.4rem;font-weight:800;color:#378ADD">low</div><div style="font-size:10px;color:#6b7280;margin-top:3px">Runtime–rating correlation</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">⭐</span><h2 class="anchored">Q6 — Star Power Effect</h2><span class="sub">Ghofrane Mahmoud</span></div>
+  <div class="d2">
+    <div class="dc">
+      <div class="dc-title">Ratings: high-profile vs low-profile personnel</div>
+      <div style="display:flex;gap:16px;justify-content:space-around;margin:16px 0">
+        <div style="text-align:center">
+          <div style="font-size:1.8rem;font-weight:800;color:#1a1a2e">6.30</div>
+          <div style="font-size:10px;color:#6b7280;margin-top:3px">Stars — high-profile</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:1.8rem;font-weight:800;color:#9ca3af">6.30</div>
+          <div style="font-size:10px;color:#6b7280;margin-top:3px">Stars — low-profile</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:1.8rem;font-weight:800;color:#1a1a2e">6.30</div>
+          <div style="font-size:10px;color:#6b7280;margin-top:3px">Directors — both groups</div>
+        </div>
+      </div>
+      <div style="background:#fffbeb;border-left:3px solid #c9a84c;border-radius:4px;padding:10px 14px;font-size:12px;color:#78350f">Median rating identical (6.30) across all personnel groups despite statistical significance.</div>
+    </div>
+    <div class="dc">
+      <div class="dc-title">What star power actually affects</div>
+      <div class="br" style="margin-top:8px"><span class="br-l">Vote count boost</span><div class="br-t"><div class="br-f" data-w="92" style="background:#c9a84c"></div></div><span class="br-v" style="color:#c9a84c">High</span></div>
+      <div class="br"><span class="br-l">Box office visibility</span><div class="br-t"><div class="br-f" data-w="80" style="background:#378ADD"></div></div><span class="br-v" style="color:#378ADD">High</span></div>
+      <div class="br"><span class="br-l">Opening weekend pull</span><div class="br-t"><div class="br-f" data-w="70" style="background:#378ADD"></div></div><span class="br-v" style="color:#378ADD">Med</span></div>
+      <div class="br"><span class="br-l">Rating quality</span><div class="br-t"><div class="br-f" data-w="5" style="background:#e24b4a"></div></div><span class="br-v" style="color:#e24b4a">None</span></div>
+      <p style="font-size:11px;color:#9ca3af;margin-top:12px">Star power drives reach and awareness — not artistic quality as judged by audiences.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 3 — MACHINE LEARNING
+══════════════════════════════════════════ -->
+<div class="dash-panel" id="p-ml">
+
+  <div class="db-section-head"><span class="icon">🎯</span><h2 class="anchored">Q1 — Predict IMDb Rating</h2><span class="sub">Aya Abdine &amp; Meriam Al Askri</span></div>
+  <div class="d2" style="margin-bottom:0">
+    <div class="d3" style="grid-template-columns:1fr 1fr;margin-bottom:0">
+      <div class="dc-dark dc"><div class="dc-title">R² score comparison</div>
+        <div class="br"><span class="br-l lt">Gradient Boosting</span><div class="br-t dk"><div class="br-f" data-w="73" style="background:#1D9E75"></div></div><span class="br-v lt">0.365</span></div>
+        <div class="br"><span class="br-l lt">Extra Trees</span><div class="br-t dk"><div class="br-f" data-w="71" style="background:#378ADD"></div></div><span class="br-v lt">0.356</span></div>
+        <div class="br"><span class="br-l lt">Ridge Regression</span><div class="br-t dk"><div class="br-f" data-w="53" style="background:#5f5e5a"></div></div><span class="br-v lt">0.268</span></div>
+        <p style="font-size:11px;color:#4b5563;margin-top:10px;border-top:1px solid #1e2030;padding-top:8px">GB captures nonlinear interactions. MAE ≈ ±0.64 rating points.</p>
+      </div>
+      <div class="dc"><div class="dc-title">Feature importance <span>top predictors</span></div>
+        <div class="br"><span class="br-l" style="width:100px">log_votes</span><div class="br-t"><div class="br-f" data-w="100" style="background:#c9a84c"></div></div><span class="br-v">17.7%</span></div>
+        <div class="br"><span class="br-l" style="width:100px">runtime</span><div class="br-t"><div class="br-f" data-w="43" style="background:#378ADD"></div></div><span class="br-v">7.6%</span></div>
+        <div class="br"><span class="br-l" style="width:100px">budget</span><div class="br-t"><div class="br-f" data-w="42" style="background:#378ADD"></div></div><span class="br-v">7.4%</span></div>
+        <div class="br"><span class="br-l" style="width:100px">movie_age</span><div class="br-t"><div class="br-f" data-w="41" style="background:#378ADD"></div></div><span class="br-v">7.2%</span></div>
+        <div class="br"><span class="br-l" style="width:100px">release_month</span><div class="br-t"><div class="br-f" data-w="32" style="background:#1D9E75"></div></div><span class="br-v">5.7%</span></div>
+        <div class="br"><span class="br-l" style="width:100px">director_count</span><div class="br-t"><div class="br-f" data-w="26" style="background:#1D9E75"></div></div><span class="br-v">4.6%</span></div>
+        <div class="br"><span class="br-l" style="width:100px">cast_count</span><div class="br-t"><div class="br-f" data-w="25" style="background:#1D9E75"></div></div><span class="br-v">4.5%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">💰</span><h2 class="anchored">Q2 — Predict Box Office Revenue</h2><span class="sub">Aya Abdine &amp; Meriam Al Askri</span></div>
+  <div class="d2">
+    <div class="dc-dark dc"><div class="dc-title">R² comparison — log scale</div>
+      <div class="br"><span class="br-l lt">Gradient Boosting</span><div class="br-t dk"><div class="br-f" data-w="89" style="background:#1D9E75"></div></div><span class="br-v lt">0.645</span></div>
+      <div class="br"><span class="br-l lt">Extra Trees</span><div class="br-t dk"><div class="br-f" data-w="87" style="background:#378ADD"></div></div><span class="br-v lt">0.630</span></div>
+      <div class="br"><span class="br-l lt">Ridge Regression</span><div class="br-t dk"><div class="br-f" data-w="74" style="background:#5f5e5a"></div></div><span class="br-v lt">0.541</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px">
+        <div style="background:#0a0a14;border-radius:8px;padding:10px;text-align:center"><div style="font-size:1.2rem;font-weight:800;color:#c9a84c">$21M</div><div style="font-size:10px;color:#6b7280;margin-top:2px">MAE raw scale (GB)</div></div>
+        <div style="background:#0a0a14;border-radius:8px;padding:10px;text-align:center"><div style="font-size:1.2rem;font-weight:800;color:#1D9E75">Log ✓</div><div style="font-size:10px;color:#6b7280;margin-top:2px">Transform applied</div></div>
+      </div>
+    </div>
+    <div class="dc"><div class="dc-title">Why log-transform matters</div>
+      <div class="fr"><span class="fr-icon">📐</span><div><div class="fr-title">Revenue is highly skewed</div><div class="fr-desc">A handful of blockbusters earn billions while most films earn millions — log-transform stabilises training.</div></div></div>
+      <div class="fr"><span class="fr-icon">⬆️</span><div><div class="fr-title">R² doubles with transform</div><div class="fr-desc">Raw scale R²≈0.3; log scale R²=0.645. The transform is critical, not optional.</div></div></div>
+      <div class="fr"><span class="fr-icon">🎯</span><div><div class="fr-title">Top predictors: budget + genre</div><div class="fr-desc">log_budget and movie_age dominate revenue prediction. Genre type adds moderate signal.</div></div></div>
+    </div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">🏆</span><h2 class="anchored">Q3 — Classify High-Rated Films</h2><span class="sub">Aya Abdine &amp; Meriam Al Askri</span></div>
+  <div class="d2">
+    <div class="dc-dark dc"><div class="dc-title">ROC AUC comparison</div>
+      <div class="br"><span class="br-l lt">Random Forest</span><div class="br-t dk"><div class="br-f" data-w="100" style="background:#c9a84c"></div></div><span class="br-v lt">0.873</span></div>
+      <div class="br"><span class="br-l lt">Gradient Boosting</span><div class="br-t dk"><div class="br-f" data-w="99" style="background:#1D9E75"></div></div><span class="br-v lt">0.869</span></div>
+      <div class="br"><span class="br-l lt">Extra Trees</span><div class="br-t dk"><div class="br-f" data-w="98" style="background:#378ADD"></div></div><span class="br-v lt">0.859</span></div>
+      <div class="br"><span class="br-l lt">Logistic Reg.</span><div class="br-t dk"><div class="br-f" data-w="92" style="background:#5f5e5a"></div></div><span class="br-v lt">0.806</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px">
+        <div style="background:#0a0a14;border-radius:8px;padding:10px;text-align:center"><div style="font-size:1.2rem;font-weight:800;color:#c9a84c">86.3%</div><div style="font-size:10px;color:#6b7280;margin-top:2px">Accuracy (RF)</div></div>
+        <div style="background:#0a0a14;border-radius:8px;padding:10px;text-align:center"><div style="font-size:1.2rem;font-weight:800;color:#1D9E75">74.7%</div><div style="font-size:10px;color:#6b7280;margin-top:2px">Precision (RF)</div></div>
+      </div>
+    </div>
+    <div class="dc"><div class="dc-title">Confusion matrix <span>Random Forest @ threshold 0.57</span></div>
+      <div class="cm" style="max-width:340px;margin:12px 0">
+        <div class="cmh"></div><div class="cmh">Pred: Not High</div><div class="cmh">Pred: High</div>
+        <div class="cmh rh">True: Not High</div><div class="cmc tn">6,930 ✓</div><div class="cmc fp">369 ✗</div>
+        <div class="cmh rh">True: High</div><div class="cmc fn">908 ✗</div><div class="cmc tp">1,091 ✓</div>
+      </div>
+      <p style="font-size:11px;color:#6b7280;margin-top:6px;line-height:1.5">Strong at detecting non-high-rated films. Captures ~55% of truly high-rated ones — limited by content subjectivity that metadata cannot encode.</p>
+    </div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">📊</span><h2 class="anchored">Q4–Q6 — Individual ML Questions</h2><span class="sub">Austine · Arshan · Syed</span></div>
+  <div class="d3">
+    <div class="dc"><div class="dc-title">Q4 — Predict vote count <span>Mcolisi Austine</span></div>
+      <div class="br"><span class="br-l">DT log-transformed</span><div class="br-t"><div class="br-f" data-w="100" style="background:#c9a84c"></div></div><span class="br-v">0.432</span></div>
+      <div class="br"><span class="br-l">DT log+no outliers</span><div class="br-t"><div class="br-f" data-w="88" style="background:#1D9E75"></div></div><span class="br-v">0.388</span></div>
+      <div class="br"><span class="br-l">DT raw scale</span><div class="br-t"><div class="br-f" data-w="47" style="background:#5f5e5a"></div></div><span class="br-v">0.204</span></div>
+      <p style="font-size:11px;color:#9ca3af;margin-top:10px">Log-transform doubles R² from 0.204 → 0.432. Top features: avg rating, release year.</p>
+    </div>
+    <div class="dc"><div class="dc-title">Q5 — Release timing <span>Syed Arshan Nehad</span></div>
+      <div class="br"><span class="br-l">Votes (RF)</span><div class="br-t"><div class="br-f" data-w="100" style="background:#1D9E75"></div></div><span class="br-v">0.606</span></div>
+      <div class="br"><span class="br-l">Revenue (DT)</span><div class="br-t"><div class="br-f" data-w="80" style="background:#378ADD"></div></div><span class="br-v">0.484</span></div>
+      <p style="font-size:11px;color:#9ca3af;margin-top:10px">Budget_num &amp; year dominate both targets. Season contributes moderate signal for audience votes. Top: season_Autumn.</p>
+    </div>
+    <div class="dc"><div class="dc-title">Q6 — Success classification <span>Syed Tamjeed</span></div>
+      <div class="br"><span class="br-l">Random Forest</span><div class="br-t"><div class="br-f" data-w="100" style="background:#c9a84c"></div></div><span class="br-v">0.767</span></div>
+      <div class="br"><span class="br-l">Decision Tree</span><div class="br-t"><div class="br-f" data-w="94" style="background:#378ADD"></div></div><span class="br-v">0.723</span></div>
+      <div class="br"><span class="br-l">Logistic Reg.</span><div class="br-t"><div class="br-f" data-w="43" style="background:#e24b4a"></div></div><span class="br-v">0.332</span></div>
+      <p style="font-size:11px;color:#9ca3af;margin-top:10px">3-dimensional success label: rating + votes + ROI. Logistic collapses — only tree models work. Accuracy: 70%.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 4 — BUDGET & REVENUE
+══════════════════════════════════════════ -->
+<div class="dash-panel" id="p-budget">
+
+  <div class="db-section-head"><span class="icon">💰</span><h2 class="anchored">Q4 — Box Office Revenue by Genre</h2><span class="sub">Ghofrane Mahmoud</span></div>
+  <div class="d2">
+    <div class="dc"><div class="dc-title">Average worldwide gross by genre <span>$M</span></div>
+      <div id="rev-genre-bars"></div>
+      <p style="font-size:11px;color:#9ca3af;margin-top:10px;border-top:1px solid #f0f0f0;padding-top:8px">Kruskal-Wallis test: H=6126.13, p&lt;0.001 — revenue differences are statistically significant across genres.</p>
+    </div>
+    <div class="dc"><div class="dc-title">Revenue split insights</div>
+      <div class="fr"><span class="fr-icon">🎬</span><div><div class="fr-title">Action Epic leads at $363M avg</div><div class="fr-desc">Largest budgets + widest releases + strongest international demand = category-defining revenue.</div></div></div>
+      <div class="fr"><span class="fr-icon">🦸</span><div><div class="fr-title">Superhero at $310M</div><div class="fr-desc">Franchise recognition pre-sells tickets globally. Opening weekends are outsized relative to total gross.</div></div></div>
+      <div class="fr"><span class="fr-icon">🌍</span><div><div class="fr-title">International = majority</div><div class="fr-desc">For top action/franchise genres, international revenue (global - US/Canada) exceeds domestic by a factor of 2–3×.</div></div></div>
+      <div class="fr"><span class="fr-icon">📉</span><div><div class="fr-title">Documentary: high rating, low revenue</div><div class="fr-desc">Niche theatrical releases. High audience satisfaction does not translate to commercial scale.</div></div></div>
+    </div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">📊</span><h2 class="anchored">Q5 — Budget Tier Analysis</h2><span class="sub">10,374 movies with complete budget &amp; revenue data</span></div>
+  <div class="d2">
+    <div class="dc"><div class="dc-title">Budget tiers — profitability &amp; revenue</div>
+      <div class="tier-row" style="font-size:11px;font-weight:700;color:#9ca3af;padding-bottom:6px;border-bottom:2px solid #e8eaed">
+        <span>Tier</span><span>Revenue bar</span><span>Avg Rev</span><span>Avg ROI</span><span>Profit %</span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-badge" style="background:#fee2e2;color:#991b1b">Low &lt;$10M</span>
+        <div class="tier-bar-wrap"><div style="flex:1;background:#f0f0f0;border-radius:3px;height:10px;overflow:hidden"><div class="tier-bar" data-w="25" style="background:#e24b4a"></div></div></div>
+        <span style="font-size:11px;color:#374151">$9.5M</span>
+        <span style="font-size:11px;color:#374151">209%</span>
+        <span style="font-size:11px;font-weight:700;color:#e24b4a">39.2%</span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-badge" style="background:#fef3c7;color:#92400e">Mid $10–100M</span>
+        <div class="tier-bar-wrap"><div style="flex:1;background:#f0f0f0;border-radius:3px;height:10px;overflow:hidden"><div class="tier-bar" data-w="60" style="background:#c9a84c"></div></div></div>
+        <span style="font-size:11px;color:#374151">$76.8M</span>
+        <span style="font-size:11px;color:#374151">137%</span>
+        <span style="font-size:11px;font-weight:700;color:#c9a84c">58.8%</span>
+      </div>
+      <div class="tier-row" style="border-bottom:none">
+        <span class="tier-badge" style="background:#d1fae5;color:#065f46">High &gt;$100M</span>
+        <div class="tier-bar-wrap"><div style="flex:1;background:#f0f0f0;border-radius:3px;height:10px;overflow:hidden"><div class="tier-bar" data-w="100" style="background:#1D9E75"></div></div></div>
+        <span style="font-size:11px;color:#374151">$380.5M</span>
+        <span style="font-size:11px;color:#374151">128%</span>
+        <span style="font-size:11px;font-weight:700;color:#1D9E75">65.3%</span>
+      </div>
+      <p style="font-size:11px;color:#9ca3af;margin-top:12px;border-top:1px solid #f0f0f0;padding-top:8px">Pearson r=0.685 between log-budget and log-worldwide gross.</p>
+    </div>
+    <div class="dc"><div class="dc-title">Full budget tier data — 10,374 movies</div>
+      
+<table class="dt caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Tier</th>
+<th data-quarto-table-cell-role="th">Movies</th>
+<th data-quarto-table-cell-role="th">Avg Budget</th>
+<th data-quarto-table-cell-role="th">Avg Revenue</th>
+<th data-quarto-table-cell-role="th">Median Rev.</th>
+<th data-quarto-table-cell-role="th">Avg ROI</th>
+<th data-quarto-table-cell-role="th">Med. ROI</th>
+<th data-quarto-table-cell-role="th">% Profitable</th>
+</tr>
+<tr class="even">
+<td>Low (&lt;$10M)</td>
+<td>4,613</td>
+<td>$3.4M</td>
+<td>$9.5M</td>
+<td>$1.0M</td>
+<td>209%</td>
+<td>-52%</td>
+<td style="color: #e24b4a; font-weight: 700">39.2%</td>
+</tr>
+<tr class="odd">
+<td>Mid ($10–$100M)</td>
+<td>5,115</td>
+<td>$32.1M</td>
+<td>$76.8M</td>
+<td>$35.3M</td>
+<td>137%</td>
+<td>38%</td>
+<td style="color: #c9a84c; font-weight: 700">58.8%</td>
+</tr>
+<tr class="even">
+<td><strong>High (&gt;$100M)</strong></td>
+<td>646</td>
+<td>$1,163M</td>
+<td>$380.5M</td>
+<td>$293.5M</td>
+<td>128%</td>
+<td>91%</td>
+<td style="color: #1D9E75; font-weight: 700">65.3%</td>
+</tr>
+</tbody>
+</table>
+
+      <div style="background:#fffbeb;border-left:3px solid #c9a84c;border-radius:4px;padding:10px 14px;font-size:11px;color:#78350f;margin-top:12px">Low-budget films can produce spectacular ROI outliers, but median ROI is negative (-52%). High-budget films have the most consistent profitability.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 5 — MODEL COMPARISON
+══════════════════════════════════════════ -->
+<div class="dash-panel" id="p-models">
+
+  <div class="db-section-head"><span class="icon">🏆</span><h2 class="anchored">All ML Models — Full Comparison</h2></div>
+
+  <div style="display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap" id="mtabs">
+    <button class="on" style="padding:6px 14px;border-radius:6px;border:1px solid #e8eaed;background:#1a1a2e;color:#c9a84c;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit" onclick="switchMTab('mt1',this)">Q1 Rating</button>
+    <button style="padding:6px 14px;border-radius:6px;border:1px solid #e8eaed;background:#fff;color:#6b7280;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit" onclick="switchMTab('mt2',this)">Q2 Revenue</button>
+    <button style="padding:6px 14px;border-radius:6px;border:1px solid #e8eaed;background:#fff;color:#6b7280;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit" onclick="switchMTab('mt3',this)">Q3 High-Rating</button>
+    <button style="padding:6px 14px;border-radius:6px;border:1px solid #e8eaed;background:#fff;color:#6b7280;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit" onclick="switchMTab('mt4',this)">Q4 Votes</button>
+    <button style="padding:6px 14px;border-radius:6px;border:1px solid #e8eaed;background:#fff;color:#6b7280;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit" onclick="switchMTab('mt5',this)">Q5 Timing</button>
+    <button style="padding:6px 14px;border-radius:6px;border:1px solid #e8eaed;background:#fff;color:#6b7280;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit" onclick="switchMTab('mt6',this)">Q6 Success</button>
+  </div>
+
+  <div id="mt1">
+    <div class="d2">
+      <div class="dc"><div class="dc-title">Q1 — Rating prediction <span>Regression · Gradient Boosting wins</span></div>
+        
+<table class="dt caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Model</th>
+<th data-quarto-table-cell-role="th">MAE</th>
+<th data-quarto-table-cell-role="th">RMSE</th>
+<th data-quarto-table-cell-role="th">R²</th>
+<th data-quarto-table-cell-role="th">Verdict</th>
+</tr>
+<tr class="even">
+<td><strong>Gradient Boosting</strong></td>
+<td>0.641</td>
+<td>0.853</td>
+<td><strong>0.365</strong></td>
+<td><span class="bge bg-g">Best</span></td>
+</tr>
+<tr class="odd">
+<td>Extra Trees</td>
+<td>0.650</td>
+<td>0.859</td>
+<td>0.356</td>
+<td><span class="bge bg-b">Good</span></td>
+</tr>
+<tr class="even">
+<td>Ridge Regression</td>
+<td>0.690</td>
+<td>0.916</td>
+<td>0.268</td>
+<td><span class="bge bg-gr">Baseline</span></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      <div class="dc"><div class="dc-title">Interpretation</div>
+        <div class="ip ip-y" style="margin-bottom:8px"><div class="ip-title">~37% variation explained</div><div class="ip-desc">The remaining 63% is subjective audience response and story quality — unmeasurable from metadata.</div></div>
+        <div class="ip ip-g"><div class="ip-title">log_votes dominates (17.7%)</div><div class="ip-desc">Popular movies (high vote count) tend to have different rating distributions than niche releases.</div></div>
+      </div>
+    </div>
+  </div>
+  <div id="mt2" style="display:none">
+    <div class="d2">
+      <div class="dc"><div class="dc-title">Q2 — Revenue prediction <span>Regression · log-transformed target</span></div>
+        
+<table class="dt caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Model</th>
+<th data-quarto-table-cell-role="th">MAE (log)</th>
+<th data-quarto-table-cell-role="th">RMSE (log)</th>
+<th data-quarto-table-cell-role="th">R²</th>
+<th data-quarto-table-cell-role="th">MAE (raw)</th>
+<th data-quarto-table-cell-role="th">Verdict</th>
+</tr>
+<tr class="even">
+<td><strong>Gradient Boosting</strong></td>
+<td>1.492</td>
+<td>2.003</td>
+<td><strong>0.645</strong></td>
+<td>$21M</td>
+<td><span class="bge bg-g">Best</span></td>
+</tr>
+<tr class="odd">
+<td>Extra Trees</td>
+<td>1.549</td>
+<td>2.045</td>
+<td>0.630</td>
+<td>$27M</td>
+<td><span class="bge bg-b">Good</span></td>
+</tr>
+<tr class="even">
+<td>Ridge Regression</td>
+<td>1.746</td>
+<td>2.278</td>
+<td>0.541</td>
+<td>$24M</td>
+<td><span class="bge bg-gr">Baseline</span></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      <div class="dc"><div class="dc-title">Interpretation</div>
+        <div class="ip ip-g" style="margin-bottom:8px"><div class="ip-title">Revenue is far more predictable than rating</div><div class="ip-desc">Budget, genre type and release scale structurally determine commercial outcome better than quality signals determine ratings.</div></div>
+        <div class="ip ip-b"><div class="ip-title">Log-transform is non-negotiable</div><div class="ip-desc">Without it, models overfit to the small number of $1B+ blockbusters and fail on the rest of the distribution.</div></div>
+      </div>
+    </div>
+  </div>
+  <div id="mt3" style="display:none">
+    <div class="d2">
+      <div class="dc"><div class="dc-title">Q3 — High-rating classification <span>Binary · balanced training · tuned threshold</span></div>
+        
+<table class="dt caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Model</th>
+<th data-quarto-table-cell-role="th">ROC AUC</th>
+<th data-quarto-table-cell-role="th">Threshold</th>
+<th data-quarto-table-cell-role="th">Accuracy</th>
+<th data-quarto-table-cell-role="th">Precision</th>
+<th data-quarto-table-cell-role="th">Recall</th>
+<th data-quarto-table-cell-role="th">F1</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+<tr class="even">
+<td><strong>Random Forest</strong></td>
+<td><strong>0.873</strong></td>
+<td>0.57</td>
+<td>0.863</td>
+<td>0.747</td>
+<td>0.546</td>
+<td>0.631</td>
+<td><span class="bge bg-g">Best</span></td>
+</tr>
+<tr class="odd">
+<td>Gradient Boosting</td>
+<td>0.869</td>
+<td>0.58</td>
+<td>0.860</td>
+<td>0.738</td>
+<td>0.539</td>
+<td>0.623</td>
+<td><span class="bge bg-b">Good</span></td>
+</tr>
+<tr class="even">
+<td>Extra Trees</td>
+<td>0.859</td>
+<td>0.48</td>
+<td>0.856</td>
+<td>0.728</td>
+<td>0.523</td>
+<td>0.609</td>
+<td><span class="bge bg-b">Good</span></td>
+</tr>
+<tr class="odd">
+<td>Logistic Reg.</td>
+<td>0.806</td>
+<td>0.52</td>
+<td>0.839</td>
+<td>0.658</td>
+<td>0.525</td>
+<td>0.584</td>
+<td><span class="bge bg-gr">Baseline</span></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      <div class="dc"><div class="dc-title">Confusion matrix — Random Forest</div>
+        <div class="cm" style="max-width:320px;margin:10px 0">
+          <div class="cmh"></div><div class="cmh">Pred: Not High</div><div class="cmh">Pred: High</div>
+          <div class="cmh rh">True: Not High</div><div class="cmc tn">6,930 ✓</div><div class="cmc fp">369 ✗</div>
+          <div class="cmh rh">True: High</div><div class="cmc fn">908 ✗</div><div class="cmc tp">1,091 ✓</div>
+        </div>
+        <p style="font-size:11px;color:#6b7280">Recall = 54.6% — the model misses ~45% of truly high-rated films. Subjectivity is the fundamental ceiling.</p>
+      </div>
+    </div>
+  </div>
+  <div id="mt4" style="display:none">
+    <div class="d2">
+      <div class="dc"><div class="dc-title">Q4 — Vote count prediction <span>Mcolisi Austine · log-transform strategy</span></div>
+        
+<table class="dt caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Strategy</th>
+<th data-quarto-table-cell-role="th">Model</th>
+<th data-quarto-table-cell-role="th">MAE</th>
+<th data-quarto-table-cell-role="th">R²</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+<tr class="even">
+<td>Raw scale</td>
+<td>Decision Tree</td>
+<td>24,666</td>
+<td>0.204</td>
+<td><span class="bge bg-gr">Baseline</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Log-transformed</strong></td>
+<td><strong>Decision Tree</strong></td>
+<td>1.425</td>
+<td><strong>0.432</strong></td>
+<td><span class="bge bg-g">Best</span></td>
+</tr>
+<tr class="even">
+<td>Log + no outliers</td>
+<td>Decision Tree</td>
+<td>1.293</td>
+<td>0.388</td>
+<td><span class="bge bg-b">Good</span></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      <div class="dc"><div class="dc-title">Key insight</div>
+        <div class="ip ip-y"><div class="ip-title">Viral attention is unpredictable</div><div class="ip-desc">Top predictors: average rating, release year, month, star count. Marketing spend and social media hype — the biggest actual drivers — are absent from the dataset.</div></div>
+      </div>
+    </div>
+  </div>
+  <div id="mt5" style="display:none">
+    <div class="d2">
+      <div class="dc"><div class="dc-title">Q5 — Release timing <span>Syed Arshan Nehad · log-transformed targets</span></div>
+        
+<table class="dt caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Target</th>
+<th data-quarto-table-cell-role="th">Best Model</th>
+<th data-quarto-table-cell-role="th">MAE (log)</th>
+<th data-quarto-table-cell-role="th">R²</th>
+</tr>
+<tr class="even">
+<td>Audience Votes</td>
+<td>Random Forest</td>
+<td>1.172</td>
+<td><strong>0.606</strong></td>
+</tr>
+<tr class="odd">
+<td>Worldwide Gross</td>
+<td>Decision Tree</td>
+<td>1.876</td>
+<td>0.484</td>
+</tr>
+</tbody>
+</table>
+
+        <p style="font-size:11px;color:#9ca3af;margin-top:10px">Top predictors: budget_num, year, writer_count, star_count, runtime, season_Autumn.</p>
+      </div>
+      <div class="dc"><div class="dc-title">Timing as a strategy signal</div>
+        <div class="ip ip-g"><div class="ip-title">Timing matters — but not alone</div><div class="ip-desc">Season appears in feature importance, especially for audience engagement. But budget and year dominate. A big summer release is not successful just because it's summer — it needs the right budget and genre behind it.</div></div>
+      </div>
+    </div>
+  </div>
+  <div id="mt6" style="display:none">
+    <div class="d2">
+      <div class="dc"><div class="dc-title">Q6 — Multi-dimensional success <span>Syed Tamjeed · 3-criteria label</span></div>
+        
+<table class="dt caption-top table">
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Model</th>
+<th data-quarto-table-cell-role="th">Accuracy</th>
+<th data-quarto-table-cell-role="th">Precision</th>
+<th data-quarto-table-cell-role="th">F1</th>
+<th data-quarto-table-cell-role="th">ROC-AUC</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+<tr class="even">
+<td><strong>Random Forest</strong></td>
+<td><strong>0.700</strong></td>
+<td>0.707</td>
+<td>0.703</td>
+<td>0.767</td>
+<td><span class="bge bg-g">Best</span></td>
+</tr>
+<tr class="odd">
+<td>Decision Tree</td>
+<td>0.664</td>
+<td>0.693</td>
+<td>0.647</td>
+<td>0.723</td>
+<td><span class="bge bg-b">Good</span></td>
+</tr>
+<tr class="even">
+<td>Logistic Reg.</td>
+<td>0.510</td>
+<td>0.509</td>
+<td>0.674</td>
+<td>0.332</td>
+<td><span class="bge bg-r">Failed</span></td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      <div class="dc"><div class="dc-title">Success definition</div>
+        <div class="ip ip-b"><div class="ip-title">3-dimensional label: rating ∩ votes ∩ ROI</div><div class="ip-desc">A movie is "successful" if it meets ≥2 of 3: rating above median, votes above median, positive ROI. Logistic Regression collapses to predicting everything as "successful" (recall=0.999). Only tree-based models handle this multi-dimensional target.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="db-section-head" style="margin-top:28px"><span class="icon">📉</span><h2 class="anchored">Predictability Ranking</h2><span class="sub">Best R² / AUC per task</span></div>
+  <div class="dc" style="margin-bottom:16px"><div class="dc-title">How predictable is each outcome?</div>
+    <div class="score-row"><span class="score-name">Revenue (Q2 GB)</span><div class="score-bar"><div class="score-fill" data-w="89" style="background:#1D9E75"></div></div><span class="score-val" style="color:#1D9E75">R²=0.645</span></div>
+    <div class="score-row"><span class="score-name">Vote Count (Q4 DT)</span><div class="score-bar"><div class="score-fill" data-w="83" style="background:#1D9E75"></div></div><span class="score-val" style="color:#1D9E75">R²=0.606</span></div>
+    <div class="score-row"><span class="score-name">High-Rating Class. (Q3 RF)</span><div class="score-bar"><div class="score-fill" data-w="87" style="background:#c9a84c"></div></div><span class="score-val" style="color:#c9a84c">AUC=0.873</span></div>
+    <div class="score-row"><span class="score-name">Success Class. (Q6 RF)</span><div class="score-bar"><div class="score-fill" data-w="77" style="background:#c9a84c"></div></div><span class="score-val" style="color:#c9a84c">AUC=0.767</span></div>
+    <div class="score-row"><span class="score-name">Timing/Votes (Q5 RF)</span><div class="score-bar"><div class="score-fill" data-w="67" style="background:#378ADD"></div></div><span class="score-val" style="color:#378ADD">R²=0.484</span></div>
+    <div class="score-row"><span class="score-name">IMDb Rating (Q1 GB)</span><div class="score-bar"><div class="score-fill" data-w="50" style="background:#e24b4a"></div></div><span class="score-val" style="color:#e24b4a">R²=0.365</span></div>
+    <p style="font-size:11px;color:#9ca3af;margin-top:12px">Revenue is most predictable — budget and genre are structural determinants. Rating is least predictable — human judgement and story quality cannot be encoded in metadata.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 6 — TEAM
+══════════════════════════════════════════ -->
+<div class="dash-panel" id="p-team">
+
+  <div class="db-section-head"><span class="icon">📊</span><h2 class="anchored">Descriptive Analysis Team</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:440px;margin-bottom:24px">
+    <div style="background:#0f1117;border:1px solid #1e2030;border-top:3px solid #1D9E75;border-radius:12px;padding:20px;text-align:center">
+      <div class="mc-av" style="background:rgba(29,158,117,.15);color:#1D9E75;border:1px solid rgba(29,158,117,.3)">KL</div>
+      <div class="mc-name">Kay-Lee Dramat</div>
+      <div class="mc-role">Descriptive Analysis</div>
+      <div class="mc-qs">DA Q1 · Q2 · Q3</div>
+      <div style="margin-top:10px;font-size:10px;color:#6b7280;line-height:1.5">Ratings by country, genre performance analysis, runtime influence on audience engagement</div>
+    </div>
+    <div style="background:#0f1117;border:1px solid #1e2030;border-top:3px solid #1D9E75;border-radius:12px;padding:20px;text-align:center">
+      <div class="mc-av" style="background:rgba(29,158,117,.15);color:#1D9E75;border:1px solid rgba(29,158,117,.3)">GM</div>
+      <div class="mc-name">Ghofrane Mahmoud</div>
+      <div class="mc-role">Descriptive Analysis</div>
+      <div class="mc-qs">DA Q4 · Q5 · Q6</div>
+      <div style="margin-top:10px;font-size:10px;color:#6b7280;line-height:1.5">Box office revenue by industry, budget–revenue relationship, star power and personnel effects</div>
+    </div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">🤖</span><h2 class="anchored">Machine Learning Team</h2></div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:28px">
+    <div style="background:#0f1117;border:1px solid #1e2030;border-top:3px solid #c9a84c;border-radius:12px;padding:16px;text-align:center">
+      <div class="mc-av" style="background:rgba(55,138,221,.15);color:#378ADD;border:1px solid rgba(55,138,221,.3)">AA</div>
+      <div class="mc-name">Aya Abdine</div>
+      <div class="mc-role">Machine Learning</div>
+      <div class="mc-qs">ML Q1 · Q2 · Q3</div>
+      <div style="margin-top:8px;font-size:10px;color:#6b7280;line-height:1.4">Rating prediction, revenue prediction, high-rating classification</div>
+    </div>
+    <div style="background:#0f1117;border:1px solid #1e2030;border-top:3px solid #c9a84c;border-radius:12px;padding:16px;text-align:center">
+      <div class="mc-av" style="background:rgba(55,138,221,.15);color:#378ADD;border:1px solid rgba(55,138,221,.3)">MA</div>
+      <div class="mc-name">Meriam Al Askri</div>
+      <div class="mc-role">Machine Learning</div>
+      <div class="mc-qs">ML Q1 · Q2 · Q3</div>
+      <div style="margin-top:8px;font-size:10px;color:#6b7280;line-height:1.4">Rating prediction, revenue prediction, high-rating classification</div>
+    </div>
+    <div style="background:#0f1117;border:1px solid #1e2030;border-top:3px solid #c9a84c;border-radius:12px;padding:16px;text-align:center">
+      <div class="mc-av" style="background:rgba(201,168,76,.15);color:#c9a84c;border:1px solid rgba(201,168,76,.3)">MC</div>
+      <div class="mc-name">Mcolisi Austine</div>
+      <div class="mc-role">Machine Learning</div>
+      <div class="mc-qs">ML Q4</div>
+      <div style="margin-top:8px;font-size:10px;color:#6b7280;line-height:1.4">Audience vote count prediction, log-transform strategy</div>
+    </div>
+    <div style="background:#0f1117;border:1px solid #1e2030;border-top:3px solid #c9a84c;border-radius:12px;padding:16px;text-align:center">
+      <div class="mc-av" style="background:rgba(201,168,76,.15);color:#c9a84c;border:1px solid rgba(201,168,76,.3)">SAN</div>
+      <div class="mc-name">Syed Arshan Nehad</div>
+      <div class="mc-role">Machine Learning</div>
+      <div class="mc-qs">ML Q5</div>
+      <div style="margin-top:8px;font-size:10px;color:#6b7280;line-height:1.4">Release timing influence on revenue and audience votes</div>
+    </div>
+    <div style="background:#0f1117;border:1px solid #1e2030;border-top:3px solid #c9a84c;border-radius:12px;padding:16px;text-align:center">
+      <div class="mc-av" style="background:rgba(201,168,76,.15);color:#c9a84c;border:1px solid rgba(201,168,76,.3)">STR</div>
+      <div class="mc-name">Syed Tamjeed Ur Rahman</div>
+      <div class="mc-role">Machine Learning</div>
+      <div class="mc-qs">ML Q6</div>
+      <div style="margin-top:8px;font-size:10px;color:#6b7280;line-height:1.4">Multi-dimensional success classification</div>
+    </div>
+  </div>
+
+  <div class="db-section-head"><span class="icon">⚠️</span><h2 class="anchored">Project Limitations</h2></div>
+  <div class="d2">
+    <div class="dc">
+      <div class="lim"><div class="lim-dot" style="background:#e24b4a"></div><div><div class="lim-title">Missing marketing data</div><div class="lim-desc">Marketing spend and distribution size are not in the dataset — these are major real-world drivers of both revenue and visibility.</div></div></div>
+      <div class="lim"><div class="lim-dot" style="background:#c9a84c"></div><div><div class="lim-title">No streaming or social media</div><div class="lim-desc">Social media attention, critic review scores, franchise history, and streaming availability are missing — all influence modern audience engagement.</div></div></div>
+      <div class="lim"><div class="lim-dot" style="background:#378ADD"></div><div><div class="lim-title">Fame proxy is imperfect</div><div class="lim-desc">Appearance frequency ≠ fame. A person appearing in many small films is treated identically to a global celebrity.</div></div></div>
+    </div>
+    <div class="dc">
+      <div class="lim"><div class="lim-dot" style="background:#1D9E75"></div><div><div class="lim-title">Wide time range</div><div class="lim-desc">The dataset spans decades. Market conditions, audience tastes, and streaming economics have shifted dramatically over time.</div></div></div>
+      <div class="lim"><div class="lim-dot" style="background:#9ca3af"></div><div><div class="lim-title">Viral hits remain unpredictable</div><div class="lim-desc">Models predict broad revenue levels better than exact values. Viral hits and catastrophic flops remain fundamentally unpredictable from metadata alone.</div></div></div>
+      <div class="lim"><div class="lim-dot" style="background:#c9a84c"></div><div><div class="lim-title">Future directions</div><div class="lim-desc">Separate models by era (pre/post-streaming) and market (domestic/international) could significantly improve performance.</div></div></div>
+    </div>
+  </div>
+
+  <div style="background:#1a1a2e;border-radius:12px;padding:28px;text-align:center;margin-top:8px">
+    <div style="font-size:1rem;font-weight:700;color:#c9a84c;margin-bottom:8px">🎬 Project Summary</div>
+    <p style="color:#9ca3af;font-size:.85rem;line-height:1.8;max-width:600px;margin:0 auto">63,249 movies · 12 research questions · 2 analysis tracks · 7 researchers · 1 central finding: <strong style="color:#fff">movie success is multidimensional, and no single feature explains it alone.</strong></p>
+  </div>
+</div>
+
+</div><!-- end db-wrap -->
+
+<script>
+/* ── KPI counters ── */
+function animCount(id, end, suffix, dec) {
+  const el = document.getElementById(id);
+  let s = 0, inc = end / 60;
+  const t = setInterval(() => {
+    s += inc; if (s >= end) { s = end; clearInterval(t); }
+    el.textContent = (dec ? s.toFixed(3) : Math.round(s)) + suffix;
+  }, 20);
+}
+setTimeout(() => {
+  animCount('k1', 63249, '', false);
+  animCount('k2', 12, '', false);
+  animCount('k3', 87, '%', false);
+  animCount('k4', 0.645, '', true);
+  animCount('k5', 86, '%', false);
+  animCount('k6', 7, '', false);
+}, 300);
+
+/* ── Bar animation ── */
+function animBars() {
+  document.querySelectorAll('[data-w]').forEach(el => {
+    el.style.width = el.dataset.w + '%';
+  });
+}
+setTimeout(animBars, 700);
+
+/* ── Panel navigation ── */
+function switchPanel(id, btn) {
+  document.querySelectorAll('.dash-panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.dash-nav button').forEach(b => b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+  setTimeout(animBars, 100);
+}
+
+/* ── Model tabs ── */
+function switchMTab(id, btn) {
+  ['mt1','mt2','mt3','mt4','mt5','mt6'].forEach(x => {
+    const el = document.getElementById(x);
+    if (el) el.style.display = 'none';
+  });
+  document.querySelectorAll('#mtabs button').forEach(b => {
+    b.style.background = '#fff'; b.style.color = '#6b7280'; b.style.borderColor = '#e8eaed';
+  });
+  document.getElementById(id).style.display = 'block';
+  btn.style.background = '#1a1a2e'; btn.style.color = '#c9a84c'; btn.style.borderColor = '#1a1a2e';
+  setTimeout(animBars, 100);
+}
+
+/* ── Dynamic bar builders ── */
+function buildBars(containerId, data, colorFn) {
+  const c = document.getElementById(containerId);
+  if (!c) return;
+  c.innerHTML = data.map(([label, val, max, color]) => `
+    <div class="br">
+      <span class="br-l" style="width:160px;font-size:11px">${label}</span>
+      <div class="br-t"><div class="br-f" data-w="${Math.round(val/max*100)}" style="background:${color};width:0"></div></div>
+      <span class="br-v" style="font-size:11px">${typeof val === 'number' && val > 10 ? val : val}</span>
+    </div>`).join('');
+}
+
+const countryData = [
+  ['🥇 Iran', '7.1', 7.5, '#1D9E75'],
+  ['🥈 Czechoslovakia', '7.0', 7.5, '#1D9E75'],
+  ['🥉 Soviet Union', '6.9', 7.5, '#1D9E75'],
+  ['4 Singapore', '6.8', 7.5, '#378ADD'],
+  ['5 Egypt', '6.8', 7.5, '#378ADD'],
+  ['6 Iceland', '6.7', 7.5, '#378ADD'],
+  ['7 Hungary', '6.7', 7.5, '#c9a84c'],
+  ['8 India', '6.6', 7.5, '#c9a84c'],
+  ['9 Yugoslavia', '6.6', 7.5, '#c9a84c'],
+  ['10 Romania', '6.5', 7.5, '#5f5e5a'],
+];
+
+const genreRatingData = [
+  ['Sports Documentary', '8.1', 9, '#1D9E75'],
+  ['Epic', '7.9', 9, '#1D9E75'],
+  ['War Epic', '7.8', 9, '#378ADD'],
+  ['Historical Epic', '7.7', 9, '#378ADD'],
+  ['Music Documentary', '7.6', 9, '#c9a84c'],
+  ['Tragedy', '7.5', 9, '#c9a84c'],
+  ['Docudrama', '7.4', 9, '#5f5e5a'],
+  ['Anime', '7.3', 9, '#5f5e5a'],
+];
+
+const genreRevData = [
+  ['Action Epic', '363', 400, '#c9a84c'],
+  ['Superhero', '310', 400, '#c9a84c'],
+  ['Computer Animation', '284', 400, '#378ADD'],
+  ['Dinosaur Adventure', '270', 400, '#378ADD'],
+  ['Globetrotting Adv.', '240', 400, '#1D9E75'],
+  ['Sci-Fi Epic', '210', 400, '#1D9E75'],
+  ['Disaster', '185', 400, '#5f5e5a'],
+  ['Kaiju', '175', 400, '#5f5e5a'],
+];
+
+const runtimeData = [
+  ['< 60 min', '5.8', 8, '#e24b4a'],
+  ['60–80 min', '6.2', 8, '#c9a84c'],
+  ['80–90 min', '6.5', 8, '#c9a84c'],
+  ['90–120 min', '7.1', 8, '#1D9E75'],
+  ['120–140 min', '7.2', 8, '#1D9E75'],
+  ['140–180 min', '7.0', 8, '#378ADD'],
+  ['180–240 min', '6.8', 8, '#378ADD'],
+  ['> 240 min', '6.4', 8, '#5f5e5a'],
+];
+
+const revGenreData = [
+  ['Action Epic', 363, 400, '#c9a84c'],
+  ['Superhero', 310, 400, '#c9a84c'],
+  ['Computer Animation', 284, 400, '#378ADD'],
+  ['Dinosaur Adventure', 270, 400, '#378ADD'],
+  ['Globetrotting Adv.', 240, 400, '#1D9E75'],
+  ['Sci-Fi Epic', 210, 400, '#1D9E75'],
+  ['Space Sci-Fi', 190, 400, '#1D9E75'],
+  ['Disaster', 185, 400, '#5f5e5a'],
+  ['Kaiju', 175, 400, '#5f5e5a'],
+  ['Adventure Epic', 160, 400, '#5f5e5a'],
+];
+
+setTimeout(() => {
+  buildBars('country-bars', countryData, null);
+  buildBars('genre-rating-bars', genreRatingData, null);
+  buildBars('genre-rev-bars', genreRevData, null);
+  buildBars('runtime-bars', runtimeData, null);
+  buildBars('rev-genre-bars', revGenreData, null);
+  setTimeout(animBars, 50);
+}, 400);
+</script>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/cu-s26-msdssb-dsci-01-datasciencelab\.github\.io\/DataScienceLab_Movies_1\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
